@@ -57,3 +57,39 @@ Libft is your one-stop shop for all things C, neatly organized into these powerf
 Libft is open source and loves contributions! Got ideas for new features, bug fixes, or documentation improvements? Send us a pull request!
 
 **Stay tuned for more awesome updates!** 🎉
+
+
+---
+.  
+.  
+.  
+
+# Thank you !
+  
+
+``` 
+							
+   696     696  96969      _=_      9696969  69    696
+     9696    969696       (-_-)      696969    6969
+        96969696          _) (_          69696969
+           96            /__/  \            69
+           69          _(<_   / )_          96
+          6969        (__\_\_|_/__)        9696
+
+
+```
+
+------------------------------------------------
+
+
+
+
+```
+       __  
+     >(' )  
+       )/  
+      /(  
+     /  `----/  
+jgs  \  ~=- /  
+   ~^~^~^~^~^~^~^
+```
