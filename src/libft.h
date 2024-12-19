@@ -6,12 +6,9 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2024/12/14 23:24:47 by dinepomu         ###   ########.fr       */
+/*   Updated: 2024/12/19 19:33:11 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef LIBFT_H
-# define LIBFT_H
 
 // ################# LIBFT EXTENDED FUNCTIONS #######################
 
@@ -37,12 +34,17 @@
 //          Small Data Sets (Insertion Quick)
 // --- 6. Algos/Searching (Linear, Binary, Hash Tables, BFS, DFS)
 //    
-// --- 7. Linked Lists
+// --- 7. Data Structure
+//			Linked Lists
 //    
-// --- 8. Macros
-//        printf_S and printf_D
-//        <assert.h> implementation macro 
+// --- 8. Macros(DEFs)
+//			Def colors
+//			printf_S and printf_D
+//			<assert.h> implementation macro 
 // ###################################################################
+
+#ifndef LIBFT_H
+# define LIBFT_H
 
 // --- 0. Libraries
 # include <stdlib.h>
