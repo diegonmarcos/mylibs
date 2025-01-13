@@ -41,7 +41,7 @@ function ce {
   echo -e "##### Valgrind ###########"
   echo -e "##########################\n\n"
   clang "$1" -o "$(basename "$1" .c)_dbV.db.out" -g
-  valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -v --log-file=valgrind_output.txt ./"$(basename "$1" .c)_dbV.db.out" "${@:2}" > /dev/null | grep "$1": valgrind_output.txt
+  valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -v --log-file=valgrind_output.txt ./"$(basename "$1" .c)_dbV.db.out" "${@:2}" > /dev/null ; grep "$1": valgrind_output.txt
 
   rm asan_output.txt
   rm valgrind_output.txt
