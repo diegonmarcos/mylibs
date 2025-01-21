@@ -6,11 +6,11 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/20 18:47:35 by dinepomu          #+#    #+#              #
-#    Updated: 2024/12/04 14:23:00 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/01/21 14:18:31 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = ft_printf.a
 
 DEL_LINE =		\033[2K
 ITALIC =		\033[3m
