@@ -1,31 +1,35 @@
 # **************************************************************************** #
 #                                DIRECTORIES                                   #
 # **************************************************************************** #
-SRCS_1 = 	get_next_line.c		\
-		  		get_next_line_utils.c	\
+SRCS_1 = 	src/get_next_line2.c		\
+		  	src/get_next_line2_utils.c	\
 
-OBJS_1 = ${SRCS_1:.c=.o}
+VPATH = src:include:objs
 
-SRC_2 = 
+OBJS_1 = $(patsubst %.c,objs/%.o,$(notdir $(SRCS_1)))
 
-OBJS_2 = ${SRC_2:.c=.o}
+#SRC_2 = 
+
+#OBJS_2 = $(patsubst %.c,objs/%.o,$(SRCS_2))
 
 # **************************************************************************** #
 #                                 VARIABLES                                    #
 # **************************************************************************** #
 NAME = get_next_line.a
-CC = gcc
+CC = clang
 RM = rm -rf
 AR = ar rcs
 RANLIB = ranlib
 CFLAGS = -Wall -Wextra -Werror
+CFLAGS += -Iinclude
 
 # **************************************************************************** #
 #                                 RULES                                        #
 # **************************************************************************** #
-all: $(NAME)
+all:	$(NAME)
 
-%.o: %.c
+objs/%.o:	%.c
+	@mkdir -p objs
 	$(CC) $(CFLAGS) -c $< -o $@
 	@echo "(•̀ᴗ•́)و $@ OBJECTS GENERATED!"
 
@@ -43,7 +47,7 @@ bonus:	$(NAME) $(OBJS_2)
 #                                 RULES                                        #
 # **************************************************************************** #
 clean:
-	$(RM) $(OBJS_1) $(OBJS_2)
+	$(RM) objs
 	@echo	"	¯\_(ツ)_/¯ OBJECTS REMOVED!"
 
 fclean:	clean

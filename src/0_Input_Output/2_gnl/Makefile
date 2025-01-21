@@ -1,9 +1,8 @@
 # **************************************************************************** #
 #                                DIRECTORIES                                   #
 # **************************************************************************** #
-SRCS_1 =	ft_printf.c ft_putchar.c ft_putnbr.c ft_num_unsign.c \
-			ft_pointer_hexa.c ft_putstr.c ft_strlen.c ft_hexa_minusc.c \
-			ft_hexa_mayusc.c \
+SRCS_1 = 	src/get_next_line.c		\
+		  	src/get_next_line_utils.c	\
 
 VPATH = src:include:objs
 
@@ -16,7 +15,7 @@ OBJS_1 = $(patsubst %.c,objs/%.o,$(notdir $(SRCS_1)))
 # **************************************************************************** #
 #                                 VARIABLES                                    #
 # **************************************************************************** #
-NAME = ft_printf.a
+NAME = get_next_line.a
 CC = clang
 RM = rm -rf
 AR = ar rcs
