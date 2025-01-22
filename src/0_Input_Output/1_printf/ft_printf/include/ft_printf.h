@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 12:32:10 by dinepomu          #+#    #+#             */
-/*   Updated: 2024/12/03 15:16:30 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:25:21 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,7 @@ int				ft_printf(const	char *str, ...);
  * a subset of the format specifiers supported by the standard printf
  * function.
  */
+
+int	ft_fprintf(char *filename, const char *str, ...);
 
 #endif

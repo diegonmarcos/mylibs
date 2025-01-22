@@ -3,7 +3,7 @@
 # **************************************************************************** #
 SRCS_1 =	ft_printf.c ft_putchar.c ft_putnbr.c ft_num_unsign.c \
 			ft_pointer_hexa.c ft_putstr.c ft_strlen.c ft_hexa_minusc.c \
-			ft_hexa_mayusc.c \
+			ft_hexa_mayusc.c ft_fprintf1.c\
 
 VPATH = src:include:objs
 
@@ -16,11 +16,10 @@ OBJS_1 = $(patsubst %.c,objs/%.o,$(notdir $(SRCS_1)))
 # **************************************************************************** #
 #                                 VARIABLES                                    #
 # **************************************************************************** #
-NAME = ft_printf.a
+NAME = lib_ft_printf.a
 CC = clang
 RM = rm -rf
 AR = ar rcs
-RANLIB = ranlib
 CFLAGS = -Wall -Wextra -Werror
 CFLAGS += -Iinclude
 
@@ -36,7 +35,6 @@ objs/%.o:	%.c
 
 $(NAME):	$(OBJS_1)
 			$(AR) $(NAME) $(OBJS_1)
-			$(RANLIB) $(NAME)
 			@echo	"	(•̀ᴗ•́)و FILE GENERATED!"
 
 bonus:	$(NAME) $(OBJS_2)
