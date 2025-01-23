@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/01/23 18:31:54 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/01/23 18:33:21 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -137,8 +137,7 @@ LIB_SRC_FUNCTIONS = 	0.bubble_sort.c 	\
 						get_next_line_utils.c \
 						print_bits.c 		\
 						printers_db.c 		\
-#						garbage_collector.c \
-						garbage_leaks_tracker.c \
+						garbage_collector.c \
 
 
 #PRGM_SRC_MAIN = $(wildcard src/*.c) $(wildcard src/*/*.c)
