@@ -6,15 +6,15 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:53:18 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/21 13:24:12 by dinepomu         ###   ########.fr       */
+/*   Updated: 2024/11/20 18:55:07 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(long fd, int c)
+int	ft_putchar(int c)
 {
-	if (write (fd, &c, 1) != 1)
+	if (write (1, &c, 1) != 1)
 		return (-1);
 	return (1);
 }

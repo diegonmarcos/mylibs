@@ -8,13 +8,13 @@ fi
 
 if [ -d "src/include_all" ]; then
   echo "Deleting existing src/include_all directory..."
-  rm -rf "src/include_all"
+  rm -rf "include"
 fi
 
 # Create the destination directories if they don't exist (they shouldn't after the previous step)
 echo "Creating src/src_all and src/include_all directories..."
 mkdir -p "src/src_all"
-mkdir -p "src/include_all"
+mkdir -p "include"
 
 # 2. Find .c and .h files and copy them
 echo "Copying .c and .h files..."
@@ -28,7 +28,7 @@ while IFS= read -r -d $'\0' file; do
     cp "$file" "src/src_all/"
   elif [[ "$filename" == *.h ]]; then
     echo "Copying H file: $file to src/include_all/$filename"
-    cp "$file" "src/include_all/"
+    cp "$file" "include/"
   fi
 done
 

@@ -6,26 +6,26 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:54:16 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/21 13:24:07 by dinepomu         ###   ########.fr       */
+/*   Updated: 2024/11/20 18:55:15 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(long fd, char *s)
+int	ft_putstr(char *s)
 {
 	size_t	i;
 
 	i = 0;
 	if (!s)
 	{
-		if (write (fd, "(null)", 6) != 6)
+		if (write (1, "(null)", 6) != 6)
 			return (-1);
 		return (6);
 	}
 	while (s[i])
 	{
-		if (write(fd, &s[i], 1) != 1)
+		if (write(1, &s[i], 1) != 1)
 			return (-1);
 		i++;
 	}

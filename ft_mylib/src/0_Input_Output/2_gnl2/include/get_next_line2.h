@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:35 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/21 19:48:02 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/23 17:44:45 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@
 # endif
 
 // --- LIBFT FUNCTIONS ---
-size_t	ft_strlen(char *s, int c);
+size_t	ft_strlen_gnl(char *s, int c);
 /**
 * @brief Returns the size of the string.
 */
 
-char	*ft_strchr(char *s, int c);
+char	*ft_strchr_gnl(char *s, int c);
 /**
  * @brief Returns a pointer to the first occurrence of the character c in the
  * 			string s.
  */
 
-char	*ft_strjoin(char *left_str, char *buff, int c);
+char	*ft_strjoin_gnl(char *left_str, char *buff, int c);
 /**
  * @brief Concatenates two strings and returns a pointer to the new string.
  */

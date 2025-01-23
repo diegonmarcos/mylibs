@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:56:17 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/21 13:24:13 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:09:21 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_fprintf.h"
 
 static int	int_min(long fd, int n)
 {
@@ -20,7 +20,7 @@ static int	int_min(long fd, int n)
 	return (11);
 }
 
-int	ft_putnbr(long fd, int n)
+int	ft_putnbr_fd_fpr(long fd, int n)
 {
 	int	char_count;
 
@@ -42,7 +42,7 @@ int	ft_putnbr(long fd, int n)
 	}
 	if (n <= 9)
 	{
-		if (ft_putchar (('0' + n)) == -1)
+		if (ft_putchar(('0' + n)) == -1)
 			return (-1);
 		char_count++;
 	}

@@ -6,30 +6,30 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:56:17 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/21 13:24:13 by dinepomu         ###   ########.fr       */
+/*   Updated: 2024/12/02 21:05:39 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	int_min(long fd, int n)
+static int	int_min(int n)
 {
 	(void)n;
-	if (write(fd, "-2147483648", 11) != 11)
+	if (write(1, "-2147483648", 11) != 11)
 		return (-1);
 	return (11);
 }
 
-int	ft_putnbr(long fd, int n)
+int	ft_putnbr(int n)
 {
 	int	char_count;
 
 	char_count = 0;
 	if (n == -2147483648)
-		return (int_min(fd, n));
+		return (int_min(n));
 	if (n < 0 && ++char_count)
 	{
-		if (write(fd, "-", 1) != 1)
+		if (write(1, "-", 1) != 1)
 			return (-1);
 		n = -n;
 	}

@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:21:23 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/22 15:21:47 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/23 17:03:28 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 int	ft_fprintf(char *filename, const char *str, ...)
 {
-	FILE *output_file;
-	va_list args;
-	int result;
+	FILE 	*output_file;
+	va_list	args;
+	int		result;
 
 	output_file = fopen(filename, "a");
 	if (output_file == NULL)
 	{
-		return -1;
+		return (-1);
 	}
 
 	va_start(args, str);
@@ -30,5 +30,5 @@ int	ft_fprintf(char *filename, const char *str, ...)
 	va_end(args);
 
 	fclose(output_file);
-	return result;
+	return (result);
 }

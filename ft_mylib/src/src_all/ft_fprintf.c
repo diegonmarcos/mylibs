@@ -6,20 +6,20 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:23:43 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/21 13:24:10 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:10:13 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_fprintf.h"
 
 static int	type_var(long fd, char formatSpecifier, va_list item)
 {
 	if (formatSpecifier == 'c')
-		return (ft_putchar(fd, va_arg(item, int)));
+		return (ft_putchar_fd_fpr(fd, va_arg(item, int)));
 	if (formatSpecifier == 's')
-		return (ft_putstr(fd, va_arg(item, char *)));
+		return (ft_putstr_fd_fpr(fd, va_arg(item, char *)));
 	if (formatSpecifier == 'd' || formatSpecifier == 'i')
-		return (ft_putnbr(fd, va_arg(item, int)));
+		return (ft_putnbr_fd_fpr(fd, va_arg(item, int)));
 	if (formatSpecifier == 'p')
 		return (ft_pointer_hexa(va_arg(item, void *)));
 	if (formatSpecifier == 'u')
@@ -76,11 +76,17 @@ static int	w_str(long fd, const char *str, va_list item, int char_count)
 	return (char_count);
 }
 
-int	ft_fprintf(long fd, const char *str, ...)
+int	ft_fprintf(char *filename, const char *str, ...)
 {
 	va_list	item;
 	int		char_count;
+	FILE	*output_file;
+	long	fd;
 
+	output_file = fopen(filename, "a");
+	if (output_file == NULL)
+		return (-1);
+	fd = fileno(output_file);
 	char_count = 0;
 	va_start(item, str);
 	char_count = w_str(fd, str, item, char_count);

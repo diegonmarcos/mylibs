@@ -1,2 +1,4 @@
-objs/ft_fprintf.o: src/src_all/ft_fprintf.c include/ft_printf.h
-include/ft_printf.h:
+objs/ft_fprintf.o: src/src_all/ft_fprintf.c include/ft_fprintf.h \
+  include/libft.h
+include/ft_fprintf.h:
+include/libft.h:

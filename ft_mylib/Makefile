@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/01/23 16:31:41 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/01/23 18:31:54 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -131,16 +131,14 @@ LIB_SRC_FUNCTIONS = 	0.bubble_sort.c 	\
 						ft_substr.c 		\
 						ft_tolower.c 		\
 						ft_toupper.c 		\
-						garbage_collector.c \
-						garbage_leaks_tracker.c \
 						get_next_line.c 	\
 						get_next_line2.c 	\
 						get_next_line2_utils.c \
-						get_next_line_bonus.c \
 						get_next_line_utils.c \
-						get_next_line_utils_bonus.c \
 						print_bits.c 		\
 						printers_db.c 		\
+#						garbage_collector.c \
+						garbage_leaks_tracker.c \
 
 
 #PRGM_SRC_MAIN = $(wildcard src/*.c) $(wildcard src/*/*.c)
@@ -205,10 +203,6 @@ ifeq ($(INCLUDE_LIB), 1)
 #	LIBS += -L$(LIB_2_PATH) -l$(LIB_2_NAME)
 endif
 
--include $(DEPS)#																Include the .d files after the rule is defined
-
-
-
 # **************************************************************************** #
 #                                 RULES/ALL                                    #
 # **************************************************************************** #
@@ -216,8 +210,10 @@ all:	$(NAME)
 
 objs/%.o:	%.c
 	@mkdir -p objs
-	$(COMPILER) $(CFLAGS) $(DEPFLAGS) -c $< -o $@
-	@echo "$(RED)(•̀ᴗ•́)و $@ OBJECTS GENERATED!$(RESET)"
+	@$(COMPILER) $(CFLAGS) $(DEPFLAGS) -c $< -o $@
+	@echo "$(GRAY)()و $@ OBJECTS GENERATED!$(RESET)"
+
+-include $(DEPS)#																Include the .d files after the rule is defined
 
 $(NAME): program_or_lib
 program_or_lib:
@@ -228,12 +224,12 @@ else
 endif
 
 program:	$(OBJECTS) libs_build
-		$(COMPILER) $(CFLAGS) $(OBJECTS) $(LIBS) -o $(NAME)
+		@$(COMPILER) $(CFLAGS) $(OBJECTS) $(LIBS) -o $(NAME)
 		@echo	"$(RED)	(•̀ᴗ•́)و BIN GENERATED!$(RESET)"
 
 lib:	$(OBJECTS)
-		$(LIB_COMP_STATIC) $(NAME) $(OBJECTS)
-		@echo	"$(RED)	(•̀ᴗ•́)و LIBRARY GENERATED!$(RESET)"
+		@$(LIB_COMP_STATIC) $(NAME) $(OBJECTS)
+		@echo "$(RED)(•̀ᴗ•́)و LIBRARY GENERATED!$(RESET)"
 
 # **************************************************************************** #
 #                                 RULES/RECLEAN                                #
@@ -253,6 +249,12 @@ re: fclean all
 # **************************************************************************** #
 #                                DEFS/COLORS                                   #
 # **************************************************************************** #
+
+update_folder:
+	./files_finder.sh
+	$(MAKE) $(NAME)
+	
+
 
 ### Build or not a library
 libs_build:

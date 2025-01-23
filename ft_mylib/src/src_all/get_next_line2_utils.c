@@ -6,13 +6,13 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:58 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/21 20:53:26 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/23 17:44:52 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line2.h"
 
-size_t	ft_strlen(char *s, int c)
+size_t	ft_strlen_gnl(char *s, int c)
 {
 	size_t	i;
 
@@ -24,7 +24,7 @@ size_t	ft_strlen(char *s, int c)
 	return (i);
 }
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr_gnl(char *s, int c)
 {
 	int	i;
 
@@ -32,7 +32,7 @@ char	*ft_strchr(char *s, int c)
 	if (!s)
 		return (0);
 	if (c == '\0')
-		return ((char *)&s[ft_strlen(s, '\0')]);
+		return ((char *)&s[ft_strlen_gnl(s, '\0')]);
 	while (s[i])
 	{
 		if (s[i] == (char) c)
@@ -42,7 +42,7 @@ char	*ft_strchr(char *s, int c)
 	return (0);
 }
 
-char	*ft_strjoin(char *left_str, char *buff, int c)
+char	*ft_strjoin_gnl(char *left_str, char *buff, int c)
 {
 	size_t	i;
 	size_t	j;
@@ -55,8 +55,8 @@ char	*ft_strjoin(char *left_str, char *buff, int c)
 	}
 	if (!left_str || !buff)
 		return (NULL);
-	str = (char *) malloc(sizeof(char) * ((ft_strlen(left_str, '\0')
-					+ ft_strlen(buff, c)) + 2));
+	str = (char *) malloc(sizeof(char) * ((ft_strlen_gnl(left_str, '\0')
+					+ ft_strlen_gnl(buff, c)) + 2));
 	if (str == NULL)
 		return (NULL);
 	i = -1;
@@ -78,13 +78,13 @@ char	*ft_new_left_str(char *left_str)
 	char	*str;
 
 	i = 0;
-	i = ft_strlen(left_str, '\n');
+	i = ft_strlen_gnl(left_str, '\n');
 	if (!left_str[i])
 	{
 		free(left_str);
 		return (NULL);
 	}
-	str = (char *)malloc(sizeof(char) * (ft_strlen(left_str, '\0') - i + 1));
+	str = (char *)malloc(sizeof(char) * (ft_strlen_gnl(left_str, '\0') - i + 1));
 	if (!str)
 		return (NULL);
 	i++;
@@ -100,6 +100,6 @@ char	*ft_get_line(char *left_str)
 
 	if (!*left_str)
 		return (NULL);
-	str = ft_strjoin(NULL, left_str, '\n');
+	str = ft_strjoin_gnl(NULL, left_str, '\n');
 	return (str);
 }
