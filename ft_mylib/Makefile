@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/01/23 18:41:24 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/01/23 19:03:19 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -205,7 +205,7 @@ endif
 # **************************************************************************** #
 #                                 RULES/ALL                                    #
 # **************************************************************************** #
-all:	$(NAME)
+all:	hello $(NAME) no_update
 
 objs/%.o:	%.c
 	@mkdir -p objs
@@ -249,10 +249,6 @@ re: fclean all
 #                                DEFS/COLORS                                   #
 # **************************************************************************** #
 
-update_folder2:
-	./files_finder.sh
-	$(MAKE) $(NAME)
-	
 # Define the target for the script
 update_folder:
 	@# 1. Delete src_all and include_all if they exist
@@ -262,7 +258,7 @@ update_folder:
 	fi
 
 	@if [ -d "include" ]; then \
-		echo "Deleting existing src/include_all directory..."; \
+		echo "Deleting existing include directory..."; \
 		rm -rf "include"; \
 	fi
 
@@ -273,21 +269,18 @@ update_folder:
 
 	@# 2. Find .c and .h files and copy them
 	@echo "Copying .c and .h files..."
-	@find src/ -mindepth 1 -maxdepth 5 -type f \( -name "*.c" -o -name "*.h" \) -print0 | \
-	while IFS= read -r -d $'\0' file; do \
-		filename=$$(basename "$$file"); \
-		filepath=$$(dirname "$$file"); \
-		if [[ "$$filename" == *.c ]]; then \
-			echo "Copying C file: $$file to src/src_all/$$filename"; \
-			cp "$$file" "src/src_all/"; \
-		elif [[ "$$filename" == *.h ]]; then \
-			echo "Copying H file: $$file to include/$$filename"; \
-			cp "$$file" "include/"; \
-		fi; \
-	done
+	@find src/ -mindepth 1 -maxdepth 5 -type f \( -name "*.c" \) -print0 | xargs -0 -I {} cp {} src/src_all/
+	@find src/ -mindepth 1 -maxdepth 5 -type f \( -name "*.h" \) -print0 | xargs -0 -I {} cp {} include/
 
 	@echo "Script completed successfully."
+	$(MAKE) $(NAME)
 
+no_update:
+	@if [ -f "$(NAME)" ]; then \
+		echo "$(GREEN)\nEverything up-to-date.\n$(RESET)"; \
+	else \
+		echo "$(YELLOW)Nothing to be done, but no $(NAME) found. You might want to run 'make'.$(RESET)"; \
+	fi
 
 ### Build or not a library
 libs_build:

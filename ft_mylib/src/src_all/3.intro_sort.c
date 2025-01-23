@@ -6,12 +6,15 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:34:07 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/23 13:41:13 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/23 19:05:25 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
+
+
 /*
+objective: Implement the intro sort algorithm.
 This is the implementation of intro sort algorithm. It is a hybrid sorting 
 	algorithm that provides both fast average performance and optimal worst-case
 	performance. It begins with quicksort and switches to heapsort when the 
