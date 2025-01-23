@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    make                                               :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/01/23 13:29:45 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/01/23 16:31:41 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ IS_PROGRAM_AND_NOT_LIB = 0
 INCLUDE_LIB = 0
 BUILD_LIBRARY = 0
 
-IS_LIB_STATIC_AND_NOT_DYNAMIC = 1
+#IS_LIB_STATIC_AND_NOT_DYNAMIC = 1
 
 # **************************************************************************** #
 # **************************************************************************** #
@@ -68,21 +68,85 @@ PRGM_SRC_HELPERS = 	main_utils.c	\
 					main_utils1.c	\
 					main_utils2.c	\
 
-LIB_SRC_FUNCTIONS = 	mylib.c \
-						function1.c	\
-						function2.c	\
+LIB_SRC_FUNCTIONS = 	0.bubble_sort.c 	\
+						0.insertion_sort.c 	\
+						0.selection_sort.c 	\
+						1.merge_sort.c 		\
+						1.quick_sort.c 		\
+						2.radix_sort.c 		\
+						3.intro_sort.c 		\
+						ft_atoi.c 			\
+						ft_bzero.c 			\
+						ft_calloc.c 		\
+						ft_fprintf.c 		\
+						ft_fprintf1.c 		\
+						ft_free.c 			\
+						ft_garbage_collector.c \
+						ft_hexa_mayusc.c 	\
+						ft_hexa_minusc.c 	\
+						ft_isalnum.c 		\
+						ft_isalpha.c 		\
+						ft_isascii.c 		\
+						ft_isdigit.c 		\
+						ft_isprint.c 		\
+						ft_itoa.c 			\
+						ft_lstadd_back_bonus.c \
+						ft_lstadd_front_bonus.c \
+						ft_lstclear_bonus.c \
+						ft_lstdelone_bonus.c \
+						ft_lstiter_bonus.c 	\
+						ft_lstlast_bonus.c 	\
+						ft_lstmap_bonus.c 	\
+						ft_lstnew_bonus.c 	\
+						ft_lstsize_bonus.c 	\
+						ft_malloc.c 		\
+						ft_memchr.c 		\
+						ft_memcmp.c 		\
+						ft_memcpy.c 		\
+						ft_memmove.c 		\
+						ft_memset.c 		\
+						ft_num_unsign.c 	\
+						ft_pointer_hexa.c 	\
+						ft_printf.c 		\
+						ft_putchar.c 		\
+						ft_putchar_fd.c 	\
+						ft_putendl_fd.c 	\
+						ft_putnbr.c 		\
+						ft_putnbr_fd.c 		\
+						ft_putstr.c 		\
+						ft_putstr_fd.c 		\
+						ft_split.c 			\
+						ft_strchr.c 		\
+						ft_strdup.c 		\
+						ft_striteri.c 		\
+						ft_strjoin.c 		\
+						ft_strlcat.c 		\
+						ft_strlcpy.c 		\
+						ft_strlen.c 		\
+						ft_strmapi.c 		\
+						ft_strncmp.c 		\
+						ft_strnstr.c 		\
+						ft_strrchr.c 		\
+						ft_strtrim.c 		\
+						ft_substr.c 		\
+						ft_tolower.c 		\
+						ft_toupper.c 		\
+						garbage_collector.c \
+						garbage_leaks_tracker.c \
+						get_next_line.c 	\
+						get_next_line2.c 	\
+						get_next_line2_utils.c \
+						get_next_line_bonus.c \
+						get_next_line_utils.c \
+						get_next_line_utils_bonus.c \
+						print_bits.c 		\
+						printers_db.c 		\
 
-#PRGM_SRC_MAIN = $(wildcard src/*.c) $(wildcard src/*/*.c) $(wildcard src/*/*/*.c)
 
-VPATH = src:include:libs	\
-		../../libs:			\
-		../../include:		\
-		../../src:			\
-		../../include:		\
+#PRGM_SRC_MAIN = $(wildcard src/*.c) $(wildcard src/*/*.c)
 
-### SOURCE OF FILES *.h (inside include and libs)
-#CFLAGS_INCL = -Iinclude														# Folder:inlcude
-#CFLAGS_INCL += -Ilibs															# Folder:libs
+VPATH = src:include:objs:		\
+		src/src_all:			\
 
 ### SOURCE OF FILES *.a (libraries to be included)
 LIBS_DIR = libs
@@ -101,7 +165,7 @@ LIB_COMP_STATIC = ar rcs
 #LIB_COMP_DYNAMIC_obj = fPIC
 #LIB_COMP_DYNAMIC_lib = shared
 
-CFLAGS_INCL = -Iinclude -Ilibs													# Folder:inlcude and libs
+CFLAGS_INCL = -Iinclude -Ilibs/include											# Folder to look for headers:inlcude and libs
 
 CFLAGS_DBG = -Wall -Wextra -Werror
 #CFLAGS_DBG += -g
@@ -116,23 +180,23 @@ RM = rm -rf
 ### HELPERS
 
 ### Name definition
-ifeq ($(IS_PROGRAM_AND_NOT_LIB), 0)
+ifeq ($(IS_PROGRAM_AND_NOT_LIB), 1)
     NAME = $(NAME1)
 else
-    NAME = ../lib_$(NAME1).a
+    NAME = ../lib$(NAME1).a
 endif
 
 ### Source File Definition
-ifeq ($(IS_PROGRAM_AND_NOT_LIB), 0)
-    SOURCES = $(PRGM_SRC_MAIN) $(PRGM_SRC_HELPERS)
+ifeq ($(IS_PROGRAM_AND_NOT_LIB), 1)
+	SOURCES = $(PRGM_SRC_MAIN) $(PRGM_SRC_HELPERS)
 else
-    SOURCES = $(LIB_SRC_FUNCTIONS)
+	SOURCES = $(LIB_SRC_FUNCTIONS)
 endif
 
 #Object Files and Dependency Files Definition
-OBJECTS = $(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
-DEPS = $(OBJECTS:.o=.d)
-DEPFLAGS = -MMD -MP#															# This will create the files(headers) as dependendcy and track them
+	OBJECTS =  $(patsubst %.c,objs/%.o,$(notdir $(SOURCES)))						# This will create the object files in the folder "objs"
+	DEPS = $(OBJECTS:.o=.d)
+	DEPFLAGS = -MMD -MP#															# This will create the files(headers) as dependendcy and track them
 
 ### Include or not a library
 LIBS +=
@@ -141,15 +205,9 @@ ifeq ($(INCLUDE_LIB), 1)
 #	LIBS += -L$(LIB_2_PATH) -l$(LIB_2_NAME)
 endif
 
-### Build or not a library
-libs_build:
-ifeq ($(BUILD_LIBRARY), 1)
-	$(MAKE) -C $(LIB_1_PATH)
-#	$(MAKE) -C $(LIB_2_PATH)
-	@echo "$(RED)(•̀ᴗ•́)و $@ DONE!$(RESET)"
-else
-	@echo "$(RED)Skipping library build$(RESET)"
-endif
+-include $(DEPS)#																Include the .d files after the rule is defined
+
+
 
 # **************************************************************************** #
 #                                 RULES/ALL                                    #
@@ -160,8 +218,6 @@ objs/%.o:	%.c
 	@mkdir -p objs
 	$(COMPILER) $(CFLAGS) $(DEPFLAGS) -c $< -o $@
 	@echo "$(RED)(•̀ᴗ•́)و $@ OBJECTS GENERATED!$(RESET)"
-
--include $(DEPS_1)#																Include the .d files after the rule is defined
 
 $(NAME): program_or_lib
 program_or_lib:
@@ -176,7 +232,7 @@ program:	$(OBJECTS) libs_build
 		@echo	"$(RED)	(•̀ᴗ•́)و BIN GENERATED!$(RESET)"
 
 lib:	$(OBJECTS)
-		$(AR) $(NAME) $(OBJECTS)
+		$(LIB_COMP_STATIC) $(NAME) $(OBJECTS)
 		@echo	"$(RED)	(•̀ᴗ•́)و LIBRARY GENERATED!$(RESET)"
 
 # **************************************************************************** #
@@ -187,8 +243,8 @@ clean:
 	@echo	"$(RED)	¯\_(ツ)_/¯ OBJECTS REMOVED!$(RESET)"
 
 fclean:	clean
-		rm -f $(NAME)
-		@echo	"$(RED)	(╯°□°）╯︵ ┻━┻ FILE REMOVED!$(RESET)"
+	$(RM) -f $(NAME)
+	@echo	"$(RED)	(╯°□°）╯︵ ┻━┻ FILE REMOVED!$(RESET)"
 
 re: fclean all
 
@@ -197,9 +253,20 @@ re: fclean all
 # **************************************************************************** #
 #                                DEFS/COLORS                                   #
 # **************************************************************************** #
+
+### Build or not a library
+libs_build:
+ifeq ($(BUILD_LIBRARY), 1)
+	$(MAKE) -C $(LIB_1_PATH)
+#	$(MAKE) -C $(LIB_2_PATH)
+	@echo "$(RED)(•̀ᴗ•́)و $@ DONE!$(RESET)"
+else
+	@echo "$(RED)Skipping library build$(RESET)"
+endif
+
 hello:
 	@echo "$(GREEN)\nHello, $(USER)!\n$(RESET)"
-	@echo "$(GREEN)### Welcome to Makefile for: $(NAME_OUTPUT)! ###\n$(RESET)"
+	@echo "$(GREEN)### Welcome to Makefile for: $(NAME)! ###\n$(RESET)"
 	@echo "$(GREEN)################################################\n$(RESET)"
 
 #_Colors

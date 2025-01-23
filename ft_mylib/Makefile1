@@ -1,0 +1,163 @@
+# **************************************************************************** #
+#                                DIR/VARS		                               #
+# **************************************************************************** #
+SRCS_1 = 				0.bubble_sort.c 	\
+						0.insertion_sort.c 	\
+						0.selection_sort.c 	\
+						1.merge_sort.c 		\
+						1.quick_sort.c 		\
+						2.radix_sort.c 		\
+						3.intro_sort.c 		\
+						ft_atoi.c 			\
+						ft_bzero.c 			\
+						ft_calloc.c 		\
+						ft_fprintf.c 		\
+						ft_fprintf1.c 		\
+						ft_free.c 			\
+						ft_garbage_collector.c \
+						ft_hexa_mayusc.c 	\
+						ft_hexa_minusc.c 	\
+						ft_isalnum.c 		\
+						ft_isalpha.c 		\
+						ft_isascii.c 		\
+						ft_isdigit.c 		\
+						ft_isprint.c 		\
+						ft_itoa.c 			\
+						ft_lstadd_back_bonus.c \
+						ft_lstadd_front_bonus.c \
+						ft_lstclear_bonus.c \
+						ft_lstdelone_bonus.c \
+						ft_lstiter_bonus.c 	\
+						ft_lstlast_bonus.c 	\
+						ft_lstmap_bonus.c 	\
+						ft_lstnew_bonus.c 	\
+						ft_lstsize_bonus.c 	\
+
+VPATH = src:include:objs:		\
+		src/src_all:			\
+#SRC_2 = 
+#IS?
+IS_PROGRAM_AND_NOT_LIB = 0
+INCLUDE_LIB = 0
+BUILD_LIBRARY = 0
+#PATHS
+LIB_1_PATH = ../../libs/gnl
+LIB_1_NAME = _gnl2# Remove any "lib" prefix or ".a" suffix
+LIB_2_PATH = ../../libs/ft_printf
+LIB_2_NAME = _ft_printf# Remove any "lib" prefix or ".a" suffix
+
+
+# **************************************************************************** #
+#                                 DIR/HELPERS                                  #
+# **************************************************************************** #
+OBJS_1 = $(patsubst %.c,objs/%.o,$(notdir $(SRCS_1)))
+DEPS_1 = $(OBJS_1:.o=.d)
+#OBJS_2 = $(patsubst %.c,objs/%.o,$(notdir $(SRCS_1)))
+
+
+LIBS =
+ifeq ($(INCLUDE_LIB), 1)
+	LIBS += -L$(LIB_1_PATH) -l$(LIB_1_NAME)
+	LIBS += -L$(LIB_2_PATH) -l$(LIB_2_NAME)
+endif
+
+# Include the generated dependency files Globaly
+-include $(DEPS_1)
+
+# **************************************************************************** #
+#                                 COMPILING/VARS                               #
+# **************************************************************************** #
+NAME = LIBchecker.a#															# If library add prefix lib
+CC = clang -g
+RM = rm -rf
+AR = ar rcs
+CFLAGS = -Wall -Wextra #-Werror
+CFLAGS += -Iinclude -Ilibs
+DEPFLAGS = -MMD -MP#															# This will make the headers also a depend, beign also tracked
+
+# **************************************************************************** #
+#                                 RULES                                        #
+# **************************************************************************** #
+all:	$(NAME)
+
+objs/%.o:	%.c
+	@mkdir -p objs
+	$(CC) $(CFLAGS) $(DEPFLAGS) -c $< -o $@
+	@echo "$(RED)(•̀ᴗ•́)و $@ OBJECTS GENERATED!$(RESET)"
+
+$(NAME): program_or_lib
+program_or_lib:
+ifeq ($(IS_PROGRAM_AND_NOT_LIB), 1)
+	$(MAKE) program
+else
+	$(MAKE) lib
+endif
+
+program:	$(OBJS_1) LIBS_BUILD
+		$(CC) $(CFLAGS) $(OBJS_1) $(LIBS) -o $(NAME)
+		@echo	"$(RED)	(•̀ᴗ•́)و BIN GENERATED!$(RESET)"
+
+lib:	$(OBJS_1)
+		$(AR) $(NAME) $(OBJS_1)
+		@echo	"$(RED)	(•̀ᴗ•́)و LIBRARY GENERATED!$(RESET)"
+
+bonus:	$(NAME) $(OBJS_2)
+	$(AR) $(NAME) $(OBJS_2)
+	$(NAME)
+	@echo	"$(RED)	(•̀ᴗ•́)و BONUS GENERATED!$(RESET)"
+
+#$(NAME):	$(OBJS_1) LIBS_BUILD
+#		$(CC) $(CFLAGS) $(OBJS_1) $(LIBS) -o $(NAME)
+#		@echo "$(RED)(•̀ᴗ•́)و BIN GENERATED!$(RESET)"
+
+# **************************************************************************** #
+#                                 RULES/HELPERS                                #
+# **************************************************************************** #
+
+LIBS_BUILD:
+ifeq ($(BUILD_LIBRARY), 1)
+	$(MAKE) -C $(LIB_1_PATH)
+	@echo "$(RED)(•̀ᴗ•́)و $@ DONE!$(RESET)"
+else
+	@echo "$(RED)Skipping library build$(RESET)"
+endif
+
+# **************************************************************************** #
+#                                 RULES                                        #
+# **************************************************************************** #
+clean:
+	$(RM) objs
+	@echo	"	¯\_(ツ)_/¯ OBJECTS REMOVED!"
+
+fclean:	clean
+		rm -f $(NAME)
+		@echo	"	(╯°□°）╯︵ ┻━┻ FILE REMOVED!"
+
+re: fclean all
+
+.PHONY: all clean fclean re bonus LIBS_BUILD
+
+# **************************************************************************** #
+#                                DEFS/COLORS                               	   #
+# **************************************************************************** #
+
+#_Colors
+DEL_LINE =		\033[2K
+ITALIC =		\033[3m
+BOLD =			\033[1m
+RESET =			\033[0;39m
+GRAY =			\033[0;90m
+RED =			\033[0;91m
+GREEN =			\033[0;92m
+YELLOW =		\033[0;93m
+BLUE =			\033[0;94m
+MAGENTA =		\033[0;95m
+CYAN =			\033[0;96m
+WHITE =			\033[0;97m
+BLACK =			\033[0;99m
+ORANGE =		\033[38;5;209m
+BROWN =			\033[38;2;184;143;29m
+DARK_GRAY =		\033[38;5;234m
+MID_GRAY =		\033[38;5;245m
+DARK_GREEN =	\033[38;2;75;179;82m
+DARK_YELLOW =	\033[38;5;143m
