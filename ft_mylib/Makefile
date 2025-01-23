@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/01/23 19:03:19 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/01/23 19:33:05 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -205,7 +205,7 @@ endif
 # **************************************************************************** #
 #                                 RULES/ALL                                    #
 # **************************************************************************** #
-all:	hello $(NAME) no_update
+all:	$(NAME)
 
 objs/%.o:	%.c
 	@mkdir -p objs
@@ -217,10 +217,13 @@ objs/%.o:	%.c
 $(NAME): program_or_lib
 program_or_lib:
 ifeq ($(IS_PROGRAM_AND_NOT_LIB), 1)
-	$(MAKE) program
+	@$(MAKE) check_up_to_date
+	@$(MAKE) program
 else
-	$(MAKE) lib
+	@$(MAKE) check_up_to_date
+	@$(MAKE) lib
 endif
+
 
 program:	$(OBJECTS) libs_build
 		@$(COMPILER) $(CFLAGS) $(OBJECTS) $(LIBS) -o $(NAME)
@@ -275,12 +278,29 @@ update_folder:
 	@echo "Script completed successfully."
 	$(MAKE) $(NAME)
 
-no_update:
-	@if [ -f "$(NAME)" ]; then \
-		echo "$(GREEN)\nEverything up-to-date.\n$(RESET)"; \
+check_up_to_date:
+ifeq ($(MAKECMDGOALS),all) # Only check if 'all' is the explicit goal
+	@# Check if $(NAME) exists. If not, skip the up-to-date check.
+	@if [ ! -f "$(NAME)" ]; then \
+		echo "$(YELLOW)$(NAME) does not exist. Building...$(RESET)"; \
 	else \
-		echo "$(YELLOW)Nothing to be done, but no $(NAME) found. You might want to run 'make'.$(RESET)"; \
+		# If $(NAME) exists, check if any source files are newer.
+		@if find src/ include/ -newer "$(NAME)" -print | grep -q .; then \
+			echo "$(YELLOW)Some files have changed. Rebuilding...$(RESET)"; \
+		else \
+			echo "$(GREEN)Everything up-to-date.$(RESET)"; \
+			exit 0; \
+		fi \
 	fi
+endif
+ifeq ($(MAKECMDGOALS),check_up_to_date) # Special handling for 'make check_up_to_date'
+	@if [ -f "$(NAME)" ] && find src/ include/ -newer "$(NAME)" -print | grep -q .; then \
+		echo "$(YELLOW)Some files have changed. Run 'make all' to rebuild.$(RESET)"; \
+	else \
+		echo "$(GREEN)$(NAME) is up-to-date.$(RESET)"; \
+		exit 0; \
+	fi
+endif
 
 ### Build or not a library
 libs_build:
