@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:34:07 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/24 14:40:56 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/24 14:40:41 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void	intro_sort(int arr[], int n)
 	int	depthLimit = 2 * ft_log_introsort(n);
 	quick_sort(arr, 0, n - 1, depthLimit);
 }
+
 /*
 int	main(void)
 {

@@ -18,6 +18,6 @@ void	*ft_malloc(t_list *list, size_t size)
 		ft_printf("Error: malloc failed\n");
 		exit(1);
 	}
-	ft_lstadd_back(&list, ft_lstnew(1, 1));
+	ft_lstadd_back(&list, ft_lstnew(ptr));
 	return (ptr);
 }
