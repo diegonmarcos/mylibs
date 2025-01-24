@@ -6,12 +6,12 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:35 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/23 17:44:45 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/24 09:47:50 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE2_H
+# define GET_NEXT_LINE2_H
 
 # include <stdlib.h>
 
@@ -37,7 +37,7 @@ char	*ft_strjoin_gnl(char *left_str, char *buff, int c);
  */
 
 // --- GET_NEXT_LINE FUNCTIONS ---
-int	ft_read_to_left_str(int fd, char **left_str);
+int		ft_read_to_left_str(int fd, char **left_str);
 /**
  * @brief Updates the left_str by removing the line that has been read.
  * @param left_str The string to update.
@@ -57,14 +57,14 @@ char	*ft_get_line(char *left_str);
  * @return A pointer to the next line read from the file descriptor.
  */
 
-int	get_next_line(int fd, char **line);
+int		get_next_line(int fd, char **line);
 /**
  * @brief Reads the next line from the file descriptor.
  * @param fd The file descriptor to read from.
  * @return A pointer to the next line read from the file descriptor.
  */
 
-int	ft_read_to_left_str(int fd, char **left_str);
+int		ft_read_to_left_str(int fd, char **left_str);
 /**
  * @brief Reads the next line from the file descriptor.
  * @param fd The file descriptor to read from.
@@ -86,7 +86,7 @@ char	*ft_get_line(char *left_str);
  * @return A pointer to the extracted line.
  */
 
-int	get_next_line(int fd, char **line);
+int		get_next_line2(int fd, char **line);
 /**
  * @brief Reads the next line from the file descriptor.
  * @param fd The file descriptor to read from.

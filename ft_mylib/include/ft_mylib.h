@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 08:43:38 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/24 08:45:24 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/24 09:52:29 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "libft.h"
 
 # include "get_next_line2.h"
-# include "get_next_line.h"
 
 # include "ft_fprintf.h"
 # include "ft_printf.h"

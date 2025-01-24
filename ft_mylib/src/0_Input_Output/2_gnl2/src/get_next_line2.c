@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:14 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/23 18:17:52 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/24 11:22:16 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,24 +41,31 @@ int	ft_read_to_left_str(int fd, char **left_str)
     return (2); // Line read successfully
 }
 
-int	get_next_line(int fd, char **line)
+int	get_next_line2(int fd, char **line)
 {
     static char	*left_str;
     int			status;
+	int			i;
 
+	i = 0;
+	while(1)
+	{
     if (fd < 0 || BUFFER_SIZE <= 0 || !line)
-        return (1); // Error
+        return (1);																				// Error
     status = ft_read_to_left_str(fd, &left_str);
     if (status == 1)
-        return (1); // Error
+        return (1);																				// Error
     if (status == 0 && (!left_str || !*left_str))
     {
-        *line = NULL;
-        return (0); // EOF
+        line[i] = NULL;
+		return (0);																				// EOF
     }
-    *line = ft_get_line(left_str);
-    left_str = ft_new_left_str(left_str);
-    return (2); // Line read successfully
+	line[i] = ft_get_line(left_str);
+	left_str = ft_new_left_str(left_str);
+//																								write(1, "\nChecker_B", 10); //#debuging-line
+		i++;
+	}
+	return (2);																				// Line read successfully
 }
 /*
 #include <stdio.h>

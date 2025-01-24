@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/01/23 19:33:05 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/01/24 11:06:14 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,15 +90,6 @@ LIB_SRC_FUNCTIONS = 	0.bubble_sort.c 	\
 						ft_isdigit.c 		\
 						ft_isprint.c 		\
 						ft_itoa.c 			\
-						ft_lstadd_back_bonus.c \
-						ft_lstadd_front_bonus.c \
-						ft_lstclear_bonus.c \
-						ft_lstdelone_bonus.c \
-						ft_lstiter_bonus.c 	\
-						ft_lstlast_bonus.c 	\
-						ft_lstmap_bonus.c 	\
-						ft_lstnew_bonus.c 	\
-						ft_lstsize_bonus.c 	\
 						ft_malloc.c 		\
 						ft_memchr.c 		\
 						ft_memcmp.c 		\
@@ -131,13 +122,22 @@ LIB_SRC_FUNCTIONS = 	0.bubble_sort.c 	\
 						ft_substr.c 		\
 						ft_tolower.c 		\
 						ft_toupper.c 		\
-						get_next_line.c 	\
 						get_next_line2.c 	\
 						get_next_line2_utils.c \
-						get_next_line_utils.c \
 						print_bits.c 		\
 						printers_db.c 		\
 						garbage_collector.c \
+#						get_next_line.c 	\
+						get_next_line_utils.c \
+#						ft_lstadd_back_bonus.c \
+						ft_lstadd_front_bonus.c \
+						ft_lstclear_bonus.c \
+						ft_lstdelone_bonus.c \
+						ft_lstiter_bonus.c 	\
+						ft_lstlast_bonus.c 	\
+						ft_lstmap_bonus.c 	\
+						ft_lstnew_bonus.c 	\
+						ft_lstsize_bonus.c 	\
 
 
 #PRGM_SRC_MAIN = $(wildcard src/*.c) $(wildcard src/*/*.c)
