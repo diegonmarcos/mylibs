@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/24 19:57:08 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/24 20:17:52 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,18 @@
 // ft_free
 // ft_realloc
 void	*ft_calloc(size_t count, size_t size);
+void	halt_exit_(int status);
 
 /* ************************************************************************** */
 /* ************************************************************************** */
 # define MAX_ALLOCATIONS 1024
 
 typedef struct s_list_all	t_list_all;
-/*struct s_list_all
+struct s_list_all
 {
 	void	*allocated_pointers[MAX_ALLOCATIONS];
 	int		blocks_count;
-};*/
+};
 
 void	ft_free_gb(void *ptr, t_list_all *list_all);
 void	ft_free_gb_all(t_list_all *list_all);
@@ -144,13 +145,13 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 typedef struct s_list		t_list;
 
-/*struct s_list
+struct s_list
 {
 	int		value;
 	int		index;
 	t_list	*next;
 	t_list	*prev;
-};*/
+};
 
 t_list	*ft_lstnew(int value, int index);
 void	ft_lstadd_back(t_list **stack, t_list *new_node);

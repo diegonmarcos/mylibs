@@ -24,8 +24,9 @@ void generate_gray_codes(unsigned int limit) {
 	printf("(#%d: %u)\n", i, gray_code(i));
   }
 }
-
+/*
 int main(int argc, char **argv) {
   generate_gray_codes(atoi(argv[1]));
   return 0;
 }
+*/
