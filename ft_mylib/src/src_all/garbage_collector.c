@@ -59,7 +59,7 @@ void my_free(void *ptr) {
     }
     free(ptr);
 }
-
+/*
 int main() {
     int *intPtr = (int *)my_malloc(sizeof(int) * 10);
     char *charPtr = (char *)my_malloc(sizeof(char) * 20);
@@ -90,3 +90,4 @@ int main() {
 
     return 0;
 }
+*/

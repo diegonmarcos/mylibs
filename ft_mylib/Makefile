@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/01/24 11:06:14 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/01/24 15:33:32 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -243,6 +243,15 @@ clean:
 fclean:	clean
 	$(RM) -f $(NAME)
 	@echo	"$(RED)	(╯°□°）╯︵ ┻━┻ FILE REMOVED!$(RESET)"
+
+library_clean:
+	$(MAKE) -C $(LIB_1_PATH) clean
+
+library_fclean:
+	$(MAKE) -C $(LIB_1_PATH) fclean
+
+library_re:
+	$(MAKE) -C $(LIB_1_PATH) re
 
 re: fclean all
 

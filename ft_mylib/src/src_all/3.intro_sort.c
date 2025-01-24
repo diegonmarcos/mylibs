@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:34:07 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/23 19:05:25 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/24 14:40:56 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ This is the implementation of intro sort algorithm. It is a hybrid sorting
 #include <stdlib.h>
 #include <math.h>
 
-void	swap(int *a, int *b)
+void	swap_introsort(int *a, int *b)
 {
 	int	temp = *a;
 	*a = *b;
@@ -41,10 +41,10 @@ int	partition(int arr[], int low, int high)
 		if (arr[j] < pivot)
 		{
 			i++;
-			swap(&arr[i], &arr[j]);
+			swap_introsort(&arr[i], &arr[j]);
 		}
 	}
-	swap(&arr[i + 1], &arr[high]);
+	swap_introsort(&arr[i + 1], &arr[high]);
 	return (i + 1);
 }
 
@@ -59,7 +59,7 @@ void	heapify(int arr[], int n, int i)
 		largest = r;
 	if (largest != i)
 	{
-		swap(&arr[i], &arr[largest]);
+		swap_introsort(&arr[i], &arr[largest]);
 		heapify(arr, n, largest);
 	}
 }
@@ -70,7 +70,7 @@ void	heap_sort(int arr[], int n)
 		heapify(arr, n, i);
 	for (int i = n - 1; i > 0; i--)
 	{
-		swap(&arr[0], &arr[i]);
+		swap_introsort(&arr[0], &arr[i]);
 		heapify(arr, i, 0);
 	}
 }
@@ -90,12 +90,20 @@ void	quick_sort(int arr[], int low, int high, int depthLimit)
 	}
 }
 
-void	intro_sort(int arr[], int n)
+int	ft_log_introsort(int n)
 {
-	int	depthLimit = 2 * log(n);
-	quick_sort(arr, 0, n - 1, depthLimit);
+	int	result = 0;
+	while (n >>= 1)
+		result++;
+	return (result);
 }
 
+void	intro_sort(int arr[], int n)
+{
+	int	depthLimit = 2 * ft_log_introsort(n);
+	quick_sort(arr, 0, n - 1, depthLimit);
+}
+/*
 int	main(void)
 {
 	int	arr[] = {10, 7, 8, 9, 1, 5};
@@ -109,4 +117,4 @@ int	main(void)
 	}
 	return 0;
 }
-
+*/
