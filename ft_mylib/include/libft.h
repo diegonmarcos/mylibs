@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/24 20:17:52 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/25 11:42:02 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ void	halt_exit_(int status);
 
 /* ************************************************************************** */
 /* ************************************************************************** */
-# define MAX_ALLOCATIONS 1024
+# ifndef MAX_ALLOCATIONS
+#  define MAX_ALLOCATIONS 1024
+# endif
 
 typedef struct s_list_all	t_list_all;
 struct s_list_all
