@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:18:55 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/24 20:20:32 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/24 20:20:59 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	print_bits(unsigned char octet)
 {
 	int				i;
-	unsigned char 	bit;
+	unsigned char	bit;
 
 	i = 8;
 	while (i--)

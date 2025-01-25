@@ -22,18 +22,18 @@ while IFS= read -r -d $'\0' file; do
     cp "$file" "src/src_all/"
   elif [[ "$filename" == *.h ]]; then
     echo "Copying H file: $file to src/include_all/$filename"
-    cp "$file" "include/"
+    cp "$file" "include2/"
   fi
 done
 
 #!/bin/bash
 
 # Go to the specified directory
-cd src/src_all
+cd ft_mylib/src/src_all
 
 # Find all .c files, sort them alphabetically, and format the output
 find . -name "*.c" -print0 | sort -z | while IFS= read -r -d '' file; do
   printf "%s\t\t\\ \n" "${file:2}" 
-done > ../../files.txt
+done > log/list_files_c.txt
 
 echo "Script completed successfully."
