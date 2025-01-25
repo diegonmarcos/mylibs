@@ -1,33 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fprintf1.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr_fd_fpr.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 15:21:23 by dinepomu          #+#    #+#             */
+/*   Created: 2024/07/04 15:56:17 by dnepomuc          #+#    #+#             */
 /*   Updated: 2025/01/26 00:00:32 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdarg.h>
 #include "ft_mylib.h"
 
-int	ft_fprintf1(char *filename, const char *str, ...)
+static int	int_min(long fd, int n)
 {
-	FILE 	*output_file;
-	va_list	args;
-	int		result;
-
-	output_file = fopen(filename, "a");
-	if (output_file == NULL)
+	(void)n;
+	if (write(fd, "-2147483648", 11) != 11)
 		return (-1);
+	return (11);
+}
 
-	va_start(args, str);
-	result = vfprintf(output_file, str, args);
-	va_end(args);
+int	ft_putnbr_fd_fpr(long fd, int n)
+{
+	int	char_count;
 
-	fclose(output_file);
-	return (result);
+	char_count = 0;
+	if (n == -2147483648)
+		return (int_min(fd, n));
+	if (n < 0 && ++char_count)
+	{
+		if (write(fd, "-", 1) != 1)
+			return (-1);
+		n = -n;
+	}
+	if (n > 9)
+	{
+		char_count += ft_putnbr(n / 10);
+		if (char_count == -1)
+			return (-1);
+		n = n % 10;
+	}
+	if (n <= 9)
+	{
+		if (ft_putchar(('0' + n)) == -1)
+			return (-1);
+		char_count++;
+	}
+	return (char_count);
 }

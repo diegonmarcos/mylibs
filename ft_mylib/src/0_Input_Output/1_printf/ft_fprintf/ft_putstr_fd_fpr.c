@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fprintf1.c                                      :+:      :+:    :+:   */
+/*   ft_putstr_fd_fpr.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/22 15:21:23 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/22 15:24:53 by dinepomu         ###   ########.fr       */
+/*   Created: 2024/07/04 15:54:16 by dnepomuc          #+#    #+#             */
+/*   Updated: 2025/01/26 00:00:32 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdarg.h>
+#include "ft_mylib.h"
 
-int	ft_fprintf(char *filename, const char *str, ...)
+int	ft_putstr_fd_fpr(long fd, char *s)
 {
-	FILE *output_file;
-	va_list args;
-	int result;
+	size_t	i;
 
-	output_file = fopen(filename, "a");
-	if (output_file == NULL)
+	i = 0;
+	if (!s)
 	{
-		return -1;
+		if (write (fd, "(null)", 6) != 6)
+			return (-1);
+		return (6);
 	}
-
-	va_start(args, str);
-	result = vfprintf(output_file, str, args);
-	va_end(args);
-
-	fclose(output_file);
-	return result;
+	while (s[i])
+	{
+		if (write(fd, &s[i], 1) != 1)
+			return (-1);
+		i++;
+	}
+	return (i);
 }

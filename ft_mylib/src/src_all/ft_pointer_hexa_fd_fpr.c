@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pointer_hexa.c                                  :+:      :+:    :+:   */
+/*   ft_pointer_hexa_fd_fpr.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 17:59:35 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/26 00:00:32 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/26 00:13:33 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mylib.h"
 
-static int	hexa_pointer(char *base, unsigned long long n, int c)
+static int	hexa_pointer_fd(long fd, char *base, unsigned long long n, int c)
 {
 	unsigned long long	b;
 
@@ -22,20 +22,20 @@ static int	hexa_pointer(char *base, unsigned long long n, int c)
 		c = hexa_pointer(base, n / b, c);
 		if (c == -1)
 			return (-1);
-		if (write (1, &base[n % b], 1) == -1)
+		if (write (fd, &base[n % b], 1) == -1)
 			return (-1);
 		c++;
 	}
 	else if (n < b)
 	{
-		if (write (1, &base[n], 1) == -1)
+		if (write (fd, &base[n], 1) == -1)
 			return (-1);
 		c++;
 	}
 	return (c);
 }
 
-int	ft_pointer_hexa(void *p)
+int	ft_pointer_hexa_fpr(long fd, void *p)
 {
 	unsigned long long	pointer;
 	int					char_count;
@@ -44,12 +44,12 @@ int	ft_pointer_hexa(void *p)
 	pointer = (unsigned long long)p;
 	if (!p)
 	{
-		write(1, "(nil)", 5);
+		write(fd, "(nil)", 5);
 		return (5);
 	}
-	if (write(1, "0x", 2) != 2)
+	if (write(fd, "0x", 2) != 2)
 		return (-1);
-	char_count = hexa_pointer("0123456789abcdef", pointer, char_count);
+	char_count = hexa_pointer_fd(fd,"0123456789abcdef", pointer, char_count);
 	if (char_count == (-1))
 		return (-1);
 	char_count += 2;

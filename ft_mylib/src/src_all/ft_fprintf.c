@@ -6,11 +6,11 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:23:43 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/23 18:10:13 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/26 00:00:32 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fprintf.h"
+#include "ft_mylib.h"
 
 static int	type_var(long fd, char formatSpecifier, va_list item)
 {
@@ -21,13 +21,13 @@ static int	type_var(long fd, char formatSpecifier, va_list item)
 	if (formatSpecifier == 'd' || formatSpecifier == 'i')
 		return (ft_putnbr_fd_fpr(fd, va_arg(item, int)));
 	if (formatSpecifier == 'p')
-		return (ft_pointer_hexa(va_arg(item, void *)));
-	if (formatSpecifier == 'u')
+		return (ft_pointer_hexa_fpr(fd, va_arg(item, void *)));
+/*	if (formatSpecifier == 'u')
 		return (ft_num_unsign(va_arg(item, unsigned int)));
 	if (formatSpecifier == 'X')
 		return (ft_hexa_mayusc(va_arg(item, int)));
 	if (formatSpecifier == 'x')
-		return (ft_hexa_minusc(va_arg(item, int)));
+		return (ft_hexa_minusc(va_arg(item, int)));*/
 	return (0);
 }
 

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:35 by dinepomu          #+#    #+#             */
-/*   Updated: 2024/12/10 15:42:47 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/25 23:49:49 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
 # include <stdlib.h>
 
@@ -55,35 +55,6 @@ char	*ft_get_line(char *left_str);
  * @brief Reads the next line from the file descriptor.
  * @param fd The file descriptor to read from.
  * @return A pointer to the next line read from the file descriptor.
- */
-
-char	*get_next_line(int fd);
-/**
- * @brief Reads the next line from the file descriptor.
- * @param fd The file descriptor to read from.
- * @return A pointer to the next line read from the file descriptor.
- */
-
-char	*ft_read_to_left_str(int fd, char *left_str);
-/**
- * @brief Reads the next line from the file descriptor.
- * @param fd The file descriptor to read from.
- * @param left_str The string to update.
- * @return A pointer to the next line read from the file descriptor.
- */
-
-char	*ft_new_left_str(char *left_str);
-/**
- * @brief Updates the left_str by removing the line that has been read.
- * @param left_str The string to update.
- * @return A pointer to the new left_str.
- */
-
-char	*ft_get_line(char *left_str);
-/**
- * @brief Extracts the next line from the left_str.
- * @param left_str The string to extract the line from.
- * @return A pointer to the extracted line.
  */
 
 char	*get_next_line(int fd);

@@ -6,11 +6,11 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:14 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/24 11:22:16 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/26 00:38:18 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line2.h"
+#include "ft_mylib.h"
 #include <unistd.h>
 
 int	ft_read_to_left_str(int fd, char **left_str)

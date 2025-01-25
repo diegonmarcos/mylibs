@@ -6,11 +6,11 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:58 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/23 17:44:52 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/26 00:37:11 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line2.h"
+#include "ft_mylib.h"
 
 size_t	ft_strlen_gnl(char *s, int c)
 {

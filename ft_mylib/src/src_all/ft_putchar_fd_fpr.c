@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd_fpr.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:53:18 by dnepomuc          #+#    #+#             */
-/*   Updated: 2024/11/20 18:55:07 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/26 00:00:32 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_mylib.h"
 
-int	ft_putchar(int c)
+int	ft_putchar_fd_fpr(long fd, int c)
 {
-	if (write (1, &c, 1) != 1)
+	if (write (fd, &c, 1) != 1)
 		return (-1);
 	return (1);
 }

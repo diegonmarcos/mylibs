@@ -6,11 +6,11 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 16:06:27 by dnepomuc          #+#    #+#             */
-/*   Updated: 2024/12/02 21:08:54 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/26 00:00:32 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_mylib.h"
 
 static int	puthexa_long(char *base, unsigned long long n, int c)
 {

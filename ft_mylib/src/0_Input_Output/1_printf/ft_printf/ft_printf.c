@@ -6,16 +6,16 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:23:43 by dinepomu          #+#    #+#             */
-/*   Updated: 2024/12/03 15:33:25 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/26 00:33:44 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_mylib.h"
 
 static int	type_var(char formatSpecifier, va_list item)
 {
 	if (formatSpecifier == 'c')
-		return (ft_putchar(va_arg(item, int)));
+		return (ft_putchar_int(va_arg(item, int)));
 	if (formatSpecifier == 's')
 		return (ft_putstr(va_arg(item, char *)));
 	if (formatSpecifier == 'd' || formatSpecifier == 'i')

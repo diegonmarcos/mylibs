@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_fprintf2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/04 15:54:16 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/23 17:13:33 by dinepomu         ###   ########.fr       */
+/*   Created: 2025/01/22 15:21:23 by dinepomu          #+#    #+#             */
+/*   Updated: 2025/01/26 00:40:53 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_fprintf.h"
+#include <stdio.h>
+#include <stdarg.h>
+#include "ft_mylib.h"
 
-int	ft_putstr_fd(long fd, char *s)
+int	ft_fprintf2(char *filename, const char *str, ...)
 {
-	size_t	i;
+	FILE 	*output_file;
+	va_list	args;
+	int		result;
 
-	i = 0;
-	if (!s)
-	{
-		if (write (fd, "(null)", 6) != 6)
-			return (-1);
-		return (6);
-	}
-	while (s[i])
-	{
-		if (write(fd, &s[i], 1) != 1)
-			return (-1);
-		i++;
-	}
-	return (i);
+	output_file = fopen(filename, "a");
+	if (output_file == NULL)
+		return (-1);
+
+	va_start(args, str);
+	result = vfprintf(output_file, str, args);
+	va_end(args);
+
+	fclose(output_file);
+	return (result);
 }

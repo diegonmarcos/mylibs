@@ -1,3 +1,4 @@
-objs/get_next_line2.o: src/src_all/get_next_line2.c \
-  include/get_next_line2.h
-include/get_next_line2.h:
+objs/get_next_line2.o: src/src_all/get_next_line2.c include/ft_mylib.h \
+  include/libft.h
+include/ft_mylib.h:
+include/libft.h:
