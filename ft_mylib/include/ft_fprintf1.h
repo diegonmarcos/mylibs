@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 12:32:10 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/25 22:15:38 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/25 22:13:32 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int				ft_printf(const	char *str, ...);
  * function.
  */
 
-int	ft_fprintf(char *filename, const char *str, ...);
+int	ft_fprintf1(char *filename, const char *str, ...);
 
 
 #endif

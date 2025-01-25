@@ -6,14 +6,14 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:21:23 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/23 17:03:28 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/25 22:13:13 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdarg.h>
 
-int	ft_fprintf(char *filename, const char *str, ...)
+int	ft_fprintf1(char *filename, const char *str, ...)
 {
 	FILE 	*output_file;
 	va_list	args;
@@ -21,9 +21,7 @@ int	ft_fprintf(char *filename, const char *str, ...)
 
 	output_file = fopen(filename, "a");
 	if (output_file == NULL)
-	{
 		return (-1);
-	}
 
 	va_start(args, str);
 	result = vfprintf(output_file, str, args);
