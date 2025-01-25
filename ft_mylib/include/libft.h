@@ -6,13 +6,16 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/25 11:42:02 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/25 16:04:24 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+// MACROS
+
+// LIBRARIES
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
@@ -36,21 +39,20 @@ void	halt_exit_(int status);
 #  define MAX_ALLOCATIONS 1024
 # endif
 
-typedef struct s_list_all	t_list_all;
-struct s_list_all
+typedef struct s_list_garbage
 {
 	void	*allocated_pointers[MAX_ALLOCATIONS];
 	int		blocks_count;
-};
+}			t_list_garbage;
 
-void	ft_free_gb(void *ptr, t_list_all *list_all);
-void	ft_free_gb_all(t_list_all *list_all);
-void	ft_struct_initializator(t_list_all *my_list);
-int		add_allocation(void *ptr, t_list_all *list_all);
-void	remove_allocation(void *ptr, t_list_all *list_all);
-void	remove_allocation(void *ptr, t_list_all *list_all);
-int		is_allocated(void *ptr, t_list_all *list_all);
-void	*ft_malloc_gb(size_t size, t_list_all *list_all);
+void	ft_free_gb(void *ptr, t_list_garbage *list_garbage);
+void	ft_free_gb_all(t_list_garbage *list_garbage);
+void	ft_struct_initializator(t_list_garbage *my_list);
+int		add_allocation(void *ptr, t_list_garbage *list_garbage);
+void	remove_allocation(void *ptr, t_list_garbage *list_garbage);
+void	remove_allocation(void *ptr, t_list_garbage *list_garbage);
+int		is_allocated(void *ptr, t_list_garbage *list_garbage);
+void	*ft_malloc_gb(size_t size, t_list_garbage *list_garbage);
 
 
 /* ************************************************************************** */
