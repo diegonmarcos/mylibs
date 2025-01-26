@@ -56,6 +56,7 @@ void	ft_free_fd(const char *filename)
 	int		num_pointers;
 
 	file = fopen(filename, "r");
+	printf("Filde Descripttor: %p\n", file);
 	if (file == NULL)
 	{
 		write(1, "Alloc Error6\n", 13);

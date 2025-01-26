@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 17:59:35 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/26 00:13:33 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/26 16:08:43 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	hexa_pointer_fd(long fd, char *base, unsigned long long n, int c)
 	b = ft_strlen(base);
 	if (n >= b)
 	{
-		c = hexa_pointer(base, n / b, c);
+		c = hexa_pointer_fd(fd, base, n / b, c);
 		if (c == -1)
 			return (-1);
 		if (write (fd, &base[n % b], 1) == -1)

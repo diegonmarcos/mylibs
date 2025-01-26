@@ -11,23 +11,39 @@
 /* ************************************************************************** */
 
 #include "ft_mylib.h"
-//clang *.c -I../../../include -L../../../../ -lft_mylib -o garbage.out
 //#define TEST_FILENAME "allocation_log.txt"
+//#define TEST_FILENAME "0"
 
+// This will output two files, because one need to be cleaned to 
+//avoid memory leakks over twice freed, and other for checking the
+//allocating history
+// filename as a char 0 will not print!
 void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar)
 {
 	char	*ptr;
 	int		fd;
+	int		fd2;
+	char	*filename2;
 
 	ptr = (char *)ft_calloc(count, sizeofvar);
 	if (ptr == NULL)
-		write(1, "Alloc Error\n", 12);
-	fd = open(filename, O_CREAT | O_RDWR | O_APPEND, 0644);
-	if (fd == -1)
-		write(1, "Alloc Error\n", 12);
-	if (ft_fprintf1(filename, "%p;", ptr) < 0)
-		write(1, "Alloc Error\n", 12);
-	close(fd);
+		write(1, "Alloc Error1\n", 13);
+	if(ft_strncmp(filename, "0", 1))
+	{
+		fd = open(filename, O_CREAT | O_RDWR | O_APPEND, 0644);
+		if (fd == -1)
+			write(1, "Alloc Error2\n", 13);
+		filename2 = ft_strjoin(filename, "x");
+		fd2 = open(filename2, O_CREAT | O_RDWR | O_APPEND, 0644);
+		if (fd2 == -1)
+			write(1, "Alloc Error3\n", 13);
+		if (ft_fprintf1(filename, "%p;\n", ptr) < 0)
+			write(1, "Alloc Error4\n", 13);
+		if (ft_fprintf1(filename2, "%p;\n", ptr) < 0)
+			write(1, "Alloc Error5\n", 13);
+		close(fd);
+		close(fd2);
+	}
 	return (ptr);
 }
 
@@ -36,25 +52,43 @@ void	ft_free_fd(const char *filename)
 {
 	FILE	*file;
 	char	line[1024];
-	void	*ptr;
+	void	*pointers[MAX_ALLOCATIONS];
+	int		num_pointers;
 
 	file = fopen(filename, "r");
 	if (file == NULL)
 	{
-		write(1, "Alloc Error\n", 12);
+		write(1, "Alloc Error6\n", 13);
 		return ;
 	}
+	num_pointers = 0;
 	while (fgets(line, sizeof(line), file) != NULL)
 	{
-		if (sscanf(line, "%p;", &ptr) == 1)
-			free(ptr);
+		if (num_pointers < MAX_ALLOCATIONS && sscanf(line, "%p;", &pointers[num_pointers]) == 1)
+			num_pointers++;
 		else
-			write(2, "Parse Error\n", 12);
+			write(2, "Parse Error\n", 13);
 	}
+	while (num_pointers > 0)
+	{
+		printf("Freeing: %p\n", pointers[num_pointers - 1]);
+		free(pointers[num_pointers--]);
+	}
+	if (unlink(filename) == -1)
+	{
+		write(2, "Error deleting file\n", 20);
+		fclose(file);
+		return;
+	}
+	fclose(file);
 }
-//	if (truncate(filename, 0) == -1)
-/*tester
+
 //tester for the garbage collector with buffer file
+
+//clang *.c -I../../../include -L../../../../ -lft_mylib -o garbage.out
+//clang *.c -I../../../../include -L../../../../../ -lft_mylib -o garbage.out
+
+/*
 int	main() 
 {
 	// Test 1: Basic Allocation and Freeing
@@ -123,11 +157,12 @@ int	main()
 
 	// Assuming a function that allocates a very large size to simulate failure
 	// This is just illustrative, as simulating failure is tricky
-	void *largeAlloc = ft_calloc_fd(TEST_FILENAME, SIZE_MAX, 1);
-	if (largeAlloc == NULL) {
-		printf("Allocation failed as expected (or if it didn't, 
-				consider reducing the allocation size)\n");
-	}
+//	void *largeAlloc = ft_calloc_fd(TEST_FILENAME, SIZE_MAX, 1);
+//	if (largeAlloc == NULL)
+//		{
+//		printf("Allocation failed as expected (or if it didn't, \
+//				consider reducing the allocation size\n");
+//		}
 
 	// Clean up if the large allocation somehow succeeded
 	ft_free_fd(TEST_FILENAME);
@@ -136,9 +171,13 @@ int	main()
 	printf("\nAll tests completed.\n");
 
 	// Optional: Check the contents of TEST_FILENAME to see the log
-	printf("\nOptional: Check the contents of '%s' to see 
+	printf("\nOptional: Check the contents of '%s' to see \
 			the allocation log.\n", TEST_FILENAME);
 
 	return 0;
-}
+}*/
+
+/*
+	if (truncate(filename, 0) == -1)
+		return;
 */

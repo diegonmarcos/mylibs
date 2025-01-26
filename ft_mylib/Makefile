@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/01/26 11:18:27 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/01/26 16:05:52 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,6 +88,10 @@ LIB_SRC_FUNCTIONS = 	0.bubble_sort.c			\
 						ft_garbage_collector_2.c		\
 						ft_hexa_mayusc.c				\
 						ft_hexa_minusc.c				\
+						ft_pointer_hexa_fd_fpr.c		\
+						ft_putchar_fd_fpr.c				\
+						ft_putnbr_fd_fpr.c				\
+						ft_putstr_fd_fpr.c				\
 						ft_isalnum.c		\
 						ft_isalpha.c		\
 						ft_isascii.c		\

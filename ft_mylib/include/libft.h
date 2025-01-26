@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/26 11:17:44 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/26 18:37:50 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,12 @@
 
 // GARBAGE COLLECTOR
 # ifndef MAX_ALLOCATIONS
-#  define MAX_ALLOCATIONS 1024
+#  define MAX_ALLOCATIONS 102400
+# endif
+
+// Unsigned Int
+# ifndef SIZE_MAX
+#  define SIZE_MAX INT_MAX
 # endif
 
 /*#########################################################################	*/
@@ -37,7 +42,7 @@
 # include <stdio.h> 	// High Level Printers, I/O, Fd and erros
 # include <string.h>	// Actually can't use, only for testers...
 # include <stddef.h> 	// Defs of NULL, size_t(unsign int)
-# include <limits.h>	// Defs of INT_MAX, SIZE_MAX(size_t), LONG_MAX
+# include <limits.h>	// Defs of INT_MAX, SIZE_MAX(size_t/uInt), LONG_MAX
 
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓	//
 
