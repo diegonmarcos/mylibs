@@ -6,16 +6,18 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/26 09:14:57 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/26 09:24:02 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+// ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓	//
 
-// MACROS
-
-// GET NEXT LINE
+/*#########################################################################	*/
+/* 0.0 MACROS																*/
+/*#########################################################################	*/
+// GET NEXT LINE2
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1000
 # endif
@@ -25,18 +27,21 @@
 #  define MAX_ALLOCATIONS 1024
 # endif
 
-
-// LIBRARIES
+/*#########################################################################	*/
+/* 0.1 LIBRARIES															*/
+/*#########################################################################	*/
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h> 	// defs
 # include <stdio.h> 	// printers and file descriptiors
 # include <stdarg.h> 	// variadic funuctions for printf
 
+
+// ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓	//
+
 /*#########################################################################	*/
 /* 1. MEMORY MANAGEMENT														*/
 /*#########################################################################	*/
-
 
 /* ***************************************************************** */
 /* ***************************************************************** */
@@ -63,7 +68,6 @@ void	remove_allocation(void *ptr, t_list_garbage *list_garbage);
 int		is_allocated(void *ptr, t_list_garbage *list_garbage);
 void	*ft_malloc_gb(size_t size, t_list_garbage *list_garbage);
 
-
 /* ***************************************************************** */
 /* ***************************************************************** */
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
@@ -73,7 +77,6 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
-
 
 /*#########################################################################	*/
 /* 2. STRING MANIPULATION 													*/
@@ -160,7 +163,6 @@ int		ft_printf(const	char *str, ...);
  * a subset of the format specifiers supported by the standard printf
  * function.
  */
-
 //
 unsigned int	ft_num_unsign(unsigned int num);
 /**
@@ -180,7 +182,6 @@ int		ft_hexa_mayusc(int num);
 /**
  * @brief Converts an integer to its hexadecimal representation.
  */
-
 
 /* ***************************************************************** */
 /* ***************************************************************** */
@@ -264,7 +265,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 /* ***************************************************************** */
 /* ***************************************************************** */
 // DATA STRUCTURE FOR DOUBLY LS
-
 typedef struct s_list		t_list;
 struct s_list
 {
@@ -281,10 +281,8 @@ void	ft_free_list(t_list *stack);
 t_list	*find_min_node(t_list *stack);
 void	ft_swap_pointers(t_list **a, t_list **b);
 
-
 /* ***************************************************************** */
 /* ***************************************************************** */
-
 /*
 typedef struct s_list
 {
@@ -302,4 +300,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void*));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*));
 */
+
 #endif
