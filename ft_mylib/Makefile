@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/01/26 00:41:33 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/01/26 11:18:27 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -134,17 +134,18 @@ LIB_SRC_FUNCTIONS = 	0.bubble_sort.c			\
 						swap_bits.c					\
 						halt_exit.c					\
 						ft_putstr.c					\
-#						get_next_line.c 	\
-						get_next_line_utils.c \
-						ft_lstadd_back_bonus.c \
-						ft_lstadd_front_bonus.c \
-						ft_lstclear_bonus.c 	\
-						ft_lstdelone_bonus.c 	\
-						ft_lstiter_bonus.c 		\
-						ft_lstlast_bonus.c 		\
-						ft_lstmap_bonus.c 		\
-						ft_lstnew_bonus.c 		\
-						ft_lstsize_bonus.c 		\
+						ft_garbage_collector_bff.c	\
+#						get_next_line.c 			\
+						get_next_line_utils.c 		\
+						ft_lstadd_back_bonus.c 		\
+						ft_lstadd_front_bonus.c 	\
+						ft_lstclear_bonus.c 		\
+						ft_lstdelone_bonus.c 		\
+						ft_lstiter_bonus.c 			\
+						ft_lstlast_bonus.c 			\
+						ft_lstmap_bonus.c 			\
+						ft_lstnew_bonus.c 			\
+						ft_lstsize_bonus.c 			\
 
 
 #PRGM_SRC_MAIN = $(wildcard src/*.c) $(wildcard src/*/*.c)

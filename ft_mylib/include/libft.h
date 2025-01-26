@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/26 10:07:33 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/26 11:17:44 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,9 @@
 # include <stdarg.h> 	// Variadic functions for fprintf and printf
 # include <stdlib.h>	// realloc,free|atoi,strtol|rand|exit|search/sort
 # include <stdio.h> 	// High Level Printers, I/O, Fd and erros
+# include <string.h>	// Actually can't use, only for testers...
 # include <stddef.h> 	// Defs of NULL, size_t(unsign int)
-
-
-
+# include <limits.h>	// Defs of INT_MAX, SIZE_MAX(size_t), LONG_MAX
 
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓	//
 
@@ -53,6 +52,11 @@
 // ft_realloc
 void	*ft_calloc(size_t count, size_t size);
 void	halt_exit_(int status);
+
+/* ***************************************************************** */
+/* ***************************************************************** */
+void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar);
+void	ft_free_fd(const char *filename);
 
 /* ***************************************************************** */
 /* ***************************************************************** */
