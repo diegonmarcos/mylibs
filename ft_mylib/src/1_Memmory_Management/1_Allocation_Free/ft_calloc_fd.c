@@ -10,7 +10,7 @@
 #define ft_atoi atoi
 
 // Function to allocate memory and record the pointer to a file
-void	*ft_calloc_fd(const char *filename, size_t count, size_t size)
+void	*ft_calloc_fd2(const char *filename, size_t count, size_t size)
 {
     // Allocate memory using standard calloc
 	void *ptr = calloc(count, size);
@@ -34,7 +34,7 @@ void	*ft_calloc_fd(const char *filename, size_t count, size_t size)
 }
 
 // Function to free all pointers recorded in the file
-void	ft_free_fd(const char *filename) {
+void	ft_free_fd2(const char *filename) {
     // Open the file in read mode
     FILE *file = fopen(filename, "r");
     if (file == NULL) {
@@ -48,7 +48,8 @@ void	ft_free_fd(const char *filename) {
     void *ptr;
 
     // Read each line from the file
-    while (fgets(line, sizeof(line), file) != NULL) {
+    while (fgets(line, sizeof(line), file) != NULL)
+	{
         // Parse the pointer address from the line
         if (sscanf(line, "%p", &ptr) == 1) {
             // Free the memory
@@ -63,7 +64,7 @@ void	ft_free_fd(const char *filename) {
     if (truncate(filename, 0) == -1)
 		write(1, "Alloc Error\n", 12);
 }
-
+/*
 int main()
 {
     // Example usage
@@ -88,4 +89,5 @@ int main()
     ft_free_fd("allocations.txt");
 
     return 0;
+	*/
 }
