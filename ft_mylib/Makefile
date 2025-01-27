@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/01/27 06:40:54 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/01/27 07:03:48 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -168,7 +168,7 @@ LIB_1_PATH = $(LIBS_DIR)/$(LIB_1_NAME)
 ### COMPILER AND FLAGS DECLARATION
 NAME1 = ft_mylib#Name as OUTPUT of the compiled									# If library DONT add prefix "lib" or the end it with ".a"(static) or ".sa"
 
-MAKE = make -j 8#																# Number of jobs to run in parallel	wihtou the number go max
+MAKE = make -j -O --no-print-directory #																# Number of jobs to run in parallel	wihtou the number go max
 COMPILER = clang
 
 LIB_COMP_STATIC = ar rcs
