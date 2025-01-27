@@ -16,7 +16,7 @@ find src/ -mindepth 1 -maxdepth 5 -type f -name "*.c" -print0 |
 while IFS= read -r -d $'\0' file; do
     filename=$(basename "$file")
     echo "Creating symbolic link for $file in src/src_all/$filename"
-    ln -s "$file" "src/src_all/$filename" || echo "Error creating symbolic link for $file"
+    ln -s "../${file#src/}" "src/src_all/$filename" || echo "Error creating symbolic link for $file"
 done
 
 # --- Second script ---
@@ -24,7 +24,7 @@ done
 #!/bin/bash
 
 # Go to the specified directory (add a check or use absolute path)
-cd ft_mylib/src/src_all
+cd src/src_all
 
 # Find all.c files, sort them alphabetically, and format the output
 find. -name "*.c" -print0 | sort -z | while IFS= read -r -d '' file; do
