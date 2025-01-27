@@ -6,20 +6,20 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:10:08 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/27 20:10:23 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/27 20:53:25 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_mylib.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-
+/*
 // Assuming a linked list structure like this
 typedef struct s_node
 {
 	int				data;
 	struct s_node	*next;
 }	t_node;
+*/
 
 // ############################################################################
 // DEBBUGING PRINTERS & LOGGERS
@@ -29,7 +29,7 @@ void	print_linkedlist_debbuging(t_node *head, int iterator)
 	FILE	*output_file;
 	t_node	*current;
 
-	output_file = fopen("debbuging.txt", "a"); // Open file in append mode
+	output_file = fopen("debbuging.txt", "a");
 	if (output_file == NULL)
 	{
 		perror("Error opening output file");
@@ -54,7 +54,7 @@ void	print_array_debbugging(int *arr, int size, int iterator)
 	FILE	*output_file;
 	int		i;
 
-	output_file = fopen("debbuging.txt", "a"); // Open file in append mode
+	output_file = fopen("debbuging.txt", "a");
 	if (output_file == NULL)
 	{
 		perror("Error opening output file");

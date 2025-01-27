@@ -71,9 +71,9 @@ void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar)
 // Function to free all pointers recorded in the file
 void	ft_free_fd(const char *filename)
 {
-	FILE	*file;///									file descrirtor number
-	char	line[1024];///								buffer holder or the read line
-	void	*pointers[MAX_ALLOCATIONS];///				Array to store pointers to do the revrse
+	FILE	*file
+	char	line[1024];
+	void	*pointers[MAX_ALLOCATIONS];
 	int		num_pointers;
 
 	file = fopen(filename, "r");
@@ -90,11 +90,9 @@ void	ft_free_fd(const char *filename)
 		else
 			write(2, "Parse Error\n", 13);
 	}
-																				// Free pointers in reverse order #debuging-line
 	num_pointers--;
 	while (num_pointers >= 0)
 	{
-//		printf("Freeing: %p\n", pointers[num_pointers]);
 		free(pointers[num_pointers]);
 		num_pointers--;
 	}

@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:09:17 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/25 17:11:13 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/27 20:43:34 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ Will check if second array exist, if not will just free the header
 
 void	ft_free(char **pointer)
 {
-	int i;
+	int	i;
 
 	if (pointer == NULL)
-		return;
-	for (i = 0; pointer[i] != NULL; i++)
+		return ;
+	i = 0;
+	while (pointer[i] != NULL)
 	{
 		free(pointer[i]);
 	}

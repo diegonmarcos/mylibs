@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/27 19:56:15 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/27 20:57:43 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,8 @@ size_t	ft_strlen(const char *str);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strjoin(char *filename, char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
-char	*ft_substr(char *filename, char const *s, unsigned int start, size_t len);
+char	*ft_substr(char *filename, char const *s, unsigned int start,
+			size_t len);
 char	**ft_split(char *filename, const char *s, char c);
 
 /* ***************************************************************** */
@@ -314,5 +315,10 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void*));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*));
 */
-
+// FOR THE PRINTERS DEBUGGERS
+typedef struct s_node
+{
+	int				data;
+	struct s_node	*next;
+}				t_node;
 #endif

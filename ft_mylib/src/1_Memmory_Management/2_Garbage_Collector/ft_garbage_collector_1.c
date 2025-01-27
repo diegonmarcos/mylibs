@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:57:56 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/25 16:02:23 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/27 20:35:29 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ void	ft_struct_initializator(t_list_garbage *list_garbage)
 /*
 int	main()
 {
-//	t_list_garbage list_garbage = { .allocated_pointers = {NULL}, .blocks_count = 0 };
+//	t_list_garbage list_garbage = { .allocated_pointers = {NULL},
+			 .blocks_count = 0 };
 	t_list_garbage list_garbage;
 
 	

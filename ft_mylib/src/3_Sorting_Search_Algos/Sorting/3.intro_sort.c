@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:34:07 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/27 20:04:34 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/27 20:36:20 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	partition(int arr[], int low, int high)
 	pivot = arr[high];
 	i = low - 1;
 	j = low;
-
 	while (j <= high - 1)
 	{
 		if (arr[j] < pivot)
@@ -125,7 +124,6 @@ void	intro_sort(int arr[], int n)
 	int	depthlimit;
 
 	depthlimit = 2 * ft_log_introsort(n);
-
 	quick_sort(arr, 0, n - 1, depthlimit);
 }
 

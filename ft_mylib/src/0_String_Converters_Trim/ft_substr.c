@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 11:00:43 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/27 10:22:52 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/27 20:44:13 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@
 
 #include "ft_mylib.h"
 
-char	*ft_substr(char *filename, const char *s, unsigned int start, size_t len)
+char	*ft_substr(char *filename, const char *s, unsigned int start,
+					size_t len)
 {
 	char		*str;
 	size_t		s_len;

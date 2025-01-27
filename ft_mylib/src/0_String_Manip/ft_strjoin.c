@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:59:40 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/27 10:05:34 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/27 20:39:53 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ char	*ft_strjoin(char *filename, const char *s1, const char *s2)
 		return (NULL);
 	i = 0;
 	j = 0;
-	res = (char *) ft_calloc_fd(filename, (ft_strlen(s1) + ft_strlen(s2) + 1), sizeof(char));
+	res = (char *) ft_calloc_fd(filename, (ft_strlen(s1) + ft_strlen(s2) + 1),
+			sizeof(char));
 	if (!res)
 		return (NULL);
 	while (s1[i])
