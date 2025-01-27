@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:59:11 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/27 07:27:34 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/27 10:29:35 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,14 @@ static void	ft_free(char **farray, int failed)
 	free(farray);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *filename, char const *s, char c)
 {
 	char	**array;
 	int		num_words;
 	int		i;
 	int		j;
 
-	array = (char **)ft_calloc(ft_countwords(s, c) + 1, sizeof(char *));
+	array = (char **)ft_calloc_fd(filename, ft_countwords(s, c) + 1, sizeof(char *));
 	if (!array || !s)
 		return (NULL);
 	i = 0;
@@ -87,7 +87,7 @@ char	**ft_split(char const *s, char c)
 		j = i;
 		while (s[i] && s[i] != c)
 			i++;
-		array[num_words] = ft_substr(s, j, i - j);
+		array[num_words] = ft_substr(filename, s, j, i - j);
 		if (!array[num_words++])
 			return (ft_free(array, num_words - 1), NULL);
 	}

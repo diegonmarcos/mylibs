@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dinepomu <dinepomu@student.42>             +#+  +:+       +#+        */
+/*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 11:00:43 by dinepomu          #+#    #+#             */
-/*   Updated: 2024/11/17 17:12:29 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/27 10:22:52 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 
 #include "libft.h"
 
-char	*ft_substr(const char *s, unsigned int start, size_t len)
+char	*ft_substr(char *filename, const char *s, unsigned int start, size_t len)
 {
 	char		*str;
 	size_t		s_len;
@@ -37,10 +37,10 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 		return (NULL);
 	s_len = ft_strlen(s);
 	if (start > s_len)
-		return (ft_strdup(""));
+		return (ft_strdup(filename, ""));
 	if (len > (s_len - (size_t)start))
 		len = (s_len - (size_t)start);
-	str = ft_calloc(len + 1, sizeof(char));
+	str = ft_calloc_fd(filename, len + 1, sizeof(char));
 	if (!str)
 		return (NULL);
 	ft_strlcpy(str, s + start, len + 1);

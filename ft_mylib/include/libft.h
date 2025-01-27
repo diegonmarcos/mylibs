@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/27 07:27:07 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/27 10:30:08 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,15 +102,15 @@ size_t	ft_strlen(const char *str);
 /* ***************************************************************** */
 /* ***************************************************************** */
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *filename, char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	**ft_split(const char *s, char c);
+char	*ft_substr(char *filename, char const *s, unsigned int start, size_t len);
+char	**ft_split(char *filename, const char *s, char c);
 
 /* ***************************************************************** */
 /* ***************************************************************** */
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-char	*ft_strdup(const char *s1);
+char	*ft_strdup(char *name, const char *s1);
 
 /* ***************************************************************** */
 /* ***************************************************************** */

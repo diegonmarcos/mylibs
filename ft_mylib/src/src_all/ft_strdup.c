@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dinepomu <dinepomu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:59:26 by dinepomu          #+#    #+#             */
-/*   Updated: 2024/11/19 15:31:27 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/27 10:06:18 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,13 @@
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(char *filename, const char *s1)
 {
 	char	*dest;
 	size_t	len;
 
 	len = ft_strlen(s1);
-	dest = (char *) malloc(len + 1);
+	dest = (char *) ft_calloc_fd(filename, len + 1, sizeof(char));
 	if (!dest)
 		return (NULL);
 	ft_strlcpy(dest, s1, len + 1);

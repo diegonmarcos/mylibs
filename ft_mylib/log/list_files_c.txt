@@ -22,10 +22,10 @@ src/0_Input_Output/2_gnl/2_gnl0/get_next_line.c		\
 src/0_Input_Output/2_gnl/2_gnl0/get_next_line_utils.c		\ 
 src/0_Input_Output/2_gnl/2_gnl2/get_next_line2.c		\ 
 src/0_Input_Output/2_gnl/2_gnl2/get_next_line2_utils.c		\ 
-src/0_String_Converters/ft_atoi.c		\ 
-src/0_String_Converters/ft_itoa.c		\ 
-src/0_String_Converters/ft_split.c		\ 
-src/0_String_Converters/ft_substr.c		\ 
+src/0_String_Converters_Trim/ft_atoi.c		\ 
+src/0_String_Converters_Trim/ft_itoa.c		\ 
+src/0_String_Converters_Trim/ft_split.c		\ 
+src/0_String_Converters_Trim/ft_substr.c		\ 
 src/0_String_Manip/ft_strchr.c		\ 
 src/0_String_Manip/ft_strdup.c		\ 
 src/0_String_Manip/ft_striteri.c		\ 

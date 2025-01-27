@@ -14,6 +14,27 @@
 //#define TEST_FILENAME "allocation_log.txt"
 //#define TEST_FILENAME "0"
 
+static void	*ft_memncpy_null_local(void *dst, const void *src, size_t n)
+{
+	unsigned char		*d;
+	const unsigned char	*s;
+	size_t				i;
+
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	d = (unsigned char *)dst;
+	s = (const unsigned char *)src;
+	i = 0;
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	if (n > 0)
+		d[n - 1] = '\0';
+	return (dst);
+}
+
 // This will output two files, because one need to be cleaned to 
 //avoid memory leakks over twice freed, and other for checking the
 //allocating history
@@ -23,7 +44,7 @@ void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar)
 	char	*ptr;
 	int		fd;
 	int		fd2;
-	char	*filename2;
+	char	filename2[100];
 
 	ptr = (char *)ft_calloc(count, sizeofvar);
 	if (ptr == NULL)
@@ -33,7 +54,7 @@ void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar)
 		fd = open(filename, O_CREAT | O_RDWR | O_APPEND, 0644);
 		if (fd == -1)
 			write(1, "Alloc Error2\n", 13);
-		filename2 = ft_strjoin(filename, "x");
+		ft_memncpy_null_local(filename2, filename, ft_strlen(filename) - 3);
 		fd2 = open(filename2, O_CREAT | O_RDWR | O_APPEND, 0644);
 		if (fd2 == -1)
 			write(1, "Alloc Error3\n", 13);
