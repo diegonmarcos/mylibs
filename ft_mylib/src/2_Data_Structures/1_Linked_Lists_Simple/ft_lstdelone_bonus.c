@@ -27,7 +27,7 @@
  * ************************************************************************** *
  */
 
-#include "libft.h"
+#include "ft_mylib.h"
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {

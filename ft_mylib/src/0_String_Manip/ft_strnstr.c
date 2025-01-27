@@ -31,7 +31,7 @@
  * ************************************************************************** *
  */
 
-#include "libft.h"
+#include "ft_mylib.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {

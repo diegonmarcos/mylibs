@@ -26,7 +26,7 @@
  * ************************************************************************** *
  */
 
-#include "libft.h"
+#include "ft_mylib.h"
 
 void	ft_putstr_fd(char *str, int fd)
 {

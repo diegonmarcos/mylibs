@@ -26,7 +26,7 @@
  * ************************************************************************** *
  */
 
-#include "libft.h"
+#include "ft_mylib.h"
 
 static int	ft_char_in_set(char c, char const *set)
 {

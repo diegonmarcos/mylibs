@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_mylib.h"
 
 void	ft_swap_pointers(t_list **a, t_list **b)
 {

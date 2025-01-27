@@ -26,7 +26,7 @@
  * ************************************************************************** *
  */
 
-#include "libft.h"
+#include "ft_mylib.h"
 
 t_list	*ft_lstnew(void *content)
 {

@@ -27,7 +27,7 @@
  * ************************************************************************** *
  */
 
-#include "libft.h"
+#include "ft_mylib.h"
 
 void	ft_putendl_fd(char *str, int fd)
 {

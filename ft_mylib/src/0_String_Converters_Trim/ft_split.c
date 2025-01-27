@@ -29,7 +29,7 @@
  * ************************************************************************** *
  */
 
-#include "libft.h"
+#include "ft_mylib.h"
 
 static int	ft_countwords(char const *s, char c)
 {

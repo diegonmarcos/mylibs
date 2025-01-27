@@ -26,7 +26,7 @@
  * ************************************************************************** *
  */
 
-#include "libft.h"
+#include "ft_mylib.h"
 
 char	*ft_substr(char *filename, const char *s, unsigned int start, size_t len)
 {

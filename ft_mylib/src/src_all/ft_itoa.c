@@ -26,7 +26,7 @@
  * ************************************************************************** *
  */
 
-#include "libft.h"
+#include "ft_mylib.h"
 
 static int	ft_digit_count(long int i)
 {

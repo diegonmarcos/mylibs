@@ -28,7 +28,7 @@
  * ************************************************************************** *
  */
 
-#include "libft.h"
+#include "ft_mylib.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {

@@ -27,7 +27,7 @@
  * ************************************************************************** *
  */
 
-#include "libft.h"
+#include "ft_mylib.h"
 
 void	ft_bzero(void *s, size_t n)
 {

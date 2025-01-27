@@ -30,7 +30,7 @@
  * ************************************************************************** *
  */
 
-#include "libft.h"
+#include "ft_mylib.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

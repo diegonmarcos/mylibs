@@ -27,7 +27,7 @@
  * ************************************************************************** *
  */
 
-#include "libft.h"
+#include "ft_mylib.h"
 
 size_t	ft_strlen(const char *s)
 {

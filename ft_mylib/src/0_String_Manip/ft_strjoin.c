@@ -26,7 +26,7 @@
  * ************************************************************************** *
  */
 
-#include "libft.h"
+#include "ft_mylib.h"
 
 char	*ft_strjoin(char *filename, const char *s1, const char *s2)
 {

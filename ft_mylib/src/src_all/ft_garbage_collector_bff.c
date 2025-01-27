@@ -49,7 +49,7 @@ void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar)
 	ptr = (char *)ft_calloc(count, sizeofvar);
 	if (ptr == NULL)
 		write(1, "Alloc Error1\n", 13);
-	if(ft_strncmp(filename, "0", 1))
+	if (ft_strncmp(filename, "0", 1))
 	{
 		fd = open(filename, O_CREAT | O_RDWR | O_APPEND, 0644);
 		if (fd == -1)
@@ -93,7 +93,6 @@ void	ft_free_fd(const char *filename)
 	num_pointers--;
 	while (num_pointers >= 0)
 	{
-//		printf("Freeing: %p\n", pointers[num_pointers]);
 		free(pointers[num_pointers]);
 		num_pointers--;
 	}

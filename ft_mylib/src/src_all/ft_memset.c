@@ -28,7 +28,7 @@
  * ************************************************************************** *
  */
 
-#include "libft.h"
+#include "ft_mylib.h"
 
 void	*ft_memset(void *b, int c, size_t len)
 {

@@ -1,2 +1,2 @@
-objs/ft_strrchr.o: src/src_all/ft_strrchr.c include/libft.h
-include/libft.h:
+objs/ft_strrchr.o: src/src_all/ft_strrchr.c include/ft_mylib.h
+include/ft_mylib.h:

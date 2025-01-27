@@ -1,2 +1,2 @@
-objs/ft_strdup.o: src/src_all/ft_strdup.c include/libft.h
-include/libft.h:
+objs/ft_strdup.o: src/src_all/ft_strdup.c include/ft_mylib.h
+include/ft_mylib.h:
