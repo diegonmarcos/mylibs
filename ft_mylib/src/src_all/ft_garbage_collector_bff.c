@@ -71,8 +71,9 @@ void	ft_free_fd(const char *filename)
 	}
 	while (num_pointers > 0)
 	{
-		printf("Freeing: %p\n", pointers[num_pointers - 1]);
-		free(pointers[num_pointers--]);
+		printf("Freeing: %p\n", pointers[num_pointers]);
+		free(pointers[num_pointers]);
+		num_pointers--;
 	}
 	if (unlink(filename) == -1)
 	{

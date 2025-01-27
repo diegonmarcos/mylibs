@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/26 18:37:50 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/27 06:32:58 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 # include <fcntl.h>		// file control O_RDONLY, O_RDWR, O_APPEND, O_TRUNC
 # include <stdarg.h> 	// Variadic functions for fprintf and printf
 # include <stdlib.h>	// realloc,free|atoi,strtol|rand|exit|search/sort
-# include <stdio.h> 	// High Level Printers, I/O, Fd and erros
+# include <stdio.h> 	// High Level I/O(frwrite,fread/fprintf) and erros
 # include <string.h>	// Actually can't use, only for testers...
 # include <stddef.h> 	// Defs of NULL, size_t(unsign int)
 # include <limits.h>	// Defs of INT_MAX, SIZE_MAX(size_t/uInt), LONG_MAX
