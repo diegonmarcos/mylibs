@@ -39,8 +39,8 @@ void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar)
 			write(1, "Alloc Error3\n", 13);
 		if (ft_fprintf1(filename, "%p;\n", ptr) < 0)
 			write(1, "Alloc Error4\n", 13);
-//		if (ft_fprintf1(filename2, "%p;\n", ptr) < 0)
-//			write(1, "Alloc Error5\n", 13);
+		if (ft_fprintf1(filename2, "%p;\n", ptr) < 0)
+			write(1, "Alloc Error5\n", 13);
 		close(fd);
 		close(fd2);
 	}
@@ -64,23 +64,19 @@ void	ft_free_fd(const char *filename)
 	num_pointers = 0;
 	while (fgets(line, sizeof(line), file) != NULL)
 	{
-		if (num_pointers < MAX_ALLOCATIONS && sscanf(line, "%p;", &pointers[num_pointers]) == 1)
+		if (sscanf(line, "%p;", &pointers[num_pointers]) == 1)
 			num_pointers++;
 		else
 			write(2, "Parse Error\n", 13);
 	}
-	while (num_pointers > 0)
+	num_pointers--;
+	while (num_pointers >= 0)
 	{
-		printf("Freeing: %p\n", pointers[num_pointers]);
 		free(pointers[num_pointers]);
 		num_pointers--;
 	}
 	if (unlink(filename) == -1)
-	{
 		write(2, "Error deleting file\n", 20);
-		fclose(file);
-		return;
-	}
 	fclose(file);
 }
 

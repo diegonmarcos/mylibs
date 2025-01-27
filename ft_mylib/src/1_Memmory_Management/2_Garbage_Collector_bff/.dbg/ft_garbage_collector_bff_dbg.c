@@ -69,12 +69,17 @@ void	ft_free_fd(const char *filename)
 		else
 			write(2, "Parse Error\n", 13);
 	}
-	fclose(file);
 																				// Free pointers in reverse order #debuging-line
-	while (num_pointers > 0)
-		free(pointers[--num_pointers]);
+	num_pointers--;
+	while (num_pointers >= 0)
+	{
+//		printf("Freeing: %p\n", pointers[num_pointers]);
+		free(pointers[num_pointers]);
+		num_pointers--;
+	}
 	if (unlink(filename) == -1)
 		write(2, "Error deleting file\n", 20);
+	fclose(file);
 }
 
 //tester for the garbage collector with buffer file
