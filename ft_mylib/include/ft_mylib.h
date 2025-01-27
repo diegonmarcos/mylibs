@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/27 20:57:43 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/27 21:11:04 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,7 +179,12 @@ int		ft_printf(const	char *str, ...);
  * function.
  */
 //
-unsigned int	ft_num_unsign(unsigned int num);
+/**
+ * @brief Converts an unsigned integer to its unsigned representation.
+ * It is useful for ensuring that the number is treated as an unsigned
+ * value in various operations.
+ */
+size_t	ft_num_unsign(size_t num);
 /**
  * @brief Converts an unsigned integer to its unsigned representation.
  * It is useful for ensuring that the numberis treated as an unsigned 
@@ -321,4 +326,5 @@ typedef struct s_node
 	int				data;
 	struct s_node	*next;
 }				t_node;
+
 #endif
