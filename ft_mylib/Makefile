@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/01/27 06:08:50 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/01/27 06:40:54 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -246,7 +246,7 @@ program:	$(OBJECTS) libs_build
 
 lib:	$(OBJECTS)
 		@$(LIB_COMP_STATIC) $(NAME) $(OBJECTS)
-		@echo "$(RED)(•̀ᴗ•́)و LIBRARY GENERATED!$(RESET)"
+		@echo "$(YELLOW)(•̀ᴗ•́)و LIBRARY GENERATED!$(RESET)"
 
 # **************************************************************************** #
 #                                 RULES/RECLEAN                                #

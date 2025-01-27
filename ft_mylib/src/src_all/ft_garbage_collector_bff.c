@@ -39,8 +39,8 @@ void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar)
 			write(1, "Alloc Error3\n", 13);
 		if (ft_fprintf1(filename, "%p;\n", ptr) < 0)
 			write(1, "Alloc Error4\n", 13);
-		if (ft_fprintf1(filename2, "%p;\n", ptr) < 0)
-			write(1, "Alloc Error5\n", 13);
+//		if (ft_fprintf1(filename2, "%p;\n", ptr) < 0)
+//			write(1, "Alloc Error5\n", 13);
 		close(fd);
 		close(fd2);
 	}
