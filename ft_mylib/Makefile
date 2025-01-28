@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/01/27 22:40:37 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/01/28 10:15:53 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,7 @@ LIB_SRC_FUNCTIONS = 	0.bubble_sort.c			\
 						bst.c				\
 						flood_fill.c		\
 						ft_atoi.c			\
+						ft_atoi_base.c		\
 						ft_bzero.c			\
 						ft_calloc.c			\
 						ft_fprintf1.c		\
@@ -129,12 +130,13 @@ LIB_SRC_FUNCTIONS = 	0.bubble_sort.c			\
 						ft_substr.c			\
 						ft_tolower.c		\
 						ft_toupper.c		\
+						get_next_line.c			\
+						get_next_line_utils.c		\
 						get_next_line2.c			\
 						get_next_line2_utils.c		\
 						linked_list_doubly1.c		\
 						linked_list_doubly2.c		\
 						print_bits.c				\
-						printers_db.c				\
 						reverse_bits.c				\
 						swap_bits.c					\
 						halt_exit.c					\

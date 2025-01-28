@@ -101,7 +101,7 @@ void	ft_free_fd(const char *filename)
 	fclose(file);
 }
 
-void	ft_free_fd_new(const char *filename)
+void	ft_free_fd_new(char *filename)
 {
 	int		fd;
 	char	*line;
@@ -120,7 +120,7 @@ void	ft_free_fd_new(const char *filename)
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
-		split = ft_split(line, ';');
+		split = ft_split(filename, line, ';');
 		if (split == NULL)
 			write(2, "Split Error\n", 12);
 		i = 0;

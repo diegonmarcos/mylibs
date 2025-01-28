@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/27 22:44:36 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/28 10:27:47 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
 int		ft_atoi(const char *str);
+void	*ft_atoi_base(const char *str, int str_base);
 char	*ft_itoa(int n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
@@ -227,7 +228,7 @@ char	*ft_strjoin_gnl(char *left_str, char *buff, int c);
 /**
  * @brief Concatenates two strings and returns a pointer to the new string.
  */
-int		ft_read_to_left_str(int fd, char **left_str);
+int		ft_read_to_left_str2(int fd, char **left_str);
 /**
  * @brief Updates the left_str by removing the line that has been read.
  * @param left_str The string to update.
@@ -254,7 +255,6 @@ char	*get_next_line(int fd);
  * @param fd The file descriptor to read from.
  * @return A pointer to the next line read from the file descriptor.
  */
-
 //
 char	*ft_new_left_str(char *left_str);
 /**

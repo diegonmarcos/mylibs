@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:14 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/26 00:00:32 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/28 10:30:28 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_read_to_left_str(int fd, char *left_str)
 	if (!buff)
 		return (NULL);
 	rd_bytes = 1;
-	while (!ft_strchr(left_str, '\n') && rd_bytes != 0)
+	while (!ft_strchr_gnl(left_str, '\n') && rd_bytes != 0)
 	{
 		rd_bytes = read(fd, buff, BUFFER_SIZE);
 		if (rd_bytes == -1)
@@ -32,7 +32,7 @@ char	*ft_read_to_left_str(int fd, char *left_str)
 			return (NULL);
 		}
 		buff[rd_bytes] = '\0';
-		left_str = ft_strjoin(left_str, buff, '\0');
+		left_str = ft_strjoin_gnl(left_str, buff, '\0');
 	}
 	free(buff);
 	return (left_str);

@@ -1,1 +1,0 @@
-../9_Quality_Assurance/Printers_Debugers/printers_db.c
