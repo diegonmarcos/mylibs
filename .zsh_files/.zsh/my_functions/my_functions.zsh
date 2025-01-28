@@ -1,14 +1,19 @@
 #!/usr/bin/env zsh
 
+### COMPILERS no LIB
+# --- Compile FILES
 function c {
-  clang "$1" -o "$(basename "$1" .c).out"
+	clang "$@" -o "$(basename "$1" .c).out"
+	./"$(basename "$1" .c).out" "${@}"
 }
 
+# --- Compile FILE+ARG and Execute
 function cx {
   clang "$1" -o "$(basename "$1" .c).out"
   ./"$(basename "$1" .c).out" "${@:2}"
 }
 
+# --- Compile and proofing Clang flasg checker
 function ce {
   # --- Clang/gcc flags
   echo -e "\n\n\n##########################"
@@ -49,11 +54,46 @@ function ce {
 
 }
 
+### COMPILERS WITH LIB
+# --- Compile FILES with Library
+function cl {
+	lib_header="/home/diego/Documents/Git/libft_xtend/ft_mylib/include"
+	lib_addss="/home/diego/Documents/Git/libft_xtend"
+	lib_name="ft_mylib"
+	clang "$1" -I"${lib_header}" -L"${lib_addss}" -l"${lib_name}" -o "$(basename "$1" .c).out"
+	./"$(basename "$1" .c).out" "${@}"
+}
+
+# --- Compile FILE+ARG with Library and Execute
+function clx {
+	lib_header="/home/diego/Documents/Git/libft_xtend/ft_mylib/include"
+	lib_addss="/home/diego/Documents/Git/libft_xtend"
+	lib_name="ft_mylib"
+	clang "$1" -I"${lib_header}" -L"${lib_addss}" -l"${lib_name}" -o "$(basename "$1" .c).out"
+	./"$(basename "$1" .c).out" "${@:2}"
+}
+
+### DEBUGERS
+# --- LLDB
 function cdb {
-  # --- LLDB
   echo -e "\n\n\n##########################"
   echo -e "##### LLDB ##########"
   echo -e "##########################\n\n"
   clang "$1" -o "$(basename "$1" .c)_dbD.db.out" -g
   lldb ./"$(basename "$1" .c)_dbD.db.out" "${@:2}"
+}
+
+### MAKE UTILS
+# --- CODE CLEANER
+function code_cleaner {
+	folder="/home/diego/Documents/Git/libft_xtend/ft_mylib/src/9_Quality_Assurance/Code_Cleaner"
+	file="clean_code.sh"
+	"$folder/$file" "$@"
+}
+
+# --- Search Recursively and Consolidate with Symb Link
+function file_consol_lns {
+	folder="/home/diego/Documents/Git/libft_xtend/ft_mylib/src/9_Quality_Assurance/Make_Utils"
+	file="files_lns.sh"
+	./"$folder/$file" "$@"
 }

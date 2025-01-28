@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/28 10:27:47 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/28 12:10:39 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	halt_exit(int status, char *description);
 /* ***************************************************************** */
 void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar);
 void	ft_free_fd(const char *filename);
+void	ft_free_fd_new(char *filename);
 
 /* ***************************************************************** */
 /* ***************************************************************** */
@@ -171,103 +172,36 @@ int		ft_pointer_hexa_fpr(long fd, void *p);
 /* ***************************************************************** */
 //FT_PRINTF
 int		ft_printf(const	char *str, ...);
-/**
- * @brief Prints formatted output to the standard output.
- *
- * This function takes a format string and a variable number of arguments
- * and prints the formatted output to the standard output. It supports
- * a subset of the format specifiers supported by the standard printf
- * function.
- */
-//
-/**
- * @brief Converts an unsigned integer to its unsigned representation.
- * It is useful for ensuring that the number is treated as an unsigned
- * value in various operations.
- */
 size_t	ft_num_unsign(size_t num);
-/**
- * @brief Converts an unsigned integer to its unsigned representation.
- * It is useful for ensuring that the numberis treated as an unsigned 
- * value in various operations.
- */
 int		ft_pointer_hexa(void *p);
-/**
- * @brief Converts a pointer to its hexadecimal representation.
- */
 int		ft_hexa_minusc(int num);
-/**
- * @brief Converts an integer to its hexadecimal representation.
- */
 int		ft_hexa_mayusc(int num);
-/**
- * @brief Converts an integer to its hexadecimal representation.
- */
 
 /* ***************************************************************** */
 /* ***************************************************************** */
 //GET_NEXT_LINE2
 int		get_next_line2(int fd, char **line);
-/**
- * @brief Reads the next line from the file descriptor.
- * @param fd The file descriptor to read from.
- * @return A pointer to the next line read from the file descriptor.
- */
-
 //
 size_t	ft_strlen_gnl(char *s, int c);
-/**
-* @brief Returns the size of the string.
-*/
 char	*ft_strchr_gnl(char *s, int c);
-/**
- * @brief Returns a pointer to the first occurrence of the character c in the
- * 			string s.
- */
 char	*ft_strjoin_gnl(char *left_str, char *buff, int c);
-/**
- * @brief Concatenates two strings and returns a pointer to the new string.
- */
 int		ft_read_to_left_str2(int fd, char **left_str);
-/**
- * @brief Updates the left_str by removing the line that has been read.
- * @param left_str The string to update.
- */
 char	*ft_new_left_str(char *left_str);
-/**
- * @brief Extracts the next line from the left_str.
- * @param left_str The string to extract the line from.
- * @return A pointer to the extracted line.
- */
 char	*ft_get_line(char *left_str);
-/**
- * @brief Extracts the next line from the left_str.
- * @param left_str The string to extract the line from.
- * @return A pointer to the extracted line.
- */
 
 /* ***************************************************************** */
 /* ***************************************************************** */
 //GET_NEXT_LINE
 char	*get_next_line(int fd);
-/**
- * @brief Reads the next line from the file descriptor.
- * @param fd The file descriptor to read from.
- * @return A pointer to the next line read from the file descriptor.
- */
-//
 char	*ft_new_left_str(char *left_str);
-/**
- * @brief Extracts the next line from the left_str.
- * @param left_str The string to extract the line from.
- * @return A pointer to the extracted line.
- */
 char	*ft_get_line(char *left_str);
-/**
- * @brief Reads the next line from the file descriptor.
- * @param fd The file descriptor to read from.
- * @return A pointer to the next line read from the file descriptor.
- */
+
+/* ***************************************************************** */
+/* ***************************************************************** */
+// FGETS(gnl) | FGETS2(gnl2) | FSCANF(ft_split)
+int		ft_fgets(char **line, int fd);
+void	ft_scanf(char *filename, char *line, void **pointers,
+			int *num_pointers);
 
 /*#########################################################################	*/
 /* 4. ALGOS																	*/
@@ -288,8 +222,6 @@ void	intro_sort(int arr[], int n);
 void	swap_introsort(int *a, int *b);
 int		partition(int arr[], int low, int high);
 void	heapify(int arr[], int n, int i);
-
-
 
 /*#########################################################################	*/
 /* 5. DATA STRUCTURES														*/

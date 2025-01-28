@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:34:07 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/27 23:01:54 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/28 12:55:01 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,6 @@ This is the implementation of intro sort algorithm. It is a hybrid sorting
 	performance. It begins with quicksort and switches to heapsort when the 
 	recursion depth exceeds a level based on the number of elements being sorted.
 */
-void	heapify(int arr[], int n, int i)
-{
-	int	largest;
-	int	l;
-	int	r;
-
-	largest = i;
-	l = 2 * i + 1;
-	r = 2 * i + 2;
-	if (l < n && arr[l] > arr[largest])
-		largest = l;
-	if (r < n && arr[r] > arr[largest])
-		largest = r;
-	if (largest != i)
-	{
-		swap_introsort(&arr[i], &arr[largest]);
-		heapify(arr, n, largest);
-	}
-}
 
 void	heap_sort(int arr[], int n)
 {
@@ -96,6 +77,7 @@ void	intro_sort(int arr[], int n)
 
 /*
 int	main(void)
+
 {
 	int	arr[] = {10, 7, 8, 9, 1, 5};
 	int	n = sizeof(arr) / sizeof(arr[0]);
@@ -107,5 +89,4 @@ int	main(void)
 		printf("%d ", arr[i]);
 	}
 	return 0;
-}
-*/
+}*/

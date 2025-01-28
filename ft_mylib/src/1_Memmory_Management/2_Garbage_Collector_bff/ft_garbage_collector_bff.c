@@ -101,14 +101,39 @@ void	ft_free_fd(const char *filename)
 	fclose(file);
 }
 
+int	ft_fgets(char **line, int fd)
+{
+	*line = get_next_line(fd);
+	if (*line)
+		return (1);
+	return (0);
+}
+
+void	ft_scanf(char *filename, char *line, void **pointers, int *num_pointers)
+{
+	char	**split;
+	int		i;
+
+	split = ft_split(filename, line, ';');
+	if (split == NULL)
+		write(2, "Split Error\n", 12);
+	i = 0;
+	while (split[i]!= NULL)
+	{
+		pointers[*num_pointers] = (void *)ft_atoi_base(split[i], 16);
+		(*num_pointers)++;
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
+
 void	ft_free_fd_new(char *filename)
 {
 	int		fd;
 	char	*line;
 	void	*pointers[MAX_ALLOCATIONS];
 	int		num_pointers;
-	char	**split;
-	int		i;
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
@@ -116,29 +141,23 @@ void	ft_free_fd_new(char *filename)
 		write(1, "Alloc Error6\n", 13);
 		return ;
 	}
+	line = NULL;
 	num_pointers = 0;
-	line = get_next_line(fd);
-	while (line != NULL)
+	while (ft_fgets(&line, fd))
 	{
-		split = ft_split(filename, line, ';');
-		if (split == NULL)
-			write(2, "Split Error\n", 12);
-		i = 0;
-		while (split [i] != NULL)
-		{
-			pointers[num_pointers++] = (void *)ft_atoi_base(split[i], 16);
-			free(split[i++]);
-		}
-		free(split);
+		ft_scanf(filename, line, pointers, &num_pointers);
 		free(line);
-		line = get_next_line(fd);
 	}
 	num_pointers--;
 	while (num_pointers >= 0)
+	{
+		ft_fprintf1(filename, "Freing:%p\n", pointers[num_pointers]);
 		free(pointers[num_pointers--]);
+		ft_fprintf1(filename, "freed!\n");
+	}
+	close(fd);
 	if (unlink(filename) == -1)
 		write(2, "Error deleting file\n", 20);
-	close(fd);
 }
 
 //tester for the garbage collector with buffer file

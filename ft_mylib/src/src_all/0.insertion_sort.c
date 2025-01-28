@@ -1,1 +1,1 @@
-../3_Sorting_Search_Algos/Sorting/0.insertion_sort.c
+../3_Sorting_Search_Algos/Sorting_Arrays/0.insertion_sort.c

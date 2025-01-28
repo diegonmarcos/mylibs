@@ -2,6 +2,10 @@
 
 Libft isn't just *a* C library, it's **your secret weapon** for conquering any coding challenge!  This versatile toolkit is packed with functions to make your C programming journey smoother, faster, and more fun. Whether you're a student, hobbyist, or seasoned developer, Libft has something awesome for you.
 
+``` bash
+clang *.c -I../../../include -L../../../../ -lft_mylib -o filename.out
+```
+
 ## 🎉 Feature Fiesta! 🎉
 
 Libft is your one-stop shop for all things C, neatly organized into these powerful modules:
