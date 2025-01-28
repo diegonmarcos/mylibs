@@ -6,14 +6,14 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:14 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/28 10:23:33 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/28 17:34:03 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mylib.h"
 #include <unistd.h>
 
-int	ft_read_to_left_str(int fd, char **left_str)
+int	ft_read_to_left_str2(int fd, char **left_str)
 {
 	char	*buff;
 	int		rd_bytes;
@@ -52,7 +52,7 @@ int	get_next_line2(int fd, char **line)
 	{
 		if (fd < 0 || BUFFER_SIZE <= 0 || !line)
 			return (1);
-		status = ft_read_to_left_str(fd, &left_str);
+		status = ft_read_to_left_str2(fd, &left_str);
 		if (status == 1)
 			return (1);
 		if (status == 0 && (!left_str || !*left_str))

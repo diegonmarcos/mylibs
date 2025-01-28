@@ -78,10 +78,7 @@ void	ft_free_fd(const char *filename)
 
 	file = fopen(filename, "r");
 	if (file == NULL)
-	{
-		write(1, "Alloc Error6\n", 13);
 		return ;
-	}
 	num_pointers = 0;
 	while (fgets(line, sizeof(line), file) != NULL)
 	{

@@ -75,6 +75,13 @@ void	ft_free_fd(const char *filename)
 	char	line[1024];
 	void	*pointers[MAX_ALLOCATIONS];
 	int		num_pointers;
+	
+	static int already_freed = 0;
+    if (already_freed) {
+        fprintf(stderr, "ft_free_fd() called multiple times. Skipping.\n");
+        return;
+    }
+    already_freed = 1;
 
 	file = fopen(filename, "r");
 	if (file == NULL)
@@ -93,7 +100,11 @@ void	ft_free_fd(const char *filename)
 	num_pointers--;
 	while (num_pointers >= 0)
 	{
-		free(pointers[num_pointers]);
+		if (pointers[num_pointers] != NULL)
+		{
+			free(pointers[num_pointers]);
+			pointers[num_pointers] = NULL;
+		}
 		num_pointers--;
 	}
 	if (unlink(filename) == -1)

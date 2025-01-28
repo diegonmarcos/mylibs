@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/01/28 10:15:53 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/01/28 23:10:29 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,6 +56,8 @@
 IS_PROGRAM_AND_NOT_LIB = 0
 INCLUDE_LIB = 0
 BUILD_LIBRARY = 0
+
+.SILENT:
 
 #IS_LIB_STATIC_AND_NOT_DYNAMIC = 1
 
@@ -181,7 +183,7 @@ LIB_COMP_STATIC = ar rcs
 CFLAGS_INCL = -Iinclude -Ilibs/include											# Folder to look for headers:inlcude and libs
 
 CFLAGS_DBG = -Wall -Wextra -Werror
-#CFLAGS_DBG += -g
+CFLAGS_DBG += -g3
 #CFLAGS_DBG += -fsanitize=address -lasan
 
 CFLAGS = $(CFLAGS_INCL) $(CFLAGS_DBG)
