@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/27 21:11:04 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/27 22:44:36 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -277,6 +277,19 @@ char	*ft_get_line(char *left_str);
 /* ***************************************************************** */
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+/* ***************************************************************** */
+/* ***************************************************************** */
+void	heapify(int arr[], int n, int i);
+void	heap_sort(int arr[], int n);
+void	quick_sort(int arr[], int low, int high, int depthlimit);
+int		ft_log_introsort(int n);
+void	intro_sort(int arr[], int n);
+void	swap_introsort(int *a, int *b);
+int		partition(int arr[], int low, int high);
+void	heapify(int arr[], int n, int i);
+
+
 
 /*#########################################################################	*/
 /* 5. DATA STRUCTURES														*/

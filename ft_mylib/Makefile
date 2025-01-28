@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/01/27 07:03:48 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/01/27 22:40:37 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,8 @@ LIB_SRC_FUNCTIONS = 	0.bubble_sort.c			\
 						1.merge_sort.c			\
 						1.quick_sort.c		\
 						2.radix_sort.c		\
-						3.intro_sort.c		\
+						3.intro_sort0.c		\
+						3.intro_sort1.c		\
 						L2_graycode.c		\
 						bitwise.c			\
 						bst.c				\

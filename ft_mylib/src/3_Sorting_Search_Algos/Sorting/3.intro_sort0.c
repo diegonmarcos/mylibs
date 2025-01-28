@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   3.intro_sort.c                                     :+:      :+:    :+:   */
+/*   3.intro_sort0.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:34:07 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/27 20:36:20 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/27 23:01:54 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <math.h>
+#include "ft_mylib.h"
 
 /*
 objective: Implement the intro sort algorithm.
@@ -21,38 +20,6 @@ This is the implementation of intro sort algorithm. It is a hybrid sorting
 	performance. It begins with quicksort and switches to heapsort when the 
 	recursion depth exceeds a level based on the number of elements being sorted.
 */
-
-void	swap_introsort(int *a, int *b)
-{
-	int	temp;
-
-	temp = *a;
-	*a = *b;
-	*b = temp;
-}
-
-int	partition(int arr[], int low, int high)
-{
-	int	pivot;
-	int	i;
-	int	j;
-
-	pivot = arr[high];
-	i = low - 1;
-	j = low;
-	while (j <= high - 1)
-	{
-		if (arr[j] < pivot)
-		{
-			i++;
-			swap_introsort(&arr[i], &arr[j]);
-		}
-		j++;
-	}
-	swap_introsort(&arr[i + 1], &arr[high]);
-	return (i + 1);
-}
-
 void	heapify(int arr[], int n, int i)
 {
 	int	largest;

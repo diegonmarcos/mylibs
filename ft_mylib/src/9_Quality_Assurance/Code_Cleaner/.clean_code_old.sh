@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# filepath: /home/diego/Documents/Git/DevelopmentProjects/42_Common/C2_push_swap/2.CODE/src/push_swap/dbg/clean_code.sh
-
 replace_spaces_with_tabs() {
   local input_file="$1"
   local output_file="$2"
@@ -10,6 +8,15 @@ replace_spaces_with_tabs() {
     echo "Error: File '$input_file' not found."
     return 1
   fi
+
+  # Replace 16 spaces with 4 tabs
+  sed 's/                /\t\t\t\t/g' "$input_file" > "$output_file"
+
+  # Replace 12 spaces with 3 tabs
+  sed -i 's/            /\t\t\t/g' "$output_file"
+
+  # Replace 8 spaces with 2 tabs
+  sed -i 's/        /\t\t/g' "$output_file"
 
   # Replace 4 spaces with 1 tab
   sed -i 's/    /\t/g' "$output_file"
@@ -27,8 +34,7 @@ remove_spaces_after_declarations() {
   fi
 
   # Remove spaces after specific keywords, only if not already followed by a tab
-  sed -E 's/^( *)(char|int|t_list)( +)/\1\2\t/g' "$input_file" > "$output_file.tmp"
-  mv "$output_file.tmp" "$output_file"
+  sed -E 's/^( *)(char|int|t_list)( +)/\1\2\t/g' "$input_file" > "$output_file"
 
   echo "Spaces after declarations replaced with tabs in '$output_file'."
 }
@@ -92,35 +98,28 @@ remove_comments_and_debug_lines() {
   echo "Debug lines and blocks removed. Output written to: $output_file"
 }
 
-process_file() {
-  local input_file="$1"
-  local output_file="$(basename "$input_file" | sed 's/_dbg//')"
-
-  echo "Processing file: $input_file -> $output_file"
-
-  remove_comments_and_debug_lines "$input_file" "$output_file"
-  remove_spaces_after_declarations "$output_file" "$output_file"
-  replace_spaces_with_tabs "$output_file" "$output_file"
-}
-
-move_files_up() {
-  local files=("$@")
-  for file in "${files[@]}"; do
-    local output_file="$(basename "$file" | sed 's/_dbg//')"
-    mv "$output_file" ../
-    echo "Moved $output_file to parent directory."
-  done
-}
-
-if [[ "$1" == "all" ]]; then
-  files=($(find . -type f -name "*.c"))
-  for file in "${files[@]}"; do
-    process_file "$file"
-  done
-  move_files_up "${files[@]}"
-else
-  for input_file in "$@"; do
-    process_file "$input_file"
-  done
-  move_files_up "$@"
+# Check if a filename is provided
+if [[ $# -eq 0 ]]; then
+  echo "Error: No filename provided."
+  echo "Usage: $0 <filename> [output_filename]"
+  exit 1
 fi
+
+input_file="$1"
+output_file="$(basename "$1" | sed 's/_dbg//')"  			# Remove the "_dbg" pattern from the filename
+#output_file="$(basename "$1" .c)_clean.c" 					# Use a default output filename if not provided
+
+
+# Create temporary output files
+temp_output_file1="$(basename "$1" .c)_tmp1.c"
+temp_output_file2="$(basename "$1" .c)_tmp2.c"
+
+# Call the functions with the filename as argument
+replace_spaces_with_tabs "$input_file" "$temp_output_file1"
+remove_spaces_after_declarations "$temp_output_file1" "$temp_output_file2"
+#remove_spaces_after_declarations $input_file" "$temp_output_file2"
+remove_comments_and_debug_lines "$temp_output_file2" "$output_file"
+
+# Remove temporary output files
+rm "$temp_output_file1"
+rm "$temp_output_file2"

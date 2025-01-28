@@ -57,3 +57,18 @@ function cdb {
   clang "$1" -o "$(basename "$1" .c)_dbD.db.out" -g
   lldb ./"$(basename "$1" .c)_dbD.db.out" "${@:2}"
 }
+
+function code_cleaner {
+# --- CODE CLEANER
+	folder="/home/diego/Documents/Git/libft_xtend/ft_mylib/src/9_Quality_Assurance/Code_Cleaner"
+	file="clean_code.sh"
+	"$folder/$file" "$@"
+}
+
+function file_consol_lns {
+# --- Search Recursively and Consolidate with Symb Link
+	folder="/home/diego/Documents/Git/libft_xtend/ft_mylib/src/9_Quality_Assurance/Make_Utils"
+	file="files_lns.sh"
+	"$folder/$file" "$@"
+}
+
