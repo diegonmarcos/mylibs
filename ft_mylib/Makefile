@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/01/28 23:10:29 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/01/29 12:54:51 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -227,7 +227,7 @@ all:	$(NAME)
 
 objs/%.o:	%.c
 	@mkdir -p objs
-	@$(COMPILER) $(CFLAGS) $(DEPFLAGS) -c $< -o $@
+	@$(COMPILER) $(CFLAGS_INCL) $(CFLAGS) $(DEPFLAGS) -c $< -o $@
 	@echo "$(GRAY)()و $@ OBJECTS GENERATED!$(RESET)"
 
 -include $(DEPS)#																Include the .d files after the rule is defined
@@ -246,7 +246,7 @@ endif
 
 
 program:	$(OBJECTS) libs_build
-		@$(COMPILER) $(CFLAGS) $(OBJECTS) $(LIBS) -o $(NAME)
+		@$(COMPILER) $(CFLAGS_INCL) $(CFLAGS) $(OBJECTS) $(LIBS) -o $(NAME)
 		@echo	"$(RED)	(•̀ᴗ•́)و BIN GENERATED!$(RESET)"
 
 lib:	$(OBJECTS)
