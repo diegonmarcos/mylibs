@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/29 19:15:56 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/30 20:08:41 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,48 +228,76 @@ void	heapify(int arr[], int n, int i);
 
 /* ***************************************************************** */
 /* ***************************************************************** */
-// DATA STRUCTURE FOR DOUBLY LS
-typedef struct s_list		t_list;
-struct s_list
+// DATA STRUCTURE FOR HASHTABLE/MAP/DIC
+
+typedef struct s_hashnode
 {
-	int		value;
-	int		index;
-	t_list	*next;
-	t_list	*prev;
-};
+	char				*key;
+	int					value;
+	struct s_hashnode	*next;
+}				t_hashnode;
+
+void	insert(t_hashnode **table, int size, const char *key,
+			int value);
+int		get(t_hashnode **table, int size, const char *key);
+void	free_hashtable(t_hashnode **table, int size);
+t_hashnode		*create_node(const char *key, int value);
+unsigned int	hash(const char *key, int size);
+
+/* ***************************************************************** */
+/* ***************************************************************** */
+
+// DATA STRUCTURE FOR SINGLY LINEKD LIST
+
+typedef struct s_list_s
+{
+	void				*content;
+	struct s_list_s		*next;
+}					t_list_s;
+
+void	ft_free_ls_simple(t_list_s *stack);
+/*
+t_list_s	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list_s **lst, t_list *new);
+int		ft_lstsize(t_list_s *lst);
+t_list_s	*ft_lstlast(t_list_s *lst);
+void	ft_lstadd_back(t_list_s **lst, t_list *new);
+void	ft_lstdelone(t_list_s *lst, void (*del)(void*));
+void	ft_lstclear(t_list_s **lst, void (*del)(void*));
+void	ft_lstiter(t_list_s *lst, void (*f)(void*));
+t_list_s	*ft_lstmap(t_list_s *lst, void *(*f)(void*), void (*del)(void*));
+*/
+
+/* ***************************************************************** */
+/* ***************************************************************** */
+// DATA STRUCTURE FOR DOUBLY LINKED LIST
+
+typedef struct s_list
+{
+	int				value;
+	int				index;
+	struct s_list	*next;
+	struct s_list	*prev;
+}				t_list;
 
 t_list	*ft_lstnew(int value, int index);
 void	ft_lstadd_back(t_list **stack, t_list *new_node);
 int		ft_lstsize(t_list *lst);
-void	ft_free_list(t_list *stack);
 t_list	*find_min_node(t_list *stack);
 void	ft_swap_pointers(t_list **a, t_list **b);
 t_list	*array_to_d_linked_list(char **argv);
+void	ft_print_ls_doubly(t_list *stack);
+void	ft_free_ls_doubly(t_list *stack);
 
 /* ***************************************************************** */
 /* ***************************************************************** */
-/*
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
-
-t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void*));
-void	ft_lstclear(t_list **lst, void (*del)(void*));
-void	ft_lstiter(t_list *lst, void (*f)(void*));
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*));
-*/
 // FOR THE PRINTERS DEBUGGERS
+/*
 typedef struct s_node
 {
 	int				data;
 	struct s_node	*next;
 }				t_node;
+*/
 
 #endif

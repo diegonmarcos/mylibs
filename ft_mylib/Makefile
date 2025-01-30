@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/01/29 19:52:08 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/01/30 19:35:31 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -115,7 +115,7 @@ LIB_SRC_FUNCTIONS = 	0.bubble_sort.c			\
 						ft_putendl_fd.c		\
 						ft_putnbr.c			\
 						ft_putnbr_fd.c		\
-						ft_putstr1.c			\
+						ft_putstr1.c		\
 						ft_putstr_fd.c		\
 						ft_split.c			\
 						ft_strchr.c			\
@@ -133,7 +133,7 @@ LIB_SRC_FUNCTIONS = 	0.bubble_sort.c			\
 						ft_substr.c			\
 						ft_tolower.c		\
 						ft_toupper.c		\
-						get_next_line.c			\
+						get_next_line.c		\
 						get_next_line_utils.c		\
 						get_next_line2.c			\
 						linked_list_doubly1.c		\
@@ -148,6 +148,8 @@ LIB_SRC_FUNCTIONS = 	0.bubble_sort.c			\
 						ft_array_to_d_linked_list.c \
 						ft_contains.c				\
 						ft_digits_to_bits.c			\
+						ft_free_list_doubly.c		\
+						ft_free_ls_simple.c			\
 #						get_next_line.c 			\
 						get_next_line2_utils.c		\
 						get_next_line_utils.c 		\

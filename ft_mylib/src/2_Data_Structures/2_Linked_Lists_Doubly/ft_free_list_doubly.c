@@ -1,44 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_free_list_doubly.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 17:09:17 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/30 19:22:51 by dinepomu         ###   ########.fr       */
+/*   Created: 2025/01/30 19:16:05 by dinepomu          #+#    #+#             */
+/*   Updated: 2025/01/30 19:34:40 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-This function will free a array 2d
-Will check if second array exist, if not will just free the header
-*/
-
 #include "ft_mylib.h"
 
-void	ft_free(char **pointer)
+/*
+Free the circular doubly linked list
+*/
+void	ft_free_ls_doubly(t_list *stack)
 {
-	int	i;
+	t_list	*current;
+	t_list	*temp;
+	int		switch_flag;
 
-	if (pointer == NULL)
+	if (stack == NULL)
 		return ;
-	i = 0;
-	while (pointer[i] != NULL)
+	switch_flag = 1;
+	current = stack;
+	while (current != stack || switch_flag)
 	{
-		free(pointer[i]);
+		temp = current;
+		current = current->next;
+		free(temp);
+		switch_flag = 0;
 	}
-	free(pointer);
-}
-
-void	free_array_2d(char **array)
-{
-	int	i;
-
-	if (array == NULL)
-		return ;
-	i = 0;
-	while (array[i])
-		free(array[i++]);
-	free(array);
 }

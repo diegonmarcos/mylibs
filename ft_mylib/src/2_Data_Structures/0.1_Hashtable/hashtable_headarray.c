@@ -1,14 +1,25 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hashtable_headarray.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/30 19:43:05 by dinepomu          #+#    #+#             */
+/*   Updated: 2025/01/30 19:44:23 by dinepomu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "ft_mylib.h"
+
+/*
 typedef struct s_hashnode
 {
 	char				*key;
 	int					value;
 	struct s_hashnode	*next;
 }						t_hashnode;
-
+*/
 unsigned int	hash(const char *key, int size)
 {
 	unsigned int	hash;
