@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/28 18:45:53 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/29 19:15:56 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@
 #  define SIZE_MAX INT_MAX
 # endif
 
+# ifndef NAME_M
+#  define NAME_M "log/5.bff/malloc_allocs.txt"
+# endif
+
 /*#########################################################################	*/
 /* 0.1 LIBRARIES															*/
 /*#########################################################################	*/
@@ -52,9 +56,9 @@
 
 /* ***************************************************************** */
 /* ***************************************************************** */
-// ft_malloc
-// ft_free
-// ft_realloc
+void	print_bits(unsigned char octet);
+/* ***************************************************************** */
+/* ***************************************************************** */
 void	*ft_calloc(size_t count, size_t size);
 void	halt_exit_(int status);
 void	halt_exit1(int status);
@@ -110,6 +114,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char *filename, char const *s, unsigned int start,
 			size_t len);
 char	**ft_split(char *filename, const char *s, char c);
+int		ft_contains(int num, char **argv, int i);
 
 /* ***************************************************************** */
 /* ***************************************************************** */
@@ -128,6 +133,7 @@ int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
+int		ft_isnum(char *num);
 int		ft_isprint(int c);
 int		ft_atoi(const char *str);
 void	*ft_atoi_base(const char *str, int str_base);
@@ -159,14 +165,7 @@ int		ft_putchar_fd_fpr(long fd, int c);
 int		ft_putchar(char c);
 int		ft_putchar_int(int c);
 int		ft_putstr(char *str);
-//static int	int_min(long fd, int n);
-//
 int		ft_pointer_hexa_fpr(long fd, void *p);
-//static int	hexa_pointer_fd(long fd, char *base, unsigned long long n,
-//								 int c);
-//static int	type_var(long fd, char formatSpecifier, va_list item);
-//static int	w_str_percent(long fd, char formatSpecifier, va_list item);
-//static int	w_str(long fd, const char *str, va_list item, int char_count);
 
 /* ***************************************************************** */
 /* ***************************************************************** */
@@ -245,6 +244,7 @@ int		ft_lstsize(t_list *lst);
 void	ft_free_list(t_list *stack);
 t_list	*find_min_node(t_list *stack);
 void	ft_swap_pointers(t_list **a, t_list **b);
+t_list	*array_to_d_linked_list(char **argv);
 
 /* ***************************************************************** */
 /* ***************************************************************** */

@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_array_to_d_linked_list.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/07 13:22:48 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/26 00:33:26 by dinepomu         ###   ########.fr       */
+/*   Created: 2025/01/29 17:43:52 by dinepomu          #+#    #+#             */
+/*   Updated: 2025/01/29 17:45:45 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mylib.h"
 
-int	ft_putchar_int(int c)
+t_list	*array_to_d_linked_list(char **argv)
 {
-	if (write (1, &c, 1) != 1)
-		return (-1);
-	return (1);
-}
+	t_list	*tmp;
+	int		i;
+	t_list	*stack ;
 
-int	ft_putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-int	ft_putstr(char *str)
-{
-	int	i;
-
+	stack = NULL;
 	i = 0;
-	while (str[i] != '\0')
+	while (argv[i])
 	{
-		ft_putchar(str[i]);
+		tmp = ft_lstnew(ft_atoi(argv[i]), -1);
+		ft_lstadd_back(&stack, tmp);
 		i++;
 	}
-	return (i);
+	return (stack);
 }

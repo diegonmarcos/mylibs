@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:15:53 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/27 17:29:39 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:50:12 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ void	halt_exit1(int status)
 	exit(status);
 }
 
-/*
-void	halt_exit_gb(int status)
+void	halt_exit_(int status)
 {
 	if (status == 1)
 	{
@@ -33,4 +32,4 @@ void	halt_exit_gb(int status)
 	}
 	ft_free_fd(NAME_M);
 	exit(status);
-}*/
+}

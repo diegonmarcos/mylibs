@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_swap_pointers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/01 14:59:11 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/26 00:00:32 by dinepomu         ###   ########.fr       */
+/*   Created: 2025/01/29 17:34:33 by dinepomu          #+#    #+#             */
+/*   Updated: 2025/01/29 17:34:49 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mylib.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_swap_pointers(t_list **a, t_list **b)
 {
-	size_t	i;
+	t_list	*tmp;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

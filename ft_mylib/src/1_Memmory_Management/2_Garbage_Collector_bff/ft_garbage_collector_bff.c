@@ -53,15 +53,15 @@ void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar)
 	{
 		fd = open(filename, O_CREAT | O_RDWR | O_APPEND, 0644);
 		if (fd == -1)
-			write(1, "Alloc Error2\n", 13);
+			write(1, "Error Opening File\n", 20);
 		ft_memncpy_null_local(filename2, filename, ft_strlen(filename) - 3);
 		fd2 = open(filename2, O_CREAT | O_RDWR | O_APPEND, 0644);
 		if (fd2 == -1)
-			write(1, "Alloc Error3\n", 13);
+			write(1, "Error Opening File\n", 20);
 		if (ft_fprintf1(filename, "%p;\n", ptr) < 0)
-			write(1, "Alloc Error4\n", 13);
+			write(1, "Error Writing File\n", 20);
 		if (ft_fprintf1(filename2, "%p;\n", ptr) < 0)
-			write(1, "Alloc Error5\n", 13);
+			write(1, "Error Writing File\n", 20);
 		close(fd);
 		close(fd2);
 	}
@@ -147,11 +147,7 @@ void	ft_free_fd_new(char *filename)
 	}
 	num_pointers--;
 	while (num_pointers >= 0)
-	{
-		ft_fprintf1(filename, "Freing:%p\n", pointers[num_pointers]);
 		free(pointers[num_pointers--]);
-		ft_fprintf1(filename, "freed!\n");
-	}
 	close(fd);
 	if (unlink(filename) == -1)
 		write(2, "Error deleting file\n", 20);

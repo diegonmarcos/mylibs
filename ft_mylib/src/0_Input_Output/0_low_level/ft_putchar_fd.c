@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:58:40 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/27 21:00:00 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/29 19:00:07 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,3 @@ void	ft_putchar_fd(char c, int fd)
 	write(fd, &c, 1);
 }
 
-int	ft_putchar(char c)
-{
-	return (write(1, &c, 1));
-}

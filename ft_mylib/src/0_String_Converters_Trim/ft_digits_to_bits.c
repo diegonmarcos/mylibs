@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   L2_graycode.c                                      :+:      :+:    :+:   */
+/*   ft_digits_to_bits.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 20:34:36 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/29 18:45:24 by dinepomu         ###   ########.fr       */
+/*   Created: 2025/01/29 18:15:14 by dinepomu          #+#    #+#             */
+/*   Updated: 2025/01/29 18:16:27 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mylib.h"
 
-unsigned int	gray_code(unsigned int n)
+int	digits_to_bits(int digits)
 {
-	return (n ^ (n >> 1));
-}
+	int	bits;
+	int	max_value;
 
-void	generate_gray_codes(unsigned int limit)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (i <= limit)
+	bits = 0;
+	max_value = 1;
+	if (digits <= 0)
+		return (0);
+	while (max_value < digits)
 	{
-		print_bits(gray_code(i));
-		printf("(#%d: %u)\n", i, gray_code(i));
-		i++;
+		max_value *= 2;
+		bits++;
 	}
+	return (bits);
 }
-
-/*
-int	main(int argc, char **argv)
-{
-	if (argc == 2)
-		generate_gray_codes(atoi(argv[1]));
-	return (0);
-}
-*/

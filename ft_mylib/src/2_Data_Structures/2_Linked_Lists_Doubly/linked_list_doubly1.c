@@ -6,20 +6,12 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:08:36 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/27 22:42:35 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/29 18:06:34 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mylib.h"
 
-void	ft_swap_pointers(t_list **a, t_list **b)
-{
-	t_list	*tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
 /*
 - Create a new node for the circular doubly linked list
 */
@@ -28,7 +20,7 @@ t_list	*ft_lstnew(int value, int index)
 {
 	t_list	*new_node;
 
-	new_node = (t_list *)malloc(sizeof(t_list));
+	new_node = (t_list *)ft_calloc_fd(NAME_M, 1, sizeof(t_list));
 	if (!new_node)
 	{
 		write(1, "Error\n", 6);

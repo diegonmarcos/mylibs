@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/01/29 12:54:51 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/01/29 19:52:08 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,11 +110,12 @@ LIB_SRC_FUNCTIONS = 	0.bubble_sort.c			\
 						ft_num_unsign.c		\
 						ft_pointer_hexa.c	\
 						ft_printf.c			\
+						ft_putchar.c		\
 						ft_putchar_fd.c		\
 						ft_putendl_fd.c		\
 						ft_putnbr.c			\
 						ft_putnbr_fd.c		\
-						ft_putstr.c			\
+						ft_putstr1.c			\
 						ft_putstr_fd.c		\
 						ft_split.c			\
 						ft_strchr.c			\
@@ -135,16 +136,20 @@ LIB_SRC_FUNCTIONS = 	0.bubble_sort.c			\
 						get_next_line.c			\
 						get_next_line_utils.c		\
 						get_next_line2.c			\
-						get_next_line2_utils.c		\
 						linked_list_doubly1.c		\
 						linked_list_doubly2.c		\
 						print_bits.c				\
 						reverse_bits.c				\
 						swap_bits.c					\
 						halt_exit.c					\
-						ft_putstr.c					\
+						ft_putstr1.c				\
 						ft_garbage_collector_bff.c	\
+						ft_swap_pointers.c			\
+						ft_array_to_d_linked_list.c \
+						ft_contains.c				\
+						ft_digits_to_bits.c			\
 #						get_next_line.c 			\
+						get_next_line2_utils.c		\
 						get_next_line_utils.c 		\
 						ft_lstadd_back_bonus.c 		\
 						ft_lstadd_front_bonus.c 	\

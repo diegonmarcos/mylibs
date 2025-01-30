@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:55:59 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/27 22:42:35 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/29 18:12:12 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,28 @@ int	ft_isdigit(int c)
 	if (c >= 48 && c <= 57)
 		return (1);
 	return (0);
+}
+
+int	ft_isnum(char *num)
+{
+	int	i;
+
+	i = 0;
+	if (num[0] == '-' || num[0] == '+')
+	{
+		i++;
+	}
+	if ((num[0] == '-' || num[0] == '+') && !num[1])
+	{
+		return (0);
+	}
+	while (num[i])
+	{
+		if (!ft_isdigit(num[i]))
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
 }

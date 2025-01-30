@@ -10,14 +10,16 @@ fi
 # Create the destination directory
 echo "Creating src/src_all directory..."
 mkdir -p "src/src_all"
-# 2. Find.c files and create symbolic links
-echo "Creating symbolic links for.c files..."
-find src/ -mindepth 1 -maxdepth 5 -type f -name "*.c" -print0 |
+
+# 2. Find .c files and create symbolic links
+echo "Creating symbolic links for .c files..."
+find src/ -mindepth 1 -maxdepth 5 -type f -name "*.c" ! -path "*/.*" -print0 |
 while IFS= read -r -d $'\0' file; do
-    filename=$(basename "$file")
-    echo "Creating symbolic link for $file in src/src_all/$filename"
-    ln -s "../${file#src/}" "src/src_all/$filename" || echo "Error creating symbolic link for $file"
+	filename=$(basename "$file")
+	echo "Creating symbolic link for $file in src/src_all/$filename"
+	ln -s "../${file#src/}" "src/src_all/$filename" || echo "Error creating symbolic link for $file"
 done
+
 # FILENAMES LIST OUTPUT .TXT for usage into MAKE source=
 # Go to the specified directory (add a check or use absolute path)
 cd src/src_all

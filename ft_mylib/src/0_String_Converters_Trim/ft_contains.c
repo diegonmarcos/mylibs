@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_contains.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/04 15:54:16 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/26 00:00:32 by dinepomu         ###   ########.fr       */
+/*   Created: 2025/01/29 18:12:44 by dinepomu          #+#    #+#             */
+/*   Updated: 2025/01/29 18:13:05 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mylib.h"
 
-int	ft_putstr(char *s)
+int	ft_contains(int num, char **argv, int i)
 {
-	size_t	i;
-
-	i = 0;
-	if (!s)
+	i++;
+	while (argv[i])
 	{
-		if (write (1, "(null)", 6) != 6)
-			return (-1);
-		return (6);
-	}
-	while (s[i])
-	{
-		if (write(1, &s[i], 1) != 1)
-			return (-1);
+		if (ft_atoi(argv[i]) == num)
+			return (1);
 		i++;
 	}
-	return (i);
+	return (0);
 }
