@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/31 12:28:38 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/31 13:45:33 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	halt_exit(int status, char *description);
 /* ***************************************************************** */
 void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar);
 void	ft_free_fd(const char *filename);
+void	ft_free_array_2d(char **array);
 void	ft_free_fd_new(char *filename);
 
 /* ***************************************************************** */

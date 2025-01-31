@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:09:17 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/30 19:22:51 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/31 13:45:33 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_free(char **pointer)
 	free(pointer);
 }
 
-void	free_array_2d(char **array)
+void	ft_free_array_2d(char **array)
 {
 	int	i;
 
