@@ -6,21 +6,21 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 19:43:05 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/30 19:44:23 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/31 20:38:26 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mylib.h"
 
 /*
-typedef struct s_hashnode
+typedef struct s_node_
 {
 	char				*key;
 	int					value;
-	struct s_hashnode	*next;
-}						t_hashnode;
+	struct s_node_	*next;
+}						t_node_;
 */
-unsigned int	hash(const char *key, int size)
+/* unsigned int	hash(const char *key, int size)
 {
 	unsigned int	hash;
 	int				c;
@@ -31,11 +31,11 @@ unsigned int	hash(const char *key, int size)
 	return (hash % size);
 }
 
-t_hashnode	*create_node(const char *key, int value)
+t_node_	*create_node(const char *key, int value)
 {
-	t_hashnode	*new_node;
+	t_node_	*new_node;
 
-	new_node = (t_hashnode *)malloc(sizeof(t_hashnode));
+	new_node = (t_node_ *)malloc(sizeof(t_node_));
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: Memory allocation failed for node\n");
@@ -53,10 +53,10 @@ t_hashnode	*create_node(const char *key, int value)
 	return (new_node);
 }
 
-void	insert(t_hashnode **table, int size, const char *key, int value)
+void	insert(t_node_ **table, int size, const char *key, int value)
 {
 	unsigned int	index;
-	t_hashnode		*new_node;
+	t_node_		*new_node;
 
 	index = hash(key, size);
 	new_node = create_node(key, value);
@@ -71,10 +71,10 @@ void	insert(t_hashnode **table, int size, const char *key, int value)
 	}
 }
 
-int	get(t_hashnode **table, int size, const char *key)
+int	get(t_node_ **table, int size, const char *key)
 {
 	unsigned int	index;
-	t_hashnode		*current;
+	t_node_		*current;
 
 	index = hash(key, size);
 	current = table[index];
@@ -87,11 +87,11 @@ int	get(t_hashnode **table, int size, const char *key)
 	return (-1);
 }
 
-void	free_hashtable(t_hashnode **table, int size)
+void	free_hashtable(t_node_ **table, int size)
 {
 	int			i;
-	t_hashnode	*current;
-	t_hashnode	*temp;
+	t_node_	*current;
+	t_node_	*temp;
 
 	if (table == NULL)
 		return ;
@@ -109,18 +109,18 @@ void	free_hashtable(t_hashnode **table, int size)
 		i++;
 	}
 	free(table);
-}
+} */
 
-int	main(void)
+/* int	main(void)
 {
 	int			size;
-	t_hashnode	**table;
+	t_node_	**table;
 
 	size = 10;
-	table = (t_hashnode **)calloc(size, sizeof(t_hashnode *));
+	table = (t_node_ **)calloc(size, sizeof(t_node_ *));
 	if (table == NULL)
 	{
-		fprintf(stderr, "Error: Memory allocation failed for hash table array\n");
+		fprintf(stderr, "Error: Memory\n");
 		return (1);
 	}
 	insert(table, size, "apple", 1);
@@ -136,4 +136,4 @@ int	main(void)
 	printf("Value of grape: %d\n", get(table, size, "grape"));
 	free_hashtable(table, size);
 	return (0);
-}
+} */

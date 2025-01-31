@@ -6,12 +6,10 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:57:56 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/31 11:08:35 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/31 20:20:48 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "ft_mylib.h"
 /*
 //#include "../../../include/ft_mylib.h"

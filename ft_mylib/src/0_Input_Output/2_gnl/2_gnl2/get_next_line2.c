@@ -6,12 +6,11 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:14 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/28 17:34:03 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/31 20:17:15 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mylib.h"
-#include <unistd.h>
 
 int	ft_read_to_left_str2(int fd, char **left_str)
 {

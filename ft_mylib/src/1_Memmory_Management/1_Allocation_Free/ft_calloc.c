@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:55:20 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/28 18:46:23 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/31 20:17:48 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
  */
 
 #include "ft_mylib.h"
-#include <stdint.h>
 
 void	*ft_calloc(size_t count, size_t size)
 {

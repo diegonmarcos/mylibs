@@ -6,12 +6,9 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 20:40:05 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/29 18:49:05 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/31 20:19:39 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
-#include <stdio.h>
 
 unsigned char	reverse_bits(unsigned char octet)
 {

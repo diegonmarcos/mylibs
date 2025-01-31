@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:54:23 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/27 22:42:35 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/31 19:54:43 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
  */
 
 #include "ft_mylib.h"
-
+// INT_MAX = 2147483647
 int	ft_atoi(const char *ptr)
 {
 	int	i;
@@ -48,6 +48,8 @@ int	ft_atoi(const char *ptr)
 	}
 	while (ptr[i] != '\0' && ptr[i] >= '0' && ptr[i] <= '9')
 	{
+		if (result > 214748364 || (result == 214748364 && ptr[i] > '7'))
+			halt_exit_(1);
 		result = (result * 10) + (ptr[i] - '0');
 		i++;
 	}

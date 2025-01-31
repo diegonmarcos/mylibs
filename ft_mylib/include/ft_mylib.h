@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/31 13:45:33 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/31 20:37:22 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	halt_exit(int status, char *description);
 /* ***************************************************************** */
 /* ***************************************************************** */
 void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar);
-void	ft_free_fd(const char *filename);
+void	ft_free_fd(char *filename);
 void	ft_free_array_2d(char **array);
 void	ft_free_fd_new(char *filename);
 
@@ -231,19 +231,18 @@ void	heapify(int arr[], int n, int i);
 /* ***************************************************************** */
 // DATA STRUCTURE FOR HASHTABLE/MAP/DIC
 
-typedef struct s_hashnode
+typedef struct s_node_
 {
-	char				*key;
-	int					value;
-	struct s_hashnode	*next;
-}				t_hashnode;
+	char			*key;
+	int				value;
+	struct s_node_	*next;
+}				t_node_;
 
-void	insert(t_hashnode **table, int size, const char *key,
-			int value);
-int		get(t_hashnode **table, int size, const char *key);
-void	free_hashtable(t_hashnode **table, int size);
-t_hashnode		*create_node(const char *key, int value);
-unsigned int	hash(const char *key, int size);
+void	insert(t_node_ **table, int size, const char *key, int value);
+int		get(t_node_ **table, int size, const char *key);
+void	free_hashtable(t_node_ **table, int size);
+size_t	hash(char *key, int size);
+t_node_	*create_node(char *key, int value);
 
 /* ***************************************************************** */
 /* ***************************************************************** */

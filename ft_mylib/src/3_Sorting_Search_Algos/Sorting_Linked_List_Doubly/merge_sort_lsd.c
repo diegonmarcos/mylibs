@@ -1,5 +1,14 @@
-#include <stdio.h>
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   merge_sort_lsd.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/31 20:11:30 by dinepomu          #+#    #+#             */
+/*   Updated: 2025/01/31 20:19:39 by dinepomu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 // Assuming your t_list structure is defined as follows:
 /* typedef struct s_list {
@@ -10,7 +19,8 @@
 } t_list;
  */
 
-// Function to create a new node (you might already have this)
+// Function to create a new node
+/*
 t_list *create_new_node(int value) {
     t_list *new_node = (t_list *)malloc(sizeof(t_list));
     if (!new_node) {
@@ -23,8 +33,9 @@ t_list *create_new_node(int value) {
     new_node->next = NULL;
     return new_node;
 }
-
+*/
 // Function to merge two sorted sublists
+/*
 t_list *merge(t_list *first, t_list *second) {
     // If first list is empty, return second
     if (!first)
@@ -46,9 +57,10 @@ t_list *merge(t_list *first, t_list *second) {
         second->prev = NULL; // Redundant as second is head
         return second;
     }
-}
+}*/
 
 // Function to split the doubly linked list into two halves
+/*
 t_list *split(t_list *head) {
     t_list *fast = head;
     t_list *slow = head;
@@ -63,9 +75,10 @@ t_list *split(t_list *head) {
     if(temp)
         temp->prev = NULL; 
     return temp;
-}
+}*/
 
 // Recursive function to perform merge sort
+/*
 t_list *merge_sort(t_list *head) {
     if (!head || !head->next) {
         return head;
@@ -79,33 +92,33 @@ t_list *merge_sort(t_list *head) {
 
     // Merge the sorted halves
     return merge(head, second);
-}
+}*/
 
 // Function to assign index numbers after sorting
-void assign_index_numbers(t_list *head) {
+/* void assign_index_numbers(t_list *head) {
     int index = 0;
     while (head) {
         head->index = index++;
         head = head->next;
     }
 }
-
+ */
 // Function to insert a new node at the beginning (for testing)
-void insert_at_beginning(t_list **head_ref, int new_value) {
+/* void insert_at_beginning(t_list **head_ref, int new_value) {
     t_list *new_node = create_new_node(new_value);
     new_node->next = *head_ref;
     if (*head_ref)
         (*head_ref)->prev = new_node;
     *head_ref = new_node;
-}
+} */
 // Function to print the list (for testing)
-void print_list(t_list *head) {
+/* void print_list(t_list *head) {
     while (head) {
         printf("Value: %d, Index: %d\n", head->value, head->index);
         head = head->next;
     }
     printf("\n");
-}
+} */
 
 /* 
 int main() {

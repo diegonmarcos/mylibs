@@ -69,35 +69,6 @@ void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar)
 }
 
 // Function to free all pointers recorded in the file
-void	ft_free_fd(const char *filename)
-{
-	FILE	*file;
-	char	line[1024];
-	void	*pointers[MAX_ALLOCATIONS];
-	int		num_pointers;
-
-	file = fopen(filename, "r");
-	if (file == NULL)
-		return ;
-	num_pointers = 0;
-	while (fgets(line, sizeof(line), file) != NULL)
-	{
-		if (sscanf(line, "%p;", &pointers[num_pointers]) == 1)
-			num_pointers++;
-		else
-			write(2, "Parse Error\n", 13);
-	}
-	num_pointers--;
-	while (num_pointers >= 0)
-	{
-		free(pointers[num_pointers]);
-		num_pointers--;
-	}
-	if (unlink(filename) == -1)
-		write(2, "Error deleting file\n", 20);
-	fclose(file);
-}
-
 int	ft_fgets(char **line, int fd)
 {
 	*line = get_next_line(fd);
@@ -115,7 +86,7 @@ void	ft_scanf(char *filename, char *line, void **pointers, int *num_pointers)
 	if (split == NULL)
 		write(2, "Split Error\n", 12);
 	i = 0;
-	while (split[i]!= NULL)
+	while (split[i] != NULL)
 	{
 		pointers[*num_pointers] = (void *)ft_atoi_base(split[i], 16);
 		(*num_pointers)++;
@@ -125,7 +96,7 @@ void	ft_scanf(char *filename, char *line, void **pointers, int *num_pointers)
 	free(split);
 }
 
-void	ft_free_fd_new(char *filename)
+void	ft_free_fd(char *filename)
 {
 	int		fd;
 	char	*line;
@@ -153,6 +124,36 @@ void	ft_free_fd_new(char *filename)
 		write(2, "Error deleting file\n", 20);
 }
 
+/*
+void	ft_free_fd_first_one(const char *filename)
+{
+	FILE	*file;
+	char	line[1024];
+	void	*pointers[MAX_ALLOCATIONS];
+	int		num_pointers;
+
+	file = fopen(filename, "r");
+	if (file == NULL)
+		return ;
+	num_pointers = 0;
+	while (fgets(line, sizeof(line), file) != NULL)
+	{
+		if (sscanf(line, "%p;", &pointers[num_pointers]) == 1)
+			num_pointers++;
+		else
+			write(2, "Parse Error\n", 13);
+	}
+	num_pointers--;
+	while (num_pointers >= 0)
+	{
+		free(pointers[num_pointers]);
+		num_pointers--;
+	}
+	if (unlink(filename) == -1)
+		write(2, "Error deleting file\n", 20);
+	fclose(file);
+}
+*/
 //tester for the garbage collector with buffer file
 
 //clang *.c -I../../../include -L../../../../ -lft_mylib -o garbage.out

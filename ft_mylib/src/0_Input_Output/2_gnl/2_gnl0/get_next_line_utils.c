@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:58 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/29 18:42:08 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/31 20:09:27 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char	*ft_new_left_str(char *left_str)
 		return (NULL);
 	}
 	str = (char *)malloc(sizeof(char) * (ft_strlen_gnl(left_str, '\0')
-				 - i + 1));
+				- i + 1));
 	if (!str)
 		return (NULL);
 	i++;

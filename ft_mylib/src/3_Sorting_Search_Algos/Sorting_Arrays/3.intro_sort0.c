@@ -6,11 +6,10 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:34:07 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/28 12:55:01 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/31 20:18:06 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
 #include "ft_mylib.h"
 
 /*
@@ -62,8 +61,11 @@ int	ft_log_introsort(int n)
 	int	result;
 
 	result = 0;
-	while (n >>= 1)
+	while (n > 1)
+	{
+		n >>= 1;
 		result++;
+	}
 	return (result);
 }
 

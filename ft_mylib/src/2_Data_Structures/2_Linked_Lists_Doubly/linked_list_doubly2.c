@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:08:36 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/30 19:40:06 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/31 20:09:09 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,3 @@ void	ft_print_ls_doubly(t_list *stack)
 		swicth_flag = 0;
 	}
 }
-

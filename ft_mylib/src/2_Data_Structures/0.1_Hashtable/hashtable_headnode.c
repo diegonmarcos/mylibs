@@ -1,7 +1,20 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hashtable_headnode.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/31 20:00:35 by dinepomu          #+#    #+#             */
+/*   Updated: 2025/01/31 20:19:39 by dinepomu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+ */
+/*
 typedef struct s_hash_node
 {
 	char *key;
@@ -37,7 +50,7 @@ t_hash_table *create_hash_table(int size)
 	ht->size = size;
 	ht->table = (t_hash_node **)calloc(size, sizeof(t_hash_node *));
 	if (ht->table == NULL) {
-		fprintf(stderr, "Error: Memory allocation failed for hash table array\n");
+		fprintf(stderr, "Error: HasMap ALloc\n");
 		free(ht);
 		return (NULL);
 	}
@@ -118,6 +131,7 @@ void free_hash_table(t_hash_table *ht)
 	free(ht->table);
 	free(ht);
 }
+*/
 /*
 int main(void) {
 	t_hash_table *ht;

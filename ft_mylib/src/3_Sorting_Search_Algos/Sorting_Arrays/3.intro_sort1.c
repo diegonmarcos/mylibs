@@ -6,11 +6,10 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 13:34:07 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/28 12:12:44 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/31 20:19:39 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
 #include "ft_mylib.h"
 
 void	swap_introsort(int *a, int *b)
