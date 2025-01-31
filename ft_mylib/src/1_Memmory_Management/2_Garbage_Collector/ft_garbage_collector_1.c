@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:57:56 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/27 20:35:29 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/31 11:08:35 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_free_gb_all(t_list_garbage *list_garbage)
 	}
 }
 
-void	ft_struct_initializator(t_list_garbage *list_garbage)
+void	ft_initializator_list_gargabe(t_list_garbage *list_garbage)
 {
 	int	i;
 

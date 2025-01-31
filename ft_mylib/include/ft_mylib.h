@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/30 20:08:41 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:28:38 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,13 @@ typedef struct s_list_garbage
 	int		blocks_count;
 }			t_list_garbage;
 
+void	ft_initializator_list_gargabe(t_list_garbage *my_list);
+void	*ft_malloc_gb(size_t size, t_list_garbage *list_garbage);
+int		add_allocation(void *ptr, t_list_garbage *list_garbage);
+int		is_allocated(void *ptr, t_list_garbage *list_garbage);
+void	remove_allocation(void *ptr, t_list_garbage *list_garbage);
 void	ft_free_gb(void *ptr, t_list_garbage *list_garbage);
 void	ft_free_gb_all(t_list_garbage *list_garbage);
-void	ft_struct_initializator(t_list_garbage *my_list);
-int		add_allocation(void *ptr, t_list_garbage *list_garbage);
-void	remove_allocation(void *ptr, t_list_garbage *list_garbage);
-void	remove_allocation(void *ptr, t_list_garbage *list_garbage);
-int		is_allocated(void *ptr, t_list_garbage *list_garbage);
-void	*ft_malloc_gb(size_t size, t_list_garbage *list_garbage);
 
 /* ***************************************************************** */
 /* ***************************************************************** */
@@ -104,6 +103,7 @@ void	ft_bzero(void *s, size_t n);
 /* ***************************************************************** */
 /* ***************************************************************** */
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strcmp(const char *s1, const char *s2);
 size_t	ft_strlen(const char *str);
 
 /* ***************************************************************** */
