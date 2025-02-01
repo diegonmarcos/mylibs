@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:55:59 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/29 18:12:12 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/01 12:08:23 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-int	ft_isnum(char *num)
+int	ft_isnum(const char *num)
 {
 	int	i;
 

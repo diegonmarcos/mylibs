@@ -6,13 +6,13 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:59:20 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/27 22:42:35 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/01 15:37:13 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
  * ************************************************************************** *
- * @syntax: char *ft_strchr(const char *s, int c);
+ * @syntax: char *ft_strchr(const char *array_int, int c);
  * @brief: Locates the first occurrence of ’c’ (converted to a char) in the
  * @param: #1. The string to be scanned.
  * @return: The pointer to the located character, or NULL if the character does
@@ -44,4 +44,58 @@ char	*ft_strchr(const char *s, int c)
 	if (s[i] == cc)
 		return ((char *) &s[i]);
 	return (NULL);
+}
+
+int	ft_strchr_char_duplicate(int num, char **argv, int i)
+{
+	i++;
+	while (argv[i])
+	{
+		if (ft_atoi(argv[i]) == num)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	*ft_strchr_int_duplicate(int *array_int, int size, int position)
+{
+	int	i;
+	int	look_for;
+
+	look_for = array_int[position];
+	i = position + 1;
+	while (i < size)
+	{
+		if (array_int[i] == look_for)
+			return (&array_int[i]);
+		i++;
+	}
+	return (NULL);
+}
+
+int	*ft_strchr_int_duplicate_interation(int *array_int, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (ft_strchr_int_duplicate(array_int, size, i))
+			return (ft_strchr_int_duplicate(array_int, size, i));
+		i++;
+	}
+	return (0);
+}
+
+int	ft_contains(int num, char **argv, int i)
+{
+	i++;
+	while (argv[i])
+	{
+		if (ft_atoi(argv[i]) == num)
+			return (1);
+		i++;
+	}
+	return (0);
 }

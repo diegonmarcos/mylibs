@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/31 20:37:22 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/01 18:33:41 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	halt_exit(int status, char *description);
 void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar);
 void	ft_free_fd(char *filename);
 void	ft_free_array_2d(char **array);
+void	ft_free_array_int(int *array_int, int size);
 void	ft_free_fd_new(char *filename);
 
 /* ***************************************************************** */
@@ -115,6 +116,9 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char *filename, char const *s, unsigned int start,
 			size_t len);
 char	**ft_split(char *filename, const char *s, char c);
+void	ft_free_array_halt(char **farray, int failed);
+int		*ft_split_int(char *filename, char const *array_source,
+			char delimitator, int *size);
 int		ft_contains(int num, char **argv, int i);
 
 /* ***************************************************************** */
@@ -126,6 +130,9 @@ char	*ft_strdup(char *name, const char *s1);
 /* ***************************************************************** */
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strchr(const char *s, int c);
+int		ft_strchr_char_duplicate(int num, char **argv, int i);
+int		*ft_strchr_int_duplicate(int *array_int, int size, int position);
+int		*ft_strchr_int_duplicate_interation(int *array_int, int size);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 
 /* ***************************************************************** */
@@ -134,10 +141,12 @@ int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
-int		ft_isnum(char *num);
+int		ft_isnum(const char *num);
 int		ft_isprint(int c);
-int		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 void	*ft_atoi_base(const char *str, int str_base);
+int		ft_atoi_safe(const char *ptr);
+int		*ft_atoi_safe_array_2d(const char **ptr);
 char	*ft_itoa(int n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
@@ -286,6 +295,7 @@ int		ft_lstsize(t_list *lst);
 t_list	*find_min_node(t_list *stack);
 void	ft_swap_pointers(t_list **a, t_list **b);
 t_list	*array_to_d_linked_list(char **argv);
+t_list	*array_int_to_d_linked_list(int *argv, int size);
 void	ft_print_ls_doubly(t_list *stack);
 void	ft_free_ls_doubly(t_list *stack);
 

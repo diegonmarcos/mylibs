@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:54:23 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/31 19:54:43 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/01 18:27:01 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@
  */
 
 #include "ft_mylib.h"
-// INT_MAX = 2147483647
-int	ft_atoi(const char *ptr)
+
+long	ft_atoi(const char *ptr)
 {
-	int	i;
-	int	neg;
-	int	result;
+	int		i;
+	int		neg;
+	long	result;
 
 	i = 0;
 	neg = 1;
@@ -48,13 +48,52 @@ int	ft_atoi(const char *ptr)
 	}
 	while (ptr[i] != '\0' && ptr[i] >= '0' && ptr[i] <= '9')
 	{
-		if (result > 214748364 || (result == 214748364 && ptr[i] > '7'))
-			halt_exit_(1);
 		result = (result * 10) + (ptr[i] - '0');
 		i++;
 	}
 	return (result * neg);
 }
+
+int	ft_atoi_safe(const char *ptr)
+{
+	long	number;
+
+	number = ft_atoi(ptr);
+	if (ft_isnum(ptr))
+	{
+		if (number >= INT_MIN && number <= 2147483647)
+			return (number);
+	}
+	halt_exit1(1);
+	return (1);
+}
+
+int	*ft_atoi_safe_array_2d(const char **ptr)
+{
+	int *array_int;
+	int	i;
+	int	size;
+
+	size = 0;
+	while (ptr[size])
+		size++;
+	array_int = (int *)malloc(sizeof(int) * size);
+	i = 0;
+	if (!array_int)
+		return (NULL);
+	while(ptr[i])
+	{
+		array_int[i] = ft_atoi_safe(ptr[i]);
+		i++;
+	}
+	return (array_int);
+}
+// INT_MAX = 2147483647
+
+/* if (result > 214748364 || (result == 214748364 && ptr[i] > '7'))
+			halt_exit_(1);
+
+ */
 /*#include <stdlib.h>
 #include <stdio.h>
  

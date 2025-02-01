@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:09:17 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/31 13:45:33 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/01 12:11:04 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,6 @@ Will check if second array exist, if not will just free the header
 
 #include "ft_mylib.h"
 
-void	ft_free(char **pointer)
-{
-	int	i;
-
-	if (pointer == NULL)
-		return ;
-	i = 0;
-	while (pointer[i] != NULL)
-	{
-		free(pointer[i]);
-	}
-	free(pointer);
-}
 
 void	ft_free_array_2d(char **array)
 {
@@ -41,4 +28,19 @@ void	ft_free_array_2d(char **array)
 	while (array[i])
 		free(array[i++]);
 	free(array);
+}
+
+void	ft_free_array_int(int *array_int, int size)
+{
+	int	i;
+
+	if (array_int == NULL)
+		return ;
+	i = 0;
+	while (i < size)
+	{
+		free(&array_int[i]);
+		i++;
+	}
+	free(array_int);
 }
