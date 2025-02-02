@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:54:23 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/01 18:27:01 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/02 16:27:05 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	ft_atoi_safe(const char *ptr)
 
 int	*ft_atoi_safe_array_2d(const char **ptr)
 {
-	int *array_int;
+	int	*array_int;
 	int	i;
 	int	size;
 
@@ -81,7 +81,7 @@ int	*ft_atoi_safe_array_2d(const char **ptr)
 	i = 0;
 	if (!array_int)
 		return (NULL);
-	while(ptr[i])
+	while (ptr[i])
 	{
 		array_int[i] = ft_atoi_safe(ptr[i]);
 		i++;

@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/01/31 12:53:43 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/02/02 16:22:16 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -283,7 +283,7 @@ library_re:
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus libs_build program_or_lib program lib update_folder
+.PHONY: all clean fclean re bonus libs_build program_or_lib update_folder
 
 # **************************************************************************** #
 #                                DEFS/COLORS                                   #
@@ -323,7 +323,7 @@ ifeq ($(MAKECMDGOALS),all) # Only check if 'all' is the explicit goal
 	else \
 		# If $(NAME) exists, check if any source files are newer.
 		@if find src/ include/ -newer "$(NAME)" -print | grep -q .; then \
-			echo "$(YELLOW)Some files have changed. Rebuilding...$(RESET)"; \
+			echo "$(RED)$(NAME) Some files have changed. Rebuilding...$(RESET)"; \
 		else \
 			echo "$(GREEN)Everything up-to-date.$(RESET)"; \
 			exit 0; \
@@ -332,7 +332,7 @@ ifeq ($(MAKECMDGOALS),all) # Only check if 'all' is the explicit goal
 endif
 ifeq ($(MAKECMDGOALS),check_up_to_date) # Special handling for 'make check_up_to_date'
 	@if [ -f "$(NAME)" ] && find src/ include/ -newer "$(NAME)" -print | grep -q .; then \
-		echo "$(YELLOW)Some files have changed. Run 'make all' to rebuild.$(RESET)"; \
+		echo "$(RED)$(NAME) Some files have changed. Run 'make all' to rebuild.$(RESET)"; \
 	else \
 		echo "$(GREEN)$(NAME) is up-to-date.$(RESET)"; \
 		exit 0; \
@@ -351,7 +351,7 @@ endif
 
 hello:
 	@echo "$(GREEN)\nHello, $(USER)!\n$(RESET)"
-	@echo "$(GREEN)### Welcome to Makefile for: $(NAME)! ###\n$(RESET)"
+	@echo "$(GREEN)### Welcome to Makefile for:$(BLUE) $(NAME)! ###\n$(RESET)"
 	@echo "$(GREEN)################################################\n$(RESET)"
 
 #_Colors

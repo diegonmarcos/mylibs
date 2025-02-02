@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:09:17 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/01 12:11:04 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/02 16:26:43 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ Will check if second array exist, if not will just free the header
 */
 
 #include "ft_mylib.h"
-
 
 void	ft_free_array_2d(char **array)
 {
