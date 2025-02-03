@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 11:00:01 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/27 22:42:35 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:29:29 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,16 @@
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+int	ft_array_size(char **s)
+{
+	int	i;
 
 	i = 0;
 	while (s[i])

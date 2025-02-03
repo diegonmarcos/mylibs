@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 14:19:46 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/03 14:40:17 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:07:04 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,19 @@ t_list_garbage	*ft_initializator_list_gargabe(void);
 /* ************************************************************* */
 /* DATA STRUCTURE / HASHTABLE/MAP/DIC							 */
 /* ************************************************************* */
-typedef struct s_node_
+typedef struct s_list_hashmap
 {
-	char			*key;
-	int				value;
-	struct s_node_	*next;
-}				t_node_;
+	char					*key;
+	int						value;
+	struct s_list_hashmap	*next;
+}				t_list_hashmap;
 
-void			insert(t_node_ **table, int size, const char *key, int value);
-int				get(t_node_ **table, int size, const char *key);
-void			free_hashtable(t_node_ **table, int size);
+void			insert(t_list_hashmap **table, int size,
+					const char *key, int value);
+int				get(t_list_hashmap **table, int size, const char *key);
+void			free_hashtable(t_list_hashmap **table, int size);
 size_t			hash(char *key, int size);
-t_node_			*create_node(char *key, int value);
+t_list_hashmap	*create_node(char *key, int value);
 
 /* ************************************************************* */
 /* ************************************************************* */
@@ -88,22 +89,22 @@ t_list_s	*ft_lstmap(t_list_s *lst, void *(*f)(void*), void (*del)(void*));
 /* ************************************************************* */
 // DATA STRUCTURE FOR DOUBLY LINKED LIST
 
-typedef struct s_list
+typedef struct s_list_dls
 {
-	int				value;
-	int				index;
-	struct s_list	*next;
-	struct s_list	*prev;
-}				t_list;
+	int					value;
+	int					index;
+	struct s_list_dls	*next;
+	struct s_list_dls	*prev;
+}				t_list_dls;
 
-t_list			*array_to_d_linked_list(char **argv);
-t_list			*array_int_to_d_linked_list(int *argv, int size);
-t_list			*ft_lstnew(int value, int index);
-void			ft_lstadd_back(t_list **stack, t_list *new_node);
-int				ft_lstsize(t_list *lst);
-t_list			*find_min_node(t_list *stack);
-void			ft_swap_pointers(t_list **a, t_list **b);
-void			ft_print_ls_doubly(t_list *stack);
-void			ft_free_ls_doubly(t_list *stack);
+t_list_dls		*array_to_d_linked_list(char **argv);
+t_list_dls		*array_int_to_d_linked_list(int *argv, int size);
+t_list_dls		*ft_lstnew(int value, int index);
+void			ft_lstadd_back(t_list_dls **stack, t_list_dls *new_node);
+int				ft_lstsize(t_list_dls *lst);
+t_list_dls		*find_min_node(t_list_dls *stack);
+void			ft_swap_pointers(t_list_dls **a, t_list_dls **b);
+void			ft_print_ls_doubly(t_list_dls *stack);
+void			ft_free_ls_doubly(t_list_dls *stack);
 
 #endif

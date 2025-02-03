@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:08:36 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/29 18:06:34 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:16:34 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 - Create a new node for the circular doubly linked list
 */
 
-t_list	*ft_lstnew(int value, int index)
+t_list_dls	*ft_lstnew(int value, int index)
 {
-	t_list	*new_node;
+	t_list_dls	*new_node;
 
-	new_node = (t_list *)ft_calloc_fd(NAME_M, 1, sizeof(t_list));
+	new_node = (t_list_dls *)ft_calloc_fd(NAME_M, 1, sizeof(t_list_dls));
 	if (!new_node)
 	{
 		write(1, "Error\n", 6);
@@ -36,9 +36,9 @@ t_list	*ft_lstnew(int value, int index)
 /*
 Add a node to the end of a circular doubly linked list
 */
-void	ft_lstadd_back(t_list **stack, t_list *new_node)
+void	ft_lstadd_back(t_list_dls **stack, t_list_dls *new_node)
 {
-	t_list	*tail;
+	t_list_dls	*tail;
 
 	if (!*stack)
 	{
@@ -59,10 +59,10 @@ void	ft_lstadd_back(t_list **stack, t_list *new_node)
 /*
 Get the size of a circular doubly linked list
 */
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list_dls *lst)
 {
 	int		i;
-	t_list	*current;
+	t_list_dls	*current;
 
 	if (!lst)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:59:11 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/02 20:10:00 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:08:40 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 
 #include "ft_mylib.h"
 
-static int	ft_countwords(char const *s, char c)
+int	ft_countwords(char const *s, char c)
 {
 	int	counter;
 	int	i;

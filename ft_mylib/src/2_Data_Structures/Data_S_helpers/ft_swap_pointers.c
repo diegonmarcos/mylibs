@@ -6,15 +6,15 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:34:33 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/31 20:09:15 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:16:03 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mylib.h"
 
-void	ft_swap_pointers(t_list **a, t_list **b)
+void	ft_swap_pointers(t_list_dls **a, t_list_dls **b)
 {
-	t_list	*tmp;
+	t_list_dls	*tmp;
 
 	tmp = *a;
 	*a = *b;

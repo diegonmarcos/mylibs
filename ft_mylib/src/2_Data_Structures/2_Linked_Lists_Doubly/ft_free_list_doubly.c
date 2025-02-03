@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 19:16:05 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/30 19:34:40 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:16:58 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 /*
 Free the circular doubly linked list
 */
-void	ft_free_ls_doubly(t_list *stack)
+void	ft_free_ls_doubly(t_list_dls *stack)
 {
-	t_list	*current;
-	t_list	*temp;
-	int		switch_flag;
+	t_list_dls	*current;
+	t_list_dls	*temp;
+	int			switch_flag;
 
 	if (stack == NULL)
 		return ;

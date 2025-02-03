@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/02/03 14:43:42 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:09:39 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void	ft_bzero(void *s, size_t n);
 /* ************************************************************* */
 /* ************************************************************* */
 size_t	ft_strlen(const char *str);
+int		ft_countwords(char const *s, char c);
+int		ft_array_size(char **s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	*ft_strdup(char *name, const char *s1);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
