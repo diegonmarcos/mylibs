@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:57:56 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/31 20:20:48 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:11:50 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,25 @@ int	is_allocated(void *ptr, t_list_garbage *list_garbage);
 void	*ft_malloc_gb(size_t size, t_list_garbage *list_garbage);
 
 */
+
+t_list_garbage	*ft_initializator_list_gargabe(void)
+{
+	t_list_garbage	*list_garbage;
+	int				i;
+
+	list_garbage = (t_list_garbage *)ft_calloc_fd(NAME_M, 1,
+			sizeof(t_list_garbage));
+	if (!list_garbage)
+		return (NULL);
+	i = 0;
+	while (i < MAX_ALLOCATIONS)
+	{
+		list_garbage->allocated_pointers[i] = NULL;
+		i++;
+	}
+	list_garbage->blocks_count = 0;
+	return (list_garbage);
+}
 
 // Wrapper for free that also removes the allocation from tracking
 void	ft_free_gb(void *ptr, t_list_garbage *list_garbage)
@@ -52,19 +71,6 @@ void	ft_free_gb_all(t_list_garbage *list_garbage)
 		}
 		i++;
 	}
-}
-
-void	ft_initializator_list_gargabe(t_list_garbage *list_garbage)
-{
-	int	i;
-
-	i = 0;
-	while (i < MAX_ALLOCATIONS)
-	{
-		list_garbage->allocated_pointers[i] = NULL;
-		i++;
-	}
-	list_garbage->blocks_count = 0;
 }
 
 /*

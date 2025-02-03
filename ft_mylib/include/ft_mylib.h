@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/02/02 22:14:47 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:43:42 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@
 // GET NEXT LINE2
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1000
-# endif
-
-// GARBAGE COLLECTOR
-# ifndef MAX_ALLOCATIONS
-#  define MAX_ALLOCATIONS 102400
 # endif
 
 // Unsigned Int
@@ -46,6 +41,7 @@
 # include <string.h>	// Actually can't use, only for testers...
 # include <stddef.h> 	// Defs of NULL, size_t(unsign int)
 # include <limits.h>	// Defs of INT_MAX, SIZE_MAX(size_t/uInt), LONG_MAX
+# include "ft_mylib_data.h" //*ft_initializator_list_gargabe(void);
 
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓	//
 
@@ -102,6 +98,10 @@ void	*ft_atoi_base(const char *str, int str_base);
 int		ft_atoi_safe(const char *ptr);
 long	*ft_atoi_long_array(const char **ptr);
 char	*ft_itoa(int n);
+size_t	ft_num_unsign(size_t num);
+int		ft_pointer_hexa(void *p);
+int		ft_hexa_minusc(int num);
+int		ft_hexa_mayusc(int num);
 
 /* ************************************************************* */
 /* ************************************************************* */
@@ -110,10 +110,13 @@ int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isnum(const char *num);
+int		ft_is_num_num(const char **str);
 int		ft_isprint(int c);
-int		is_array_int(char *array);
+int		ft_is_array_int(char **array);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+int		ft_is_sorted_array_char(char **arr);
+int		ft_is_sorted_array_int(int	*arr, int size);
 
 /* ************************************************************* */
 /* STRING MANIP / HALTERS										 */
@@ -133,7 +136,16 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
+int		ft_putstr(char *str);
+int		ft_putstr_str(char **str);
 int		ft_putnbr(int n);
+int		ft_putnbr_nbr(int *n, int size);
+int		ft_putstr_fd_fpr(long fd, char *s);
+int		ft_putnbr_fd_fpr(long fd, int n);
+int		ft_putchar_fd_fpr(long fd, int c);
+int		ft_putchar(char c);
+int		ft_putchar_int(int c);
+int		ft_pointer_hexa_fpr(long fd, void *p);
 
 /* ************************************************************* */
 /* PRINTERS high level											 */
@@ -189,111 +201,7 @@ void	ft_free_array_int(int **array_int, int size);
 void	ft_free_fd_new(char *filename);
 void	ft_free_array_halt(char **farray, int failed);
 
-/* ************************************************************* */
-/* DATA STRUCTURE / HASHTABLE/MAP/DIC							 */
-/* ************************************************************* */
-typedef struct s_node_
-{
-	char			*key;
-	int				value;
-	struct s_node_	*next;
-}				t_node_;
-
-void	insert(t_node_ **table, int size, const char *key, int value);
-int		get(t_node_ **table, int size, const char *key);
-void	free_hashtable(t_node_ **table, int size);
-size_t	hash(char *key, int size);
-t_node_	*create_node(char *key, int value);
-
-/* ************************************************************* */
-/* ************************************************************* */
-// DATA STRUCTURE FOR SINGLY LINEKD LIST
-
-typedef struct s_list_s
-{
-	void				*content;
-	struct s_list_s		*next;
-}					t_list_s;
-
-void	ft_free_ls_simple(t_list_s *stack);
-/*
-t_list_s	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list_s **lst, t_list *new);
-int		ft_lstsize(t_list_s *lst);
-t_list_s	*ft_lstlast(t_list_s *lst);
-void	ft_lstadd_back(t_list_s **lst, t_list *new);
-void	ft_lstdelone(t_list_s *lst, void (*del)(void*));
-void	ft_lstclear(t_list_s **lst, void (*del)(void*));
-void	ft_lstiter(t_list_s *lst, void (*f)(void*));
-t_list_s	*ft_lstmap(t_list_s *lst, void *(*f)(void*), void (*del)(void*));
-*/
-
-/* ************************************************************* */
-/* ************************************************************* */
-// DATA STRUCTURE FOR DOUBLY LINKED LIST
-
-typedef struct s_list
-{
-	int				value;
-	int				index;
-	struct s_list	*next;
-	struct s_list	*prev;
-}				t_list;
-
-t_list	*array_to_d_linked_list(char **argv);
-t_list	*array_int_to_d_linked_list(int *argv, int size);
-t_list	*ft_lstnew(int value, int index);
-void	ft_lstadd_back(t_list **stack, t_list *new_node);
-int		ft_lstsize(t_list *lst);
-t_list	*find_min_node(t_list *stack);
-void	ft_swap_pointers(t_list **a, t_list **b);
-void	ft_print_ls_doubly(t_list *stack);
-void	ft_free_ls_doubly(t_list *stack);
-
-/* ************************************************************* */
-/* MEMORY MANAGEMENT / GARBAGE COLLECTOR						 */
-/* ************************************************************* */
-typedef struct s_list_garbage
-{
-	void	*allocated_pointers[MAX_ALLOCATIONS];
-	int		blocks_count;
-}			t_list_garbage;
-
-void	ft_initializator_list_gargabe(t_list_garbage *my_list);
-void	*ft_malloc_gb(size_t size, t_list_garbage *list_garbage);
-int		add_allocation(void *ptr, t_list_garbage *list_garbage);
-int		is_allocated(void *ptr, t_list_garbage *list_garbage);
-void	remove_allocation(void *ptr, t_list_garbage *list_garbage);
-void	ft_free_gb(void *ptr, t_list_garbage *list_garbage);
-void	ft_free_gb_all(t_list_garbage *list_garbage);
-
-// FOR THE PRINTERS DEBUGGERS
-/*
-typedef struct s_node
-{
-	int				data;
-	struct s_node	*next;
-}				t_node;
-*/
-
-/* ************************************************************* */
-/* ************************************************************* */
-//FT_FPRINTF HELPERS
-int		ft_putstr_fd_fpr(long fd, char *s);
-int		ft_putnbr_fd_fpr(long fd, int n);
-int		ft_putchar_fd_fpr(long fd, int c);
-int		ft_putchar(char c);
-int		ft_putchar_int(int c);
-int		ft_putstr(char *str);
-int		ft_pointer_hexa_fpr(long fd, void *p);
-
-/* ************************************************************* */
-/* ************************************************************* */
-//FT_PRINTF HELPERS
-size_t	ft_num_unsign(size_t num);
-int		ft_pointer_hexa(void *p);
-int		ft_hexa_minusc(int num);
-int		ft_hexa_mayusc(int num);
+// ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓	//
 
 /* ************************************************************* */
 /* ************************************************************* */
@@ -302,12 +210,6 @@ size_t	ft_strlen_gnl(char *s, int c);
 char	*ft_strchr_gnl(char *s, int c);
 char	*ft_strjoin_gnl(char *left_str, char *buff, int c);
 int		ft_read_to_left_str2(int fd, char **left_str);
-char	*ft_new_left_str(char *left_str);
-char	*ft_get_line(char *left_str);
-
-/* ************************************************************* */
-/* ************************************************************* */
-//GET_NEXT_LINE HELPERS
 char	*ft_new_left_str(char *left_str);
 char	*ft_get_line(char *left_str);
 

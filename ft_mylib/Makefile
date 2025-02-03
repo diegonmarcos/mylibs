@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/02/02 16:22:16 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/02/03 12:15:41 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -151,6 +151,7 @@ LIB_SRC_FUNCTIONS = 	0.bubble_sort.c			\
 						ft_digits_to_bits.c			\
 						ft_free_list_doubly.c		\
 						ft_free_ls_simple.c			\
+						ft_is_sorted.c				\
 #						get_next_line.c 			\
 						get_next_line2_utils.c		\
 						get_next_line_utils.c 		\

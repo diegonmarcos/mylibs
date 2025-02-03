@@ -1,48 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr1.c                                       :+:      :+:    :+:   */
+/*   ft_is_sorted.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/29 19:11:24 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/03 12:31:01 by dinepomu         ###   ########.fr       */
+/*   Created: 2025/02/03 12:13:10 by dinepomu          #+#    #+#             */
+/*   Updated: 2025/02/03 13:34:51 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mylib.h"
 
-int	ft_putstr(char *str)
+int	ft_is_sorted_array_int(int	*arr, int size)
 {
 	int	i;
 
-	i = 0;
-	while (str[i])
+	i = -1;
+	while (i++ < size - 1)
 	{
-		ft_putchar(str[i]);
-		i++;
+		if (arr[i] > arr[i + 1])
+			return (0);
 	}
-	return (i);
+	return (1);
 }
 
-int	ft_putstr_str(char **str)
+int	ft_is_sorted_array_char(char **arr)
 {
 	int	i;
-	int	j;
-	int	count;
 
 	i = 0;
-	count = 0;
-	while (str[i])
+	while (arr[i])
 	{
-		j = 0;
-		while (str[i][j])
-		{
-			ft_putchar(str[i][j]);
-			j++;
-			count++;
-		}
+		if (ft_atoi(arr[i]) < ft_atoi(arr[i - 1]))
+			return (0);
 		i++;
 	}
-	return (count);
+	return (1);
 }

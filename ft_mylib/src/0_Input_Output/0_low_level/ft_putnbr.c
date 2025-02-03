@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:56:17 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/26 00:00:32 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/03 12:42:24 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,15 @@ int	ft_putnbr(int n)
 		char_count++;
 	}
 	return (char_count);
+}
+
+int	ft_putnbr_nbr(int *n, int size)
+{
+	while (size--)
+	{
+		if (ft_putnbr(*n) == -1)
+			return (-1);
+		n++;
+	}
+	return (0);
 }

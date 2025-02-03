@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:55:59 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/02 22:18:11 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/03 13:38:44 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,17 @@ int	ft_isnum(const char *num)
 	return (1);
 }
 
-int	is_array_int(char *array)
+int	ft_is_array_int(char **array)
 {
 	int	i;
 
 	i = -1;
 	while (array[++i])
 	{
-		if (ft_atoi((const char *)&array[i]) > INT_MAX
-			|| ft_atoi((const char *)&array[i]) < INT_MIN)
+		if (ft_atoi_long((const char *)array[i]) > INT_MAX
+			|| ft_atoi_long((const char *)array[i]) < INT_MIN)
+			return (0);
+		if (!ft_isnum(array[i]))
 			return (0);
 	}
 	return (1);

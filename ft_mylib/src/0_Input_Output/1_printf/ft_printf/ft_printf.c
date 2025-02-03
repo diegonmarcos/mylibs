@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:23:43 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/26 00:33:44 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/03 12:48:38 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ static int	type_var(char formatSpecifier, va_list item)
 		return (ft_hexa_mayusc(va_arg(item, int)));
 	if (formatSpecifier == 'x')
 		return (ft_hexa_minusc(va_arg(item, int)));
+	if (formatSpecifier == 'S')
+		return (ft_putstr_str(va_arg(item, char **)));
+	if (formatSpecifier == 'D' || formatSpecifier == 'I')
+		return (ft_putnbr_nbr(va_arg(item, int *), va_arg(item, int)));
 	return (0);
 }
 

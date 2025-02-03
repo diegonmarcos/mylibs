@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 11:00:14 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/02 22:19:03 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/03 13:16:04 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,18 @@ int	ft_strcmp_duplicate(char *str, char **array)
 int	ft_strcmp_duplicate_inter(char **array)
 {
 	int	i;
+	int	j;
 
 	i = 0;
 	while (array[i])
 	{
-		if (ft_strcmp_duplicate(array[i], array) == 0)
-			return (1);
+		j = i + 1;
+		while (array[j])
+		{
+			if (ft_strcmp(array[i], array[j]) == 0)
+				return (1);
+			j++;
+		}
 		i++;
 	}
 	return (0);
