@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:59:20 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/02 16:27:33 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/02 22:11:36 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,32 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-int	ft_strchr_char_duplicate(int num, char **argv, int i)
+int	ft_strchr_char_duplicate(char c, char **argv, int i)
 {
 	i++;
 	while (argv[i])
 	{
-		if (ft_atoi(argv[i]) == num)
+		if ( ft_strncmp(argv[i], "-", 1) == 0)
+			i++;
+		if (argv[i][0] == c)
 			return (1);
 		i++;
 	}
 	return (0);
+}
+
+char	*ft_strchr_char_duplicate_interation(char **array_char)
+{
+	int	i;
+
+	i = 0;
+	while (array_char[i])
+	{
+		if (ft_strchr_char_duplicate(array_char[i][0], array_char, i))
+			return (array_char[i]);
+		i++;
+	}
+	return (NULL);
 }
 
 int	*ft_strchr_int_duplicate(int *array_int, int size, int position)

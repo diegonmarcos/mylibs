@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/02/02 16:11:11 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/02 22:14:47 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	*ft_strdup(char *name, const char *s1);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strcmp_duplicate(char *str, char **array);
+int		ft_strcmp_duplicate_inter(char **array);
 int		ft_strcmp(const char *s1, const char *s2);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strjoin(char *filename, char const *s1, char const *s2);
@@ -77,7 +79,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char *filename, char const *s, unsigned int start,
 			size_t len);
 char	**ft_split(char *filename, const char *s, char c);
-int		*ft_split_int(char *filename, char const *array_source,
+long	*ft_split_long(char *filename, char const *array_source,
 			char delimitator, int *size);
 int		ft_contains(int num, char **argv, int i);
 
@@ -86,17 +88,19 @@ int		ft_contains(int num, char **argv, int i);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strrchr(const char *s, int c);
-int		ft_strchr_char_duplicate(int num, char **argv, int i);
+int		ft_strchr_char_duplicate(char c, char **argv, int i);
+char	*ft_strchr_char_duplicate_interation(char **array_char);
 int		*ft_strchr_int_duplicate(int *array_int, int size, int position);
 int		*ft_strchr_int_duplicate_interation(int *array_int, int size);
 
 /* ************************************************************* */
 /* SRING MANIPULATION / CONVERTERS AND CHECKERS					 */
 /* ************************************************************* */
-long	ft_atoi(const char *str);
+int		ft_atoi(const char *str);
+long	ft_atoi_long(const char *ptr);
 void	*ft_atoi_base(const char *str, int str_base);
 int		ft_atoi_safe(const char *ptr);
-int		*ft_atoi_safe_array_2d(const char **ptr);
+long	*ft_atoi_long_array(const char **ptr);
 char	*ft_itoa(int n);
 
 /* ************************************************************* */
@@ -107,6 +111,7 @@ int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isnum(const char *num);
 int		ft_isprint(int c);
+int		is_array_int(char *array);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 
@@ -180,7 +185,7 @@ void	*ft_calloc(size_t count, size_t size);
 void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar);
 void	ft_free_fd(char *filename);
 void	ft_free_array_2d(char **array);
-void	ft_free_array_int(int *array_int, int size);
+void	ft_free_array_int(int **array_int, int size);
 void	ft_free_fd_new(char *filename);
 void	ft_free_array_halt(char **farray, int failed);
 

@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:54:23 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/02 16:27:05 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/02 20:35:05 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,32 @@
 
 #include "ft_mylib.h"
 
-long	ft_atoi(const char *ptr)
+int	ft_atoi(const char *ptr)
+{
+	int		i;
+	int		neg;
+	int		result;
+
+	i = 0;
+	neg = 1;
+	result = 0;
+	while (ptr[i] == ' ' || (ptr[i] >= 9 && ptr[i] <= 13))
+		i++;
+	if (ptr[i] == '+' || ptr[i] == '-')
+	{
+		if (ptr[i] == '-')
+			neg = -1;
+		i++;
+	}
+	while (ptr[i] != '\0' && ptr[i] >= '0' && ptr[i] <= '9')
+	{
+		result = (result * 10) + (ptr[i] - '0');
+		i++;
+	}
+	return (result * neg);
+}
+
+long	ft_atoi_long(const char *ptr)
 {
 	int		i;
 	int		neg;
@@ -54,6 +79,27 @@ long	ft_atoi(const char *ptr)
 	return (result * neg);
 }
 
+long	*ft_atoi_long_array(const char **ptr)
+{
+	long	*array_long;
+	int		i;
+	int		size;
+
+	size = 0;
+	while (ptr[size])
+		size++;
+	array_long = (long *)malloc(sizeof(long) * size);
+	i = 0;
+	if (!array_long)
+		return (NULL);
+	while (ptr[i])
+	{
+		array_long[i] = ft_atoi_long(ptr[i]);
+		i++;
+	}
+	return (array_long);
+}
+
 int	ft_atoi_safe(const char *ptr)
 {
 	long	number;
@@ -64,29 +110,8 @@ int	ft_atoi_safe(const char *ptr)
 		if (number >= INT_MIN && number <= 2147483647)
 			return (number);
 	}
-	halt_exit1(1);
+	halt_exit_(1);
 	return (1);
-}
-
-int	*ft_atoi_safe_array_2d(const char **ptr)
-{
-	int	*array_int;
-	int	i;
-	int	size;
-
-	size = 0;
-	while (ptr[size])
-		size++;
-	array_int = (int *)malloc(sizeof(int) * size);
-	i = 0;
-	if (!array_int)
-		return (NULL);
-	while (ptr[i])
-	{
-		array_int[i] = ft_atoi_safe(ptr[i]);
-		i++;
-	}
-	return (array_int);
 }
 // INT_MAX = 2147483647
 

@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:59:11 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/01 14:06:38 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/02 20:10:00 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,6 @@ static int	ft_countwords(char const *s, char c)
 	return (counter);
 }
 
-void	ft_free_array_halt(char **farray, int failed)
-{
-	while (failed > 0)
-	{
-		free(farray[failed - 1]);
-		failed--;
-	}
-	free(farray);
-}
-
 char	**ft_split(char *filename, char const *s, char c)
 {
 	char	**array;
@@ -96,30 +86,29 @@ char	**ft_split(char *filename, char const *s, char c)
 	return (array);
 }
 
-int	*ft_split_int(char *filename, char const *array_source,
+long	*ft_split_long(char *filename, char const *array_source,
 			char delimitator, int *size)
 {
-	char	**array_char_split;
-	int		*array_int;
-	int		i;
+	char		**array_char_split;
+	long		*array_int;
+	int			i;
 
 	array_char_split = ft_split(filename, array_source, delimitator);
 	*size = 0;
 	while (array_char_split[*size])
 		(*size)++;
-	array_int = (int *)ft_calloc_fd(filename, *size, sizeof(int));
+	array_int = (long *)ft_calloc_fd(filename, *size, sizeof(int));
 	if (!array_int)
 		return (NULL);
 	i = 0;
 	while (i < *size)
 	{
-		array_int[i] = ft_atoi_safe(array_char_split[i]);
+		array_int[i] = ft_atoi_long(array_char_split[i]);
 		i++;
 	}
 	ft_free_array_2d(array_char_split);
 	return (array_int);
 }
-
 /*
 #include "../../4.Tester/Tester/libdnm.h"
 

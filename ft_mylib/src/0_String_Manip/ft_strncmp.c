@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 11:00:14 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/31 20:04:22 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/02 22:19:03 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,34 @@ int	ft_strcmp(const char *s1, const char *s2)
 	{
 		if ((unsigned char) s1[i] != (unsigned char) s2[i])
 			return ((unsigned char) s1[i] - (unsigned char) s2[i]);
+		i++;
+	}
+	return (0);
+}
+
+int	ft_strcmp_duplicate(char *str, char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+	{
+		if (ft_strcmp(str, array[i]) == 0)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	ft_strcmp_duplicate_inter(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+	{
+		if (ft_strcmp_duplicate(array[i], array) == 0)
+			return (1);
 		i++;
 	}
 	return (0);

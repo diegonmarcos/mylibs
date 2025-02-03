@@ -6,14 +6,9 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:09:17 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/02 16:26:43 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/03 11:38:35 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-This function will free a array 2d
-Will check if second array exist, if not will just free the header
-*/
 
 #include "ft_mylib.h"
 
@@ -29,17 +24,29 @@ void	ft_free_array_2d(char **array)
 	free(array);
 }
 
-void	ft_free_array_int(int *array_int, int size)
+void	ft_free_array_int(int **array_int, int size)
 {
 	int	i;
 
 	if (array_int == NULL)
 		return ;
 	i = 0;
-	while (i < size)
+
+	while (i < size - 1)
 	{
-		free(&array_int[i]);
+		free(array_int[i]);
 		i++;
 	}
 	free(array_int);
+}
+
+// Used on ft_split.c
+void	ft_free_array_halt(char **farray, int failed)
+{
+	while (failed > 0)
+	{
+		free(farray[failed - 1]);
+		failed--;
+	}
+	free(farray);
 }
