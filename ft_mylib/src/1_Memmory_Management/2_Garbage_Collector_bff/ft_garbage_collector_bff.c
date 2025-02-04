@@ -48,7 +48,7 @@ void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar)
 
 	ptr = (char *)ft_calloc(count, sizeofvar);
 	if (ptr == NULL)
-		write(1, "Alloc Error1\n", 13);
+		halt_exit_(1);
 	if (ft_strncmp(filename, "0", 1))
 	{
 		fd = open(filename, O_CREAT | O_RDWR | O_APPEND, 0644);

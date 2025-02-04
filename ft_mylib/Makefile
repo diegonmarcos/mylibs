@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/02/04 10:34:46 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/02/04 19:35:03 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -186,7 +186,7 @@ LIB_COMP_STATIC = ar rcs
 #LIB_COMP_DYNAMIC_lib = shared
 RM = rm -rf
 CFLAG_ASAN =
-CFLAGS_DBG =
+CFLAGS_DBG = -g3
 
 # ############################################################################ #
 #                                 HELPERS                                      #
@@ -802,8 +802,9 @@ folders_build:
 ### Hello!
 hello:
 	@echo "$(GREEN)\n################################################$(RESET)"
-	@echo "$(GREEN)Hello, $(USER)!$(RESET)"
-	@echo "$(GREEN)### Welcome to Makefile for:$(BLUE) $(NAME)! ###$(RESET)"
+	@echo "$(GREEN)# Hello, $(USER)!					#$(RESET)"
+	@echo "$(GREEN)# $(shell date)			#$(RESET)"
+	@echo "$(GREEN)# Welcome to Makefile for:$(BLUE) $(NAME)!	#$(RESET)"
 	@echo "$(GREEN)################################################$(RESET)"
 
 help:
