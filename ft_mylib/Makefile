@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/02/03 18:17:39 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/02/04 10:34:46 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -701,29 +701,22 @@ debug: $(MAKE) CFLAGS="$(CFLAGS) -g3" $(NAME)
 # ############################################################################ #
 
 folder_lns_builder:
-	@# 1. Delete src_all and include_all if they exist
+	@echo "Running folder_lns_builder..."
 	@if [ -d "src/src_all" ]; then \
 		echo "Deleting existing src/src_all directory..."; \
 		rm -rf "src/src_all"; \
 	fi
-
-	@if [ -d "include" ]; then \
-		echo "Deleting existing include directory..."; \
-		rm -rf "include"; \
-	fi
-
-	@# Create the destination directories if they don't exist (they shouldn't after the previous step)
-	@echo "Creating src/src_all and include directories..."
+	@echo "Creating src/src_all directory..."
 	@mkdir -p "src/src_all"
-	@mkdir -p "include"
-
-	@# 2. Find .c and .h files and copy them
-	@echo "Copying .c and .h files..."
-	@find src/ -mindepth 1 -maxdepth 5 -type f \( -name "*.c" \) -print0 | xargs -0 -I {} cp {} src/src_all/
-	@find src/ -mindepth 1 -maxdepth 5 -type f \( -name "*.h" \) -print0 | xargs -0 -I {} cp {} include/
-
-	@echo "Script completed successfully."
-	$(MAKE) $(NAME)
+	@echo "Creating symbolic links for .c files..."
+	@(find src/ -mindepth 1 -maxdepth 5 -type f -name "*.c" ! -path "*/.*" -print0 | \
+		xargs -0 -I {} sh -c 'filename=$$(basename "{}"); \
+			echo "Creating symbolic link for {} in src/src_all/$$filename"; \
+			ln -s "$$(realpath --relative-to=src/src_all "{}")" "src/src_all/$$filename" || echo "Error creating symbolic link for {}";')
+	@echo "Generating list_files_c.txt..."
+	@(cd src/src_all; \
+		find . -name "*.c" -print0 | xargs -0  printf "%s\t\t\\ \n"  > ../../log/list_files_c.txt)
+	@echo "folder_lns_builder completed successfully."
 
 ### Build folders
 folders_build:
