@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/02/04 19:35:03 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/02/05 13:44:52 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -801,11 +801,10 @@ folders_build:
 
 ### Hello!
 hello:
-	@echo "$(GREEN)\n################################################$(RESET)"
-	@echo "$(GREEN)# Hello, $(USER)!					#$(RESET)"
-	@echo "$(GREEN)# $(shell date)			#$(RESET)"
-	@echo "$(GREEN)# Welcome to Makefile for:$(BLUE) $(NAME)!	#$(RESET)"
-	@echo "$(GREEN)################################################$(RESET)"
+	@echo "$(GRAY)\n################################################$(RESET)"
+	@echo "$(GRAY)# Hello, $(USER)! $(shell date)$(RESET)"
+	@echo "$(GRAY)# Welcome to Makefile for:$(BLUE) $(NAME)!$(RESET)"
+	@echo "$(GRAY)################################################$(RESET)"
 
 help:
 	@echo "$(GRAY)\n### 1.DESCRIPTION:$(RESET)"

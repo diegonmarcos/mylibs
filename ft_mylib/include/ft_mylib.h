@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/02/03 16:09:39 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:49:08 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # endif
 
 # ifndef NAME_M
-#  define NAME_M "log/5.bff/malloc_allocs.txt"
+#  define NAME_M "log/2.Memory_Check/allocs/malloc_allocs.txt"
 # endif
 
 /*#####################################################################	*/
