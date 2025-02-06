@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 14:19:46 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/03 17:07:04 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/06 15:12:47 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	ft_lstdelone(t_list_s *lst, void (*del)(void*));
 void	ft_lstclear(t_list_s **lst, void (*del)(void*));
 void	ft_lstiter(t_list_s *lst, void (*f)(void*));
 t_list_s	*ft_lstmap(t_list_s *lst, void *(*f)(void*), void (*del)(void*));
+
 */
 
 /* ************************************************************* */

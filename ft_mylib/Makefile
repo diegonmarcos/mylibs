@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/02/05 17:23:14 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/02/06 15:18:07 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -212,27 +212,15 @@ OBJECTS = $(OBJECTS_MAIN) $(OBJECTS_LIB)
 # ############################################################################ #
 #                                 RULES/ALL                                    #
 # ############################################################################ #
-.DEFAULT_GOAL:= build
+.DEFAULT_GOAL:= build_dependencies
 
+# ************************************************************************ #
+#                               DEPENDENCIES                               #
+# ************************************************************************ #
 # *** Default rule *** #
-build:
-	$(MAKE) hello
-	$(MAKE) folders_build
-#	$(MAKE) folders_lns_build
+build_dependencies:
 	$(MAKE) libs_build
-	$(MAKE) program_or_lib
-
-# *** Compiling the source files into object files *** #
-objs/%.o:	%.c
-	mkdir -p objs
-	$(COMPILER) $(CFLAGS_DBG) $(CFLAG_ASAN) $(CFLAGS_INCL) $(DEPFLAGS) -c $< -o $@
-	@echo "$(GRAY)()و $@ $(NAME) Compiling Objects !$(RESET)"
-
-program_or_lib:
-	if [ ! -f "$(NAME)" ]; then \
-		echo "$(RED)No binary found$(RESET)"; \
-		touch src ; \
-	fi;
+	$(MAKE) check_up_to_date
 
 # *** Build the library included *** #
 libs_build:
@@ -243,7 +231,24 @@ else
 #	@echo "$(GRAY)Skipping library build$(RESET)"
 endif
 
-# *** Is program or a Lib? *** #
+# ************************************************************************ #
+#                               MAIN                                       #
+# ************************************************************************ #
+# *** Default rule *** #
+build_project:
+	$(MAKE) hello
+	$(MAKE) folders_build
+#	$(MAKE) folders_lns_build
+	$(MAKE) program_or_lib
+
+# *** Compiling the source files into object files *** #
+objs/%.o:	%.c
+	mkdir -p objs
+	$(COMPILER) $(CFLAGS_DBG) $(CFLAG_ASAN) $(CFLAGS_INCL) $(DEPFLAGS) -c $< -o $@
+	@echo "$(GRAY)()و $@ $(NAME) Compiling Objects !$(RESET)"
+
+# *** Is program or a Lib? ***
+program_or_lib:
 ifeq ($(IS_PROGRAM_AND_NOT_LIB), 1)
 	echo "  $(YELLOW)Linking a Program$(RESET)"
 	$(MAKE) LIB_OUTPUT="libs/lib$(NAME0).a" lib
@@ -253,11 +258,10 @@ else
 	$(MAKE) LIB_OUTPUT=$(NAME) lib
 endif
 
-
 # *** Linking the object files into a library *** #
 lib:	$(OBJECTS_LIB)
 	$(LIB_COMP_STATIC) $(LIB_OUTPUT) $(OBJECTS_LIB)
-	@echo "  $(YELLOW)(•̀ᴗ•́)و lib$(NAME).a LIBRARY GENERATED!$(RESET)"
+	@echo "  $(YELLOW)(•̀ᴗ•́)و lib$(NAME).a Library Generated!$(RESET)"
 
 # *** Linking the object files into the program *** #
 program:	$(OBJECTS)
@@ -790,39 +794,36 @@ folders_log_build:
 # ############################################################################ #
 #                                HELPER                                        #
 # ############################################################################ #
+# *** Build message of timestamps changes *** #
+check_up_to_date:
+	if [ ! -f "$(NAME)" ]; then \
+		echo "$(GRAY)\n################################################$(RESET)"; \
+		echo "$(GRAY)$(NAME)\n$(YELLOW)STATUS: Bin does not exist. Building...$(RESET)"; \
+		echo "$(GRAY)################################################\n$(RESET)"; \
+		$(MAKE) build_project; \
+	else \
+		if find src/ include/ -newer "$(NAME)" -print | grep -q .; then \
+			echo "$(GRAY)\n################################################$(RESET)"; \
+			echo "$(GRAY)$(NAME)\n$(RED)STATUS: Some files have changed. Rebuilding...$(RESET)"; \
+			echo "$(GRAY)################################################\n$(RESET)"; \
+			$(MAKE) build_project; \
+		else \
+			echo "$(GRAY)\n################################################$(RESET)"; \
+			echo "$(GRAY)$(NAME)\n$(GREEN)STATUS: is up-to-date.$(RESET)"; \
+			echo "$(GRAY)################################################\n$(RESET)"; \
+			exit 0; \
+		fi; \
+	fi
+#### Check if $(NAME) exists. If not, skip the up-to-date check.
+#### If $(NAME) exists, check if any source files are newer.
+
 # *** Hello message *** #
 hello:
 	@echo "$(GRAY)\n################################################$(RESET)"
 	@echo "$(GRAY)# Hello, $(USER)! $(shell date)$(RESET)"
-	@echo "$(GRAY)# Welcome! to Makefile for:$(BLUE) $(NAME)!$(RESET)"
+	@echo "$(GRAY)# Welcome to Makefile for:$(BLUE) $(NAME)!$(RESET)"
 	@echo "$(GRAY)################################################$(RESET)"
-	$(MAKE) check_up_to_date
 	echo "---"
-
-# *** Build message of timestamps changes *** #
-check_up_to_date:
-ifeq ($(MAKECMDGOALS),all) # Only check if 'all' is the explicit goal
-	@# Check if $(NAME) exists. If not, skip the up-to-date check.
-	@if [ ! -f "$(NAME)" ]; then \
-		echo "$(YELLOW)$(NAME) does not exist. Building...$(RESET)"; \
-	else \
-		# If $(NAME) exists, check if any source files are newer.
-		@if find src/ include/ -newer "$(NAME)" -print | grep -q .; then \
-			echo "$(RED)$(NAME) Some files have changed. Rebuilding...$(RESET)"; \
-		else \
-			echo "$(GREEN)Everything up-to-date.$(RESET)"; \
-			exit 0; \
-		fi \
-	fi
-endif
-ifeq ($(MAKECMDGOALS),check_up_to_date) # Special handling for 'make check_up_to_date'
-	@if [ -f "$(NAME)" ] && find src/ include/ -newer "$(NAME)" -print | grep -q .; then \
-		echo "$(RED)$(NAME) Some files have changed. Run 'make all' to rebuild.$(RESET)"; \
-	else \
-		echo "$(GREEN)$(NAME) is up-to-date.$(RESET)"; \
-		exit 0; \
-	fi
-endif
 
 # *** help message *** #
 help:
