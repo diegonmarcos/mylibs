@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/02/06 15:18:07 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/02/06 15:38:17 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -797,20 +797,20 @@ folders_log_build:
 # *** Build message of timestamps changes *** #
 check_up_to_date:
 	if [ ! -f "$(NAME)" ]; then \
-		echo "$(GRAY)\n################################################$(RESET)"; \
-		echo "$(GRAY)$(NAME)\n$(YELLOW)STATUS: Bin does not exist. Building...$(RESET)"; \
-		echo "$(GRAY)################################################\n$(RESET)"; \
+		echo "$(GRAY)\n# ############################################################################ #$(RESET)"; \
+		echo "$(GRAY)$(NAME)				$(shell date)\n$(YELLOW)STATUS: Bin does not exist. Building...$(RESET)"; \
+		echo "$(GRAY)# ############################################################################ #\n$(RESET)"; \
 		$(MAKE) build_project; \
 	else \
 		if find src/ include/ -newer "$(NAME)" -print | grep -q .; then \
-			echo "$(GRAY)\n################################################$(RESET)"; \
-			echo "$(GRAY)$(NAME)\n$(RED)STATUS: Some files have changed. Rebuilding...$(RESET)"; \
-			echo "$(GRAY)################################################\n$(RESET)"; \
+			echo "$(GRAY)\n# ############################################################################ #$(RESET)"; \
+			echo "$(GRAY)$(NAME)				$(shell date)\n$(RED)STATUS: Some files have changed. Rebuilding...$(RESET)"; \
+			echo "$(GRAY)# ############################################################################ #\n$(RESET)"; \
 			$(MAKE) build_project; \
 		else \
-			echo "$(GRAY)\n################################################$(RESET)"; \
-			echo "$(GRAY)$(NAME)\n$(GREEN)STATUS: is up-to-date.$(RESET)"; \
-			echo "$(GRAY)################################################\n$(RESET)"; \
+			echo "$(GRAY)\n# ############################################################################ #$(RESET)"; \
+			echo "$(GRAY)$(NAME)				$(shell date)\n$(GREEN)STATUS: is up-to-date.$(RESET)"; \
+			echo "$(GRAY)# ############################################################################ #\n$(RESET)"; \
 			exit 0; \
 		fi; \
 	fi
