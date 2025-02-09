@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/02/06 15:38:17 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/02/06 16:46:38 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -316,7 +316,7 @@ fclean:	clean
 	@echo	"$(RED)		(╯°□°）╯︵ ┻━┻ FILE, OBJ REMOVED!$(RESET)"
 
 # *** FClean+Build *** #
-re: fclean build
+re: fclean build_dependencies
 
 # *** FClean+logs_folder *** #
 fclean_all:	fclean
@@ -327,7 +327,7 @@ fclean_all:	fclean
 	@echo	"$(RED)			(╯°□°）╯︵ ┻━┻ FILE, OBJ AND LOG REMOVED!$(RESET)"
 
 # *** Re_all *** #
-re_all: fclean_all build
+re_all: fclean_all build_dependencies
 
 # ############################################################################ #
 #                                EXTRAS		                                   #
