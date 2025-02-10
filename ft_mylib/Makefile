@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/02/10 17:39:56 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/02/10 19:39:55 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -127,6 +127,7 @@ SOURCE_FILES = 			0.bubble_sort.c			\
 						ft_is_sorted.c				\
 						ft_open.c					\
 						ft_pipe.c					\
+						ft_fprintf.c				\
 
 #SOURCE_MAIN = $(wildcard src/*.c) $(wildcard src/*/*.c)
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fprintf1.c                                      :+:      :+:    :+:   */
+/*   ft_fprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:23:43 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/10 19:38:52 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/10 19:41:30 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,25 +70,31 @@ static int	w_str(long fd, const char *str, va_list item, int char_count)
 	return (char_count);
 }
 
-int	ft_fprintf1(char *filename, const char *str, ...)
+int	ft_fprintf(FILE *file_struct, const char *str, ...)
 {
 	va_list	item;
 	int		char_count;
-	FILE	*output_file;
 	long	fd;
 
-	output_file = fopen(filename, "a");
-	if (output_file == NULL)
-		return (1);
-	fd = fileno(output_file);
+	fd = fileno(file_struct);
 	char_count = 0;
 	va_start(item, str);
 	char_count = w_str(fd, str, item, char_count);
 	va_end(item);
-	fclose(output_file);
 	return (char_count);
 }
 
+int	ft_dprintf(long fd, const char *str, ...)
+{
+	va_list	item;
+	int		char_count;
+
+	char_count = 0;
+	va_start(item, str);
+	char_count = w_str(fd, str, item, char_count);
+	va_end(item);
+	return (char_count);
+}
 /*
 --- FORMAT SPECIFIERS ---
 c:		This specifier is for printing a single character.

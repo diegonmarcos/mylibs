@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:55:13 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/28 18:45:30 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/10 18:41:00 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,18 @@ void	ft_bzero(void *s, size_t n)
 	ft_memset(s, 0, n);
 }
 
-/*
-void	ft_bzero(void *s, size_t n)
+void	ft_bzero_2d(void **array, size_t lines, size_t size)
 {
+	size_t	i;
 
-	char	*tmp_ptr;
-
-	tmp_ptr = (char *) s;
-	while (n > 0)
+	i = 0;
+	while (i < lines)
 	{
-		*(tmp_ptr++) = 0;
-		n--;
+		ft_bzero(array[i], size);
+		i++;
 	}
 }
-*/
+
 /*
 int main ()
 {

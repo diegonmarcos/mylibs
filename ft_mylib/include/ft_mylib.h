@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/02/10 09:06:02 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/10 19:41:17 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
+void	ft_bzero_2d(void **array, size_t lines, size_t size);
 
 /*#########################################################################	*/
 /* 2. STRING MANIPULATION high level										*/
@@ -167,6 +168,7 @@ int		ft_open_readorwrite(char *file, int read_or_write);
 int		ft_fprintf(FILE *file_struct, const char *str, ...);
 int		ft_fprintf1(char *filename, const char *str, ...);
 int		ft_printf(const	char *str, ...);
+int		ft_dprintf(long fd, const char *str, ...);
 
 /* ************************************************************* */
 /* ************************************************************* */
@@ -176,6 +178,12 @@ int		get_next_line2(int fd, char **line);
 int		ft_fgets(char **line, int fd);
 void	ft_scanf(char *filename, char *line, void **pointers,
 			int *num_pointers);
+
+/* ************************************************************* */
+/* SYSTEM CALLS													 */
+/* ************************************************************* */
+void	ft_pipe(int *pipe_fd);
+int		ft_fork(void);
 
 /*#########################################################################	*/
 /* 4. ALGOS																	*/
