@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 09:00:15 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/10 09:05:38 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:28:28 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,12 @@
 int	ft_open_readorwrite(char *file, int read_or_write)
 {
 	int	fd;
-	char *mode_str;
-	if (read_or_write == 0)
-		mode_str = "O_RDONLY";
-	else
-		mode_str = "O_WRONLY|O_CREAT|O_TRUNC";
-
 	if (read_or_write == 0)
 		fd = open(file, O_RDONLY);
 	else if (read_or_write == 1)
 		fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	else if (read_or_write == 2)
+		fd = open(file, O_WRONLY | O_CREAT | O_APPEND, 0644);
 	else
 		halt_exit_fd(1);
 	if (fd == -1)
