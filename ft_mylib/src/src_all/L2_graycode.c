@@ -1,1 +1,1 @@
-../10_Others/bitwise_manip/L2_graycode.c
+../4_Others_Algos/3.bitwise_manip/L2_graycode.c

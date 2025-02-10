@@ -1,1 +1,1 @@
-../10_Others/bitwise_manip/L2_swap_bits/swap_bits.c
+../4_Others_Algos/3.bitwise_manip/L2_swap_bits/swap_bits.c

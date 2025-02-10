@@ -3,6 +3,7 @@ set -v
 set > ast.log
 exec >> ast.log 2>&1
 
+
 # Check if llvm-config is available
 if ! command -v llvm-config &> /dev/null
 then
@@ -30,16 +31,49 @@ CXXFLAGS=$(llvm-config --cxxflags)
 # Get include directories (not strictly necessary if CXXFLAGS is correct, but good practice).
 LINCLUDE="-I$(llvm-config --includedir)"
 
-# Get linker flags and libraries *in the correct order*.  This is the crucial part.
-LDFLAGS=$(llvm-config --ldflags)
-COMP_LIBS="-lclangTooling -lclangFrontend -lclangAST -lclangParse -lclangSema -lclangAnalysis -lclangEdit -lclangLex -lclangBasic -lclangDriver -lclangCodeGen"
-LIBS="$(llvm-config --libs) $(llvm-config --system-libs)"
+# Get linker flags and libraries *in the correct order*.
+// ... existing code ...
 
-# Build the command line.
-clang++ $CXXFLAGS $LINCLUDE -o clang_ast ast.cpp $LDFLAGS $COMP_LIBS $LIBS
+# Get linker flags and libraries *in the correct order*.
+LDFLAGS=$(llvm-config --ldflags)
+COMP_LIBS="-lclangDynamicASTMatchers \
+-lclangASTMatchers \
+-lclangTooling \
+-lclangToolingCore \
+-lclangFrontend \
+-lclangParse \
+-lclangSema \
+-lclangAnalysis \
+-lclangEdit \
+-lclangRewrite \
+-lclangRewriteFrontend \
+-lclangSerialization \
+-lclangCodeGen \
+-lclangDriver \
+-lclangAST \
+-lclangLex \
+-lclangBasic \
+-lclangAPINotes \
+-lclangFormat \
+-lclangIndex \
+-lclangSupport \
+-lclangCrossTU \
+-lclangToolingInclusions \
+-lclangToolingASTDiff \
+-lclangTransformer \
+-lclangFrontendTool"
+
+LIBS="-lLLVMSupport $(llvm-config --libs all) $(llvm-config --system-libs) -lpthread -lz -lcurses -lzstd"
 
 echo "CXXFLAGS: $CXXFLAGS"
 echo "LINCLUDE: $LINCLUDE"
 echo "LDFLAGS: $LDFLAGS"
 echo "COMP_LIBS: $COMP_LIBS"
 echo "LIBS: $LIBS"
+
+# Build the command line.
+clang++ $CXXFLAGS $LINCLUDE -o clang_ast ast.cpp \
+	$LDFLAGS \
+	$COMP_LIBS \
+	$LIBS
+

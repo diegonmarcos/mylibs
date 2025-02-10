@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/02/05 15:49:08 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/10 09:06:02 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,25 @@
 /*#####################################################################	*/
 /* 0.1 LIBRARIES														*/
 /*#####################################################################	*/
-# include <unistd.h>	// open, close, read, write, fork(), exec(), pipe()
-# include <fcntl.h>		// file control O_RDONLY, O_RDWR, O_APPEND, O_TRUNC
-# include <stdarg.h> 	// Variadic functions for fprintf and printf
+# include <unistd.h>	// close, read, write, pipe, fork, execve, dup2
+# include <fcntl.h>		// open, O_RDONLY, O_WRONLY, O_CREAT, O_TRUNC
 # include <stdlib.h>	// realloc,free|atoi,strtol|rand|exit|search/sort
-# include <stdio.h> 	// High Level I/O(frwrite,fread/fprintf) and erros
-# include <string.h>	// Actually can't use, only for testers...
-# include <stddef.h> 	// Defs of NULL, size_t(unsign int)
+# include <stdarg.h>	// Variadic functions for fprintf and printf
+
+/* ************************************************************* */
+/* ************************************************************* */
+# include <stddef.h>	// Defs of NULL, size_t(unsign int)
 # include <limits.h>	// Defs of INT_MAX, SIZE_MAX(size_t/uInt), LONG_MAX
-# include "ft_mylib_data.h" //*ft_initializator_list_gargabe(void);
+# include <errno.h>		// Defs errno, perror( open, fork, pipe, dup2, execve)
+
+/* ************************************************************* */
+/* ************************************************************* */
+# include <stdio.h>		// High Level I/O(frwrite,fread/fprintf) and erros
+# include <string.h>	// Actually can't use, only for testers...
+
+/* ************************************************************* */
+/* ************************************************************* */
+# include "ft_mylib_data.h"	//*ft_initializator_list_gargabe(void);
 
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓	//
 
@@ -124,7 +134,7 @@ int		ft_is_sorted_array_int(int	*arr, int size);
 /* STRING MANIP / HALTERS										 */
 /* ************************************************************* */
 void	halt_exit_(int status);
-void	halt_exit1(int status);
+void	halt_exit_fd(int status);
 void	halt_exit(int status, char *description);
 
 /*#########################################################################	*/
@@ -152,7 +162,9 @@ int		ft_pointer_hexa_fpr(long fd, void *p);
 /* ************************************************************* */
 /* PRINTERS high level											 */
 /* ************************************************************* */
-int		ft_fprintf(char *filename, const char *str, ...);
+int		ft_open(char *file, int flags, ...);
+int		ft_open_readorwrite(char *file, int read_or_write);
+int		ft_fprintf(FILE *file_struct, const char *str, ...);
 int		ft_fprintf1(char *filename, const char *str, ...);
 int		ft_printf(const	char *str, ...);
 

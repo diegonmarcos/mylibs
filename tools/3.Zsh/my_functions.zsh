@@ -67,7 +67,8 @@ function code_cleaner {
 
 function file_consol_lns {
 # --- Search Recursively and Consolidate with Symb Link
-	folder="/home/diego/Documents/Git/libft_xtend/ft_mylib/src/9_Quality_Assurance/Make_Utils"
+#	folder="/home/diego/Documents/Git/libft_xtend/ft_mylib/src/9_Quality_Assurance/Make_Utils"
+	folder="/home/diego/Documents/Git/libft_xtend/tools/0_Coding/Make_Utils"
 	file="files_lns.sh"
 	"$folder/$file" "$@"
 }
