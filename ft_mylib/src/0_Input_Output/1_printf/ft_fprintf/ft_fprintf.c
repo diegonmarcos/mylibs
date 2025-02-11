@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:23:43 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/10 19:41:30 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/11 08:05:36 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static int	type_var(long fd, char formatSpecifier, va_list item)
 		return (ft_putnbr_fd_fpr(fd, va_arg(item, int)));
 	if (formatSpecifier == 'p')
 		return (ft_pointer_hexa_fpr(fd, va_arg(item, void *)));
+	if (formatSpecifier == 'S')
+		return (ft_putstrstr_fd_fpr(fd, va_arg(item, char **)));
 	return (0);
 }
 

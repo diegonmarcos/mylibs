@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/02/10 19:41:17 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/11 13:56:02 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@
 /* ************************************************************* */
 # include <stdio.h>		// High Level I/O(frwrite,fread/fprintf) and erros
 # include <string.h>	// Actually can't use, only for testers...
+
+/* ************************************************************* */
+/* ************************************************************* */
+# include <sys/file.h>	// Flock(LOCK_EX)
 
 /* ************************************************************* */
 /* ************************************************************* */
@@ -145,6 +149,7 @@ void	halt_exit(int status, char *description);
 /* ************************************************************* */
 /* PRINTERS low level											 */
 /* ************************************************************* */
+int		ft_write_bff(int fd, char *string, int len);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
@@ -154,6 +159,7 @@ int		ft_putstr_str(char **str);
 int		ft_putnbr(int n);
 int		ft_putnbr_nbr(int *n, int size);
 int		ft_putstr_fd_fpr(long fd, char *s);
+int		ft_putstrstr_fd_fpr(long fd, char **str);
 int		ft_putnbr_fd_fpr(long fd, int n);
 int		ft_putchar_fd_fpr(long fd, int c);
 int		ft_putchar(char c);
