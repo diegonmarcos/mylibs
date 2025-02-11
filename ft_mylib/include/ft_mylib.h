@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/02/11 13:56:02 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/11 17:35:07 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@
 
 /* ************************************************************* */
 /* ************************************************************* */
+# include <sys/types.h>	// pid_t, mode_t, off_t
+# include <sys/wait.h>	// waitpid, WIFEXITED, WEXITSTATUS
+# include <sys/stat.h>	// stat, fstat, lstat
 # include <sys/file.h>	// Flock(LOCK_EX)
 
 /* ************************************************************* */
@@ -228,17 +231,5 @@ void	ft_free_array_2d(char **array);
 void	ft_free_array_int(int **array_int, int size);
 void	ft_free_fd_new(char *filename);
 void	ft_free_array_halt(char **farray, int failed);
-
-// ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓	//
-
-/* ************************************************************* */
-/* ************************************************************* */
-//GET_NEXT_LINE2 HELPERS
-size_t	ft_strlen_gnl(char *s, int c);
-char	*ft_strchr_gnl(char *s, int c);
-char	*ft_strjoin_gnl(char *left_str, char *buff, int c);
-int		ft_read_to_left_str2(int fd, char **left_str);
-char	*ft_new_left_str(char *left_str);
-char	*ft_get_line(char *left_str);
 
 #endif

@@ -6,11 +6,17 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:14 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/01/31 20:17:09 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/11 17:35:07 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_mylib.h"
+
+char	*ft_get_line(char *left_str);
+char	*ft_new_left_str(char *left_str);
+char	*ft_strchr_gnl(char *s, int c);
+char	*ft_strjoin_gnl(char *left_str, char *buff, int c);
+size_t	ft_strlen_gnl(char *s, int c);
 
 char	*ft_read_to_left_str(int fd, char *left_str)
 {
