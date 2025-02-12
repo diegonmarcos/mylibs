@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/02/11 13:56:02 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/02/12 15:46:17 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -181,7 +181,7 @@ NAME1 = $(OUTPUT_PLACE)$(NAME0)
 ifeq ($(IS_PROGRAM_AND_NOT_LIB), 1)
 	NAME = $(NAME1)
 else
-	NAME = ../lib$(NAME1).a
+	NAME = lib$(NAME1).a
 endif
 
 # *** Source Files .c Definition path *** #
