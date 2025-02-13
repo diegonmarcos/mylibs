@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 14:19:46 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/06 15:12:47 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:44:39 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 // GARBAGE COLLECTOR
 # ifndef MAX_ALLOCATIONS
-#  define MAX_ALLOCATIONS 102400
+#  define MAX_ALLOCATIONS 10240
 # endif
 
 # include "ft_mylib.h"
