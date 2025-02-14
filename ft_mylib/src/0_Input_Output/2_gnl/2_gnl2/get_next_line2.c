@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:14 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/02/11 17:35:07 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/14 12:03:05 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	get_next_line2(int fd, char **line)
 	int			status;
 	int			i;
 
+	left_str = NULL;
 	i = 0;
 	while (1)
 	{

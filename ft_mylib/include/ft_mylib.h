@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/02/11 17:35:07 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/14 11:31:32 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 /*#####################################################################	*/
 // GET NEXT LINE2
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000
+#  define BUFFER_SIZE 5000
 # endif
 
 // Unsigned Int
@@ -115,9 +115,11 @@ int		*ft_strchr_int_duplicate_interation(int *array_int, int size);
 int		ft_atoi(const char *str);
 long	ft_atoi_long(const char *ptr);
 void	*ft_atoi_base(const char *str, int str_base);
+long	ft_strol(const char *str, char **endptr, int base);
 int		ft_atoi_safe(const char *ptr);
 long	*ft_atoi_long_array(const char **ptr);
 char	*ft_itoa(int n);
+int		ft_round(double num);
 size_t	ft_num_unsign(size_t num);
 int		ft_pointer_hexa(void *p);
 int		ft_hexa_minusc(int num);

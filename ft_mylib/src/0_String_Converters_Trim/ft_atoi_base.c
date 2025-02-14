@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 09:55:00 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/28 10:12:24 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/14 09:06:55 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,11 @@ void	*ft_atoi_base(const char *str, int str_base)
 		++str;
 	}
 	return ((void *)(result * sign));
+}
+
+long	ft_strol(const char *str, char **endptr, int base)
+{
+	if (endptr)
+		*endptr = (char *)str;
+	return ((long)ft_atoi_base(str, base));
 }
