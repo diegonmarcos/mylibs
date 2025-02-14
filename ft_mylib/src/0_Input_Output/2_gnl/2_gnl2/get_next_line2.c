@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:14 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/02/14 12:03:05 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/14 13:37:27 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,27 @@ int	get_next_line2(int fd, char **line)
 		i++;
 	}
 	return (2);
+}
+
+char	*get_next_line_join(int fd)
+{
+	char	*map;
+	char	*ptr;
+	char	*temp;
+
+	map = ft_strdup(NAME_M, "");
+	if (!map)
+		halt_exit_(1);
+	ptr = get_next_line(fd);
+	while (ptr)
+	{
+		temp = map;
+		map = ft_strjoin(NAME_M, map, ptr);
+		free(temp);
+		free(ptr);
+		ptr = get_next_line(fd);
+	}
+	return (map);
 }
 
 /*

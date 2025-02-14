@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/02/14 11:31:32 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/14 13:31:19 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,6 +184,7 @@ int		ft_dprintf(long fd, const char *str, ...);
 /* ************************************************************* */
 /* ************************************************************* */
 char	*get_next_line(int fd);
+char	*get_next_line_join(int fd);
 int		get_next_line2(int fd, char **line);
 // FGETS(gnl) | FGETS2(gnl2) | FSCANF(ft_split)
 int		ft_fgets(char **line, int fd);
