@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/02/14 13:31:19 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/15 11:44:22 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,5 +234,6 @@ void	ft_free_array_2d(char **array);
 void	ft_free_array_int(int **array_int, int size);
 void	ft_free_fd_new(char *filename);
 void	ft_free_array_halt(char **farray, int failed);
+void	matrix3_init(float (*matrix)[3]);
 
 #endif
