@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:56:15 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/27 22:42:35 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/15 17:59:40 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 
 #include "ft_mylib.h"
 
-static int	ft_digit_count(long int i)
+int	ft_digit_count(long int i)
 {
 	int	count;
 
@@ -46,7 +46,7 @@ static int	ft_digit_count(long int i)
 	return (count);
 }
 
-long int	comp(long int nb, char *str)
+long int	ft_abs_comp(long int nb, char *str)
 {
 	if (nb < 0)
 	{
@@ -73,7 +73,7 @@ char	*ft_itoa(int n)
 		str[0] = '0';
 		return (str);
 	}
-	nb = comp(nb, str);
+	nb = ft_abs_comp(nb, str);
 	while (nb > 0)
 	{
 		str[i--] = nb % 10 + '0';

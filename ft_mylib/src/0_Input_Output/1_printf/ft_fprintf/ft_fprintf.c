@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:23:43 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/11 08:05:36 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:40:44 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static int	type_var(long fd, char formatSpecifier, va_list item)
 		return (ft_pointer_hexa_fpr(fd, va_arg(item, void *)));
 	if (formatSpecifier == 'S')
 		return (ft_putstrstr_fd_fpr(fd, va_arg(item, char **)));
+	if (formatSpecifier == 'L')
+		return (ft_print_ls_doubly_fd_int(fd, va_arg(item, t_list_dls *)));
 	return (0);
 }
 
@@ -79,6 +81,12 @@ int	ft_fprintf(FILE *file_struct, const char *str, ...)
 	long	fd;
 
 	fd = fileno(file_struct);
+	if (flock(fd, LOCK_EX) == -1)
+	{
+		perror("Failed to lock file");
+		close(fd);
+		return (1);
+	}
 	char_count = 0;
 	va_start(item, str);
 	char_count = w_str(fd, str, item, char_count);

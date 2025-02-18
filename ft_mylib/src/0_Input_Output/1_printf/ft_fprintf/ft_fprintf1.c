@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 17:23:43 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/11 13:52:50 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/17 07:34:52 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static int	type_var(long fd, char formatSpecifier, va_list item)
 		return (ft_pointer_hexa_fpr(fd, va_arg(item, void *)));
 	if (formatSpecifier == 'S')
 		return (ft_putstrstr_fd_fpr(fd, va_arg(item, char **)));
+	if (formatSpecifier == 'L')
+		return (ft_print_ls_doubly_fd_int(fd, va_arg(item, t_list_dls *)));
 	return (0);
 }
 
@@ -93,6 +95,38 @@ int	ft_fprintf1(char *filename, const char *str, ...)
 	va_start(item, str);
 	char_count = w_str(fd, str, item, char_count);
 	va_end(item);
+	fclose(output_file);
+	return (char_count);
+}
+/*
+* "w" open for writing.Truncate file to zero length or create text file for writing.
+* "a" open for appending.
+*/
+int	ft_fprintf2(char *fopenmode, char *filename, const char *str, ...)
+{
+	va_list	item;
+	int		char_count;
+	FILE	*output_file;
+	long	fd;
+
+	output_file = fopen(filename, fopenmode);
+	if (output_file == NULL)
+		return (1);
+	if (ft_strcmp(filename, "1") == 0)
+		fd = fileno(stdout);
+	else
+		fd = fileno(output_file);
+	if (flock(fd, LOCK_EX) == -1)
+	{
+		perror("Failed to lock file");
+		close(fd);
+		return (1);
+	}
+	char_count = 0;
+	va_start(item, str);
+	char_count = w_str(fd, str, item, char_count);
+	va_end(item);
+	fflush(output_file);
 	fclose(output_file);
 	return (char_count);
 }

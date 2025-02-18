@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 14:19:46 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/13 17:44:39 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/18 12:31:03 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,21 @@ t_list_dls		*ft_lstnew(int value, int index);
 void			ft_lstadd_back(t_list_dls **stack, t_list_dls *new_node);
 int				ft_lstsize(t_list_dls *lst);
 t_list_dls		*find_min_node(t_list_dls *stack);
+int				find_min_node1(t_list_dls *stack);
 void			ft_swap_pointers(t_list_dls **a, t_list_dls **b);
 void			ft_print_ls_doubly(t_list_dls *stack);
+int				ft_print_ls_doubly_fd_int(long Fd, t_list_dls *stack);
 void			ft_free_ls_doubly(t_list_dls *stack);
+
+/* ************************************************************* */
+/* ************************************************************* */
+typedef struct s_list_snprintf
+{
+	const char	*format;
+	va_list		args;
+	char		*str_p;
+	size_t		remaining;
+	int			len;
+}				t_list_snprintf;
 
 #endif

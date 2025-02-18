@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 19:11:24 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/03 12:31:01 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/16 07:49:55 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ int	ft_putstr_str(char **str)
 	int	count;
 
 	i = 0;
+	j = 0;
 	count = 0;
-	while (str[i])
+	while (str[i][0])
 	{
 		j = 0;
 		while (str[i][j])
@@ -42,6 +43,8 @@ int	ft_putstr_str(char **str)
 			j++;
 			count++;
 		}
+		if(str[i + 1])
+			ft_putchar('\n');
 		i++;
 	}
 	return (count);

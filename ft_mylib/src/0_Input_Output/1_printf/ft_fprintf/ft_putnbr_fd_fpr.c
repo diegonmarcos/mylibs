@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:56:17 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/02/11 13:54:11 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:48:42 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ int	ft_putnbr_fd_fpr(long fd, int n)
 	}
 	if (n > 9)
 	{
-		char_count += ft_putnbr(n / 10);
+		char_count += ft_putnbr_fd_fpr(fd, n / 10);
 		if (char_count == -1)
 			return (-1);
 		n = n % 10;
 	}
 	if (n <= 9)
 	{
-		if (ft_putchar(('0' + n)) == -1)
+		if (ft_putchar_fd_fpr(fd, ('0' + n)) == -1)
 			return (-1);
 		char_count++;
 	}

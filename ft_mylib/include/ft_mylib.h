@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/02/15 11:44:22 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/16 12:22:07 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ long	ft_strol(const char *str, char **endptr, int base);
 int		ft_atoi_safe(const char *ptr);
 long	*ft_atoi_long_array(const char **ptr);
 char	*ft_itoa(int n);
+int		ft_digit_count(long int i);
 int		ft_round(double num);
 size_t	ft_num_unsign(size_t num);
 int		ft_pointer_hexa(void *p);
@@ -178,8 +179,10 @@ int		ft_open(char *file, int flags, ...);
 int		ft_open_readorwrite(char *file, int read_or_write);
 int		ft_fprintf(FILE *file_struct, const char *str, ...);
 int		ft_fprintf1(char *filename, const char *str, ...);
+int		ft_fprintf2(char *fopenmode, char *filename, const char *str, ...);
 int		ft_printf(const	char *str, ...);
 int		ft_dprintf(long fd, const char *str, ...);
+int		ft_snprintf(char *str, size_t size, const char *format, ...);
 
 /* ************************************************************* */
 /* ************************************************************* */
