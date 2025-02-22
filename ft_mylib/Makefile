@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/02/15 18:32:35 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/02/22 12:52:00 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,73 +41,73 @@ override BUILD_LIBRARY = 0
 
 # ************************************************************************ #
 # *** Files source *.c *** #
-SOURCE_MAIN =									\
+SOURCE_MAIN =										\
 
-SOURCE_FILES = 			0.bubble_sort.c			\
-						0.insertion_sort.c		\
-						0.selection_sort.c		\
-						1.merge_sort.c			\
-						1.quick_sort.c		\
-						2.radix_sort.c		\
-						3.intro_sort0.c		\
-						3.intro_sort1.c		\
-						L2_graycode.c		\
-						bitwise.c			\
-						bst.c				\
-						flood_fill.c		\
-						ft_atoi.c			\
-						ft_atoi_base.c		\
-						ft_bzero.c			\
-						ft_calloc.c			\
-						ft_fprintf1.c		\
-						ft_free.c			\
-						ft_garbage_collector_1.c		\
-						ft_garbage_collector_2.c		\
-						ft_hexa_mayusc.c				\
-						ft_hexa_minusc.c				\
-						ft_pointer_hexa_fd_fpr.c		\
-						ft_putchar_fd_fpr.c				\
-						ft_putnbr_fd_fpr.c				\
-						ft_putstr_fd_fpr.c				\
-						ft_isalnum.c		\
-						ft_isalpha.c		\
-						ft_isascii.c		\
-						ft_isdigit.c		\
-						ft_isprint.c		\
-						ft_itoa.c			\
-						ft_memchr.c			\
-						ft_memcmp.c			\
-						ft_memcpy.c			\
-						ft_memmove.c		\
-						ft_memset.c			\
-						ft_num_unsign.c		\
-						ft_pointer_hexa.c	\
-						ft_printf.c			\
-						ft_putchar.c		\
-						ft_putchar_int.c	\
-						ft_putchar_fd.c		\
-						ft_putendl_fd.c		\
-						ft_putnbr.c			\
-						ft_putnbr_fd.c		\
-						ft_putstr1.c		\
-						ft_putstr_fd.c		\
-						ft_split.c			\
-						ft_strchr.c			\
-						ft_strdup.c			\
-						ft_striteri.c		\
-						ft_strjoin.c		\
-						ft_strlcat.c		\
-						ft_strlcpy.c		\
-						ft_strlen.c			\
-						ft_strmapi.c		\
-						ft_strncmp.c		\
-						ft_strnstr.c		\
-						ft_strrchr.c		\
-						ft_strtrim.c		\
-						ft_substr.c			\
-						ft_tolower.c		\
-						ft_toupper.c		\
-						get_next_line.c		\
+SOURCE_FILES = 			0.bubble_sort.c				\
+						0.insertion_sort.c			\
+						0.selection_sort.c			\
+						1.merge_sort.c				\
+						1.quick_sort.c				\
+						2.radix_sort.c				\
+						3.intro_sort0.c				\
+						3.intro_sort1.c				\
+						L2_graycode.c				\
+						bitwise.c					\
+						bst.c						\
+						flood_fill.c				\
+						ft_atoi.c					\
+						ft_atoi_base.c				\
+						ft_bzero.c					\
+						ft_calloc.c					\
+						ft_fprintf1.c				\
+						ft_free.c					\
+						ft_garbage_collector_1.c	\
+						ft_garbage_collector_2.c	\
+						ft_hexa_mayusc.c			\
+						ft_hexa_minusc.c			\
+						ft_pointer_hexa_fd_fpr.c	\
+						ft_putchar_fd_fpr.c			\
+						ft_putnbr_fd_fpr.c			\
+						ft_putstr_fd_fpr.c			\
+						ft_isalnum.c				\
+						ft_isalpha.c				\
+						ft_isascii.c				\
+						ft_isdigit.c				\
+						ft_isprint.c				\
+						ft_itoa.c					\
+						ft_memchr.c					\
+						ft_memcmp.c					\
+						ft_memcpy.c					\
+						ft_memmove.c				\
+						ft_memset.c					\
+						ft_num_unsign.c				\
+						ft_pointer_hexa.c			\
+						ft_printf.c					\
+						ft_putchar.c				\
+						ft_putchar_int.c			\
+						ft_putchar_fd.c				\
+						ft_putendl_fd.c				\
+						ft_putnbr.c					\
+						ft_putnbr_fd.c				\
+						ft_putstr1.c				\
+						ft_putstr_fd.c				\
+						ft_split.c					\
+						ft_strchr.c					\
+						ft_strdup.c					\
+						ft_striteri.c				\
+						ft_strjoin.c				\
+						ft_strlcat.c				\
+						ft_strlcpy.c				\
+						ft_strlen.c					\
+						ft_strmapi.c				\
+						ft_strncmp.c				\
+						ft_strnstr.c				\
+						ft_strrchr.c				\
+						ft_strtrim.c				\
+						ft_substr.c					\
+						ft_tolower.c				\
+						ft_toupper.c				\
+						get_next_line.c				\
 						get_next_line_utils.c		\
 						get_next_line2.c			\
 						linked_list_doubly1.c		\
@@ -130,7 +130,8 @@ SOURCE_FILES = 			0.bubble_sort.c			\
 						ft_fprintf.c				\
 						ft_round.c					\
 						array_3d.c					\
-						ft_snprintf.c
+						ft_snprintf.c				\
+						math.c						
 
 #SOURCE_MAIN = $(wildcard src/*.c) $(wildcard src/*/*.c)
 
