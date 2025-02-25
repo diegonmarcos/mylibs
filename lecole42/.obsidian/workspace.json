@@ -1,0 +1,178 @@
+{
+  "main": {
+    "id": "1614ca03f776b6d0",
+    "type": "split",
+    "children": [
+      {
+        "id": "e5c680f866fa086b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3cb3c90b85880aa3",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "1a761b2d5deef835",
+    "type": "split",
+    "children": [
+      {
+        "id": "cbcea1231a945fac",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a8b913597e0a0d19",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "6a65db1aec89dc37",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "b703ec8ad74904b1",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "318e8ba511d1acbc",
+    "type": "split",
+    "children": [
+      {
+        "id": "fe7080842f25fcae",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "26d09476f9b46fbf",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "1.Projects/C1_ft_printf/1.Roadmap/README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for README"
+            }
+          },
+          {
+            "id": "c4fe79189426a0ea",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "1.Projects/C1_ft_printf/1.Roadmap/README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from README"
+            }
+          },
+          {
+            "id": "c344dd42170e4f60",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "82015f201cbd3711",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "1.Projects/C1_ft_printf/1.Roadmap/README.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of README"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "3cb3c90b85880aa3",
+  "lastOpenFiles": [
+    "1.Projects/C1_born2beroot/4.Tester/Test1.sh",
+    "1.Projects/C1_ft_printf/4.Tester/src/ft_strlen.c",
+    "1.Projects/C1_ft_printf/4.Tester/src/ft_putstr.c",
+    "1.Projects/C1_ft_printf/4.Tester/src/ft_putnbr.c",
+    "1.Projects/C1_ft_printf/4.Tester/src/ft_putchar.c",
+    "1.Projects/C1_ft_printf/4.Tester/src/ft_punt_hexa.c",
+    "1.Projects/C1_ft_printf/4.Tester/src/ft_printf.c",
+    "1.Projects/C1_ft_printf/4.Tester/src/ft_num_nosign.c",
+    "1.Projects/C1_ft_printf/4.Tester/src/ft_hexa_min.c",
+    "1.Projects/C1_ft_printf/4.Tester/src/ft_hexa_mayus.c",
+    "1.Projects/C1_ft_printf/4.Tester/src/Makefile",
+    "2.Others/UnitTest/readme.md",
+    "1.Projects/C0_libft/1.RoadMap/RoadMap.md",
+    "1.Projects/C0_libft/1.RoadMap/kickoff.md"
+  ]
+}
