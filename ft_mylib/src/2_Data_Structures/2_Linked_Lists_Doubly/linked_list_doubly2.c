@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:08:36 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/18 15:25:44 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/24 22:55:22 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ t_list_dls	*find_min_node(t_list_dls *stack)
 	while (swicth_flag || current != stack)
 	{
 		if (min_node == NULL || current->value < min_node->value)
-		{
 			min_node = current;
-		}
 		current = current->next;
 		swicth_flag = 0;
 	}
