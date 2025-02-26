@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/02/22 12:50:19 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/26 12:08:16 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -244,6 +244,8 @@ int		ft_abs(int number);
 /* DATA STRUCTURE / ARRAYS										 */
 /* ************************************************************* */
 void	*ft_calloc(size_t count, size_t size);
+void	ft_calloc_(size_t count, size_t size, void **array);
+void	ft_calloc_2d(size_t count, char var_type, void ***array);
 void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar);
 void	ft_free_fd(char *filename);
 void	ft_free_array_2d(char **array);
