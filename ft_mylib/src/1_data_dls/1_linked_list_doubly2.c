@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   linked_list_doubly2.c                              :+:      :+:    :+:   */
+/*   1_linked_list_doubly2.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:08:36 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/24 22:55:22 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:37:54 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list_dls	*find_min_node(t_list_dls *stack)
 {
 	t_list_dls	*min_node;
 	t_list_dls	*current;
-	int		swicth_flag;
+	int			swicth_flag;
 
 	min_node = NULL;
 	current = stack;
@@ -36,11 +36,12 @@ t_list_dls	*find_min_node(t_list_dls *stack)
 	}
 	return (min_node);
 }
+
 int	find_min_node1(t_list_dls *stack)
 {
 	t_list_dls	*min_node;
 	t_list_dls	*current;
-	int		swicth_flag;
+	int			swicth_flag;
 
 	min_node = NULL;
 	current = stack;
@@ -58,42 +59,41 @@ int	find_min_node1(t_list_dls *stack)
 	}
 	return (min_node->value);
 }
-void	ft_print_ls_doubly(t_list_dls *stack)
+/*
+** Function check if the stack is sorted
+*/
+int	is_sorted_linked_list(t_list_dls *stack)
 {
 	t_list_dls	*current;
-	int			swicth_flag;
 
+	if (stack == NULL)
+		return (1);
 	current = stack;
-	swicth_flag = 1;
-	if (!stack)
-		return ;
-	while (swicth_flag || current != stack)
+	while (current->next != stack)
 	{
-		ft_putstr_fd("Value: ", 1);
-		ft_putnbr_fd(current->value, 1);
-		ft_putstr_fd("\n", 1);
+		if (current->value > current->next->value)
+			return (0);
 		current = current->next;
-		swicth_flag = 0;
 	}
+	return (1);
 }
 
-int	ft_print_ls_doubly_fd_int(long Fd, t_list_dls *stack)
-{
-	t_list_dls	*current;
-	int			swicth_flag;
-	int			count;
 
-	current = stack;
-	swicth_flag = 1;
-	count = 0;
-	if (!stack)
-		return (0);
-	while (swicth_flag || current != stack)
+int	max_node_finder(t_list_dls **stack)
+{
+	int			max_node;
+	int			rotations;
+	t_list_dls	*current;
+
+	rotations = 0;
+	max_node = (*stack)->index;
+	current = *stack;
+	while (rotations < ft_lstsize(*stack))
 	{
-		count += ft_putnbr_fd_fpr(Fd, current->index);
-		ft_putstr_fd_fpr(Fd, "\n");
+		if (current->index > max_node)
+			max_node = current->index;
 		current = current->next;
-		swicth_flag = 0;
+		rotations++;
 	}
-	return (count);
+	return (max_node);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   linked_list_doubly1.c                              :+:      :+:    :+:   */
+/*   1_linked_list_doubly1.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:08:36 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/03 17:16:34 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:37:54 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ Get the size of a circular doubly linked list
 */
 int	ft_lstsize(t_list_dls *lst)
 {
-	int		i;
+	int			i;
 	t_list_dls	*current;
 
 	if (!lst)
@@ -74,4 +74,44 @@ int	ft_lstsize(t_list_dls *lst)
 		current = current->next;
 	}
 	return (i);
+}
+
+void	ft_print_ls_doubly(t_list_dls *stack)
+{
+	t_list_dls	*current;
+	int			swicth_flag;
+
+	current = stack;
+	swicth_flag = 1;
+	if (!stack)
+		return ;
+	while (swicth_flag || current != stack)
+	{
+		ft_putstr_fd("Value: ", 1);
+		ft_putnbr_fd(current->value, 1);
+		ft_putstr_fd("\n", 1);
+		current = current->next;
+		swicth_flag = 0;
+	}
+}
+
+int	ft_print_ls_doubly_fd_int(long Fd, t_list_dls *stack)
+{
+	t_list_dls	*current;
+	int			swicth_flag;
+	int			count;
+
+	current = stack;
+	swicth_flag = 1;
+	count = 0;
+	if (!stack)
+		return (0);
+	while (swicth_flag || current != stack)
+	{
+		count += ft_putnbr_fd_fpr(Fd, current->index);
+		ft_putstr_fd_fpr(Fd, "\n");
+		current = current->next;
+		swicth_flag = 0;
+	}
+	return (count);
 }
