@@ -1,1 +1,1 @@
-../4_Others_Algos/0_Strings_Algos/simple/ft_isalpha.c
+../1_data_array/2_data_is/ft_isalpha.c

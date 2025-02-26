@@ -1,1 +1,0 @@
-../3_Sorting_Search_Algos/Sorting_Arrays/1.merge_sort.c

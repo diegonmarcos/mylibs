@@ -1,1 +1,1 @@
-../1_Memmory_Management/0_Movers/ft_memset.c
+../1_data_array/0_data_manip0/ft_memset.c

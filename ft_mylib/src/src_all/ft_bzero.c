@@ -1,1 +1,1 @@
-../1_Memmory_Management/1_Allocation_Free/ft_bzero.c
+../1_data_array/0_data_manip0/ft_bzero.c

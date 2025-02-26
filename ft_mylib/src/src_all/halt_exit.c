@@ -1,1 +1,1 @@
-../1_Memmory_Management/2_Exit_halt_Assert/halt_exit.c
+../0_memory/1_exit_halt_assert/halt_exit.c

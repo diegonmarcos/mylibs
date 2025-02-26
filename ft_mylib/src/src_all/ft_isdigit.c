@@ -1,1 +1,1 @@
-../4_Others_Algos/0_Strings_Algos/simple/ft_isdigit.c
+../1_data_array/2_data_is/ft_isdigit.c

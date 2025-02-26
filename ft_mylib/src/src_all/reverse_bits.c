@@ -1,1 +1,0 @@
-../4_Others_Algos/3.bitwise_manip/L2_reverse_bits/reverse_bits.c

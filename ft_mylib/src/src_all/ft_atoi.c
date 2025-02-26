@@ -1,1 +1,1 @@
-../0_String_Converters_Trim/ft_atoi.c
+../1_data_array/1_converters_math/ft_atoi.c

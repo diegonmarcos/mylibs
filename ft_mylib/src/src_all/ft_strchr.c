@@ -1,1 +1,1 @@
-../0_String_Manip/ft_strchr.c
+../1_data_array/0_data_manip1/ft_strchr.c

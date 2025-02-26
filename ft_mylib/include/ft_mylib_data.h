@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 14:19:46 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/18 12:31:03 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:03:11 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +70,20 @@ typedef struct s_list_s
 {
 	void				*content;
 	struct s_list_s		*next;
-}					t_list_s;
+}						t_list_s;
 
 void			ft_free_ls_simple(t_list_s *stack);
-/*
-t_list_s	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list_s **lst, t_list *new);
-int		ft_lstsize(t_list_s *lst);
-t_list_s	*ft_lstlast(t_list_s *lst);
-void	ft_lstadd_back(t_list_s **lst, t_list *new);
-void	ft_lstdelone(t_list_s *lst, void (*del)(void*));
-void	ft_lstclear(t_list_s **lst, void (*del)(void*));
-void	ft_lstiter(t_list_s *lst, void (*f)(void*));
-t_list_s	*ft_lstmap(t_list_s *lst, void *(*f)(void*), void (*del)(void*));
+t_list_s		*ft_lstnew_s(void *content);
+void			ft_lstadd_front_s(t_list_s **lst, t_list_s *new);
+int				ft_lstsize_s(t_list_s *lst);
+t_list_s		*ft_lstlast_s(t_list_s *lst);
+void			ft_lstadd_back_s(t_list_s **lst, t_list_s *new);
+void			ft_lstdelone_s(t_list_s *lst, void (*del)(void*));
+void			ft_lstclear_s(t_list_s **lst, void (*del)(void*));
+void			ft_lstiter_s(t_list_s *lst, void (*f)(void*));
+t_list_s		*ft_lstmap_s(t_list_s *lst, void *(*f)(void*), \
+					void (*del)(void*));
 
-*/
 
 /* ************************************************************* */
 /* ************************************************************* */

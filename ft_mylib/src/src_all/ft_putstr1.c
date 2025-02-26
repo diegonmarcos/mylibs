@@ -1,1 +1,0 @@
-../0_Input_Output/0_low_level/ft_putstr1.c

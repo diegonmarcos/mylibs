@@ -1,1 +1,0 @@
-../2_Data_Structures/2_Linked_Lists_Doubly/linked_list_doubly1.c

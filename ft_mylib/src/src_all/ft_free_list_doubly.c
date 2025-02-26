@@ -1,1 +1,0 @@
-../2_Data_Structures/2_Linked_Lists_Doubly/ft_free_list_doubly.c

@@ -1,0 +1,1 @@
+../3_input_output/0_open_close/3_ft_open.c

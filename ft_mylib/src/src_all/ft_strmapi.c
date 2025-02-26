@@ -1,1 +1,1 @@
-../0_String_Manip/ft_strmapi.c
+../1_data_array/1_data_heap/ft_strmapi.c
