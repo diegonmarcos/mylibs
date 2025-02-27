@@ -6,3 +6,8 @@ Reason: authError, Message: Invalid Credentials
 2025/02/27 10:36:52 Fatal error: directory already mounted, use --allow-non-empty to mount anyway: /home/diego/Documents/Gdrive
 2025/02/27 10:37:12 Fatal error: directory already mounted, use --allow-non-empty to mount anyway: /home/diego/Documents/Gdrive
 2025/02/27 10:37:45 INFO  : vfs cache: cleaned: objects 0 (was 0) in use 0, to upload 0, uploading 0, total size 0 (was 0)
+2025/02/27 10:38:45 INFO  : vfs cache: cleaned: objects 0 (was 0) in use 0, to upload 0, uploading 0, total size 0 (was 0)
+2025/02/27 10:39:45 INFO  : vfs cache: cleaned: objects 0 (was 0) in use 0, to upload 0, uploading 0, total size 0 (was 0)
+2025/02/27 10:40:45 INFO  : vfs cache: cleaned: objects 0 (was 0) in use 0, to upload 0, uploading 0, total size 0 (was 0)
+2025/02/27 10:41:45 INFO  : vfs cache: cleaned: objects 0 (was 0) in use 0, to upload 0, uploading 0, total size 0 (was 0)
+2025/02/27 10:42:45 INFO  : vfs cache: cleaned: objects 0 (was 0) in use 0, to upload 0, uploading 0, total size 0 (was 0)
