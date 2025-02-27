@@ -10,6 +10,15 @@ doxygen Doxyfile
 doxywizard
 ```
 
+## PDF - Latex
+``` txt
+Set GENERATE_LATEX = YES
+Set PDF_HYPERLINKS = YES for clickable links in PDF
+Set USE_PDFLATEX = YES
+cd latex
+make
+```
+
 ## Clean.sh
 ``` sh
 #!/bin/bash
