@@ -18,8 +18,9 @@
 #test_files/
 #*.log
 
-2.Memory_Check/allocs/malloc_allocs
-2.Memory_Check/allocs/malloc_allocs.txt
+*/malloc_allocs
+*/malloc_allocs.txt
+*/rclone.log
 
 
 
