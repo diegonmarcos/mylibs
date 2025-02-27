@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/02/26 17:04:03 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/02/27 11:33:59 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ SOURCE_FILES = 	1_0_ft_free_ls_simple.c			\
 				1_ft_swap_pointers.c			\
 				1_linked_list_doubly1.c			\
 				1_linked_list_doubly2.c			\
+				1_matrix_3d.c					\
 				2_0_bubble_sort.c				\
 				2_0_insertion_sort.c			\
 				2_0_selection_sort.c			\
