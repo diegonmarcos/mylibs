@@ -44,6 +44,11 @@ rm -f doxygen_warnings.log
  * 	- @b [parm2] is
  * 	- @b [parm3] is
  * 	- @b return is
+ * 
+ *  @par Example:
+ * 	@code
+ * 
+ * 	@endcode
  */
  ``` 
 
@@ -51,7 +56,6 @@ rm -f doxygen_warnings.log
 /**
  * @brief 
  * 
- */
  *
  * @details
  * Detailed description of the function's operation.
@@ -66,6 +70,10 @@ rm -f doxygen_warnings.log
  * @note Any additional notes about usage
  * @see Related functions
  * @example example_usage.c
+ * @code
+ * 	env > infile.txt
+ *	./pipex infile.txt "grep -x "PATH=.*"" "cat" outfile.txt
+ * @endcode
  */
  ```
 
