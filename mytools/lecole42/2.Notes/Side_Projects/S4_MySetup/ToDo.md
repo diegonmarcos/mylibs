@@ -1,3 +1,0 @@
-- Encrypt swap and HD memories
-- create list of packages
-- 
