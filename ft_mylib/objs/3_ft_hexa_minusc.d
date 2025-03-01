@@ -1,4 +1,0 @@
-objs/3_ft_hexa_minusc.o: src/src_all/3_ft_hexa_minusc.c \
-  include/ft_mylib.h include/ft_mylib_data.h
-include/ft_mylib.h:
-include/ft_mylib_data.h:

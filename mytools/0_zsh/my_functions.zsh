@@ -93,7 +93,7 @@ function code_cleaner {
 
 # --- Search Recursively and Consolidate with Symb Link
 function file_consol_lns {
-	folder="/home/diego/Documents/Git/mylib/mytools/0_coding/make_utils"
+	folder="/home/diego/Documents/Git/mylib/mytools/1_coding/make_utils"
 	file="files_lns.sh"
 	"$folder/$file" "$@"
 }
