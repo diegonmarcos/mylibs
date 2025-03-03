@@ -35,39 +35,6 @@ static void	*ft_memncpy_null_local(void *dst, const void *src, size_t n)
 	return (dst);
 }
 
-// This will output two files, because one need to be cleaned to 
-//avoid memory leakks over twice freed, and other for checking the
-//allocating history
-// filename as a char 0 will not print!
-void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar)
-{
-	char	*ptr;
-	int		fd;
-	int		fd2;
-	char	filename2[100];
-
-	ptr = (char *)ft_calloc(count, sizeofvar);
-	if (ptr == NULL)
-		halt_exit_(1);
-	if (ft_strncmp(filename, "0", 1))
-	{
-		fd = open(filename, O_CREAT | O_RDWR | O_APPEND, 0644);
-		if (fd == -1)
-			write(1, "Error Opening File\n", 20);
-		ft_memncpy_null_local(filename2, filename, ft_strlen(filename) - 3);
-		fd2 = open(filename2, O_CREAT | O_RDWR | O_APPEND, 0644);
-		if (fd2 == -1)
-			write(1, "Error Opening File\n", 20);
-		if (ft_fprintf1(filename, "%p;\n", ptr) < 0)
-			write(1, "Error Writing File\n", 20);
-		if (ft_fprintf1(filename2, "%p;\n", ptr) < 0)
-			write(1, "Error Writing File\n", 20);
-		close(fd);
-		close(fd2);
-	}
-	return (ptr);
-}
-
 // Function to free all pointers recorded in the file
 int	ft_fgets(char **line, int fd)
 {

@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/03/01 12:15:11 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/03/03 10:39:22 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -113,6 +113,7 @@ SOURCE_FILES = 	1_0_ft_free_ls_simple.c			\
 				ft_atoi_base.c					\
 				ft_bzero.c						\
 				ft_calloc.c						\
+				ft_calloc_fd.c					\
 				ft_contains.c					\
 				ft_digits_to_bits.c				\
 				ft_free.c						\
