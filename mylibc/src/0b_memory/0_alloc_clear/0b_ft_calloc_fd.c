@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc_fd.c                                     :+:      :+:    :+:   */
+/*   0b_ft_calloc_fd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 10:35:48 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/03 10:38:56 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/05 13:01:58 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,18 @@
 void	*ft_calloc_fd(char *filename, size_t count, size_t sizeofvar)
 {
 	char	*ptr;
-	int		fd;
-	int		fd2;
-	char	filename2[100];
 
 	ptr = (char *)ft_calloc(count, sizeofvar);
 	if (ptr == NULL)
 		halt_exit_(1);
+	if (!ft_strncmp(filename, "+1", 2))
+		ptr = (char *)ft_calloc(count + 1, sizeofvar);
 	return (ptr);
 }
 /* 
+	int		fd;
+	int		fd2;
+	char	filename2[100];
 	if (ft_strncmp(filename, "0", 1))
 	{
 		fd = open(filename, O_CREAT | O_RDWR | O_APPEND, 0644);

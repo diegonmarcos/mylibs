@@ -14,7 +14,7 @@
 //#define TEST_FILENAME "allocation_log.txt"
 //#define TEST_FILENAME "0"
 
-static void	*ft_memncpy_null_local(void *dst, const void *src, size_t n)
+/* static void	*ft_memncpy_null_local(void *dst, const void *src, size_t n)
 {
 	unsigned char		*d;
 	const unsigned char	*s;
@@ -33,7 +33,7 @@ static void	*ft_memncpy_null_local(void *dst, const void *src, size_t n)
 	if (n > 0)
 		d[n - 1] = '\0';
 	return (dst);
-}
+} */
 
 void	ft_free_fd(char *filename)
 {

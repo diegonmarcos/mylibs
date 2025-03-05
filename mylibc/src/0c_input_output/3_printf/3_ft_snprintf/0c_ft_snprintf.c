@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 17:08:54 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/05 12:29:20 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/05 12:57:20 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ static void	handle_integer_specifier(t_list_snprintf *list)
 {
 	int		num;
 	char	*num_string;
-	int		num_len;
-	size_t	copy_len;
+	size_t	num_len;
 
 	num = va_arg(list->args, int);
 	num_string = ft_itoa(num);
