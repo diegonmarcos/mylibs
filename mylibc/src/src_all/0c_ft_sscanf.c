@@ -1,0 +1,1 @@
+../0c_input_output/2_gnl/1_ft_sscanf/0c_ft_sscanf.c

@@ -1,0 +1,1 @@
+../1_data_array/0_string_manip/1_2_ft_memchr.c

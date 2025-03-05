@@ -1,1 +1,0 @@
-../0_memory/0_alloc_clear/ft_calloc_fd.c

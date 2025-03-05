@@ -1,1 +1,0 @@
-../1_data_array_3d/1_matrix_3d.c

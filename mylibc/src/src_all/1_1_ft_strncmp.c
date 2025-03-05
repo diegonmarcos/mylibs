@@ -1,0 +1,1 @@
+../1_data_array/0_string_manip/1_1_ft_strncmp.c

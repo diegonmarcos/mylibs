@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   math.c                                             :+:      :+:    :+:   */
+/*   2_math.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 12:09:02 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/22 12:50:14 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/05 12:26:16 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,24 @@ int	ft_abs(int number)
 	if (number < 0)
 		number *= -1;
 	return (number);
+}
+
+int	ft_recursive_factorial(int nb)
+{
+	if (nb < 0)
+		return (0);
+	if (nb == 0)
+		return (1);
+	return (nb * ft_recursive_factorial(nb - 1));
+}
+
+int	ft_recursive_power(int nb, int power)
+{
+	if (power < 0)
+		return (0);
+	if (power == 0)
+		return (1);
+	return (nb * ft_recursive_power(nb, power - 1));
 }
 /* 
 long	ft_sqrt(long number)
@@ -56,4 +74,3 @@ long	ft_gcd(long a, long b)
 	}
 	return (gcd - 1);
 } */
-

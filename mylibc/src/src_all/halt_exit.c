@@ -1,1 +1,0 @@
-../0_memory/1_exit_halt_assert/halt_exit.c

@@ -1,1 +1,0 @@
-../3_input_output/1_printf/ft_snprintf/3_ft_snprintf.c

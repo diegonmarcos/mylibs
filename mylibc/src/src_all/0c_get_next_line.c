@@ -1,0 +1,1 @@
+../0c_input_output/2_gnl/0_gnl/0c_get_next_line.c
