@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/03/06 07:12:39 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/03/06 16:24:32 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@
 #	1. Headers.h, files all them must be placed inside the folder "include".
 #	2. Library.a, files all them must be inside of the folder "libs"
 #	3. The library makefile must be inside of the folder "libs/mylib"
+
 
 
 
