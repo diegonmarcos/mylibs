@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/03/06 15:56:11 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/03/06 16:15:24 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,9 @@ SOURCE_FILES = 									\
 				0c_get_next_line.c				\
 				0c_get_next_line2.c				\
 				0c_get_next_line_utils.c		\
+				0c_ft_fgets.c					\
+				0c_ft_sscanf.c					\
+				0c_ft_sed.c						\
 				1_0_ft_memcpy.c					\
 				1_0_ft_memset.c					\
 				1_0_ft_slinked_list.c			\
