@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 14:19:46 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/01 12:33:01 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/06 15:40:10 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,5 +118,19 @@ typedef struct s_list_snprintf
 	size_t		remaining;
 	int			len;
 }				t_list_snprintf;
+/* ************************************************************* */
+/* ************************************************************* */
+typedef struct s_bresenham
+{
+	int	x0;
+	int	y0;
+	int	x1;
+	int	y1;
+	int	dx;
+	int	dy;
+	int	sx;
+	int	sy;
+	int	err;
+}		t_bresenham;
 
 #endif

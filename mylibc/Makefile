@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/03/05 12:54:17 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/03/06 15:56:11 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -112,7 +112,10 @@ SOURCE_FILES = 									\
 				2_3_intro_sort1.c				\
 				2_bitwise.c						\
 				2_bst.c							\
-				2_flood_fill.c					\
+				2_scan_bresenham.c				\
+				2_scan_raster_flood_fill.c		\
+				2_vectorgr_matrix_transf.c		\
+				2_raytracing_montecarlo.c		\
 				2_ft_fibonacci.c				\
 				2_ft_prime.c					\
 				2_ft_toupper.c					\
