@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:14 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/03/06 16:12:46 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/07 15:44:14 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,7 @@
 
 char	*ft_get_line(char *left_str);
 char	*ft_new_left_str(char *left_str);
-char	*ft_strchr_gnl(char *s, int c);
-char	*ft_strjoin_gnl(char *left_str, char *buff, int c);
-size_t	ft_strlen_gnl(char *s, int c);
-
-int	ft_read_to_left_str2(int fd, char **left_str)
-{
-	char	*buff;
-	int		rd_bytes;
-
-	buff = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!buff)
-		return (1);
-	rd_bytes = 1;
-	while (!ft_strchr_gnl(*left_str, '\n') && rd_bytes != 0)
-	{
-		rd_bytes = read(fd, buff, BUFFER_SIZE);
-		if (rd_bytes == -1)
-		{
-			free(buff);
-			free(*left_str);
-			*left_str = NULL;
-			return (1);
-		}
-		buff[rd_bytes] = '\0';
-		*left_str = ft_strjoin_gnl(*left_str, buff, '\0');
-	}
-	free(buff);
-	if (rd_bytes == 0)
-		return (0);
-	return (2);
-}
+int		ft_read_to_left_str2(int fd, char **left_str);
 
 int	get_next_line2(int fd, char **line)
 {
@@ -73,25 +43,32 @@ int	get_next_line2(int fd, char **line)
 	return (2);
 }
 
-char	*get_next_line_join(int fd)
+int	ft_read_to_left_str2(int fd, char **left_str)
 {
-	char	*map;
-	char	*ptr;
-	char	*temp;
+	char	*buff;
+	int		rd_bytes;
 
-	map = ft_strdup(NAME_M, "");
-	if (!map)
-		halt_exit_(1);
-	ptr = get_next_line(fd);
-	while (ptr)
+	buff = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!buff)
+		return (1);
+	rd_bytes = 1;
+	while (!ft_strchr_gnl(*left_str, '\n') && rd_bytes != 0)
 	{
-		temp = map;
-		map = ft_strjoin(NAME_M, map, ptr);
-		free(temp);
-		free(ptr);
-		ptr = get_next_line(fd);
+		rd_bytes = read(fd, buff, BUFFER_SIZE);
+		if (rd_bytes == -1)
+		{
+			free(buff);
+			free(*left_str);
+			*left_str = NULL;
+			return (1);
+		}
+		buff[rd_bytes] = '\0';
+		*left_str = ft_strjoin_gnl(*left_str, buff, '\0');
 	}
-	return (map);
+	free(buff);
+	if (rd_bytes == 0)
+		return (0);
+	return (2);
 }
 
 /*

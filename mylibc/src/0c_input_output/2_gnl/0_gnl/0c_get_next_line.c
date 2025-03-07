@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   0c_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:14 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/02/11 17:35:07 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/07 15:40:22 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,43 @@
 
 char	*ft_get_line(char *left_str);
 char	*ft_new_left_str(char *left_str);
-char	*ft_strchr_gnl(char *s, int c);
-char	*ft_strjoin_gnl(char *left_str, char *buff, int c);
-size_t	ft_strlen_gnl(char *s, int c);
+char	*ft_read_to_left_str(int fd, char *left_str);
+
+char	*get_next_line_join(int fd)
+{
+	char	*map;
+	char	*ptr;
+	char	*temp;
+
+	map = ft_strdup(NAME_M, "");
+	if (!map)
+		halt_exit_(1);
+	ptr = get_next_line(fd);
+	while (ptr)
+	{
+		temp = map;
+		map = ft_strjoin(NAME_M, map, ptr);
+		free(temp);
+		free(ptr);
+		ptr = get_next_line(fd);
+	}
+	return (map);
+}
+
+char	*get_next_line(int fd)
+{
+	char		*line;
+	static char	*left_str;
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (0);
+	left_str = ft_read_to_left_str(fd, left_str);
+	if (!left_str)
+		return (NULL);
+	line = ft_get_line(left_str);
+	left_str = ft_new_left_str(left_str);
+	return (line);
+}
 
 char	*ft_read_to_left_str(int fd, char *left_str)
 {
@@ -43,20 +77,40 @@ char	*ft_read_to_left_str(int fd, char *left_str)
 	return (left_str);
 }
 
-char	*get_next_line(int fd)
+char	*ft_get_line(char *left_str)
 {
-	char		*line;
-	static char	*left_str;
+	char	*str;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (0);
-	left_str = ft_read_to_left_str(fd, left_str);
-	if (!left_str)
+	if (!*left_str)
 		return (NULL);
-	line = ft_get_line(left_str);
-	left_str = ft_new_left_str(left_str);
-	return (line);
+	str = ft_strjoin_gnl(NULL, left_str, '\n');
+	return (str);
 }
+
+char	*ft_new_left_str(char *left_str)
+{
+	int		i;
+	int		j;
+	char	*str;
+
+	i = 0;
+	i = ft_strlen_gnl(left_str, '\n');
+	if (!left_str[i])
+	{
+		free(left_str);
+		return (NULL);
+	}
+	str = (char *)malloc(sizeof(char) * (ft_strlen_gnl(left_str, '\0')
+				- i + 1));
+	if (!str)
+		return (NULL);
+	i++;
+	j = 0;
+	while (left_str[i])
+		str[j++] = left_str[i++];
+	return (str[j] = '\0', free(left_str), str);
+}
+
 /*
 #include <stdio.h>
 #include <fcntl.h>

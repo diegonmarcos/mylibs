@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/03/05 12:28:15 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/07 15:36:12 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓	//
 
 /* ***************************************************************** */
-/* 1. STRING MANIPULATION low leve									 */
+/* 1. STRING MANIPULATION low level									 */
 /* ***************************************************************** */
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
@@ -81,6 +81,7 @@ void	ft_bzero_2d(void **array, size_t lines, size_t size);
 /* ************************************************************* */
 /* ************************************************************* */
 size_t	ft_strlen(const char *str);
+size_t	ft_strlen_gnl(char *s, int c);
 int		ft_countwords(char const *s, char c);
 int		ft_array_size(char **s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
@@ -91,6 +92,7 @@ int		ft_strcmp_duplicate_inter(char **array);
 int		ft_strcmp(const char *s1, const char *s2);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strjoin(char *filename, char const *s1, char const *s2);
+char	*ft_strjoin_gnl(char *left_str, char *buff, int c);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char *filename, char const *s, unsigned int start,
 			size_t len);
@@ -102,11 +104,12 @@ int		ft_contains(int num, char **argv, int i);
 /* ************************************************************* */
 /* ************************************************************* */
 char	*ft_strchr(const char *s, int c);
+int		ft_strchr_char_duplicate(char c, char **argv, int i);
+int		*ft_strchr_int_duplicate(int *array_int, int size, int position);
+char	*ft_strchr_gnl(char *s, int c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strrchr(const char *s, int c);
-int		ft_strchr_char_duplicate(char c, char **argv, int i);
 char	*ft_strchr_char_duplicate_interation(char **array_char);
-int		*ft_strchr_int_duplicate(int *array_int, int size, int position);
 int		*ft_strchr_int_duplicate_interation(int *array_int, int size);
 
 /* ************************************************************* */

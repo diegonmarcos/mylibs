@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   1_ft_strjoin.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:59:40 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/01/27 20:39:53 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/07 15:32:49 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,33 @@ char	*ft_strjoin(char *filename, const char *s1, const char *s2)
 		res[j++] = s2[i++];
 	res[j] = 0;
 	return (res);
+}
+
+char	*ft_strjoin_gnl(char *left_str, char *buff, int c)
+{
+	size_t	i;
+	size_t	j;
+	char	*str;
+
+	if (!left_str)
+	{
+		left_str = (char *)malloc(1 * sizeof(char));
+		left_str[0] = '\0';
+	}
+	if (!left_str || !buff)
+		return (NULL);
+	str = (char *) malloc(sizeof(char) * ((ft_strlen_gnl(left_str, '\0')
+					+ ft_strlen_gnl(buff, c)) + 2));
+	if (str == NULL)
+		return (NULL);
+	i = -1;
+	j = 0;
+	if (left_str)
+		while (left_str[++i])
+			str[i] = left_str[i];
+	while (buff[j] && buff[j] != c)
+		str[i++] = buff[j++];
+	if (buff[j] == c)
+		str[i++] = c;
+	return (str[i] = '\0', free(left_str), str);
 }
