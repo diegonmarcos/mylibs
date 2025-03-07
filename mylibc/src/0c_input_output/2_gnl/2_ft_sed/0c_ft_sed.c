@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sed.c                                           :+:      :+:    :+:   */
+/*   0c_ft_sed.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:05:24 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/06 16:11:02 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/07 07:40:58 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_sed.h"
+#include "mylibc.h"
 
-int		ft_sed(char *file, char *s1, char *s2);
+/* int		ft_sed(char *file, char *s1, char *s2);
 int		process_line(int fd2, char *line, char *s1, char *s2);
 
 int	ft_sed(char *file, char *s1, char *s2)
@@ -77,3 +77,4 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
+ */

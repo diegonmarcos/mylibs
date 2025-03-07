@@ -1,0 +1,1 @@
+../0c_input_output/2_gnl/0_ft_fgets/0c_ft_fgets.c
