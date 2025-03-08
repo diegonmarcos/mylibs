@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   1_ft_strtok_split.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:59:11 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/03 16:08:40 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/08 10:14:33 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,30 +31,28 @@
 
 #include "mylibc.h"
 
-int	ft_countwords(char const *s, char c)
+long	*ft_split_long(char *filename, char const *array_source,
+			char delimitator, int *size)
 {
-	int	counter;
-	int	i;
+	char		**array_char_split;
+	long		*array_int;
+	int			i;
 
-	counter = 0;
+	array_char_split = ft_split(filename, array_source, delimitator);
+	*size = 0;
+	while (array_char_split[*size])
+		(*size)++;
+	array_int = (long *)ft_calloc_fd(filename, *size, sizeof(int));
+	if (!array_int)
+		return (NULL);
 	i = 0;
-	if (!s)
-		return (-1);
-	while (s[i])
+	while (i < *size)
 	{
-		if (s[i] != c)
-		{
-			counter++;
-		}
-		while (s[i] && s[i] != c)
-		{
-			i++;
-			if (s[i] == '\0')
-				return (counter);
-		}
+		array_int[i] = ft_atoi_long(array_char_split[i]);
 		i++;
 	}
-	return (counter);
+	ft_free_array_2d(array_char_split);
+	return (array_int);
 }
 
 char	**ft_split(char *filename, char const *s, char c)
@@ -86,29 +84,84 @@ char	**ft_split(char *filename, char const *s, char c)
 	return (array);
 }
 
-long	*ft_split_long(char *filename, char const *array_source,
-			char delimitator, int *size)
+int	ft_countwords(char const *s, char c)
 {
-	char		**array_char_split;
-	long		*array_int;
-	int			i;
+	int	counter;
+	int	i;
 
-	array_char_split = ft_split(filename, array_source, delimitator);
-	*size = 0;
-	while (array_char_split[*size])
-		(*size)++;
-	array_int = (long *)ft_calloc_fd(filename, *size, sizeof(int));
-	if (!array_int)
-		return (NULL);
+	counter = 0;
 	i = 0;
-	while (i < *size)
+	if (!s)
+		return (-1);
+	while (s[i])
 	{
-		array_int[i] = ft_atoi_long(array_char_split[i]);
+		if (s[i] != c)
+		{
+			counter++;
+		}
+		while (s[i] && s[i] != c)
+		{
+			i++;
+			if (s[i] == '\0')
+				return (counter);
+		}
 		i++;
 	}
-	ft_free_array_2d(array_char_split);
-	return (array_int);
+	return (counter);
 }
+
+/* ************************************************************************** *
+ * @syntax: char *ft_strtrim(char const *s1, char const *set);
+ * @brief: Allocates (with malloc(3)) and returns a copy of ’s1’ with the
+ * @param: #1. The string to be trimmed.
+ * @return: The trimmed string. NULL if the allocation fails.
+ * 
+ * @note:
+ * 
+ * @file: ft_strtrim.c
+ * @author: Diego <dinepomu@student.42>
+ * @created: 03/Aug/2024 12:07
+ * @updated: 10/Nov/2024 12:04
+ * ************************************************************************** *
+ */
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char	*str;
+	size_t	i;
+	size_t	start;
+	size_t	end;
+
+	if (!s1 || !set)
+		return (NULL);
+	start = 0;
+	while (s1[start] && ft_char_in_set(s1[start], set))
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && ft_char_in_set(s1[end - 1], set))
+		end--;
+	str = (char *)malloc(sizeof(*s1) * (end - start + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (start < end)
+		str[i++] = s1[start++];
+	str[i] = 0;
+	return (str);
+}
+static int	ft_char_in_set(char c, char const *set)
+{
+	size_t	i;
+
+	i = 0;
+	while (set[i])
+	{
+		if (set[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 /*
 #include "../../4.Tester/Tester/libdnm.h"
 

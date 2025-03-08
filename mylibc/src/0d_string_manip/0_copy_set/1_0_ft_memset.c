@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   1_0_ft_memset.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:58:33 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/05 11:44:41 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/08 09:46:14 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,23 @@
 
 #include "mylibc.h"
 
+void	ft_bzero_2d(void **array, size_t lines, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < lines)
+	{
+		ft_bzero(array[i], size);
+		i++;
+	}
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	ft_memset(s, 0, n);
+}
+
 void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char	*bb;
@@ -41,23 +58,6 @@ void	*ft_memset(void *b, int c, size_t len)
 		len--;
 	}
 	return (b);
-}
-
-void	ft_bzero(void *s, size_t n)
-{
-	ft_memset(s, 0, n);
-}
-
-void	ft_bzero_2d(void **array, size_t lines, size_t size)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < lines)
-	{
-		ft_bzero(array[i], size);
-		i++;
-	}
 }
 /*
 #include <stdio.h>

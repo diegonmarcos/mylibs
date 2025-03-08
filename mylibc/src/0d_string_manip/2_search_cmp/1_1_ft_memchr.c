@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   2_ft_memchr.c                                      :+:      :+:    :+:   */
+/*   1_2_ft_memchr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:58:02 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/05 11:53:49 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/08 09:51:25 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,6 @@
  */
 
 #include "mylibc.h"
-
-void	*ft_memchr(const void *s, int c, size_t n)
-{
-	unsigned char		*str;
-	size_t				i;
-	unsigned char		uc;
-
-	str = (unsigned char *) s;
-	uc = (unsigned char) c;
-	i = 0;
-	while (i < n)
-	{
-		if (str[i] == uc)
-			return ((void *) &str[i]);
-		i++;
-	}
-	return (NULL);
-}
 
 int	ft_contains(int num, char **argv, int i)
 {
@@ -134,4 +116,45 @@ char	*ft_strrchr(const char *s, int c)
 	if (*s == cc)
 		res = (char *)s;
 	return (res);
+}
+
+void	*ft_memmem(const void *haystack, size_t haystacklen, \
+		const void *needle, size_t needlelen)
+{
+	const char	*begin = (const char *)haystack ;
+	const char	*end = (const char *)haystack + haystacklen - needlelen;
+	const char	*p = (const char *)needle;
+
+	begin = (const char *)haystack ;
+	end = (const char *)haystack + haystacklen - needlelen;
+	p = (const char *)needle;
+	if (needlelen == 0)
+		return ((void *)haystack);
+	if (haystacklen < needlelen)
+		return (NULL);
+	while (begin <= end)
+	{
+		if (*begin == *p && ft_memcmp(begin, p, needlelen) == 0)
+			return ((void *)begin);
+		begin++;
+	}
+	return (NULL);
+}
+
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	unsigned char		*str;
+	size_t				i;
+	unsigned char		uc;
+
+	str = (unsigned char *) s;
+	uc = (unsigned char) c;
+	i = 0;
+	while (i < n)
+	{
+		if (str[i] == uc)
+			return ((void *) &str[i]);
+		i++;
+	}
+	return (NULL);
 }
