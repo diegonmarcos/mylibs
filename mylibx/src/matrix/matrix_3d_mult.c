@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_3d.c                                         :+:      :+:    :+:   */
+/*   matrix_3d_mult.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 11:41:09 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/15 11:41:16 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/08 14:55:05 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mylibc.h"
+#include "mylibx.h"
 
-void	matrix3_init(float (*matrix)[3])
+/*
+*   Multiply a 3 points coordinate "point" by Matrix [3][3]
+*   and return the result.
+*/
+t_point	matrix3_multp(float matrix[3][3], t_point point)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		k;
+	t_point	result;
 
+	result = point;
 	i = 0;
 	while (i < 3)
 	{
-		j = 0;
-		while (j < 3)
+		result.axis[i] = 0;
+		result.color = point.color;
+		k = 0;
+		while (k < 3)
 		{
-			matrix[i][j] = 0;
-			j++;
+			result.axis[i] += matrix[i][k] * point.axis[k];
+			k++;
 		}
 		i++;
 	}
+	return (result);
 }
