@@ -1,0 +1,1 @@
+GROUP ( libmylibx.a libs/minilibx_linux/libmlx.a -lXext -lX11 -lm )

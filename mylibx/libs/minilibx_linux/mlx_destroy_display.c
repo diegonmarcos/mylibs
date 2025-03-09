@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_3d_copy.c                                   :+:      :+:    :+:   */
+/*   mlx_destroy_display.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: mg <mg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/08 14:53:34 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/09 11:09:46 by dinepomu         ###   ########.fr       */
+/*   Created: 2020/10/03 18:56:35 by mg                #+#    #+#             */
+/*   Updated: 2020/10/04 01:55:35 by mg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mylibx.h"
+#include "mlx_int.h"
 
-/* 
-*	This function copy len points of the array from src to dst
-*/
-void	copy_map(t_point *src, t_point *dst, int len)
+int	mlx_destroy_display(t_xvar *xvar)
 {
-	int	i;
-
-	i = 0;
-	while (i < len)
-	{
-		dst[i] = src[i];
-		i++;
-	}
+	XCloseDisplay(xvar->display);
 }

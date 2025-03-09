@@ -6,26 +6,19 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 15:39:49 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/08 14:50:49 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/09 11:16:10 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MYLIBX_DATA_H
 # define MYLIBX_DATA_H
 
-# include "fdf.h"
+# include "mylibx.h"
+# include <stdbool.h>
 
 /* ***************************************************************** */
 /* 1.1 Data Structure												 */
 /* ***************************************************************** */
-typedef struct s_point
-{
-	float	axis[3];
-	int		color;
-	int		hex_color;
-	bool	paint;
-	float	polar[2];
-}	t_point;
 
 #endif
 
@@ -37,7 +30,7 @@ typedef struct m_colors
 	int	bottomcolor;
 	int	backcolor;
 	int	menucolor;	
-}	t_colors;
+}			t_colors;
 
 typedef struct s_bitmap
 {
@@ -46,13 +39,13 @@ typedef struct s_bitmap
 	int		bitxpixel;
 	int		lines;
 	int		endian;
-}	t_bitmap;
+}			t_bitmap;
 
 typedef struct s_vars
 {
 	void	*mlx;
 	void	*win;
-}	t_vars;
+}			t_vars;
 
 typedef struct s_keys
 {
@@ -61,7 +54,7 @@ typedef struct s_keys
 	bool	b_keyctrl;
 	t_point	last_click_l;
 	t_point	last_click_r;
-}	t_keys;
+}			t_keys;
 
 typedef struct m_map
 {
@@ -87,7 +80,7 @@ typedef struct m_map
 	double		performance;
 	float		proportion;
 	float		radius;
-}	t_map;
+}				t_map;
 
 typedef struct s_meta
 {
@@ -95,4 +88,4 @@ typedef struct s_meta
 	t_bitmap	bitmap;
 	t_map		map;
 	t_keys		keys;
-}	t_meta; */
+}				t_meta; */

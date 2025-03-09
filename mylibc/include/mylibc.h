@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/03/09 09:04:27 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/09 09:31:51 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 /* ************************************************************* */
 # include <stddef.h>	// Defs of NULL, size_t(unsign int)
 # include <limits.h>	// Defs of INT_MAX, SIZE_MAX(size_t/uInt), LONG_MAX
-# include <errno.h>		// Defs errno, perror( open, fork, pipe, dup2, execve)
+# include <errno.h>		// Defs errno, perror(open, fork, pipe, dup2, execve)
 
 /* ************************************************************* */
 /* ************************************************************* */
