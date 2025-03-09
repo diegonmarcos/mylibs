@@ -1,4 +1,4 @@
-#include <unistd.h>
+/* #include <unistd.h>
 
 void write_word(char *start, char *end)
 {
@@ -49,3 +49,4 @@ int main(int argc, char **argv)
     write(1, "\n", 1);
     return 0;
 }
+ */

@@ -1,4 +1,4 @@
-#include <stdlib.h>
+/* #include <stdlib.h>
 #include "list.h"
 
 t_list *sort_list(t_list* lst, int (*cmp)(int, int)) {
@@ -20,4 +20,4 @@ t_list *sort_list(t_list* lst, int (*cmp)(int, int)) {
 		lst = lst->next;
     }
     return (start);
-}
+} */
