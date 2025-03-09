@@ -1,1 +1,0 @@
-../1_data_array/0_string_manip/1_0_ft_strlen.c

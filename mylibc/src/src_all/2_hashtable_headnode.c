@@ -1,1 +1,1 @@
-../2_algos_search/1_hashtable/2_hashtable_headnode.c
+../2_data_hashtable/2_hashtable_headnode.c

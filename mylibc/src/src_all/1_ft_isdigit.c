@@ -1,1 +1,0 @@
-../1_data_array/2_data_is/1_ft_isdigit.c

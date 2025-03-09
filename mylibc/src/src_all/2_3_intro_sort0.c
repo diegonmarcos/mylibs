@@ -1,1 +1,0 @@
-../2_algos_sorting/0_sorting_arrays/2_3_intro_sort0.c

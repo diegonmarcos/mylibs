@@ -1,14 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   1_ft_strtok_split.c                                :+:      :+:    :+:   */
+/*   1c_ft_strtok_split.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:59:11 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/08 10:14:33 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/09 09:00:36 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "mylibc.h"
+
+static int	ft_char_in_set(char c, char const *set);
 
 /*
  * ************************************************************************** *
@@ -28,9 +32,6 @@
  * @updated: 10/Nov/2024 11:58
  * ************************************************************************** *
  */
-
-#include "mylibc.h"
-
 long	*ft_split_long(char *filename, char const *array_source,
 			char delimitator, int *size)
 {

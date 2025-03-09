@@ -1,1 +1,0 @@
-../0c_input_output/0_low_level/0c_ft_putchar.c

@@ -1,1 +1,0 @@
-../2_algos_others/1_graphics_algos/2_scan_bresenham.c

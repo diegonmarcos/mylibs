@@ -1,1 +1,0 @@
-../0c_input_output/2_gnl/2_ft_sed/0c_ft_sed.c

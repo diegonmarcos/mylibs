@@ -1,1 +1,0 @@
-../0b_memory/2_garbage_collector/0b_ft_garbage_collector_bff.c

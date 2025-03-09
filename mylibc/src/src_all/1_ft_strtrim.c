@@ -1,1 +1,0 @@
-../1_data_array/0_string_manip_heap/1_ft_strtrim.c

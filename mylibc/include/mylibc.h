@@ -6,29 +6,13 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/03/07 15:36:12 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/09 09:04:27 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MYLIBC_H
 # define MYLIBC_H
-// ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓	//
-/*#####################################################################	*/
-/* 0.0 MACROS															*/
-/*#####################################################################	*/
-// GET NEXT LINE2
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5000
-# endif
 
-// Unsigned Int
-# ifndef SIZE_MAX
-#  define SIZE_MAX INT_MAX
-# endif
-
-# ifndef NAME_M
-#  define NAME_M "log/2.Memory_Check/allocs/malloc_allocs.txt"
-# endif
 
 /*#####################################################################	*/
 /* 0.1 LIBRARIES														*/
@@ -58,7 +42,9 @@
 
 /* ************************************************************* */
 /* ************************************************************* */
-# include "mylibc_data.h"	//*ft_initializator_list_gargabe(void);
+# include "mylibc_defines.h"	// Macros and definitions
+# include "mylibc_data.h"		// Data structures and types
+
 
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓	//
 

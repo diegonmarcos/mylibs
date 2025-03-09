@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/03/06 16:15:24 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/03/09 08:59:30 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,91 +44,103 @@ override BUILD_LIBRARY = 0
 SOURCE_MAIN =									\
 
 SOURCE_FILES = 									\
+				0_ft_malloc.c					\
+				0_memory_arena_pool.c			\
 				0a_ft_exec.c					\
 				0a_ft_pipe.c					\
-				0b_ft_calloc.c					\
-				0b_ft_calloc_fd.c				\
-				0b_ft_free.c					\
-				0b_ft_garbage_collector_1.c		\
-				0b_ft_garbage_collector_2.c		\
-				0b_ft_garbage_collector_bff.c	\
-				0b_halt_exit.c					\
-				0c_ft_close.c					\
 				0c_ft_fprintf.c					\
 				0c_ft_fprintf1.c				\
 				0c_ft_hexa_mayusc.c				\
 				0c_ft_hexa_minusc.c				\
 				0c_ft_num_unsign.c				\
-				0c_ft_open.c					\
 				0c_ft_pointer_hexa.c			\
 				0c_ft_pointer_hexa_fd_fpr.c		\
 				0c_ft_printf.c					\
-				0c_ft_putchar.c					\
-				0c_ft_putnbr.c					\
-				0c_ft_putstr1.c					\
-				0c_ft_snprintf.c				\
-				0c_ft_sscanf.c					\
-				0c_get_next_line.c				\
-				0c_get_next_line2.c				\
-				0c_get_next_line_utils.c		\
-				0c_ft_fgets.c					\
-				0c_ft_sscanf.c					\
-				0c_ft_sed.c						\
-				1_0_ft_memcpy.c					\
-				1_0_ft_memset.c					\
-				1_0_ft_slinked_list.c			\
-				1_0_ft_slinked_list1.c			\
-				1_0_ft_slinked_list3.c			\
-				1_0_ft_strlen.c					\
-				1_1_ft_array_to_d_linked_list.c	\
-				1_1_ft_free_list_doubly.c		\
-				1_1_ft_memcmp.c					\
-				1_1_ft_strncmp.c				\
-				1_1_ft_swap_pointers.c			\
-				1_1_linked_list_doubly1.c		\
-				1_1_linked_list_doubly2.c		\
-				1_1_matrix_3d.c					\
-				1_2_ft_memchr.c					\
-				1_2_ft_strchr.c					\
-				1_3_ft_strlcat.c				\
-				1_4_ft_striteri.c				\
-				1_ft_atoi.c						\
-				1_ft_atoi_base.c				\
-				1_ft_is_sorted.c				\
-				1_ft_isalnumascii.c				\
-				1_ft_isdigit.c					\
-				1_ft_itoa.c						\
-				1_ft_math.c						\
-				1_ft_split.c					\
-				1_ft_strdup.c					\
-				1_ft_strjoin.c					\
-				1_ft_strmapi.c					\
-				1_ft_strtrim.c					\
-				1_ft_substr.c					\
-				2_0_bubble_sort.c				\
-				2_0_insertion_sort.c			\
-				2_0_selection_sort.c			\
-				2_1_merge_sort.c				\
-				2_1_quick_sort.c				\
-				2_2_radix_sort.c				\
-				2_3_intro_sort0.c				\
-				2_3_intro_sort1.c				\
-				2_bitwise.c						\
-				2_bst.c							\
-				2_scan_bresenham.c				\
-				2_scan_raster_flood_fill.c		\
-				2_vectorgr_matrix_transf.c		\
-				2_raytracing_montecarlo.c		\
-				2_ft_fibonacci.c				\
-				2_ft_prime.c					\
-				2_ft_toupper.c					\
+				1a_ft_calloc.c					\
+				1a_ft_calloc_fd.c				\
+				1a_ft_free.c					\
+				1a_ft_garbage_collector_1.c		\
+				1a_ft_garbage_collector_2.c		\
+				1a_ft_garbage_collector_bff.c	\
+				1a_halt_exit.c					\
+				1b_ft_close.c					\
+				1b_ft_fgets.c					\
+				1b_ft_open.c					\
+				1b_ft_sed.c						\
+				1b_ft_sscanf.c					\
+				1b_get_next_line.c				\
+				1b_get_next_line2.c				\
+				1c_0_ft_memcpy.c				\
+				1c_0_ft_memset.c				\
+				1c_0_ft_strcat_.c				\
+				1c_0_ft_strdup.c				\
+				1c_0_ft_strlcat.c				\
+				1c_1_ft_memchr.c				\
+				1c_1_ft_memchr1.c				\
+				1c_1_ft_memcmp.c				\
+				1c_ft_asprintf.c				\
+				1c_ft_atoi.c					\
+				1c_ft_atoi_base.c				\
+				1c_ft_is_sorted.c				\
+				1c_ft_isalnumascii.c			\
+				1c_ft_isdigit.c					\
+				1c_ft_itoa.c					\
+				1c_ft_math.c					\
+				1c_ft_snprintf.c				\
+				1c_ft_striteri.c				\
+				1c_ft_strlen.c					\
+				1c_ft_strmapi.c					\
+				1c_ft_strtok_split.c			\
+				1c_ft_strtok_split1.c			\
+				1d_ft_putchar.c					\
+				1d_ft_putnbr.c					\
+				1d_ft_putstr1.c					\
+				2_0_ft_slinked_list.c			\
+				2_0_ft_slinked_list1.c			\
+				2_0_ft_slinked_list3.c			\
+				2_1_ft_array_to_d_linked_list.c	\
+				2_1_ft_free_list_doubly.c		\
+				2_1_ft_swap_pointers.c			\
+				2_1_linked_list_doubly1.c		\
+				2_1_linked_list_doubly2.c		\
+				2_ft_list_foreach.c				\
+				2_ft_list_remove_if.c			\
 				2_hashtable_headarray.c			\
 				2_hashtable_headnode.c			\
-				2_math.c						\
+				2_heapfy_array_bst.c			\
 				2_merge_sort_lsd.c				\
 				2_merge_sort_lss.c				\
-				2_probability.c					\
-				2_statistics.c					
+				2_sort_list.c					\
+				3_0_bubble_sort.c				\
+				3_0_insertion_sort.c			\
+				3_0_selection_sort.c			\
+				3_1_fizzbuzz.c					\
+				3_1_merge_sort.c				\
+				3_1_quick_sort.c				\
+				3_2_radix_sort.c				\
+				3_2_union.c						\
+				3_2_wdmatch.c					\
+				3_3_expand_str.c				\
+				3_3_ft_toupper.c				\
+				3_3_intro_sort0.c				\
+				3_3_intro_sort1.c				\
+				3_4_rev_wstr.c					\
+				3_4_rostring.c					\
+				3_bitwise.c						\
+				3_ft_fibonacci.c				\
+				3_ft_prime.c					\
+				3_math.c						\
+				3_probability.c					\
+				3_raster_scan_bresenham.c		\
+				3_raster_scan_flood_fill.c		\
+				3_raytracing_montecarlo.c		\
+				3_statistics.c					\
+				3_statistics1.c					\
+				3_statistics2.c					\
+				4_ft_data_parser.c				\
+				4_ft_memory_design.c			\
+				4_ft_spliter.c					\
+				4_ft_sscanf.c					\
 
 #SOURCE_MAIN = $(wildcard src/*.c) $(wildcard src/*/*.c)
 
