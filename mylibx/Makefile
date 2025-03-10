@@ -6,8 +6,12 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/03/09 10:39:31 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/03/10 12:40:22 by dinepomu         ###   ########.fr        #
 #                                                                              #
+# **************************************************************************** #
+
+# **************************************************************************** #
+# https://linktr.ee/diegonmarcos											   #
 # **************************************************************************** #
 
 # ############################################################################ #
@@ -41,17 +45,18 @@ override BUILD_LIBRARY = 0
 
 # ************************************************************************ #
 # *** Files source *.c *** #
-SOURCE_MAIN =						\
+SOURCE_MAIN =								\
 
-SOURCE_FILES = 						\
-				ft_x11_XDrawLine.c	\
-				matrix_3d_copy.c	\
-				matrix_3d_ini.c		\
-				matrix_3d_mult.c	\
+SOURCE_FILES = 								\
+				ft_x11_mlx_dda_drawline.c	\
+				ft_x11_mlx_xdrawline.c		\
+				matrix_3d_copy.c			\
+				matrix_3d_ini.c				\
+				matrix_3d_mult.c			\
 
 #SOURCE_MAIN = $(wildcard src/*.c) $(wildcard src/*/*.c)
 
-VPATH = src/src_all:							\
+VPATH = src/src_all:						\
 
 # *** Extra Rules (Bonus) *** #
 CHECKER_BONUS_DIR = 

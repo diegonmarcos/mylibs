@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/03/10 11:02:54 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/10 12:34:28 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,6 @@ int		ft_atoi_safe(const char *ptr);
 long	*ft_atoi_long_array(const char **ptr);
 char	*ft_itoa(int n);
 int		ft_digit_count(long int i);
-int		ft_round(double num);
 size_t	ft_num_unsign(size_t num);
 int		ft_pointer_hexa(void *p);
 int		ft_hexa_minusc(int num);
@@ -292,6 +291,8 @@ void	heapify(int arr[], int n, int i);
 /* ARITHMETIC/MATH 												 */
 /* ************************************************************* */
 int		ft_abs(int number);
+int		ft_max(int a, int b);
+int		ft_round(double num);
 void	matrix3_init(float (*matrix)[3]);
 void	print_bits(unsigned char octet);
 

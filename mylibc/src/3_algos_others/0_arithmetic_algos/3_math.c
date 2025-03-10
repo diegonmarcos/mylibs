@@ -1,23 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   2_math.c                                           :+:      :+:    :+:   */
+/*   3_math.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 12:09:02 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/05 12:26:16 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/10 12:30:29 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mylibc.h"
-
-int	ft_abs(int number)
-{
-	if (number < 0)
-		number *= -1;
-	return (number);
-}
 
 int	ft_recursive_factorial(int nb)
 {

@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_x11_mlx_XDrawLine.c                             :+:      :+:    :+:   */
+/*   ft_x11_mlx_xdrawline.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 09:07:25 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/09 14:44:54 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/10 12:38:37 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/fdf.h"
+/* ************************************************************************** */
+/* https://linktr.ee/diegonmarcos											  */
+/* ************************************************************************** */
+
+#include "mylibx.h"
 
 typedef struct s_points1
 {
@@ -45,7 +49,7 @@ void	ft_draw_line(void *mlx_ptr, void *win_ptr, t_points1 *p)
 	while (1)
 	{
 		// Draw the current pixel
-		mlx_pixel_put(mlx_ptr, win_ptr, p->x0, p->y0, p->color);
+		mlx_pixel_put(mlx_ptr, win_ptr, p->x0, p->y0, p->color0);
 		// Check if we've reached the end point
 		if (p->x0 == p->x1 && p->y0 == p->y1)
 			break ;
@@ -126,8 +130,8 @@ void	line_variables_init(t_points1 *p)
 	p->x1 = 700;
 	p->y0 = 100;
 	p->y1 = 500;
-	p->dx = abs(p->x1 - p->x0);
-	p->dy = -abs(p->y1 - p->y0);
+	p->dx = ft_abs(p->x1 - p->x0);
+	p->dy = -ft_abs(p->y1 - p->y0);
 	p->sx = -1;
 	if (p->x0 < p->x1)
 		p->sx = 1;

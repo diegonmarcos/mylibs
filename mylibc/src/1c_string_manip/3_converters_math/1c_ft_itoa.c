@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   1c_ft_itoa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:56:15 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/02/15 17:59:40 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/10 12:30:29 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,24 @@
  */
 
 #include "mylibc.h"
+
+// *** digits_to_bits conversions *** //
+int	digits_to_bits(int digits)
+{
+	int	bits;
+	int	max_value;
+
+	bits = 0;
+	max_value = 1;
+	if (digits <= 0)
+		return (0);
+	while (max_value < digits)
+	{
+		max_value *= 2;
+		bits++;
+	}
+	return (bits);
+}
 
 int	ft_digit_count(long int i)
 {
