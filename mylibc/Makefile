@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/03/09 08:59:30 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/03/10 11:06:52 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -165,7 +165,7 @@ LIB_1_PATH = $(LIBS_DIR)/$(LIB_1_NAME)
 #IS_LIB_STATIC_AND_NOT_DYNAMIC = 1
 
 # *** HEADERS *.h *** #
-CFLAGS_INCL = -Iinclude -Ilibs/$(LIB_1_NAME)/include
+CFLAGS_INCL = -Iinc -Ilibs/$(LIB_1_NAME)/inc
 
 # ************************************************************************ #
 # *** Compiler, Make and Library compilers Declar *** #
@@ -416,7 +416,7 @@ werror:
 norm:
 	@echo "$(GREEN)\n····Running Norminette····$(RESET)"
 	norminette src/push_swap > log/1.Warning_Linting/norminette.txt; \
-	norminette include >> log/1.Warning_Linting/norminette.txt ; cat log/1.Warning_Linting/norminette.txt
+	norminette inc >> log/1.Warning_Linting/norminette.txt ; cat log/1.Warning_Linting/norminette.txt
 
 # *** Norminette on Bonus*** #
 norm_bonus:
@@ -818,7 +818,7 @@ check_up_to_date:
 		echo "$(GRAY)# ############################################################################ #\n$(RESET)"; \
 		$(MAKE) build_project; \
 	else \
-		if find src/ include/ -newer "$(NAME)" -print | grep -q .; then \
+		if find src/ inc/ -newer "$(NAME)" -print | grep -q .; then \
 			echo "$(GRAY)\n# ############################################################################ #$(RESET)"; \
 			echo "$(GRAY)$(NAME)				$(shell date)\n$(RED)STATUS: Some files have changed. Rebuilding...$(RESET)"; \
 			echo "$(GRAY)# ############################################################################ #\n$(RESET)"; \
