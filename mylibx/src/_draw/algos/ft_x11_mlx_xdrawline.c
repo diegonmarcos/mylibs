@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 09:07:25 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/10 12:38:37 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/10 17:39:08 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 #include "mylibx.h"
 
-typedef struct s_points1
+/* typedef struct s_points1
 {
 	int				x1;
 	int				x0;
@@ -38,13 +38,13 @@ typedef struct s_points1
 	int				b1;
 	int				steps;
 }					t_points1;
-
+ */
 /**
  * Bresenham's line algorithm implementation
  * Draws a line between two points (x0,y0) and (x1,y1)
  * Similar to XDrawLine() but implemented for use with MiniLibX
  */
-void	ft_draw_line(void *mlx_ptr, void *win_ptr, t_points1 *p)
+/* void	ft_draw_line(void *mlx_ptr, void *win_ptr, t_points1 *p)
 {
 	while (1)
 	{
@@ -71,14 +71,14 @@ void	ft_draw_line(void *mlx_ptr, void *win_ptr, t_points1 *p)
 			p->y0 += p->sy;
 		}
 	}
-}
+} */
 
 /**
  * Alternative implementation that draws directly to an image buffer
  * Uses Gradient Interpolation for color blending
  * More efficient for MiniLibX as it avoids multiple calls to mlx_pixel_put
  */
-void	ft_draw_line2(unsigned int *img_data, int img_width, t_points1 *p)
+/* void	ft_draw_line2(unsigned int *img_data, int img_width, t_points1 *p)
 {
 	float			t;
 	int				step;
@@ -121,9 +121,9 @@ void	ft_draw_line2(unsigned int *img_data, int img_width, t_points1 *p)
 		}
 		step++;
 	}
-}
+} */
 
-void	line_variables_init(t_points1 *p)
+/* void	line_variables_init(t_points1 *p)
 {
 	// Initialize line variables   
 	p->x0 = 100;
@@ -152,7 +152,7 @@ void	line_variables_init(t_points1 *p)
 	// Calculate total steps for gradient interpolation
 	if (p->steps == 0) 
 		p->steps = 1;
-}
+} */
 
 /**
  * Usage with MiniLibX image buffer

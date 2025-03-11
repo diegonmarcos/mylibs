@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 14:44:03 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/10 13:58:06 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/11 16:23:09 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,7 @@ typedef struct s_point
 	float	polar[2];
 }			t_point;
 
-
-//void	ft_draw_line(void *mlx_ptr, void *win_ptr, t_points *p);
-//void	ft_draw_line2(unsigned int *img_data, int img_width, t_points *p);
-//void	line_variables_init(t_points *p);
-
-//void	doted(t_meta *meta, t_point *project);
-//void	draw_dot(t_meta *meta, t_point point, int radius);
-//void	dot_util(t_meta *meta, t_point pixel, t_point point, int coord);
+void	myputpixel(char *buffer, int endian, int color, int alpha);
 
 void	copy_map(t_point *src, t_point *dst, int len);
 void	matrix3_init(float (*matrix)[3]);

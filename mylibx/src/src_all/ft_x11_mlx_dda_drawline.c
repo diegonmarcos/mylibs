@@ -1,1 +1,1 @@
-../draw_line/ft_x11_mlx_dda_drawline.c
+../_draw/algos/ft_x11_mlx_dda_drawline.c

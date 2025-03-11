@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/03/10 12:40:33 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/03/10 17:38:24 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,11 +48,15 @@ override BUILD_LIBRARY = 0
 SOURCE_MAIN =								\
 
 SOURCE_FILES = 								\
-				ft_x11_mlx_dda_drawline.c	\
-				ft_x11_mlx_xdrawline.c		\
+				mydrawcircle.c				\
+				mydrawline.c				\
+				myputpixel.c				\
 				matrix_3d_copy.c			\
 				matrix_3d_ini.c				\
 				matrix_3d_mult.c			\
+				ft_x11_mlx_dda_drawline.c	\
+				ft_x11_mlx_xdrawline.c		\
+				ft_opengl_sdl_drawline.c	\
 
 #SOURCE_MAIN = $(wildcard src/*.c) $(wildcard src/*/*.c)
 
