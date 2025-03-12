@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 18:15:14 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/10 12:32:51 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/12 14:30:10 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,3 @@ int	ft_abs(int number)
 		number *= -1;
 	return (number);
 }
-
-int	ft_max(int a, int b)
-{
-	if (a > b)
-		return (a);
-	return (b);
-}
-

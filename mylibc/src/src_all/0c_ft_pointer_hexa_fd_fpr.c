@@ -1,1 +1,0 @@
-../1d_output/1_printf/utils/0c_ft_pointer_hexa_fd_fpr.c

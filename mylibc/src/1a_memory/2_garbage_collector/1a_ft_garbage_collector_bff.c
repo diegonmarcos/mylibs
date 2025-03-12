@@ -35,7 +35,7 @@
 	return (dst);
 } */
 
-void	ft_free_fd(char *filename)
+/* void	ft_free_fd(char *filename)
 {
 	int		fd;
 	char	*line;
@@ -61,7 +61,7 @@ void	ft_free_fd(char *filename)
 	close(fd);
 	if (unlink(filename) == -1)
 		write(2, "Error deleting file\n", 20);
-}
+} */
 
 /*
 void	ft_free_fd_first_one(const char *filename)

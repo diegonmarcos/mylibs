@@ -1,1 +1,0 @@
-../1d_output/0_putchar/1d_ft_putnbr.c

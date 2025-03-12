@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/03/10 12:40:22 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/03/12 15:56:48 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,14 +52,6 @@ SOURCE_FILES = 									\
 				0_memory_arena_pool.c			\
 				0a_ft_exec.c					\
 				0a_ft_pipe.c					\
-				0c_ft_fprintf.c					\
-				0c_ft_fprintf1.c				\
-				0c_ft_hexa_mayusc.c				\
-				0c_ft_hexa_minusc.c				\
-				0c_ft_num_unsign.c				\
-				0c_ft_pointer_hexa.c			\
-				0c_ft_pointer_hexa_fd_fpr.c		\
-				0c_ft_printf.c					\
 				1a_ft_calloc.c					\
 				1a_ft_calloc_fd.c				\
 				1a_ft_free.c					\
@@ -68,21 +60,17 @@ SOURCE_FILES = 									\
 				1a_ft_garbage_collector_bff.c	\
 				1a_halt_exit.c					\
 				1b_ft_close.c					\
-				1b_ft_fgets.c					\
+				1b_ft_fgets_gnl.c				\
 				1b_ft_open.c					\
 				1b_ft_sed.c						\
 				1b_ft_sscanf.c					\
-				1b_get_next_line.c				\
-				1b_get_next_line2.c				\
+				1b_gnl_join_split.c				\
 				1c_0_ft_memcpy.c				\
 				1c_0_ft_memset.c				\
-				1c_0_ft_strcat_.c				\
-				1c_0_ft_strdup.c				\
 				1c_0_ft_strlcat.c				\
 				1c_1_ft_memchr.c				\
 				1c_1_ft_memchr1.c				\
 				1c_1_ft_memcmp.c				\
-				1c_ft_asprintf.c				\
 				1c_ft_atoi.c					\
 				1c_ft_atoi_base.c				\
 				1c_ft_is_sorted.c				\
@@ -94,11 +82,22 @@ SOURCE_FILES = 									\
 				1c_ft_striteri.c				\
 				1c_ft_strlen.c					\
 				1c_ft_strmapi.c					\
-				1c_ft_strtok_split.c			\
-				1c_ft_strtok_split1.c			\
-				1d_ft_putchar.c					\
-				1d_ft_putnbr.c					\
-				1d_ft_putstr1.c					\
+				1d_0_ft_strcat_.c				\
+				1d_0_ft_strdup.c				\
+				1d_ft_asprintf.c				\
+				1d_ft_strtok_split.c			\
+				1d_ft_strtok_split1.c			\
+				1e_ft_fprintf.c					\
+				1e_ft_fprintf1.c				\
+				1e_ft_hexa_mayusc.c				\
+				1e_ft_hexa_minusc.c				\
+				1e_ft_num_unsign.c				\
+				1e_ft_pointer_hexa.c			\
+				1e_ft_pointer_hexa_fd_fpr.c		\
+				1e_ft_printf.c					\
+				1e_ft_putchar.c					\
+				1e_ft_putnbr.c					\
+				1e_ft_putstr1.c					\
 				2_0_ft_slinked_list.c			\
 				2_0_ft_slinked_list1.c			\
 				2_0_ft_slinked_list3.c			\

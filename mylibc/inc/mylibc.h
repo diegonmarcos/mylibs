@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:47:54 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/03/10 12:34:28 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/12 16:49:02 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,22 @@
 #ifndef MYLIBC_H
 # define MYLIBC_H
 
+// ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓	//
+
 /*#####################################################################	*/
-/* 0.1 LIBRARIES														*/
+/* a. HEADERS & LIBRARIES												*/
 /*#####################################################################	*/
+/* ************************************************************* */
+/* POSIX														 */
+/* ************************************************************* */
+# include <sys/types.h>	// pid_t, mode_t, off_t
+# include <sys/wait.h>	// waitpid, WIFEXITED, WEXITSTATUS
+# include <sys/stat.h>	// stat, fstat, lstat
+# include <sys/file.h>	// Flock(LOCK_EX)
+
+/* ************************************************************* */
+/* Standart C Lib (ISO C)										 */
+/* ************************************************************* */
 # include <unistd.h>	// close, read, write, pipe, fork, execve, dup2
 # include <fcntl.h>		// open, O_RDONLY, O_WRONLY, O_CREAT, O_TRUNC
 # include <stdlib.h>	// realloc,free|atoi,strtol|rand|exit|search/sort
@@ -37,13 +50,7 @@
 # include <string.h>	// Actually can't use, only for testers...
 
 /* ************************************************************* */
-/* ************************************************************* */
-# include <sys/types.h>	// pid_t, mode_t, off_t
-# include <sys/wait.h>	// waitpid, WIFEXITED, WEXITSTATUS
-# include <sys/stat.h>	// stat, fstat, lstat
-# include <sys/file.h>	// Flock(LOCK_EX)
-
-/* ************************************************************* */
+/* Program Headers												 */
 /* ************************************************************* */
 # include "mylibc_defines.h"	// Macros and definitions
 # include "mylibc_data.h"		// Data structures and types
@@ -108,14 +115,15 @@ int		ft_open_readorwrite(char *file, int read_or_write);
 
 /* ************************************************************* */
 /* ************************************************************* */
-// ft_sed
 
 /* ************************************************************* */
 /* ************************************************************* */
-int		ft_fgets(char **line, int fd);
-char	*get_next_line(int fd);
+int		ft_sed(char *file, char *s1, char *s2);
+int		ft_fgets_(char *line, int line_size, int fd);
+//char	*ft_fgets(char *line, int line_size, int fd);
 char	*get_next_line_join(int fd);
-int		get_next_line2(int fd, char **line);
+int		get_next_line_split(int fd, char **line);
+char	*get_next_line(int fd);
 
 /* ************************************************************* */
 /* ************************************************************* */
@@ -291,7 +299,7 @@ void	heapify(int arr[], int n, int i);
 /* ARITHMETIC/MATH 												 */
 /* ************************************************************* */
 int		ft_abs(int number);
-int		ft_max(int a, int b);
+long	ft_max(long a, long b);
 int		ft_round(double num);
 void	matrix3_init(float (*matrix)[3]);
 void	print_bits(unsigned char octet);

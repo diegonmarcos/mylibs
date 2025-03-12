@@ -1,1 +1,1 @@
-../1c_string_manip/6_algos_others/1c_ft_striteri.c
+../1c_string_manip/5_algos_others/1c_ft_striteri.c

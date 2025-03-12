@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   1_0_ft_memcpy.c                                    :+:      :+:    :+:   */
+/*   1c_0_ft_memcpy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:58:17 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/08 10:26:26 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/12 16:16:36 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,38 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	return (dst);
 }
 
+void	*ft_memcpy_(void *dst, const void *src)
+{
+	unsigned char	*tmp_dst;
+	unsigned char	*tmp_src;
+
+	if (dst == (void *)0 && src == NULL)
+		return (dst);
+	tmp_dst = (unsigned char *) dst;
+	tmp_src = (unsigned char *) src;
+	while (*tmp_src)
+		*(tmp_dst++) = *(tmp_src++);
+	return (dst);
+}
+
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+{
+	unsigned char	*tmp_dst;
+	unsigned char	*tmp_src;
+
+	if (dst == (void *)0 && src == NULL)
+		return (dst);
+	tmp_dst = (unsigned char *) dst;
+	tmp_src = (unsigned char *) src;
+	while (n > 0)
+	{
+		*(tmp_dst++) = *(tmp_src);
+		if (*(tmp_src++) == (unsigned char)c)
+			return (tmp_dst);
+		n--;
+	}
+	return (NULL);
+}
 /*
 int main()
 {

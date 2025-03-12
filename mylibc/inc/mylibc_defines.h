@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 14:19:46 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/10 10:58:01 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/12 16:25:49 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@
 /*#####################################################################	*/
 /* 0.0 MACROS															*/
 /*#####################################################################	*/
-// GET NEXT LINE2
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5000
+// GET NEXT LINE
+# ifndef GNL_BUFFER_SIZE
+#  define GNL_BUFFER_SIZE 5000
 # endif
 
 // Unsigned Int

@@ -1,1 +1,0 @@
-../1c_string_manip/5_string_manip_heap/1c_0_ft_strdup.c
