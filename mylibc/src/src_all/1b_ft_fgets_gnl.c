@@ -1,1 +1,1 @@
-../1b_input/2_ft_fgets_heap/1b_ft_fgets_gnl.c
+../1b_input/1_ft_fgets_heap/1b_ft_fgets_gnl.c

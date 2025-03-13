@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 14:44:03 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/11 16:23:09 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/13 09:54:32 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 # include <stdbool.h>
 # include "../libs/minilibx_linux/mlx.h"
 
+// ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓	//
+/*#####################################################################	*/
+/* A. DATA																*/
+/*#####################################################################	*/
 typedef struct s_point
 {
 	float	axis[3];
@@ -29,11 +33,23 @@ typedef struct s_point
 	bool	paint;
 	float	polar[2];
 }			t_point;
+// ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓	//
 
-void	myputpixel(char *buffer, int endian, int color, int alpha);
-
+/*#####################################################################	*/
+/* 0. TRANSFORMATION													*/
+/*#####################################################################	*/
 void	copy_map(t_point *src, t_point *dst, int len);
 void	matrix3_init(float (*matrix)[3]);
 t_point	matrix3_multp(float matrix[3][3], t_point point);
+
+/*#####################################################################	*/
+/* 1. RENDER															*/
+/*#####################################################################	*/
+void	myputpixel(char *buffer, int endian, int color, int alpha);
+
+/*#####################################################################	*/
+/* 2. X11 WINDOW API													*/
+/*#####################################################################	*/
+int		color_convert_depth(int bitxpixel, void *mlx_ptr, int color);
 
 #endif

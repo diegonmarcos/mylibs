@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/03/10 17:38:24 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/03/13 09:56:02 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ SOURCE_FILES = 								\
 				matrix_3d_copy.c			\
 				matrix_3d_ini.c				\
 				matrix_3d_mult.c			\
+				mlx_x11.c					\
 				ft_x11_mlx_dda_drawline.c	\
 				ft_x11_mlx_xdrawline.c		\
 				ft_opengl_sdl_drawline.c	\
