@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/03/12 15:56:48 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/03/13 14:40:33 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -775,7 +775,7 @@ folders_build:
 
 # *** Build folders *** #
 folders_make_build:
-	mkdir -p include
+	mkdir -p inc
 	mkdir -p libs
 	mkdir -p objs
 
