@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/03/13 16:27:12 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/03/14 16:39:00 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -216,13 +216,13 @@ endif
 #Object Files and Dependency Files Definition path Main *** #
 OBJECTS_MAIN =  $(patsubst %.c,objs/%.o,$(notdir $(SOURCE_MAIN)))
 DEPS_MAIN = $(OBJECTS_MAIN:.o=.d)
-DEPFLAGS = -MMD -MP#															# This will create the files(headers) as dependendcy and track them
+DEPFLAGS = -MMD -MP -fPIC#															# This will create the files(headers) as dependendcy and track them
 -include $(DEPS_MAIN)
 
 #Object Files and Dependency Files Definition path Lib *** #
 OBJECTS_LIB =  $(patsubst %.c,objs/%.o,$(notdir $(SOURCE_FILES)))
 DEPS_LIB = $(OBJECTS_LIB:.o=.d)
-#DEPFLAGS = -MMD -MP#															# This will create the files(headers) as dependendcy and track them
+#DEPFLAGS = -MMD -MP -fPIE#															# This will create the files(headers) as dependendcy and track them
 -include $(DEPS_LIB)
 
 OBJECTS = $(OBJECTS_MAIN) $(OBJECTS_LIB) 
