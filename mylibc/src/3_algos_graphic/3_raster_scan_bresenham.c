@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   2_bresenham_line.c                                 :+:      :+:    :+:   */
+/*   3_raster_scan_bresenham.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 15:28:54 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/06 15:40:10 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/16 17:02:24 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	bresenham_line(t_bresenham *b, void (*put_pixel)(int, int))
 	if (b->y0 < b->y1)
 		b->sy = 1;
 	b->err = b->dx - b->dy;
-
 	while (1)
 	{
 		put_pixel(b->x0, b->y0);

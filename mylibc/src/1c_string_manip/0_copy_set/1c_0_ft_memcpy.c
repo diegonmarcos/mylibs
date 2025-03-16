@@ -6,12 +6,11 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 10:58:17 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/12 16:16:36 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/16 17:02:15 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mylibc.h"
-
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {

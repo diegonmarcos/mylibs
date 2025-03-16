@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_malloc.c                                        :+:      :+:    :+:   */
+/*   0_ft_malloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:33:50 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/09 08:20:39 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/16 17:01:30 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@
     
     // Step 4: If no suitable block was found, request more memory from the OS
     if (suitable_block == NULL) {
-        suitable_block = request_memory_from_os(aligned_size + sizeof(struct block_header));
+        suitable_block = request_memory_from_os(aligned_size + \
+		sizeof(struct block_header));
         if (suitable_block == NULL) {
             return NULL;  // Memory allocation failed
         }
@@ -71,7 +72,8 @@
 // Helper function to request memory from the operating system
 struct block_header *request_memory_from_os(size_t size) {
     // Round up size to a multiple of the page size for efficiency
-    size_t page_size = 4096;  // Common page size, but could be determined at runtime
+    size_t page_size = 4096;  // Common page size, but could be \
+	determined at runtime
     size_t adjusted_size = ((size + page_size - 1) / page_size) * page_size;
     
     // For small allocations, extend the heap
@@ -100,7 +102,8 @@ void split_block_if_needed(struct block_header *block, size_t size) {
     
     if (block->size >= size + sizeof(struct block_header) + min_block_size) {
         // Create a new block header after the allocated portion
-        struct block_header *new_block = (struct block_header *)((char *)(block + 1) + size);
+        struct block_header *new_block = (struct block_header *)\
+		((char *)(block + 1) + size);
         
         // Set up the new block
         new_block->size = block->size - size - sizeof(struct block_header);

@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 08:37:36 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/12 16:20:05 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/16 17:00:40 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 /* https://linktr.ee/diegonmarcos											  */
 /* ************************************************************************** */
 
-#ifndef CSTD_H
-# define CSTD_H
+#ifndef _POSIX_ISOC_H
+# define _POSIX_ISOC_H
 
 # include <unistd.h>
 
