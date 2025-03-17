@@ -6,13 +6,14 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:33:50 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/16 17:01:30 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/17 07:33:24 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mylibc.h"
 
-/* void *ft_malloc(size_t requested_size) {
+/* void *ft_malloc(size_t requested_size) 
+{
     // Step 1: Handle edge cases
     if (requested_size == 0) {
         return NULL;
