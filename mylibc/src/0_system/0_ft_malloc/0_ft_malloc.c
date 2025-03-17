@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:33:50 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/17 09:07:02 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/17 09:15:22 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 /* void *ft_malloc(size_t requested_size) 
 {
     // Step 1: Handle edge cases
-    if (requested_size == 0) {
+    if (requested_size == 0)
+	{
         return NULL;
     }
     
