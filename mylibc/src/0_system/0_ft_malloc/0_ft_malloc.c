@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:33:50 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/17 07:44:39 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/17 07:51:25 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,8 @@ void split_block_if_needed(struct block_header *block, size_t size)
     // (header size + minimum block size, often 16-32 bytes)
     size_t min_block_size = 32;
     
-    if (block->size >= size + sizeof(struct block_header) + min_block_size) {
+    if (block->size >= size + sizeof(struct block_header) + min_block_size)
+	{
         // Create a new block header after the allocated portion
         struct block_header *new_block = (struct block_header *)\
 		((char *)(block + 1) + size);
