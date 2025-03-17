@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:33:50 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/17 07:34:29 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/17 07:44:39 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,8 @@ struct block_header *request_memory_from_os(size_t size)
 }
 
 // Split a block if it's significantly larger than needed
-void split_block_if_needed(struct block_header *block, size_t size) {
+void split_block_if_needed(struct block_header *block, size_t size)
+{
     // Only split if the leftover chunk would be large enough to be useful
     // (header size + minimum block size, often 16-32 bytes)
     size_t min_block_size = 32;
