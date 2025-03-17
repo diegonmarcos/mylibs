@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:33:50 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/17 07:51:25 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/17 07:54:30 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@
     }
     
     // Step 4: If no suitable block was found, request more memory from the OS
-    if (suitable_block == NULL) {
+    if (suitable_block == NULL)
+	{
         suitable_block = request_memory_from_os(aligned_size + \
 		sizeof(struct block_header));
         if (suitable_block == NULL) {
