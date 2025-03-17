@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 14:44:03 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/13 09:54:32 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/17 13:20:15 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,24 @@
 #ifndef MYLIBX_H
 # define MYLIBX_H
 
-# include "mylibx_data.h"
+/* ************************************************************* */
+/* POSIX	 													 */
+/* ************************************************************* */
 # include <stdbool.h>
+# include <unistd.h>    // For usleep()
+# include <stdlib.h>    // For system() and exit()
+# include "../../mylibc/inc/mylibc.h"
+
+/* ************************************************************* */
+/* GRAPHICALS	 												 */
+/* ************************************************************* */
 # include "../libs/minilibx_linux/mlx.h"
+
+/* ************************************************************* */
+/* PROGRA	 													 */
+/* ************************************************************* */
+# include "mylibx_data.h"
+
 
 // ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓	//
 /*#####################################################################	*/
@@ -51,5 +66,7 @@ void	myputpixel(char *buffer, int endian, int color, int alpha);
 /* 2. X11 WINDOW API													*/
 /*#####################################################################	*/
 int		color_convert_depth(int bitxpixel, void *mlx_ptr, int color);
+void	win_atrib_ontop(void);
+int		ft_snprintf(char *str, size_t size, const char *format, ...);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/03/13 09:56:02 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/03/17 13:24:31 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ override OUTPUT_PLACE =
 # ***Is? *** #
 override IS_PROGRAM_AND_NOT_LIB = 0
 override INCLUDE_LIB = 1
-override BUILD_LIBRARY = 0
+override BUILD_LIBRARY = 1
 
 # ************************************************************************ #
 # *** Files source *.c *** #
@@ -57,7 +57,7 @@ SOURCE_FILES = 								\
 				mlx_x11.c					\
 				ft_x11_mlx_dda_drawline.c	\
 				ft_x11_mlx_xdrawline.c		\
-				ft_opengl_sdl_drawline.c	\
+				ft_opengl_sdl_drawline.c
 
 #SOURCE_MAIN = $(wildcard src/*.c) $(wildcard src/*/*.c)
 
@@ -158,7 +158,7 @@ build_dependencies:
 # *** Build the library included *** #
 libs_build:
 ifeq ($(BUILD_LIBRARY), 1)
-	$(MAKE) -C $(LIB_1_PATH) MAKEFLAGS=""
+#	$(MAKE) -C $(LIB_1_PATH) MAKEFLAGS=""
 	$(MAKE) make_minilibx
 	@echo "$(YELLOW)(•̀ᴗ•́)و $@ Done!$(RESET)"
 else
@@ -278,7 +278,8 @@ MINILIBXCC		:= -I$(MINILIBX_DIR) -L $(MINILIBX_DIR) -lmlx
 HEADER 			:= -I$(MINILIBX_DIR)
 LIBRARIES		:= \
 					-lXext -lX11 -lm		\
-					-L$(MINILIBX_DIR) -lmlx
+					-L$(MINILIBX_DIR) -lmlx \
+					-L../mylibc -lmylibc
 
 
 
@@ -305,7 +306,7 @@ libs/minilibx/minilibx_linux:
 
 #### Make Libs ####
 make_minilibx:
-	$(MAKE) clone_repos
+	$(MAKE) clone_repos || true
 	cd libs/minilibx_linux && ./configure
 	cd ../../..
 	$(MAKE) -C libs/minilibx_linux

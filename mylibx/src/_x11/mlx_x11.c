@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_.c                                             :+:      :+:    :+:   */
+/*   mlx_x11.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:39:48 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/13 09:47:37 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/17 13:28:12 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	color_convert_depth(int bitxpixel, void *mlx_ptr, int color)
 		color = mlx_get_color_value(mlx_ptr, color);
 	return (color);
 }
-
 /* int     color_convert_depth(t_meta *meta, int color)
 {
         if (meta->bitmap.bitxpixel != 32)
