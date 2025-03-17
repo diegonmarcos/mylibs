@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:33:50 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/17 07:33:24 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/17 07:34:29 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@
 }
 
 // Helper function to request memory from the operating system
-struct block_header *request_memory_from_os(size_t size) {
+struct block_header *request_memory_from_os(size_t size) 
+{
     // Round up size to a multiple of the page size for efficiency
     size_t page_size = 4096;  // Common page size, but could be \
 	determined at runtime
