@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:33:50 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/18 17:06:32 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/18 17:12:26 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,9 @@
         if (head == NULL)
 		{
             head = suitable_block;
-        } else {
+        } 
+		else
+		{
             // Find the last block and append
             current = head;
             while (current->next != NULL)
