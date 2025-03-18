@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:33:50 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/17 09:16:44 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/18 10:57:44 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 {
     // Step 1: Handle edge cases
     if (requested_size == 0)
-	{
         return NULL;
-    }
     
     // Step 2: Adjust the size to ensure proper alignment (typically 8 bytes)
     size_t aligned_size = align_to_multiple(requested_size, 8);
