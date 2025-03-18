@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/03/17 13:24:31 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/03/18 12:36:17 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -174,6 +174,7 @@ build_project:
 	$(MAKE) folders_build
 #	$(MAKE) folders_lns_build
 	$(MAKE) program_or_lib
+	$(MAKE) combine_libs
 
 # *** Compiling the source files into object files *** #
 objs/%.o:	%.c
@@ -206,7 +207,8 @@ program:	$(OBJECTS)
 combine_libs:
 ifeq ($(INCLUDE_LIB), 1)
 	echo "Creating combined library reference..."
-	echo "GROUP ( libmylibx.a libs/minilibx_linux/libmlx.a -lXext -lX11 -lm )" > libmylibx_.a
+	mv libmylibx.a libs/libmylibx_0.a
+	echo "GROUP ( libs/libmylibx_0.a libs/minilibx_linux/libmlx.a -lXext -lX11 -lm )" > libmylibx.a
 	echo "  $(YELLOW)(•̀ᴗ•́)و libmylibx_combined.a Library reference created!$(RESET)"
 else
 	@echo "$(GRAY)Skipping library merge$(RESET)"
