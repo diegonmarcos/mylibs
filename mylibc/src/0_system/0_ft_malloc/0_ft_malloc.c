@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:33:50 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/19 09:03:03 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/19 09:04:45 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@
     
     while (current != NULL)
 	{
-        if (current->is_free && current->size >= aligned_size) {
+        if (current->is_free && current->size >= aligned_size)
+		{
             suitable_block = current;
             break;  // Found a block that's big enough
         }
