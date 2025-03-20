@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+
+
+
 ### COMPILERS no LIB
 # --- Compile FILES
 function c {
@@ -54,26 +57,43 @@ function ce {
 
 }
 
+
+
+
 ### COMPILERS WITH LIB
 # --- Compile FILES with Library
 function cl {
-	lib_header="/home/diego/Documents/Git/mylib/ft_mylib/include"
-	lib_addss="/home/diego/Documents/Git/mylib"
-	lib_name="ft_mylib"
+	lib_header="/home/diego/Documents/Git/mylibs/mylibc/inc"
+	lib_addss="/home/diego/Documents/Git/mylibs/mylibc"
+	lib_name="mylibc"
 	clang -g3 "$1" -I"${lib_header}" -L"${lib_addss}" -l"${lib_name}" -o "$(basename "$1" .c).out"
 	./"$(basename "$1" .c).out" "${@}"
 }
 
 # --- Compile FILE+ARG with Library and Execute
 function clx {
-	lib_header="/home/diego/Documents/Git/mylib/ft_mylib/include"
-	lib_addss="/home/diego/Documents/Git/mylib"
-	lib_name="ft_mylib"
+	lib_header="/home/diego/Documents/Git/mylibs/mylibc/inc"
+	lib_addss="/home/diego/Documents/Git/mylibs/mylibc"
+	lib_name="mylibc"
 	clang -g3 "$1" -I"${lib_header}" -L"${lib_addss}" -l"${lib_name}" -o "$(basename "$1" .c).out"
 	./"$(basename "$1" .c).out" "${@:2}"
 }
 
-### DEBUGE
+# --- Compile FILE+ARG with Library and Execute
+function cle {
+	lib_header="/home/diego/Documents/Git/mylibs/mylibc/inc"
+	lib_addss="/home/diego/Documents/Git/mylibs/mylibc"
+	lib_name="mylibc"
+	valgrind="valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s --log-file=valgrind_output.txt"
+	output=" > /dev/null 2>&1"
+	clang -g3 "$1" -I"${lib_header}" -L"${lib_addss}" -l"${lib_name}" -o "$(basename "$1" .c).out"
+	$(valgrind) ./"$(basename "$1" .c).out" "${@:2}" $(output)
+	grep "$1": valgrind_output.txt
+}
+
+
+
+### DEBUG
 # --- LLDB
 function cdb {
   echo -e "\n\n\n##########################"
