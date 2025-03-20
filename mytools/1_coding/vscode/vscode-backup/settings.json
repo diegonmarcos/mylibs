@@ -1,0 +1,75 @@
+{
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "explorer.confirmDragAndDrop": false,
+    "git.confirmSync": false,
+    "explorer.confirmPasteNative": false,
+    "42header.email": "dinepomu@student.42berlin.de",
+    "42header.username": "dinepomu",
+    "editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"psi-header.changes-tracking": {},
+	"psi-header.templates": [
+
+
+
+        {
+            "language": "*",
+            "template": [
+                "************************************************************************** *",
+				"@syntax:",
+				"@brief:",
+				"@param:",
+				"@return:",
+				"",
+				"@note:",
+				"",
+				"@file: <<filename>>",
+				"@author: Diego <dinepomu@student.42>",
+				"@created: <<filecreated('DD/MMM/YYYY hh:mm')>>",
+				"@updated: <<dateformat('DD/MMM/YYYY hh:mm')>>",
+				"************************************************************************** *",
+            ]
+        }
+    ],
+	"psi-header.variables": [],
+	"window.customTitleBarVisibility": "auto",
+	"editor.largeFileOptimizations": false,
+	"macros": {
+		"insertCalculatedTabs": [
+			{
+				"command": "extension.executeCommand",
+				"args": {
+					"command": "yourCustomCommand.insertTabs",
+				}
+			}
+		],
+		"insertTabs.js": "${workspaceFolder}/.vscode/insertTabs.js"
+	},
+	"yourCustomCommand.insertTabs": {
+		"script": "insertTabs.js",
+		"command": "calculateAndInsertTabs"
+	},
+	"editor.minimap.enabled": false,
+	"git.ignoreRebaseWarning": true,
+	"wakatime.apiKey": "",
+	"git.openRepositoryInParentFolders": "always",
+	"workbench.editor.empty.hint": "hidden",
+	"clang-tidy.blacklist": [
+
+	],
+	"clang-tidy.checks": [],
+	"workbench.editor.doubleClickTabToToggleEditorGroupSizes": "off",
+	"workbench.editor.centeredLayoutAutoResize": false,
+	"workbench.editor.pinnedTabsOnSeparateRow": true,
+	"workbench.editor.restoreViewState": false,
+	"diffEditor.maxComputationTime": 0,
+	"editor.unicodeHighlight.nonBasicASCII": false,
+	"workbench.editor.tabSizing": "fixed",
+	"workbench.editor.wrapTabs": true,
+	"terminal.integrated.tabs.location": "left",
+	"editor.inlineSuggest.syntaxHighlightingEnabled": true,
+	"files.exclude": {
+		"**/.git": false
+	}
+}

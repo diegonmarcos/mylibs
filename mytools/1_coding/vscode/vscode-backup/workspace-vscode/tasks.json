@@ -42,6 +42,17 @@
             ],
             "group": "build",
             "detail": "Compile with GCC"
+        },
+        {
+            "label": "debug-pushswap",
+            "command": "${command:workbench.action.debug.start}",
+            "type": "shell",
+            "problemMatcher": [],
+			"options": {
+                "env": {
+                    "DEBUG_CONFIGURATIONS": "PUSHSWAP_DBG"
+				}
+			}
         }
     ],
     "version": "2.0.0"
