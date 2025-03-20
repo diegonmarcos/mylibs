@@ -29,48 +29,6 @@ function cv {
 	grep "$1": valgrind_output.txt
 }
 
-# --- Compile and proofing Clang flasg checker
-function ce {
-  # --- Clang/gcc flags
-  echo -e "\n\n\n##########################"
-  echo -e "##### Clang Flags ########"
-  echo -e "##########################"
-
-  echo -e "\n##Clang Wall Wextra - fsyntaxOnly"
-  echo -e "############################################\n"
-  clang -fsyntax-only -Wall -Wextra "$1"
-
-  echo -e "\n##Clang Fron-End Semantic - fsyntaxOnly"
-  echo -e "############################################\n"
-  clang -fsyntax-only -Wformat -Warray-bounds -Wnull-dereference -Wvla -ftrapv "$1" 2>&1
-
-  echo -e "\n###Clang Static Analyzer"
-  echo -e "#########################\n"
-  clang --analyze -Xanalyzer -analyzer-checker=core "$1" 2>&1
-
-  # --- Run with ASan ---
-  echo -e "\n\n\n##########################"
-  echo -e "##### ASanitizer #########"
-  echo -e "##########################\n\n"
-  clang "$1" -o "$(basename "$1" .c)_dbA.db.out" -g -fsanitize=address -fsanitize-recover=address
-  ./"$(basename "$1" .c)_dbA.db.out" "${@:2}" 2> asan_output.txt ; grep "$1" asan_output.txt
-
-  # --- Run Valgrind ---
-  echo -e "\n\n\n##########################"
-  echo -e "##### Valgrind ###########"
-  echo -e "##########################\n\n"
-  clang "$1" -o "$(basename "$1" .c)_dbV.db.out" -g
-  valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -v --log-file=valgrind_output.txt ./"$(basename "$1" .c)_dbV.db.out" "${@:2}" > /dev/null ; grep "$1": valgrind_output.txt
-
-  rm asan_output.txt
-  rm valgrind_output.txt
-  rm *.db.out
-  rm *.plist
-  rm .out
-
-}
-
-
 
 
 ### COMPILERS WITH LIB
@@ -113,12 +71,82 @@ function clv {
 ### DEBUG
 # --- LLDB
 function cdb {
-  echo -e "\n\n\n##########################"
-  echo -e "##### LLDB ##########"
-  echo -e "##########################\n\n"
-  clang "$1" -o "$(basename "$1" .c)_dbD.db.out" -g
-  lldb ./"$(basename "$1" .c)_dbD.db.out" "${@:2}"
+	echo -e "\n\n\n################################################################"
+	echo -e "##### CLANG LLDB #####################################################"
+	echo -e "# b main or b [function_name]\t# Set a breakpoint at the start of the 'main' function"
+	echo -e "# r\t\t# Run the program"
+	echo -e "# "
+	echo -e "# s\t\t# Step over the current line (execute it as one step)"
+	echo -e "# finish\t\t# Step out of the current function"
+	echo -e "# "
+	echo -e "# n\t\t# Step into the next line (enter functions if called)"
+	echo -e "# "
+	echo -e "# v\t\t# View all local variables (useful after hitting a breakpoint)"
+	echo -e "# bt\t\t# View the current call stack"
+	echo -e "# "
+	echo -e "# c\t\t# Continue execution after hitting a breakpoint"
+	echo -e "# "
+	echo -e "# gui\t\t# Launch the LLDB graphical user interface (full screen)"
+	echo -e "#######################################################################\n\n"
+	output_name="$(basename "$1" .c)_dbD.db.out"
+	clang -g3 "$1" -l"${lib_name}" -o "${output_name}"
+	lldb ./"${output_name}" "${@:2}" -o "b main" -o "run" -o "v"
 }
+
+# --- CLANG_LLDB
+function cldb {
+	echo -e "\n\n\n################################################################"
+	echo -e "##### CLANG LLDB #####################################################"
+	echo -e "# b main or b [function_name]\t# Set a breakpoint at the start of the 'main' function"
+	echo -e "# r\t\t# Run the program"
+	echo -e "# "
+	echo -e "# s\t\t# Step over the current line (execute it as one step)"
+	echo -e "# finish\t\t# Step out of the current function"
+	echo -e "# "
+	echo -e "# n\t\t# Step into the next line (enter functions if called)"
+	echo -e "# "
+	echo -e "# v\t\t# View all local variables (useful after hitting a breakpoint)"
+	echo -e "# bt\t\t# View the current call stack"
+	echo -e "# "
+	echo -e "# c\t\t# Continue execution after hitting a breakpoint"
+	echo -e "# "
+	echo -e "# gui\t\t# Launch the LLDB graphical user interface (full screen)"
+	echo -e "#######################################################################\n\n"
+	output_name="$(basename "$1" .c)_dbD.db.out"
+	lib_header="/home/diego/Documents/Git/mylibs/mylibc/inc"
+	lib_addss="/home/diego/Documents/Git/mylibs/mylibc"
+	lib_name="mylibc"
+	clang -g3 "$1" -I"${lib_header}" -L"${lib_addss}" -l"${lib_name}" -o "${output_name}"
+	lldb ./"${output_name}" "${@:2}" -o "b main" -o "run" -o "v"
+}
+
+# --- GCC_GDB
+function cldbg {
+	echo -e "\n\n\n################################################################"
+	echo -e "##### GCC GDB #####################################################"
+	echo -e "# b main or b [function_name]\t# Set a breakpoint at the start of the 'main' function"
+	echo -e "# r\t\t# Run the program"
+	echo -e "# "
+	echo -e "# s\t\t# Step over the current line (execute it as one step)"
+	echo -e "# finish\t\t# Step out of the current function"
+	echo -e "# "
+	echo -e "# n\t\t# Step into the next line (enter functions if called)"
+	echo -e "# "
+	echo -e "# info locals\t\t# View all local variables (useful after hitting a breakpoint)"
+	echo -e "# bt\t\t# View the current call stack"
+	echo -e "# "
+	echo -e "# c\t\t# Continue execution after hitting a breakpoint"
+	echo -e "# "
+	echo -e "# gui\t\t# Launch the LLDB graphical user interface (full screen)"
+	echo -e "#######################################################################\n\n"
+	output_name="$(basename "$1" .c)_dbD.db.out"
+	lib_header="/home/diego/Documents/Git/mylibs/mylibc/inc"
+	lib_addss="/home/diego/Documents/Git/mylibs/mylibc"
+	lib_name="mylibc"
+	gcc -g3 "$1" -I"${lib_header}" -L"${lib_addss}" -l"${lib_name}" -o "${output_name}"
+	gdb ./"${output_name}" "${@:2}" -ex "b main" -ex "run" -ex "info locals"
+}
+
 
 ### MAKE UTILS
 # --- CODE CLEANER
@@ -133,4 +161,53 @@ function file_consol_lns {
 	folder="/home/diego/Documents/Git/mylibs/mytools/1_coding/make_utils"
 	file="files_lns.sh"
 	"$folder/$file" "$@"
+}
+
+
+
+
+
+
+
+
+
+# --- Compile and proofing Clang flasg checker
+function ce {
+  # --- Clang/gcc flags
+  echo -e "\n\n\n##########################"
+  echo -e "##### Clang Flags ########"
+  echo -e "##########################"
+
+  echo -e "\n##Clang Wall Wextra - fsyntaxOnly"
+  echo -e "############################################\n"
+  clang -fsyntax-only -Wall -Wextra "$1"
+
+  echo -e "\n##Clang Fron-End Semantic - fsyntaxOnly"
+  echo -e "############################################\n"
+  clang -fsyntax-only -Wformat -Warray-bounds -Wnull-dereference -Wvla -ftrapv "$1" 2>&1
+
+  echo -e "\n###Clang Static Analyzer"
+  echo -e "#########################\n"
+  clang --analyze -Xanalyzer -analyzer-checker=core "$1" 2>&1
+
+  # --- Run with ASan ---
+  echo -e "\n\n\n##########################"
+  echo -e "##### ASanitizer #########"
+  echo -e "##########################\n\n"
+  clang "$1" -o "$(basename "$1" .c)_dbA.db.out" -g -fsanitize=address -fsanitize-recover=address
+  ./"$(basename "$1" .c)_dbA.db.out" "${@:2}" 2> asan_output.txt ; grep "$1" asan_output.txt
+
+  # --- Run Valgrind ---
+  echo -e "\n\n\n##########################"
+  echo -e "##### Valgrind ###########"
+  echo -e "##########################\n\n"
+  clang "$1" -o "$(basename "$1" .c)_dbV.db.out" -g
+  valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -v --log-file=valgrind_output.txt ./"$(basename "$1" .c)_dbV.db.out" "${@:2}" > /dev/null ; grep "$1": valgrind_output.txt
+
+  rm asan_output.txt
+  rm valgrind_output.txt
+  rm *.db.out
+  rm *.plist
+  rm .out
+
 }
