@@ -16,6 +16,19 @@ function cx {
   ./"$(basename "$1" .c).out" "${@:2}"
 }
 
+# --- Compile FILE+ARG with Library and Execute
+function cv {
+#Variables
+	valg_args="--leak-check=full --show-leak-kinds=all --track-origins=yes -s --log-file=valgrind_output.txt"
+	program="./$(basename "$1" .c).out"
+	output=" > /dev/null 2>&1"
+	input="${@:2}"
+#Main
+	clang -g3 "$1" -o "$(basename "$1" .c).out"
+	eval "valgrind ${valg_args} ${program} ${output} ${input}"
+	grep "$1": valgrind_output.txt
+}
+
 # --- Compile and proofing Clang flasg checker
 function ce {
   # --- Clang/gcc flags
@@ -80,14 +93,18 @@ function clx {
 }
 
 # --- Compile FILE+ARG with Library and Execute
-function cle {
+function clv {
+#Variables
 	lib_header="/home/diego/Documents/Git/mylibs/mylibc/inc"
 	lib_addss="/home/diego/Documents/Git/mylibs/mylibc"
 	lib_name="mylibc"
-	valgrind="valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s --log-file=valgrind_output.txt"
+	valg_args="--leak-check=full --show-leak-kinds=all --track-origins=yes -s --log-file=valgrind_output.txt"
+	program="./$(basename "$1" .c).out"
 	output=" > /dev/null 2>&1"
+	input="${@:2}"
+#Main
 	clang -g3 "$1" -I"${lib_header}" -L"${lib_addss}" -l"${lib_name}" -o "$(basename "$1" .c).out"
-	$(valgrind) ./"$(basename "$1" .c).out" "${@:2}" $(output)
+	eval "valgrind ${valg_args} ${program} ${output} ${input}"
 	grep "$1": valgrind_output.txt
 }
 
