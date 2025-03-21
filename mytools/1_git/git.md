@@ -54,3 +54,16 @@ git config --global pull.rebase true   # Always rebase
 
 ## Solve Conflicts
 
+### Using VS Code to Resolve Conflicts
+
+### Command Line Approach
+```
+# Edit the file with your preferred editor
+nano mylibx/Makefile
+
+# After manually resolving conflicts, stage the file
+git add mylibx/Makefile
+
+# Complete the merge
+git commit -m "Merge branch 'main' and resolve conflicts"
+```
