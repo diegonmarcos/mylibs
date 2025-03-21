@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/03/19 08:59:45 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/03/21 08:43:28 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -1526,6 +1526,7 @@ endif
 
 # *** Build message of timestamps changes *** #
 check_up_to_date:
+	echo 1 > log/outdate.txt
 ifneq ($(VERBOSE), 0)
 	if [ ! -f "$(NAME)" ]; then \
 		echo "$(GRAY)\n# ############################################################################ #$(RESET)"; \
