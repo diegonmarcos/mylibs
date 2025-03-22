@@ -156,6 +156,15 @@ function code_cleaner {
 	"$folder/$file" "$@"
 }
 
+# --- CODE CLEANER
+function clean_debuger {
+	folder="/home/diego/Documents/Git/mylibs/mytools/1_coding/make_utils"
+	file="clean_debuger.sh"
+	"$folder/$file" "$@"
+}
+
+
+
 # --- Search Recursively and Consolidate with Symb Link
 function file_consol_lns {
 	folder="/home/diego/Documents/Git/mylibs/mytools/1_coding/make_utils"
