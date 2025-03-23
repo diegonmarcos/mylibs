@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:14 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/03/23 16:48:25 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/23 16:49:01 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,8 @@ void	static_analysis(void)
 	ft_snprintf(command3, sizeof(command3), "(cd tests/gnl ; clang -c --analyze -Xanalyzer -analyzer-checker=core src/get_next_line.c -Iinc -o gnl.o > gnl_w3.log 2>&1)");
 	system(command3);
 //	ft_snprintf(command4, sizeof(command4), "(cd tests/gnl ; scan-build -o > gnl_w4.log 2>&1)");
+//	system(command4);
+//	ft_snprintf(command4, sizeof(command4), "(cd tests/gnl ; clang-tidy > gnl_w4.log 2>&1)");
 //	system(command4);
 }
 
