@@ -1,0 +1,15 @@
+==463230== Memcheck, a memory error detector
+==463230== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==463230== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==463230== Command: ./get_next_line.out 12 r
+==463230== Parent PID: 463229
+==463230== 
+==463230== Warning: invalid file descriptor -1 in syscall close()
+==463230== 
+==463230== HEAP SUMMARY:
+==463230==     in use at exit: 0 bytes in 0 blocks
+==463230==   total heap usage: 1 allocs, 1 frees, 8 bytes allocated
+==463230== 
+==463230== All heap blocks were freed -- no leaks are possible
+==463230== 
+==463230== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

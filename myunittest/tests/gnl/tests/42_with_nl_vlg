@@ -1,0 +1,15 @@
+==463038== Memcheck, a memory error detector
+==463038== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==463038== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==463038== Command: ./get_next_line.out 3 r
+==463038== Parent PID: 463037
+==463038== 
+==463038== Warning: invalid file descriptor -1 in syscall close()
+==463038== 
+==463038== HEAP SUMMARY:
+==463038==     in use at exit: 0 bytes in 0 blocks
+==463038==   total heap usage: 1 allocs, 1 frees, 8 bytes allocated
+==463038== 
+==463038== All heap blocks were freed -- no leaks are possible
+==463038== 
+==463038== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
