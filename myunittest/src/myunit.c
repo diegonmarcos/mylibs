@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:14 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/03/23 15:13:55 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/23 16:48:25 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,41 @@ int	tests(int file, char mode)
 	return (0);
 }
 
+void	help(void)
+{
+	ft_printf("Usage:\n");
+	ft_printf("        ./program \n");
+	ft_printf("        or \n");
+	ft_printf("        ./program [number] [option]\n");
+	ft_printf("Number:\n");
+	ft_printf("        0: dummy var for user add any number\n");
+	ft_printf("Option:\n");
+	ft_printf("        t: only tests\n");
+	ft_printf("        v: only valgrind\n");
+	ft_printf("        b: both\n");
+	exit(0);
+}
+void	static_analysis(void)
+{
+	char	command0[512];
+	char	command1[512];
+	char	command2[512];
+	char	command3[512];
+	char	command4[512];
+
+	ft_snprintf(command0, sizeof(command0), "(cd tests/gnl ; clang -c -Wall -Wextra tsrc/get_next_line.c -Iinc -o gnl.o > gnl_w0.log 2>&1)");
+	system(command0);
+	ft_snprintf(command1, sizeof(command1), "(cd tests/gnl ; clang -c -Wformat -Warray-bounds -Wnull-dereference -Wvla -ftrapv src/get_next_line.c -Iinc -o gnl.o > gnl_w1.log 2>&1)");
+	system(command1);
+	ft_snprintf(command2, sizeof(command2), "(cd tests/gnl ; clang -c -Weverything src/get_next_line.c -Iinc -o gnl.o > gnl_w2.log 2>&1)");
+	system(command2);
+	ft_snprintf(command3, sizeof(command3), "(cd tests/gnl ; clang -c --analyze -Xanalyzer -analyzer-checker=core src/get_next_line.c -Iinc -o gnl.o > gnl_w3.log 2>&1)");
+	system(command3);
+//	ft_snprintf(command4, sizeof(command4), "(cd tests/gnl ; scan-build -o > gnl_w4.log 2>&1)");
+//	system(command4);
+}
+
+
 /**
  * @brief Tester - ./program [number] [option]
  *
@@ -140,6 +175,7 @@ int	main(int argc, char **argv)
 	int		file;
 	char	mode;
 
+	/// Arguments
 	if (argc == 1)
 	{
 		file = 0;
@@ -151,19 +187,11 @@ int	main(int argc, char **argv)
 		mode = *argv[2];
 	}
 	else
-	{
-		ft_printf("Usage:\n");
-		ft_printf("        ./program \n");
-		ft_printf("        or \n");
-		ft_printf("        ./program [number] [option]\n");
-		ft_printf("Number:\n");
-		ft_printf("        0: dummy var for user add any number\n");
-		ft_printf("Option:\n");
-		ft_printf("        t: only tests\n");
-		ft_printf("        v: only valgrind\n");
-		ft_printf("        b: both\n");
-		return (0);
-	}
+		help();
+
+	/// Tests
+	if (mode == 's')
+		static_analysis();
 	if (mode == 'b')
 	{
 		tests(file, 't');
