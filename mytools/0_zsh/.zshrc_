@@ -1,6 +1,10 @@
 ### ------------------ ###
 ### --- ZSH CONFIG --- ###
 ### ------------------ ###
+path_to_my_git="/home/diego/Documents/Git/"
+#path_to_my_git="/home/dinepomu/sgoinfre/MyFiles_/git/"
+
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 ### --- POWER LEVEL CONFIG --- ###
 ### Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -30,7 +34,7 @@ source $ZSH/oh-my-zsh.sh
 ### # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 ### --- CUSTOM FUNCTIONS AND ALIAS --- #
 ### Custom Shell functions
-source /home/diego/Documents/Git/mylibs/mytools/0_zsh/my_functions.zsh
+source ${path_to_my_git}mylib/mytools/0_zsh/my_functions.zsh
 
 ### Alias
 alias gcl='git clone'

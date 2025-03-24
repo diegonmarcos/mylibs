@@ -1,7 +1,8 @@
 #!/usr/bin/env zsh
 
 
-
+#path_to_my_git="/home/diego/Documents/Git/"
+path_to_my_git="/home/dinepomu/sgoinfre/MyFiles_/git/"
 
 ### COMPILERS no LIB
 # --- Compile FILES
@@ -34,8 +35,8 @@ function cv {
 ### COMPILERS WITH LIB
 # --- Compile FILES with Library
 function cl {
-	lib_header="/home/diego/Documents/Git/mylibs/mylibc/inc"
-	lib_addss="/home/diego/Documents/Git/mylibs/mylibc"
+	lib_header="${path_to_my_git}mylibs/mylibc/inc"
+	lib_addss="${path_to_my_git}mylibs/mylibc"
 	lib_name="mylibc"
 	clang -g3 "$1" -I"${lib_header}" -L"${lib_addss}" -l"${lib_name}" -o "$(basename "$1" .c).out"
 	./"$(basename "$1" .c).out" "${@}"
@@ -43,8 +44,8 @@ function cl {
 
 # --- Compile FILE+ARG with Library and Execute
 function clx {
-	lib_header="/home/diego/Documents/Git/mylibs/mylibc/inc"
-	lib_addss="/home/diego/Documents/Git/mylibs/mylibc"
+	lib_header="${path_to_my_git}mylibs/mylibc/inc"
+	lib_addss="${path_to_my_git}mylibs/mylibc"
 	lib_name="mylibc"
 	clang -g3 "$1" -I"${lib_header}" -L"${lib_addss}" -l"${lib_name}" -o "$(basename "$1" .c).out"
 	./"$(basename "$1" .c).out" "${@:2}"
@@ -53,8 +54,8 @@ function clx {
 # --- Compile FILE+ARG with Library and Execute
 function clv {
 #Variables
-	lib_header="/home/diego/Documents/Git/mylibs/mylibc/inc"
-	lib_addss="/home/diego/Documents/Git/mylibs/mylibc"
+	lib_header="${path_to_my_git}mylibs/mylibc/inc"
+	lib_addss="${path_to_my_git}mylibs/mylibc"
 	lib_name="mylibc"
 	valg_args="--leak-check=full --show-leak-kinds=all --track-origins=yes -s --log-file=valgrind_output.txt"
 	program="./$(basename "$1" .c).out"
@@ -113,8 +114,8 @@ function cldb {
 	echo -e "# gui\t\t# Launch the LLDB graphical user interface (full screen)"
 	echo -e "#######################################################################\n\n"
 	output_name="$(basename "$1" .c)_dbD.db.out"
-	lib_header="/home/diego/Documents/Git/mylibs/mylibc/inc"
-	lib_addss="/home/diego/Documents/Git/mylibs/mylibc"
+	lib_header="${path_to_my_git}mylibs/mylibc/inc"
+	lib_addss="${path_to_my_git}mylibs/mylibc"
 	lib_name="mylibc"
 	clang -g3 "$1" -I"${lib_header}" -L"${lib_addss}" -l"${lib_name}" -o "${output_name}"
 	lldb ./"${output_name}" "${@:2}" -o "b main" -o "run" -o "v"
@@ -140,8 +141,8 @@ function cldbg {
 	echo -e "# gui\t\t# Launch the LLDB graphical user interface (full screen)"
 	echo -e "#######################################################################\n\n"
 	output_name="$(basename "$1" .c)_dbD.db.out"
-	lib_header="/home/diego/Documents/Git/mylibs/mylibc/inc"
-	lib_addss="/home/diego/Documents/Git/mylibs/mylibc"
+	lib_header="${path_to_my_git}mylibs/mylibc/inc"
+	lib_addss="${path_to_my_git}mylibs/mylibc"
 	lib_name="mylibc"
 	gcc -g3 "$1" -I"${lib_header}" -L"${lib_addss}" -l"${lib_name}" -o "${output_name}"
 	gdb ./"${output_name}" "${@:2}" -ex "b main" -ex "run" -ex "info locals"
@@ -151,23 +152,21 @@ function cldbg {
 ### MAKE UTILS
 # --- CODE CLEANER
 function code_cleaner {
-	folder="/home/diego/Documents/Git/libft_xtend/ft_mylib/src/9_Quality_Assurance/Code_Cleaner"
+	folder="${path_to_my_git}libft_xtend/ft_mylib/src/9_Quality_Assurance/Code_Cleaner"
 	file="clean_code.sh"
 	"$folder/$file" "$@"
 }
 
 # --- CODE CLEANER
 function clean_debuger {
-	folder="/home/diego/Documents/Git/mylibs/mytools/1_coding/make_utils"
+	folder="${path_to_my_git}mylibs/mytools/1_coding/make_utils"
 	file="clean_debuger.sh"
 	"$folder/$file" "$@"
 }
 
-
-
 # --- Search Recursively and Consolidate with Symb Link
 function file_consol_lns {
-	folder="/home/diego/Documents/Git/mylibs/mytools/1_coding/make_utils"
+	folder="${path_to_my_git}mylibs/mytools/1_coding/make_utils"
 	file="files_lns.sh"
 	"$folder/$file" "$@"
 }
