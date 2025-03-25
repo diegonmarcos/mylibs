@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 11:00:43 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/25 07:56:15 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/25 07:57:41 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
  */
 
 #include "mylibc.h"
-
 
 /**
  * @brief Extracts a substring from a given string.
