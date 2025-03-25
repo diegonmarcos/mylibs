@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 11:00:43 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/19 15:03:30 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/25 07:56:15 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,13 @@
  * from the string 's'. The substring begins at index 'start' and is of
  * maximum size 'len'.
  *
- * @param filename The name of the file to be used with ft_calloc_fd and ft_strdup.
+ * @param filename The name of the file to be used with 
+ * ft_calloc_fd and ft_strdup.
  * @param s The original string from which the substring will be extracted.
  * @param start The starting index of the substring in the original string.
  * @param len The maximum length of the substring to be extracted.
- * @return A pointer to the newly allocated substring, or NULL if the allocation fails.
+ * @return A pointer to the newly allocated substring, or NULL if 
+ * the allocation fails.
  */
 char	*ft_substr(char *filename, const char *s, unsigned int start,
 					size_t len)
