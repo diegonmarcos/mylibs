@@ -1,0 +1,3 @@
+
+~/.zshrc
+/etc/zsh/zshenv
