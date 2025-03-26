@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
 
-#path_to_my_git="/home/diego/Documents/Git/"
-path_to_my_git="/home/dinepomu/sgoinfre/MyFiles_/git/"
+path_to_my_git="/home/diego/Documents/Git/"
+#path_to_my_git="/home/dinepomu/sgoinfre/MyFiles_/git/"
 
 ### COMPILERS no LIB
 # --- Compile FILES

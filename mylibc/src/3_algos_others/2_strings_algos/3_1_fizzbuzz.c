@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:57:03 by dinepomu          #+#    #+#             */
-/*   Updated: 2025/03/16 17:01:59 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/25 09:44:58 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_write_number(int number)
 		ft_write_number(number / 10);
 	write (1, &str[number % 10], 1);
 }
-
+/* 
 int	main(void)
 {
 	int	i;
@@ -40,4 +40,4 @@ int	main(void)
 		i++;
 		write (1, "\n", 1);
 	}
-}
+} */
