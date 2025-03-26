@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:14 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/03/26 07:29:46 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/26 12:34:53 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,20 +151,32 @@ void	static_analysis(void)
 	char	command4[512];
 	char	*address_out = "tests/gnl/tests/";
 
-	ft_snprintf(command0, sizeof(command0), "(cd tests/gnl ; clang -c -Wall -Wextra tsrc/get_next_line.c -Iinc -o gnl.o > tests/_static_w0.log 2>&1)");
+	ft_snprintf(command0, sizeof(command0), "(cd tests/gnl ; clang -fsyntax-only -Wall -Wextra tsrc/get_next_line.c -Iinc  > tests/_static_cw0.log 2>&1)");
 	system(command0);
-	ft_snprintf(command1, sizeof(command1), "(cd tests/gnl ; clang -c -Wformat -Warray-bounds -Wnull-dereference -Wvla -ftrapv src/get_next_line.c -Iinc -o gnl.o > tests/_static_w1.log 2>&1)");
+	ft_snprintf(command1, sizeof(command1), "(cd tests/gnl ; clang -fsyntax-only -Wformat -Warray-bounds -Wnull-dereference -Wvla -ftrapv src/get_next_line.c -Iinc > tests/_static_cw1.log 2>&1)");
 	system(command1);
-	ft_snprintf(command2, sizeof(command2), "(cd tests/gnl ; clang -c -Weverything src/get_next_line.c -Iinc -o gnl.o > tests/_static_w2.log 2>&1)");
+	ft_snprintf(command2, sizeof(command2), "(cd tests/gnl ; clang -fsyntax-only -Weverything src/get_next_line.c -Iinc > tests/_static_cw2.log 2>&1)");
 	system(command2);
-	ft_snprintf(command3, sizeof(command3), "(cd tests/gnl ; clang -c --analyze -Xanalyzer -analyzer-checker=core src/get_next_line.c -Iinc -o gnl.o > tests/_static_w3.log 2>&1)");
+	ft_snprintf(command3, sizeof(command3), "(cd tests/gnl ; clang -fsyntax-only --analyze -Xanalyzer -analyzer-checker=core src/get_next_line.c -Iinc  > tests/_static_cw3.log 2>&1)");
 	system(command3);
-//	ft_snprintf(command4, sizeof(command4), "(cd tests/gnl ; scan-build -o > %s_w4.log 2>&1)", address_out);
-//	system(command4);
-//	ft_snprintf(command4, sizeof(command4), "(cd tests/gnl ; clang-tidy > %s_w4.log 2>&1)", address_out);
-//	system(command4);
-}
 
+void	static_analysis_clangtidy(void)
+{
+	char	*address_out = "tests/gnl/tests/";
+
+	char	command0[512] = "clang-tidy --quiet get_next_line.c -checks='-*,clang-analyzer-*' -- -Iinc -I/home/diego/Documents/Git/mylibs/mylibc/inc | grep \"warning:\" -A 1 > _ctw0_.log 2>&1";
+	system(command0);
+	char	command1[512] = "clang-tidy get_next_line.c -checks='-*,clang-analyzer-*' -- -Iinc -I/home/diego/Documents/Git/mylibs/mylibc/inc > _ctw0_n.log 2>&1";
+	system(command1);
+	char	command2[512] = "clang-tidy --quiet get_next_line.c -checks='-*,clang-analyzer-unix.Malloc,clang-analyzer-unix.MismatchedDeallocator,clang-analyzer-unix.cstring.*,clang-analyzer-core.NullDereference,clang-analyzer-core.uninitialized.*' -- -Iinc -I/home/diego/Documents/Git/mylibs/mylibc/inc | grep \"warning:\" -A 1 > _ctw1_.log 2>&1";
+	system(command2);
+	char	command3[512] = "clang-tidy get_next_line.c -checks='-*,clang-analyzer-unix.Malloc,clang-analyzer-unix.MismatchedDeallocator,clang-analyzer-unix.cstring.*,clang-analyzer-core.NullDereference,clang-analyzer-core.uninitialized.*' -- -Iinc -I/home/diego/Documents/Git/mylibs/mylibc/inc > _ctw1_n.log 2>&1";
+	system(command3);
+	char	command4[512] = "clang-tidy --quiet get_next_line.c -checks='-*,clang-analyzer-unix.*,clang-analyzer-core.NullDereference,clang-analyzer-core.uninitialized.*,bugprone-use-after-move,bugprone-dangling-handle' -- -Iinc -I/home/diego/Documents/Git/mylibs/mylibc/inc | grep \"warning:\" -A 1 > _ctw2_.log 2>&1";
+	system(command4);
+	char	command5[512] = "clang-tidy get_next_line.c -checks='-*,clang-analyzer-unix.*,clang-analyzer-core.NullDereference,clang-analyzer-core.uninitialized.*,bugprone-use-after-move,bugprone-dangling-handle' -- -Iinc -I/home/diego/Documents/Git/mylibs/mylibc/inc > _ctw2_n.log 2>&1";
+	system(command5);
+}
 
 /**
  * @brief Tester - ./program [number] [option]
@@ -278,3 +290,71 @@ int	main2(void)
 	close(fd3);
 	return (0);
 } */
+
+
+/*
+### clang-tidy
+
+## comand in line
+clang-tidy get_next_line.c -checks='-*,readability-*,performance-*' -- -I. -Wall -Wextra -Werror
+
+##json
+# Create a basic compile_commands.json
+echo '[
+  {
+    "directory": "'$(pwd)'",
+    "command": "cc -Wall -Wextra -Werror -I. get_next_line.c -c -o get_next_line.o",
+    "file": "get_next_line.c"
+  }
+]' > compile_commands.json
+
+##config file
+Checks: '-*,bugprone-*,cert-*,clang-analyzer-*,misc-*,performance-*,readability-*'
+WarningsAsErrors: ''
+HeaderFilterRegex: '.*'
+FormatStyle: none
+
+´clang-tidy get_next_line.c -- -I. -Wall -Wextra -Werror´
+
+## bear
+# Install Bear if needed
+sudo apt-get install bear
+## from make
+bear -- make
+## Or if you compile manually:
+bear -- cc -Wall -Wextra -Werror -I. get_next_line.c -c -o get_next_line.o
+
+# Core categories
+-*,                      # First disable all checks
+bugprone-*,              # Catch bug-prone code patterns
+cert-*,                  # CERT secure coding guidelines
+clang-analyzer-*,        # Clang static analyzer
+  1. Core Analysis (clang-analyzer-core.*)
+  2. Unix/POSIX API Checks (clang-analyzer-unix.*)
+  3. Security Checks (clang-analyzer-security.*)
+  4. MacOS/Darwin Checks (clang-analyzer-osx.*)
+  5. C++ Specific Checks (clang-analyzer-cplusplus.*)
+concurrency-*,           # Thread safety issues
+cppcoreguidelines-*,     # C++ Core Guidelines (C++ only)
+google-*,                # Google coding style
+hicpp-*,                 # High-Integrity C++ (C++ only)
+llvm-*,                  # LLVM coding standards
+misc-*,                  # Miscellaneous checks
+modernize-*,             # Modernize code (C++ only)
+performance-*,           # Performance optimizations
+portability-*,           # Portability issues
+readability-*            # Code readability
+
+
+clang -fsyntax-only -Wall -Wextra -Werror get_next_line.c -Iinc -I/home/diego/Documents/Git/mylibs/mylibc/inc > _cw0.log 2>&1;
+clang -fsyntax-only -Wformat -Warray-bounds -Wnull-dereference -Wvla -ftrapv get_next_line.c -Iinc -I/home/diego/Documents/Git/mylibs/mylibc/inc > _cw1.log 2>&1;
+clang -fsyntax-only -Weverything get_next_line.c -Iinc -I/home/diego/Documents/Git/mylibs/mylibc/inc > _cw2.log 2>&1;
+
+clang-tidy --quiet get_next_line.c -checks='-*,clang-analyzer-*' -- -Iinc -I/home/diego/Documents/Git/mylibs/mylibc/inc | grep "warning:" -A 1 > _ctw0_.log 2>&1;
+clang-tidy get_next_line.c -checks='-*,clang-analyzer-*' -- -Iinc -I/home/diego/Documents/Git/mylibs/mylibc/inc > _ctw0_n.log 2>&1;
+clang-tidy --quiet get_next_line.c -checks='-*,clang-analyzer-unix.Malloc,clang-analyzer-unix.MismatchedDeallocator,clang-analyzer-unix.cstring.*,clang-analyzer-core.NullDereference,clang-analyzer-core.uninitialized.*' -- -Iinc -I/home/diego/Documents/Git/mylibs/mylibc/inc | grep "warning:" -A 1 > _ctw1_.log 2>&1;
+clang-tidy get_next_line.c -checks='-*,clang-analyzer-unix.Malloc,clang-analyzer-unix.MismatchedDeallocator,clang-analyzer-unix.cstring.*,clang-analyzer-core.NullDereference,clang-analyzer-core.uninitialized.*' -- -Iinc -I/home/diego/Documents/Git/mylibs/mylibc/inc > _ctw1_n.log 2>&1;
+clang-tidy --quiet get_next_line.c -checks='-*,clang-analyzer-unix.*,clang-analyzer-core.NullDereference,clang-analyzer-core.uninitialized.*,bugprone-use-after-move,bugprone-dangling-handle' -- -Iinc -I/home/diego/Documents/Git/mylibs/mylibc/inc | grep "warning:" -A 1 > _ctw2_.log 2>&1;
+clang-tidy get_next_line.c -checks='-*,clang-analyzer-unix.*,clang-analyzer-core.NullDereference,clang-analyzer-core.uninitialized.*,bugprone-use-after-move,bugprone-dangling-handle' -- -Iinc -I/home/diego/Documents/Git/mylibs/mylibc/inc > _ctw2_n.log 2>&1;
+
+*/

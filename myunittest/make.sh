@@ -1,6 +1,6 @@
 #!/bin/bash
 
-lib_header="/home/diego/Documents/Git/mylibs/mylibc/inc"
+lib_inc="/home/diego/Documents/Git/mylibs/mylibc/inc"
 lib_addss="/home/diego/Documents/Git/mylibs/mylibc"
 lib_name="mylibc"
 
@@ -23,7 +23,7 @@ mkdir -p obj
 clang \
 -c -g3 \
 src/myunit.c \
--I"${lib_header}" \
+-I"${lib_inc}" \
 -o obj/myunit.o
 
 ### LINKING
