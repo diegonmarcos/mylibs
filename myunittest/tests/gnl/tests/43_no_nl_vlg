@@ -1,76 +1,76 @@
-==463049== Memcheck, a memory error detector
-==463049== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==463049== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==463049== Command: ./get_next_line.out 4 r
-==463049== Parent PID: 463048
-==463049== 
-==463049== Use of uninitialised value of size 8
-==463049==    at 0x10A3E8: ft_strlen (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x10A330: handle_string_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x10A10C: handle_format_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x10A050: process_format (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x109FA2: ft_snprintf (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x109544: tests (src/myunit.c:82)
-==463049==    by 0x10996E: main (src/myunit.c:173)
-==463049==  Uninitialised value was created by a stack allocation
-==463049==    at 0x48A0200: __libc_start_main@@GLIBC_2.34 (libc-start.c:242)
-==463049== 
-==463049== Invalid read of size 1
-==463049==    at 0x10A3E8: ft_strlen (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x10A330: handle_string_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x10A10C: handle_format_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x10A050: process_format (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x109FA2: ft_snprintf (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x109544: tests (src/myunit.c:82)
-==463049==    by 0x10996E: main (src/myunit.c:173)
-==463049==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==463049== 
-==463049== 
-==463049== Process terminating with default action of signal 11 (SIGSEGV)
-==463049==  Access not within mapped region at address 0x0
-==463049==    at 0x10A3E8: ft_strlen (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x10A330: handle_string_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x10A10C: handle_format_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x10A050: process_format (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x109FA2: ft_snprintf (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x109544: tests (src/myunit.c:82)
-==463049==    by 0x10996E: main (src/myunit.c:173)
-==463049==  If you believe this happened as a result of a stack
-==463049==  overflow in your program's main thread (unlikely but
-==463049==  possible), you can try to increase the size of the
-==463049==  main thread stack using the --main-stacksize= flag.
-==463049==  The main thread stack size used in this run was 8388608.
-==463049== 
-==463049== HEAP SUMMARY:
-==463049==     in use at exit: 0 bytes in 0 blocks
-==463049==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
-==463049== 
-==463049== All heap blocks were freed -- no leaks are possible
-==463049== 
-==463049== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
-==463049== 
-==463049== 1 errors in context 1 of 2:
-==463049== Invalid read of size 1
-==463049==    at 0x10A3E8: ft_strlen (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x10A330: handle_string_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x10A10C: handle_format_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x10A050: process_format (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x109FA2: ft_snprintf (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x109544: tests (src/myunit.c:82)
-==463049==    by 0x10996E: main (src/myunit.c:173)
-==463049==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==463049== 
-==463049== 
-==463049== 1 errors in context 2 of 2:
-==463049== Use of uninitialised value of size 8
-==463049==    at 0x10A3E8: ft_strlen (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x10A330: handle_string_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x10A10C: handle_format_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x10A050: process_format (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x109FA2: ft_snprintf (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==463049==    by 0x109544: tests (src/myunit.c:82)
-==463049==    by 0x10996E: main (src/myunit.c:173)
-==463049==  Uninitialised value was created by a stack allocation
-==463049==    at 0x48A0200: __libc_start_main@@GLIBC_2.34 (libc-start.c:242)
-==463049== 
-==463049== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==34642== Memcheck, a memory error detector
+==34642== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==34642== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==34642== Command: ./get_next_line.out 4 r
+==34642== Parent PID: 34641
+==34642== 
+==34642== Use of uninitialised value of size 8
+==34642==    at 0x10A618: ft_strlen (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A560: handle_string_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A33C: handle_format_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A280: process_format (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A1D2: ft_snprintf (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x109544: tests (src/myunit.c:82)
+==34642==    by 0x109A52: main (src/myunit.c:205)
+==34642==  Uninitialised value was created by a stack allocation
+==34642==    at 0x48A0200: __libc_start_main@@GLIBC_2.34 (libc-start.c:242)
+==34642== 
+==34642== Invalid read of size 1
+==34642==    at 0x10A618: ft_strlen (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A560: handle_string_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A33C: handle_format_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A280: process_format (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A1D2: ft_snprintf (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x109544: tests (src/myunit.c:82)
+==34642==    by 0x109A52: main (src/myunit.c:205)
+==34642==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==34642== 
+==34642== 
+==34642== Process terminating with default action of signal 11 (SIGSEGV)
+==34642==  Access not within mapped region at address 0x0
+==34642==    at 0x10A618: ft_strlen (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A560: handle_string_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A33C: handle_format_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A280: process_format (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A1D2: ft_snprintf (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x109544: tests (src/myunit.c:82)
+==34642==    by 0x109A52: main (src/myunit.c:205)
+==34642==  If you believe this happened as a result of a stack
+==34642==  overflow in your program's main thread (unlikely but
+==34642==  possible), you can try to increase the size of the
+==34642==  main thread stack using the --main-stacksize= flag.
+==34642==  The main thread stack size used in this run was 8388608.
+==34642== 
+==34642== HEAP SUMMARY:
+==34642==     in use at exit: 0 bytes in 0 blocks
+==34642==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==34642== 
+==34642== All heap blocks were freed -- no leaks are possible
+==34642== 
+==34642== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==34642== 
+==34642== 1 errors in context 1 of 2:
+==34642== Invalid read of size 1
+==34642==    at 0x10A618: ft_strlen (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A560: handle_string_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A33C: handle_format_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A280: process_format (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A1D2: ft_snprintf (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x109544: tests (src/myunit.c:82)
+==34642==    by 0x109A52: main (src/myunit.c:205)
+==34642==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==34642== 
+==34642== 
+==34642== 1 errors in context 2 of 2:
+==34642== Use of uninitialised value of size 8
+==34642==    at 0x10A618: ft_strlen (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A560: handle_string_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A33C: handle_format_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A280: process_format (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x10A1D2: ft_snprintf (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34642==    by 0x109544: tests (src/myunit.c:82)
+==34642==    by 0x109A52: main (src/myunit.c:205)
+==34642==  Uninitialised value was created by a stack allocation
+==34642==    at 0x48A0200: __libc_start_main@@GLIBC_2.34 (libc-start.c:242)
+==34642== 
+==34642== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)

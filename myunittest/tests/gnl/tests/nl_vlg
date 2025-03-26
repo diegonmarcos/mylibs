@@ -1,15 +1,15 @@
-==463260== Memcheck, a memory error detector
-==463260== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==463260== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==463260== Command: ./get_next_line.out 14 r
-==463260== Parent PID: 463259
-==463260== 
-==463260== Warning: invalid file descriptor -1 in syscall close()
-==463260== 
-==463260== HEAP SUMMARY:
-==463260==     in use at exit: 0 bytes in 0 blocks
-==463260==   total heap usage: 1 allocs, 1 frees, 8 bytes allocated
-==463260== 
-==463260== All heap blocks were freed -- no leaks are possible
-==463260== 
-==463260== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==34915== Memcheck, a memory error detector
+==34915== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==34915== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==34915== Command: ./get_next_line.out 14 r
+==34915== Parent PID: 34914
+==34915== 
+==34915== Warning: invalid file descriptor -1 in syscall close()
+==34915== 
+==34915== HEAP SUMMARY:
+==34915==     in use at exit: 0 bytes in 0 blocks
+==34915==   total heap usage: 5 allocs, 5 frees, 1,896 bytes allocated
+==34915== 
+==34915== All heap blocks were freed -- no leaks are possible
+==34915== 
+==34915== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

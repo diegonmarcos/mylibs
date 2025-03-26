@@ -1,64 +1,64 @@
-==462975== Memcheck, a memory error detector
-==462975== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==462975== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==462975== Command: ./get_next_line.out 0 r
-==462975== Parent PID: 462974
-==462975== 
-==462975== Use of uninitialised value of size 8
-==462975==    at 0x10A3E8: ft_strlen (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x10A330: handle_string_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x10A10C: handle_format_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x10A050: process_format (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x109FA2: ft_snprintf (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x109544: tests (src/myunit.c:82)
-==462975==    by 0x10996E: main (src/myunit.c:173)
-==462975==  Uninitialised value was created by a stack allocation
-==462975==    at 0x48A0200: __libc_start_main@@GLIBC_2.34 (libc-start.c:242)
-==462975== 
-==462975== Use of uninitialised value of size 8
-==462975==    at 0x10C8DD: ft_memcpy (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x10A387: handle_string_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x10A10C: handle_format_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x10A050: process_format (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x109FA2: ft_snprintf (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x109544: tests (src/myunit.c:82)
-==462975==    by 0x10996E: main (src/myunit.c:173)
-==462975==  Uninitialised value was created by a stack allocation
-==462975==    at 0x48A0200: __libc_start_main@@GLIBC_2.34 (libc-start.c:242)
-==462975== 
-==462975== Warning: invalid file descriptor -1 in syscall close()
-==462975== 
-==462975== HEAP SUMMARY:
-==462975==     in use at exit: 0 bytes in 0 blocks
-==462975==   total heap usage: 1 allocs, 1 frees, 8 bytes allocated
-==462975== 
-==462975== All heap blocks were freed -- no leaks are possible
-==462975== 
-==462975== ERROR SUMMARY: 11 errors from 2 contexts (suppressed: 0 from 0)
-==462975== 
-==462975== 5 errors in context 1 of 2:
-==462975== Use of uninitialised value of size 8
-==462975==    at 0x10C8DD: ft_memcpy (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x10A387: handle_string_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x10A10C: handle_format_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x10A050: process_format (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x109FA2: ft_snprintf (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x109544: tests (src/myunit.c:82)
-==462975==    by 0x10996E: main (src/myunit.c:173)
-==462975==  Uninitialised value was created by a stack allocation
-==462975==    at 0x48A0200: __libc_start_main@@GLIBC_2.34 (libc-start.c:242)
-==462975== 
-==462975== 
-==462975== 6 errors in context 2 of 2:
-==462975== Use of uninitialised value of size 8
-==462975==    at 0x10A3E8: ft_strlen (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x10A330: handle_string_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x10A10C: handle_format_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x10A050: process_format (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x109FA2: ft_snprintf (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
-==462975==    by 0x109544: tests (src/myunit.c:82)
-==462975==    by 0x10996E: main (src/myunit.c:173)
-==462975==  Uninitialised value was created by a stack allocation
-==462975==    at 0x48A0200: __libc_start_main@@GLIBC_2.34 (libc-start.c:242)
-==462975== 
-==462975== ERROR SUMMARY: 11 errors from 2 contexts (suppressed: 0 from 0)
+==34591== Memcheck, a memory error detector
+==34591== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==34591== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==34591== Command: ./get_next_line.out 0 r
+==34591== Parent PID: 34590
+==34591== 
+==34591== Use of uninitialised value of size 8
+==34591==    at 0x10A618: ft_strlen (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x10A560: handle_string_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x10A33C: handle_format_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x10A280: process_format (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x10A1D2: ft_snprintf (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x109544: tests (src/myunit.c:82)
+==34591==    by 0x109A52: main (src/myunit.c:205)
+==34591==  Uninitialised value was created by a stack allocation
+==34591==    at 0x48A0200: __libc_start_main@@GLIBC_2.34 (libc-start.c:242)
+==34591== 
+==34591== Use of uninitialised value of size 8
+==34591==    at 0x10CB0D: ft_memcpy (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x10A5B7: handle_string_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x10A33C: handle_format_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x10A280: process_format (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x10A1D2: ft_snprintf (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x109544: tests (src/myunit.c:82)
+==34591==    by 0x109A52: main (src/myunit.c:205)
+==34591==  Uninitialised value was created by a stack allocation
+==34591==    at 0x48A0200: __libc_start_main@@GLIBC_2.34 (libc-start.c:242)
+==34591== 
+==34591== Warning: invalid file descriptor -1 in syscall close()
+==34591== 
+==34591== HEAP SUMMARY:
+==34591==     in use at exit: 0 bytes in 0 blocks
+==34591==   total heap usage: 5 allocs, 5 frees, 1,896 bytes allocated
+==34591== 
+==34591== All heap blocks were freed -- no leaks are possible
+==34591== 
+==34591== ERROR SUMMARY: 11 errors from 2 contexts (suppressed: 0 from 0)
+==34591== 
+==34591== 5 errors in context 1 of 2:
+==34591== Use of uninitialised value of size 8
+==34591==    at 0x10CB0D: ft_memcpy (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x10A5B7: handle_string_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x10A33C: handle_format_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x10A280: process_format (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x10A1D2: ft_snprintf (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x109544: tests (src/myunit.c:82)
+==34591==    by 0x109A52: main (src/myunit.c:205)
+==34591==  Uninitialised value was created by a stack allocation
+==34591==    at 0x48A0200: __libc_start_main@@GLIBC_2.34 (libc-start.c:242)
+==34591== 
+==34591== 
+==34591== 6 errors in context 2 of 2:
+==34591== Use of uninitialised value of size 8
+==34591==    at 0x10A618: ft_strlen (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x10A560: handle_string_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x10A33C: handle_format_specifier (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x10A280: process_format (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x10A1D2: ft_snprintf (in /home/diego/Documents/Git/mylibs/myunittest/get_next_line.out)
+==34591==    by 0x109544: tests (src/myunit.c:82)
+==34591==    by 0x109A52: main (src/myunit.c:205)
+==34591==  Uninitialised value was created by a stack allocation
+==34591==    at 0x48A0200: __libc_start_main@@GLIBC_2.34 (libc-start.c:242)
+==34591== 
+==34591== ERROR SUMMARY: 11 errors from 2 contexts (suppressed: 0 from 0)

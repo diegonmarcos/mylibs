@@ -6,7 +6,7 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:14 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/03/23 16:49:01 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/26 07:29:46 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	tests(int file, char mode)
 	FILE	*fd_out;
 	char	*line;
 
-	ft_snprintf(filename_report, 256, "gnl_report.md", address_out);
+	ft_snprintf(filename_report, 256, "%s__gnl_report.md", address_out);
 	// Valgrind
 	if (mode == 'v')
 	{
@@ -109,7 +109,7 @@ int	tests(int file, char mode)
 			/// Copy Debug File
 			char	command0[512];
 
-			ft_snprintf(command0, sizeof(command0), "cp gnl_debug.log %s_dbg", &filename_out[i]);
+			ft_snprintf(command0, sizeof(command0), "mv gnl_debug.log %s_dbg", &filename_out[i]);
 			system(command0);
 			ft_fprintf2("w", "gnl_debug.log", "");
 
@@ -149,18 +149,19 @@ void	static_analysis(void)
 	char	command2[512];
 	char	command3[512];
 	char	command4[512];
+	char	*address_out = "tests/gnl/tests/";
 
-	ft_snprintf(command0, sizeof(command0), "(cd tests/gnl ; clang -c -Wall -Wextra tsrc/get_next_line.c -Iinc -o gnl.o > gnl_w0.log 2>&1)");
+	ft_snprintf(command0, sizeof(command0), "(cd tests/gnl ; clang -c -Wall -Wextra tsrc/get_next_line.c -Iinc -o gnl.o > tests/_static_w0.log 2>&1)");
 	system(command0);
-	ft_snprintf(command1, sizeof(command1), "(cd tests/gnl ; clang -c -Wformat -Warray-bounds -Wnull-dereference -Wvla -ftrapv src/get_next_line.c -Iinc -o gnl.o > gnl_w1.log 2>&1)");
+	ft_snprintf(command1, sizeof(command1), "(cd tests/gnl ; clang -c -Wformat -Warray-bounds -Wnull-dereference -Wvla -ftrapv src/get_next_line.c -Iinc -o gnl.o > tests/_static_w1.log 2>&1)");
 	system(command1);
-	ft_snprintf(command2, sizeof(command2), "(cd tests/gnl ; clang -c -Weverything src/get_next_line.c -Iinc -o gnl.o > gnl_w2.log 2>&1)");
+	ft_snprintf(command2, sizeof(command2), "(cd tests/gnl ; clang -c -Weverything src/get_next_line.c -Iinc -o gnl.o > tests/_static_w2.log 2>&1)");
 	system(command2);
-	ft_snprintf(command3, sizeof(command3), "(cd tests/gnl ; clang -c --analyze -Xanalyzer -analyzer-checker=core src/get_next_line.c -Iinc -o gnl.o > gnl_w3.log 2>&1)");
+	ft_snprintf(command3, sizeof(command3), "(cd tests/gnl ; clang -c --analyze -Xanalyzer -analyzer-checker=core src/get_next_line.c -Iinc -o gnl.o > tests/_static_w3.log 2>&1)");
 	system(command3);
-//	ft_snprintf(command4, sizeof(command4), "(cd tests/gnl ; scan-build -o > gnl_w4.log 2>&1)");
+//	ft_snprintf(command4, sizeof(command4), "(cd tests/gnl ; scan-build -o > %s_w4.log 2>&1)", address_out);
 //	system(command4);
-//	ft_snprintf(command4, sizeof(command4), "(cd tests/gnl ; clang-tidy > gnl_w4.log 2>&1)");
+//	ft_snprintf(command4, sizeof(command4), "(cd tests/gnl ; clang-tidy > %s_w4.log 2>&1)", address_out);
 //	system(command4);
 }
 
@@ -181,7 +182,7 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 	{
 		file = 0;
-		mode = 'b';
+		mode = 'a';
 	}
 	else if (argc == 3)
 	{
@@ -194,8 +195,9 @@ int	main(int argc, char **argv)
 	/// Tests
 	if (mode == 's')
 		static_analysis();
-	if (mode == 'b')
+	if (mode == 'a')
 	{
+		static_analysis();
 		tests(file, 't');
 		tests(file, 'v');
 	}

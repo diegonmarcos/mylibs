@@ -6,11 +6,12 @@
 /*   By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 10:12:14 by dnepomuc          #+#    #+#             */
-/*   Updated: 2025/03/23 14:11:04 by dinepomu         ###   ########.fr       */
+/*   Updated: 2025/03/26 07:39:48 by dinepomu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "mylibc.h"
 
 char	*get_next_line(int fd)
 {
@@ -20,6 +21,7 @@ char	*get_next_line(int fd)
 	static int	line_to_read;
 	static char	**lines;
 
+	ft_fprintf2("a", GNL_DBG, "#########\n # Hello MoF:\n######### \n%d\n", line_to_read);///
 	if (!line_to_read)
 	{
 		copy_fd_to_array(fd, buff, &g);
@@ -32,8 +34,11 @@ char	*get_next_line(int fd)
 		line_to_read = 0;
 		return (NULL);
 	}
+	ft_fprintf1(GNL_DBG, "GNL_lines:\n\"%S\"\n", lines);///
+	ft_fprintf1(GNL_DBG, "GNL_line:\n%sSize:%d", lines[line_to_read], ft_strlen_wc(lines[line_to_read], '\0'));///
 	line = ft_strdup_(lines[line_to_read], ft_strlen_wc(lines[line_to_read], '\0') + 1);
 	line_to_read++;
+	ft_fprintf1(GNL_DBG, "\nGNL_line_out:\n%s\n\n\n", line);///
 	return (line);
 }
 
@@ -49,9 +54,12 @@ void	copy_fd_to_array(int fd, char *buff, t_gnl *g)
 		else if (buff[g->i] && buff[g->i - 1] == '\n')
 			g->lines_count++;
 		g->i++;
+//		ft_fprintf1(GNL_DBG, "\nCopy_fd_to_array:\n%s", &buff[g->i]);///
 	}
 	g->char_count = g->i;
 	buff[g->i] = '\0';
+	ft_fprintf1(GNL_DBG, "\nCopy_fd_to_array:\n\"%s\"", buff);///
+	ft_fprintf1(GNL_DBG, "\nLines:%d\nChars:%d\n\n", g->lines_count, g->char_count);///
 }
 
 void	ft_split_wc(t_gnl *g, char *buff, char **lines)
@@ -68,10 +76,13 @@ void	ft_split_wc(t_gnl *g, char *buff, char **lines)
 		line = ft_malloc(sizeof(char) * (line_length + 1));
 		line = ft_memcpy_1(line, buff_p, line_length);
 		lines[g->i] = line;
+		ft_fprintf1(GNL_DBG, "\nSplit:\n\"%s\"\n", lines[g->i]);///
 		g->i++;
+		ft_fprintf1(GNL_DBG, "\nSPLIT_line_lenght:%d", line_length);///
 		buff_p += line_length;
 	}
 	lines[g->lines_count] = NULL;
+	ft_fprintf1(GNL_DBG, "\nSplit_F:\n\"%S\"\n", lines);///
 
 }
 

@@ -1,0 +1,4 @@
+src/get_next_line.c:14:10: fatal error: 'mylibc.h' file not found
+   14 | #include "mylibc.h"
+      |          ^~~~~~~~~~
+1 error generated.
