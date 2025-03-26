@@ -2,7 +2,7 @@
 ### --- ZSH CONFIG --- ###
 ### ------------------ ###
 path_to_my_git="/home/diego/Documents/Git/"
-#path_to_my_git="/home/dinepomu/sgoinfre/MyFiles_/git/"
+#path_to_my_git="/sgoinfre/goinfre/Perso/dinepomu/MyFiles_/git/"
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -34,7 +34,7 @@ source $ZSH/oh-my-zsh.sh
 ### # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 ### --- CUSTOM FUNCTIONS AND ALIAS --- #
 ### Custom Shell functions
-source ${path_to_my_git}mylib/mytools/0_zsh/my_functions.zsh
+source ${path_to_my_git}mylibs/mytools/0_zsh/my_functions.zsh
 
 ### Alias
 alias gcl='git clone'

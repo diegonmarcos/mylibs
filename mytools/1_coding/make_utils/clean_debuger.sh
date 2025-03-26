@@ -2,7 +2,7 @@
 
 # Check if a filename was provided
 if [ $# -eq 0 ]; then
-    echo "Usage: $0 filename.dbg.c"
+    echo "Usage: ./program filename.dbg.c"
     exit 1
 fi
 
@@ -13,7 +13,7 @@ input_file="$1"
 ### the -d flag in cut specifies the delimiter, in this case the dot
 ### the -f flag specifies the field to extract
 base_name=$(basename "$input_file" | cut -d. -f1)
-output_file="${base_name}.c"
+output_file="${base_name}_clean.c"
 
 echo "Processing $input_file -> $output_file"
 
