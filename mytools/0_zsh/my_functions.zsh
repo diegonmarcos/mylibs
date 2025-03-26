@@ -3,6 +3,7 @@
 
 #path_to_my_git="/home/diego/Documents/Git/"
 path_to_my_git="/sgoinfre/goinfre/Perso/dinepomu/MyFiles_/git/"
+
 				
 
 ### COMPILERS no LIB
