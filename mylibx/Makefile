@@ -6,7 +6,7 @@
 #    By: dinepomu <dinepomu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/23 11:09:01 by dinepomu          #+#    #+#              #
-#    Updated: 2025/03/21 09:39:55 by dinepomu         ###   ########.fr        #
+#    Updated: 2025/03/27 07:17:36 by dinepomu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,7 +103,7 @@ IS_PROGRAM_AND_NOT_LIB 	= 0# 0 or 1
 INCLUDE_LIB 			= 0# 0 or 1
 BUILD_LIBRARY 			= 0# 0 or 1
 BONUS 					= 0# 0 or 1
-VERBOSE 				= 1# 0, 1 or 2 - Vebosity of the makefile
+VERBOSE 				= 0# 0, 1 or 2 - Vebosity of the makefile
 DOCKER					= 0# 0 or 1
 DBG 					= 0# 0 or 1 - Debug mode for the program
 
@@ -149,10 +149,10 @@ LIB_1_REPO		= https://github.com/diegonmarcos/mylibs.git
 LIB_1_CONFIG	=
 
 LIB_2_NAME		= mlx
-LIB_2_PATH		= libs/mlx
+LIB_2_PATH		= libs/minilibx_linux
 LIB_2_FILE		= $(LIB_2_PATH)/lib$(LIB_2_NAME).a
 LIB_2_REPO		= https://github.com/42Paris/minilibx-linux.git $(LIB_2_NAME)
-LIB_2_CONFIG	= cd libs/mlx && ./configure && cd ../../..
+LIB_2_CONFIG	= cd libs/minilibx_linux && ./configure > /dev/null 2>&1 && cd ../../..
 
 LIB_3_NAME		= 0
 LIB_3_PATH		= 
@@ -406,20 +406,20 @@ endif
 #	$(MAKE) run_docker
 build_deps:
 ifneq ($(LIB_1_NAME),0)
-	cd libs && $(GCL) $(LIB_1_REPO) > /dev/null 2>&1 || true && cd .. && $(MAKE) mylibs_clean
-	mv libs/mylibs/.git1 libs/mylibs/.git && git -C $(LIB_1_PATH) pull > /dev/null 2>&1 && mv libs/mylibs/.git libs/mylibs/.git1 || true
+##	cd libs && $(GCL) $(LIB_1_REPO) > /dev/null 2>&1 || true && cd .. && $(MAKE) mylibs_clean
+##	mv libs/mylibs/.git1 libs/mylibs/.git && git -C $(LIB_1_PATH) pull > /dev/null 2>&1 && mv libs/mylibs/.git libs/mylibs/.git1 || true
 	$(LIB_1_CONFIG)
-	$(MAKE) -C $(LIB_1_PATH) VERBOSE=$(VERBOSE) || true
+	$(MAKE) -C $(LIB_1_PATH) VERBOSE=$(VERBOSE) > /dev/null 2>&1 || true
 endif
 ifneq ($(LIB_2_NAME),0)
-	cd libs && $(GCL) $(LIB_2_REPO) > /dev/null 2>&1 || true
-	git -C $(LIB_2_PATH) pull > /dev/null 2>&1 || true
+##	cd libs && $(GCL) $(LIB_2_REPO) > /dev/null 2>&1 || true
+##	git -C $(LIB_2_PATH) pull > /dev/null 2>&1 || true
 	$(LIB_2_CONFIG)
-	$(MAKE) -C $(LIB_2_PATH) VERBOSE=$(VERBOSE) || true
+	$(MAKE) -C $(LIB_2_PATH) VERBOSE=$(VERBOSE) > /dev/null 2>&1 || true
 endif
 ifneq ($(LIB_3_NAME), 0)
-	cd libs && $(GCL) $(LIB_3_REPO) > /dev/null 2>&1 || true
-	git -C $(LIB_3_PATH) pull > /dev/null 2>&1 || true
+##	cd libs && $(GCL) $(LIB_3_REPO) > /dev/null 2>&1 || true
+##	git -C $(LIB_3_PATH) pull > /dev/null 2>&1 || true
 	$(LIB_3_CONFIG)
 	$(MAKE) -C $(LIB_3_PATH) || true
 endif
@@ -516,10 +516,12 @@ mylibs_clean:
 # *** Clean Objects only *** #
 clean:
 	$(RM) objs
+	$(MAKE) clean -C $(LIB_1_PATH)
+	$(MAKE) clean -C $(LIB_2_PATH) > /dev/null 2>&1 || true
 ifeq ($(BONUS),1)
 	$(MAKE) clean -C $(CHECKER_BONUS_DIR) MAKEFLAGS=""
 endif
-	@echo	"$(RED)	¯\_(ツ)_/¯ OBJECTS REMOVED!$(RESET)"
+	@echo	"$(RED)¯\_(ツ)_/¯ Objs cleaned!$(RESET)"
 
 # *** Clean+Bins+Libs *** #
 fclean:	clean
@@ -528,7 +530,9 @@ fclean:	clean
 ifeq ($(BONUS),1)
 	$(MAKE) fclean -C $(CHECKER_BONUS_DIR) MAKEFLAGS=""
 endif
-	@echo	"$(RED)		(╯°□°）╯︵ ┻━┻ FILE, OBJ REMOVED!$(RESET)"
+	$(MAKE) fclean -C $(LIB_1_PATH)
+#	$(MAKE) fclean -C $(LIB_2_PATH)
+	@echo "$(RED) (╯°□°）╯ Bin and objs cleaned!$(RESET)"
 
 # *** FClean+Build *** #
 re: fclean build_system_pipeline
@@ -539,11 +543,14 @@ re: fclean build_system_pipeline
 fclean_all:	fclean
 	$(RM) log
 	$(RM) testers
+	$(RM) doc
 	$(RM) Makedocker.sh
 	if [ -f imgui.ini ]; then \
 		rm imgui.ini; \
 	fi
-	@echo	"$(RED)			(╯°□°）╯︵ ┻━┻ FILE, OBJ AND LOG REMOVED!$(RESET)"
+	$(MAKE) fclean_all -C $(LIB_1_PATH)
+#	$(MAKE) fclean_all -C $(LIB_2_PATH)
+	@echo	"$(RED)  (╯°□°）╯ ︵ ┻━┻ Bin, objs and folders removed!$(RESET)"
 
 # *** Re_all *** #
 re_all: fclean_all build_system_pipeline
