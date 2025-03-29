@@ -12,3 +12,5 @@ snap list > installed_packages_snap.txt
 
 flatpak list
 flatpak list > installed_packages_flatpak.txt
+
+apt-mark showmanual > installed_packages_apt_mark.txt
