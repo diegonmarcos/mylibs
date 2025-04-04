@@ -14,7 +14,7 @@ maps/
 ### Files ignore
 **/*.o
 **/*.d
-**/*.a
+#**/*.a
 **/*.so
 
 ### Files ignore

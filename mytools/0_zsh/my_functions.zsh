@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
 
-#path_to_my_git="/home/diego/Documents/Git/"
-path_to_my_git="/sgoinfre/goinfre/Perso/dinepomu/MyFiles_/git/"
+path_to_my_git="/home/diego/Documents/Git/"
+#path_to_my_git="/sgoinfre/goinfre/Perso/dinepomu/MyFiles_/git/"
 
 				
 
@@ -104,7 +104,7 @@ function cldb {
 	echo -e "# r\t\t# Run the program"
 	echo -e "# "
 	echo -e "# s\t\t# Step over the current line (execute it as one step)"
-	echo -e "# finish\t\t# Step out of the current function"
+	echo -e "# finish\t# Step out of the current function"
 	echo -e "# "
 	echo -e "# n\t\t# Step into the next line (enter functions if called)"
 	echo -e "# "
@@ -130,17 +130,20 @@ function cldbg {
 	echo -e "# b main or b [function_name]\t# Set a breakpoint at the start of the 'main' function"
 	echo -e "# r\t\t# Run the program"
 	echo -e "# "
-	echo -e "# s\t\t# Step over the current line (execute it as one step)"
-	echo -e "# finish\t\t# Step out of the current function"
+	echo -e "# s\t\t# Step INTO the current line (execute it as one step)"
+	echo -e "# finish\t\t# Step OUT of the current function"
 	echo -e "# "
-	echo -e "# n\t\t# Step into the next line (enter functions if called)"
+	echo -e "# n\t\t# Step OVER to the next line (enter functions if called)"
 	echo -e "# "
-	echo -e "# info locals\t\t# View all local variables (useful after hitting a breakpoint)"
+	echo -e "# info locals\t\t# View all local VARIABLES (useful after hitting a breakpoint)"
+	echo -e "# info frame \t\t# View all local VARIABLES (useful after hitting a breakpoint)"
+	echo -e "# info args\t\t# View all ARGUMENTS (useful after hitting a breakpoint)"
 	echo -e "# bt\t\t# View the current call stack"
 	echo -e "# "
-	echo -e "# c\t\t# Continue execution after hitting a breakpoint"
+	echo -e "# c\t\t# CONTINUE execution after hitting a breakpoint"
 	echo -e "# "
-	echo -e "# gui\t\t# Launch the LLDB graphical user interface (full screen)"
+	echo -e "# gdb -tui your_program"
+	echo -e "# tui enable"
 	echo -e "#######################################################################\n\n"
 	output_name="$(basename "$1" .c)_dbD.db.out"
 	lib_header="${path_to_my_git}mylibs/mylibc/inc"
