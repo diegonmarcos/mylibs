@@ -21,14 +21,28 @@ function cx {
 # --- Compile FILE+ARG with Library and Execute
 function cv {
 #Variables
-	valg_args="--leak-check=full --show-leak-kinds=all --track-origins=yes -s --log-file=valgrind_output.txt"
+	valg_args="--leak-check=full --show-leak-kinds=all --track-origins=yes -s --track-fds=yes --show-mismatched-frees=yes --log-file=valgrind_output.txt"
 	program="./$(basename "$1" .c).out"
 	output=" > /dev/null 2>&1"
 	input="${@:2}"
+	red="\e[1;31m"
+	rst="\e[0m"
 #Main
 	clang -g3 "$1" -o "$(basename "$1" .c).out"
 	eval "valgrind ${valg_args} ${program} ${output} ${input}"
-	grep "$1": valgrind_output.txt
+
+	echo "\n$red=== HEAP SUMMARY ===$rst"
+    grep -A 2 "HEAP SUMMARY" valgrind_output.txt
+
+	echo "\n$red=== LEAK SUMMARY ===$rst"
+    grep -A 7 "LEAK SUMMARY" valgrind_output.txt
+    
+	echo "\n$red=== FILE DESCRIPTORS ===$rst"
+    grep -A 0 "FILE DESCRIPTORS" valgrind_output.txt
+
+	echo "\n$red_text=== ERRORS ==="
+	grep -A 2 "at 0x" valgrind_output.txt
+
 }
 
 
@@ -222,4 +236,56 @@ function ce {
   rm *.plist
   rm .out
 
+}
+
+# --- ANSI Colors for Bash Script Usage
+function ansi_colors {
+	rst_text="\e[0m"
+	red_text="\e[1;31mRedText\e[0m"
+	green_text="\e[1;32mGreen Text\e[0m"
+	yellow_text="\e[1;33mYellow Text\e[0m"
+	blue_text="\e[1;34mBlue Text\e[0m"
+	magenta_text="\e[1;35mMagenta Text\e[0m"
+	cyan_text="\e[1;36mCyan Text\e[0m"
+	white_text="\e[1;37mWhite Text\e[0m"
+
+	red_bg="\e[41mRed Background\e[0m"
+	green_bg="\e[42mGreen Background\e[0m"
+	yellow_bg="\e[43mYellow Background\e[0m"
+	blue_bg="\e[44mBlue Background\e[0m"
+	magenta_bg="\e[45mMagenta Background\e[0m"
+	cyan_bg="\e[46mCyan Background\e[0m"
+	white_bg="\e[47mWhite Background\e[0m"
+
+	bold_text="\e[1mBold Text\e[0m"
+	italic_text="\e[3mItalic Text\e[0m"
+	underlined_text="\e[4mUnderlined Text\e[0m"
+	strikethrough_text="\e[9mStrikethrough Text\e[0m"
+
+	echo -e "\n\n\n##########################"
+	echo -e "##### ANSI Colors ########"
+	echo -e "##########################\n"
+
+	echo -e "$red_text"
+	echo -e "$green_text"
+	echo -e "$yellow_text"
+	echo -e "$blue_text"
+	echo -e "$magenta_text"
+	echo -e "$cyan_text"
+	echo -e "$white_text"
+
+	echo -e "\nBackground Colors:"
+	echo -e "$red_bg"
+	echo -e "$green_bg"
+	echo -e "$yellow_bg"
+	echo -e "$blue_bg"
+	echo -e "$magenta_bg"
+	echo -e "$cyan_bg"
+	echo -e "$white_bg"
+
+	echo -e "\nText Styles:"
+	echo -e "$bold_text"
+	echo -e "$italic_text"
+	echo -e "$underlined_text"
+	echo -e "$strikethrough_text"
 }
