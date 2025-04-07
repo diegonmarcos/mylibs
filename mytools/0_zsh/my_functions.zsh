@@ -10,7 +10,6 @@ path_to_my_git="/home/diego/Documents/Git/"
 # --- Compile FILES
 function c {
 	clang -g3 "$@" -o "$(basename "$1" .c).out"
-	./"$(basename "$1" .c).out" "${@}"
 }
 
 # --- Compile FILE+ARG and Execute
