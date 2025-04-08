@@ -32,7 +32,7 @@ function cv {
 	eval "valgrind ${valg_args} ${program} ${output} ${input}"
 
 	echo "\n$red=== HEAP SUMMARY ===$rst"
-    grep -A 2 "HEAP SUMMARY" valgrind_output.txt
+    grep -A 4 "HEAP SUMMARY" valgrind_output.txt
 
 	echo "\n$red=== LEAK SUMMARY ===$rst"
     grep -A 7 "LEAK SUMMARY" valgrind_output.txt
@@ -40,7 +40,7 @@ function cv {
 	echo "\n$red=== FILE DESCRIPTORS ===$rst"
     grep -A 0 "FILE DESCRIPTORS" valgrind_output.txt
 
-	echo "\n$red_text=== ERRORS ==="
+	echo "\n$red=== ERRORS ===$rst"
 	grep -A 2 "at 0x" valgrind_output.txt
 
 }
