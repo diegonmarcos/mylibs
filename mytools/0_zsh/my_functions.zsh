@@ -103,7 +103,7 @@ function cv {
     grep -A 0 "FILE DESCRIPTORS" $valg_filename
 
 	echo "\n$red=== ERRORS ===$rst"
-	grep -A 2 "at 0x" $valg_filename
+	grep -B 1 -A 2 "at 0x" $valg_filename
 
 }
 
