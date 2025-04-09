@@ -20,31 +20,66 @@ function cx {
 
 # --- Compile FILE+ARG with Library and Execute
 function cv {
-#Variables
-	valg_args="--leak-check=full --show-leak-kinds=all --track-origins=yes -s --track-fds=yes --show-mismatched-frees=yes --log-file=valgrind_output.txt"
+### Variables
+	if [[ "$2" = '\0' ]]; then
+		test_name=NULL
+	else
+		test_name=$2
+	fi
+	valg_filename="log/valgrind_$(basename "$1" .c)_$test_name.log"
+	outfile="log/outfile_$test_name.log"
+	valg_flags="--leak-check=full --show-leak-kinds=all --track-origins=yes -s --track-fds=yes --show-mismatched-frees=yes --log-file=$valg_filename"
 	program="./$(basename "$1" .c).out"
-	output=" > /dev/null 2>&1"
-	input="${@:2}"
+	output=" > $outfile 2>&1 ; echo \"\nReturn: $?\" >> $outfile 2>&1"
+	args="${@:2}"
 	red="\e[1;31m"
 	rst="\e[0m"
-#Main
+
+### Main
+#### Compile
 	clang -g3 "$1" -o "$(basename "$1" .c).out"
-	eval "valgrind ${valg_args} ${program} ${output} ${input}"
+
+#### Execute Valgrind
+	mkdir -p log
+	eval "valgrind ${valg_flags} ${program} ${args} ${output}"
+	echo -e "\n==      == PROGRAM INPUT ===\n" >> $valg_filename ; echo "$args\n" >> $valg_filename
+	echo -e "\n==      == PROGRAM OUTPUT ===\n" >> $valg_filename ; cat $outfile >> $valg_filename
+
+#### Print Valgrind Report
+	echo -e "\n\n\n$red##########################"
+	echo -e "##### Valgrind Test #######"
+	echo -e "##########################$rst\n"
+
+	echo "\n$red=== PROGRAM OUTPUT ===$rst"
+	grep -A 4 "PROGRAM OUTPUT" $valg_filename
 
 	echo "\n$red=== HEAP SUMMARY ===$rst"
-    grep -A 4 "HEAP SUMMARY" valgrind_output.txt
+    grep -A 4 "HEAP SUMMARY" $valg_filename
 
 	echo "\n$red=== LEAK SUMMARY ===$rst"
-    grep -A 7 "LEAK SUMMARY" valgrind_output.txt
+    grep -A 7 "LEAK SUMMARY" $valg_filename
     
 	echo "\n$red=== FILE DESCRIPTORS ===$rst"
-    grep -A 0 "FILE DESCRIPTORS" valgrind_output.txt
+    grep -A 0 "FILE DESCRIPTORS" $valg_filename
 
 	echo "\n$red=== ERRORS ===$rst"
-	grep -A 2 "at 0x" valgrind_output.txt
+	grep -A 2 "at 0x" $valg_filename
 
 }
 
+# --- Valgrind Test Generator using cv function, each line of the while be parsed using sed or awk to be a input for cv function
+function cv_test {
+	# --- Variables
+	source_file="$1"
+	infile_test="$2"
+
+	# --- Main
+	echo -e "== VALGRIND TEST ===\n\n"
+
+	while read -r args; do
+		cv $source_file $args
+	done < $infile_test
+}
 
 
 ### COMPILERS WITH LIB
@@ -289,3 +324,4 @@ function ansi_colors {
 	echo -e "$underlined_text"
 	echo -e "$strikethrough_text"
 }
+
