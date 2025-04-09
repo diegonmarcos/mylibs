@@ -4,7 +4,20 @@
 path_to_my_git="/home/diego/Documents/Git/"
 #path_to_my_git="/sgoinfre/goinfre/Perso/dinepomu/MyFiles_/git/"
 
-				
+### Colors
+rst="\e[0m"
+red="\e[1;31m"
+green="\e[1;32m"
+yellow="\e[1;33m"
+blue="\e[1;34m"
+magenta="\e[1;35m"
+cyan="\e[1;36m"
+gray="\e[1;30m"
+white="\e[1;37m"
+bold="\e[1m"
+italic="\e[3m"
+underlined="\e[4m"
+strikethrough="\e[9m"
 
 ### COMPILERS no LIB
 # --- Compile FILES
@@ -19,31 +32,58 @@ function cx {
 }
 
 # --- Compile FILE+ARG with Library and Execute
+### cv [file.c] - - [args]
+### or
+### cv [file.c] [test_name] [infile_stdin] [args]
+### 	$1		$2			$3				$4
 function cv {
 ### Variables
-	if [[ "$2" = '\0' ]]; then
-		test_name=NULL
-	else
-		test_name=$2
+	if [[ "$1" = "help" ]]; then
+		echo -e "\n$yellow##########################"
+		echo -e "####### CV HELP ###########"
+		echo -e "##########################$rst\n"
+		echo -e "$underlined Syntax:$rst"
+		echo -e "$bold cv <source.c> {test_name|-} {infile_stdin|-} [args...]$rst\n"
+		echo -e "$underlined Examples:$rst"
+		echo -e " cv file.c - - arg1"
+		echo -e "  or"
+		echo -e " cv file.c crazy_input log/infile_stdin arg1 arg2 arg3"
+		echo -e "\n$underlined Notes:$rst"
+		echo -e "$gray<> mandatory, [] optional, {|} mutually exclusive, ... expandable$rst"
+		echo -e "\n"
+		return
 	fi
-	valg_filename="log/valgrind_$(basename "$1" .c)_$test_name.log"
-	outfile="log/outfile_$test_name.log"
+	source_file=$1
+	test_name=$2
+	if [[ "$2" = '-' ]]; then
+		test_name=$4
+	fi
+	infile_stdin="$3"
+	args="${@:4}"
+
+	valg_filename="log/valgrind_$test_name.log"
 	valg_flags="--leak-check=full --show-leak-kinds=all --track-origins=yes -s --track-fds=yes --show-mismatched-frees=yes --log-file=$valg_filename"
-	program="./$(basename "$1" .c).out"
-	output=" > $outfile 2>&1 ; echo \"\nReturn: $?\" >> $outfile 2>&1"
-	args="${@:2}"
+	program="./$(basename "$source_file" .c).out"
+	outfile_stdout="log/outfile_$test_name.log"
+	std_out="$outfile_stdout 2>&1 ; echo \"\nReturn: $?\" >> $outfile_stdout 2>&1"
+
+
 	red="\e[1;31m"
 	rst="\e[0m"
 
 ### Main
 #### Compile
-	clang -g3 "$1" -o "$(basename "$1" .c).out"
+	clang -g3 $source_file -o "$(basename "$source_file" .c).out"
 
 #### Execute Valgrind
 	mkdir -p log
-	eval "valgrind ${valg_flags} ${program} ${args} ${output}"
+	if [[ "$infile_stdin" = '-' ]]; then
+		eval "valgrind ${valg_flags} ${program} ${args} > ${std_out}"
+	else
+		eval "valgrind ${valg_flags} ${program} ${args} < ${infile_stdin} > ${std_out}"
+	fi
 	echo -e "\n==      == PROGRAM INPUT ===\n" >> $valg_filename ; echo "$args\n" >> $valg_filename
-	echo -e "\n==      == PROGRAM OUTPUT ===\n" >> $valg_filename ; cat $outfile >> $valg_filename
+	echo -e "\n==      == PROGRAM OUTPUT ===\n" >> $valg_filename ; cat $outfile_stdout >> $valg_filename
 
 #### Print Valgrind Report
 	echo -e "\n\n\n$red##########################"
@@ -282,6 +322,7 @@ function ansi_colors {
 	blue_text="\e[1;34mBlue Text\e[0m"
 	magenta_text="\e[1;35mMagenta Text\e[0m"
 	cyan_text="\e[1;36mCyan Text\e[0m"
+	gray_test="\e[1;30mGray Text\e[0m"
 	white_text="\e[1;37mWhite Text\e[0m"
 
 	red_bg="\e[41mRed Background\e[0m"
