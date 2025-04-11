@@ -62,7 +62,19 @@ function cv {
 	args="${@:4}"
 
 	valg_filename="log/valgrind_$test_name.log"
-	valg_flags="--leak-check=full --show-leak-kinds=all --track-origins=yes -s --track-fds=yes --show-mismatched-frees=yes --log-file=$valg_filename"
+	valg_outfile="--log-file=$valg_filename"
+	
+	valg_flags_fd="--track-fds=yes"
+	valg_flags_fork="--trace-children=yes"
+
+	valg_flags_memcheck="-s --leak-check=full --show-leak-kinds=all --track-origins=yes --show-mismatched-frees=yes" 
+	valg_memcheck="$valg_outfile $valg_flags_memchk $valg_flags_fd $valg_flags_fork"
+
+	valg_threads2="--tool=threadcheck"
+	valg_threads1="--tool=drd"
+	valg_threads="--tool=helgrind"
+	valg_threads="$valg_outfile $valg_threads $valg_flags_fd $valg_flags_fork"
+	
 	program="./$(basename "$source_file" .c).out"
 	outfile_stdout="log/outfile_$test_name.log"
 	std_out="$outfile_stdout 2>&1 ; echo \"\nReturn: $?\" >> $outfile_stdout 2>&1"
@@ -78,9 +90,9 @@ function cv {
 #### Execute Valgrind
 	mkdir -p log
 	if [[ "$infile_stdin" == '-' ]]; then
-		eval "valgrind ${valg_flags} ${program} ${args} > ${std_out}"
+		eval "valgrind ${valg_memcheck} ${program} ${args} > ${std_out}"
 	else
-		eval "valgrind ${valg_flags} ${program} ${args} < ${infile_stdin} > ${std_out}"
+		eval "valgrind ${valg_memcheck} ${program} ${args} < ${infile_stdin} > ${std_out}"
 	fi
 	echo -e "\n==      == PROGRAM INPUT ===\n" >> $valg_filename ; echo "$args\n" >> $valg_filename
 	echo -e "\n==      == PROGRAM OUTPUT ===\n" >> $valg_filename ; cat $outfile_stdout >> $valg_filename
