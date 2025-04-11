@@ -72,7 +72,8 @@ function cv {
 
 	valg_threads2="--tool=threadcheck"
 	valg_threads1="--tool=drd"
-	valg_threads="--tool=helgrind"
+	valg_threads0="--tool=helgrind"
+	valg_threads=$valg_threads0
 	valg_threads="$valg_outfile $valg_threads $valg_flags_fd $valg_flags_fork"
 	
 	program="./$(basename "$source_file" .c).out"
