@@ -55,7 +55,7 @@ function cv {
 	fi
 	source_file=$1
 	test_name=$2
-	if [[ "$2" = '-' ]]; then
+	if [[ "$2" == '-' ]]; then
 		test_name=$4
 	fi
 	infile_stdin="$3"
@@ -77,7 +77,7 @@ function cv {
 
 #### Execute Valgrind
 	mkdir -p log
-	if [[ "$infile_stdin" = '-' ]]; then
+	if [[ "$infile_stdin" == '-' ]]; then
 		eval "valgrind ${valg_flags} ${program} ${args} > ${std_out}"
 	else
 		eval "valgrind ${valg_flags} ${program} ${args} < ${infile_stdin} > ${std_out}"
