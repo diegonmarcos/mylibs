@@ -19,6 +19,26 @@ italic="\e[3m"
 underlined="\e[4m"
 strikethrough="\e[9m"
 
+### MYHELPER
+function myhelp {
+	printf "\n\n\n$green##########################"
+	printf "\n$green####### MYHELPER #########"
+	printf "\n$green##########################$rst\n"
+	printf "\n$underlined Functions sh List:$rst"
+	printf "\n * c, cx, cv, cdb"
+	printf "\n * cl, clx, clv, cldb, cldbg"
+	printf "\n * ce"
+	printf "\n * code_cleaner, clean_debuger, file_consol_lns"
+	printf "\n * ansi_colors\n"
+	printf "\n$underlined Syntaxes:$rst"
+	printf "\n Compile, Include Lib and Execute:$rst"
+	printf "\n$bold  clx <source.c> [args...]$rst\n"
+	printf "\n Compile, Include Lib and Varlgrind:$rst"
+	printf "\n$bold  clv <source.c> {test_name|-} {infile_stdin|-} [args...]$rst\n"
+	printf "\n Compile, Include Lib and Debug:$rst"
+	printf "\n$bold  cldb <source.c> [args...]$rst\n"
+}
+
 ### COMPILERS no LIB
 # --- Compile FILES
 function c {
