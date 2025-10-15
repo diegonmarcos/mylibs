@@ -2,8 +2,7 @@
 ### --- ZSH CONFIG --- ###
 ### ------------------ ###
 path_to_my_git="/home/diego/Documents/Git/"
-#path_to_my_git="/sgoinfre/goinfre/Perso/dinepomu/MyFiles_/git/"
-
+#path_to_my_git="/home/dinepomu/sgoinfre/MyFiles_/git/"
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 ### --- POWER LEVEL CONFIG --- ###
@@ -42,6 +41,7 @@ alias push='git add . && git commit -m "update" && git push'
 alias norm="norminette -R CheckForbiddenSourceHeader CheckDefine"
 alias francinette=/home/diego/francinette/tester.sh
 alias paco=/home/diego/francinette/tester.sh
+alias mem_recover='/home/diego/Documents/Git/mylibs/mytools/0_unix/kill_halt.sh'
 
 ### # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 ### --- STARTUP SERVICES --- #
@@ -156,3 +156,7 @@ EOF
 
 ### Call the function
 echo_with_art
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
