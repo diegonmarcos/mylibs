@@ -1,0 +1,118 @@
+# ~/.config/fish/config.fish
+
+# --- Variables ---
+set -g path_to_my_git "/home/diego/Documents/Git/"
+
+# --- Aliases ---
+alias gcl 'git clone'
+alias push 'git add . && git commit -m "update" && git push'
+alias norm "norminette -R CheckForbiddenSourceHeader CheckDefine"
+alias francinette /home/diego/francinette/tester.sh
+alias paco /home/diego/francinette/tester.sh
+
+# --- NVM (Node Version Manager) ---
+# To use nvm with fish, you can use a wrapper like bass.
+# Install bass with Oh My Fish:
+# omf install bass
+# Then add the following to your config.fish:
+# function nvm
+#   bass source ~/.nvm/nvm.sh --no-use \; nvm $argv
+# end
+# set -x NVM_DIR ~/.nvm
+
+# --- Custom Functions ---
+# The following file needs to be translated from zsh to fish syntax.
+# source $path_to_my_git/mylibs/mytools/0_zsh/my_functions.zsh
+
+# --- Dashboard Functions ---
+function get_system_info
+    set os_name (uname -s)
+    set kernel_version (uname -r)
+    set current_hostname (hostname)
+    set uptime (uptime | awk '{print $3, $4}' | sed 's/,//')
+    set cpu_model (lscpu | grep "Model name:" | awk '{print $3,$4,$5,$6,$7,$8}')
+    set memory_usage (free -h | awk '/Mem:/ {printf "%.1f GB / %.1f GB", $3/1024/1024, $2/1024/1024}')
+
+    echo -e "\n1.System Information:"
+    echo -e "------------------"
+    echo -e "OS:\t\t$os_name"
+    echo -e "Kernel:\t\t$kernel_version"
+    echo -e "Hostname:\t$current_hostname"
+    echo -e "Uptime:\t\t$uptime"
+    echo -e "CPU:\t\t$cpu_model"
+    echo -e "Memory:\t\t$memory_usage"
+end
+
+function get_network_info
+    set ip_address (ip route get 1.1.1.1 | awk '{print $7}')
+    set gateway (ip route | grep default | awk '{print $3}')
+
+    echo -e "\n2.Network Information:"
+    echo -e "-------------------"
+    echo -e "IP Address:\t$ip_address"
+    echo -e "Gateway:\t$gateway"
+end
+
+function get_disk_usage
+    set disk_usage (df -h / | awk 'NR==2 {printf "%s / %s (%.1f%%)", $3, $2, $5}')
+
+    echo -e "\n3.Disk Usage:"
+    echo -e "-----------"
+    echo -e "Root:\t\t$disk_usage"
+end
+
+function echo_with_art
+    # Print the ASCII art
+    echo '
+
+           _               _
+        _ /\ \           /\ \
+      / \_\\ \ \         /  \ \
+     / / / \ \ \       / /\ \ \
+    / / /   \ \ \      \/_/\ \ \
+    \ \ \____\ \ \         / / /
+     \ \________\ \       / / /
+      \/________/\ \     / / /  _
+                \ \ \   / / /_/\_\
+                 \ \_\ / /_____/ /
+                  \/_/ \________/ 
+
+
+'
+
+    # Print the arguments passed to the function
+    echo $argv
+end
+
+# --- Starship Prompt ---
+starship init fish | source
+
+# --- Startup Items ---
+# Clear the screen
+clear
+
+# Rclone mount check
+if not mount | grep -q "/home/diego/Documents/Gdrive"
+    bash /home/diego/Documents/Git/mylibs/mytools/0_unix/rclone_mount.sh
+end
+
+# Header
+printf "\x1b[1;34mWelcome to your shell, %s!\x1b[0m\n" (whoami)
+
+date "+%A, %B %d, %Y - %I:%M %p"
+
+# System, Network, and Disk Info
+get_system_info
+get_network_info
+get_disk_usage
+
+# Optional: Add more sections for other data (e.g., weather, calendar, news)
+echo -e "\n4.Rclone - Mounted Drives"
+echo -e "-----------------------"
+mount | grep Gdrive
+
+# Footer
+printf "\n\x1b[32mHave a productive day!\x1b[0m\n"  # Green color
+
+# Call the function
+echo_with_art
