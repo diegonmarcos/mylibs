@@ -14,11 +14,11 @@ MOUNT_POINT="/home/diego/Documents/Gdrive"
 
 # 1. Default Mode (Immediate upload/write-through)
 # LOG LEVEL CHANGED from INFO to WARNING to suppress VFS cache messages.
-RCLONE_DEFAULT_OPTS="--log-level WARNING --dir-cache-time 72h --vfs-cache-mode writes --drive-skip-gdocs"
+RCLONE_DEFAULT_OPTS="--log-level WARNING --dir-cache-time 72h --drive-skip-gdocs --vfs-cache-max-size 10G --vfs-cache-mode writes"
 
 # 2. Fast Upload Mode (Delays uploads by 5s for burst writing)
 # LOG LEVEL CHANGED from INFO to WARNING.
-RCLONE_FAST_OPTS="$RCLONE_DEFAULT_OPTS --vfs-write-back 5s"
+RCLONE_FAST_OPTS="--log-level WARNING --dir-cache-time 72h --drive-skip-gdocs --vfs-cache-max-size 10G --vfs-cache-mode full"
 
 # --- FUNCTIONS ---
 show_help() {
@@ -39,6 +39,20 @@ show_help() {
     echo "Other Options:"
     echo "  (no argument) Show this help message and current mount status."
     echo "  help          Show this help message."
+	echo "" # Added jump line
+	echo "--- Current Status ---"
+
+	STATUS_MODE=`get_current_rclone_mode`
+
+	# Show the raw mount output
+	mount | grep Gdrive
+
+	# Show the descriptive mode status
+	if [ "$STATUS_MODE" = "UNMOUNTED" ]; then
+		echo "Mount Status: Not currently mounted."
+	else
+		echo "Mount Status: Mounted in $STATUS_MODE."
+	fi
 }
 
 # NEW FUNCTION: Checks the command line of the running rclone process to determine the active mode.
@@ -97,22 +111,6 @@ rclone_config() {
 # 1. Handle Help or No Argument
 if [ -z "$1" ] || [ "$1" = "help" ]; then
     show_help
-    if [ "$1" != "help" ]; then
-        echo "" # Added jump line
-        echo "--- Current Status ---"
-
-        STATUS_MODE=`get_current_rclone_mode`
-
-        # Show the raw mount output
-        mount | grep Gdrive
-
-        # Show the descriptive mode status
-        if [ "$STATUS_MODE" = "UNMOUNTED" ]; then
-            echo "Mount Status: Not currently mounted."
-        else
-            echo "Mount Status: Mounted in $STATUS_MODE."
-        fi
-    fi
     exit 0
 fi
 
