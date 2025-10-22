@@ -1,5 +1,26 @@
 #!/bin/sh
 
+# Help function
+show_help() {
+    echo "Usage: $0 [option]"
+    echo ""
+    echo "Options:"
+    echo "  kill      - Triggers the OOM killer manually."
+    echo "  help      - Displays this help message."
+    echo ""
+    echo "If no option is provided, the script will display memory usage statistics."
+}
+
+# Check for command-line arguments
+if [ "$1" = "help" ]; then
+    show_help
+    exit 0
+elif [ "$1" = "kill" ]; then
+    echo "Triggering OOM killer..."
+    echo f | sudo tee /proc/sysrq-trigger
+    exit 0
+fi
+
 # Get total and used memory in MiB from `free`
 # The `free -m` command provides memory usage in Megabytes.
 # We use awk to parse its output.
@@ -84,3 +105,9 @@ BEGIN {
     # Print the formatted line with application name, usage, and cumulative usage.
     printf "% -30s | % -10.2f | %.2f\n", app_name, usage, cumulative
 }'
+
+echo "\n--- OOM Killer Check ---"
+echo "Value of /proc/sys/vm/panic_on_oom:"
+cat /proc/sys/vm/panic_on_oom
+echo "\n--- systemd-oomd Status ---"
+systemctl status systemd-oomd | grep "Active:"
