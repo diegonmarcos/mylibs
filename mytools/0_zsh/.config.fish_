@@ -6,9 +6,44 @@ set -g path_to_my_git "/home/diego/Documents/Git/"
 # --- Aliases ---
 alias gcl 'git clone'
 alias push 'git add . && git commit -m "update" && git push'
-alias norm "norminette -R CheckForbiddenSourceHeader CheckDefine"
-alias francinette /home/diego/francinette/tester.sh
-alias paco /home/diego/francinette/tester.sh
+
+alias mem_recover /home/diego/Documents/Git/mylibs/mytools/0_unix/kill_halt.sh
+alias mem_usage /home/diego/Documents/Git/mylibs/mytools/0_unix/kill_halt.sh
+
+
+alias ll 'ls -alF'
+alias la 'ls -A'
+alias l 'ls -CF'
+
+alias gdrive 'bash /home/diego/Documents/Git/mylibs/mytools/0_unix/rclone_mount.sh '
+alias gdrive_reset 'bash /home/diego/Documents/Git/mylibs/mytools/0_unix/rclone_mount.sh b2'
+alias gdrive_mount 'bash /home/diego/Documents/Git/mylibs/mytools/0_unix/rclone_mount.sh b1'
+alias gdrive_umount 'fusermount -u /home/diego/Documents/Gdrive'
+
+# --- Sets ---
+#set -Ux GEMINI_API_KEY "YOUR_API_KEY"
+
+# --- Login Script ---
+## Rclone mount check
+if not mount | grep -q "/home/diego/Documents/Gdrive"
+    bash /home/diego/Documents/Git/mylibs/mytools/0_unix/rclone_mount.sh a2
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # --- NVM (Node Version Manager) ---
 # To use nvm with fish, you can use a wrapper like bass.
@@ -91,11 +126,6 @@ starship init fish | source
 # Clear the screen
 clear
 
-# Rclone mount check
-if not mount | grep -q "/home/diego/Documents/Gdrive"
-    bash /home/diego/Documents/Git/mylibs/mytools/0_unix/rclone_mount.sh
-end
-
 # Header
 printf "\x1b[1;34mWelcome to your shell, %s!\x1b[0m\n" (whoami)
 
@@ -109,7 +139,7 @@ get_disk_usage
 # Optional: Add more sections for other data (e.g., weather, calendar, news)
 echo -e "\n4.Rclone - Mounted Drives"
 echo -e "-----------------------"
-mount | grep Gdrive
+mount | grep rclone
 
 # Footer
 printf "\n\x1b[32mHave a productive day!\x1b[0m\n"  # Green color
