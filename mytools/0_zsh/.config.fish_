@@ -8,7 +8,7 @@ alias gcl 'git clone'
 alias push 'git add . && git commit -m "update" && git push'
 
 alias mem_recover /home/diego/Documents/Git/mylibs/mytools/0_unix/kill_halt.sh
-alias mem_usage /home/diego/Documents/Git/mylibs/mytools/0_unix/kill_halt.sh
+alias mem_usage /home/diego/Documents/Git/mylibs/mytools/0_unix/mem_usage.sh
 
 
 alias ll 'ls -alF'
