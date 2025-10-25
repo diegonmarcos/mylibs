@@ -51,6 +51,7 @@ main() {
         $pull_function "system" "https://github.com/diegonmarcos/system.git"
         $pull_function "algo" "https://github.com/diegonmarcos/algo.git"
         $pull_function "graphic" "https://github.com/diegonmarcos/graphic.git"
+		$pull_function "graphic" "https://github.com/diegonmarcos/agentic.git"
         
     elif [ "$mode" == "1" ]; then
         ### SSH URLs
@@ -62,14 +63,15 @@ main() {
 		$pull_function "dev" "git@github.com:diegonmarcos/DevelopmentProjects.git"
         $pull_function "lecole42" "git@github.com:diegonmarcos/lecole42.git"
         $pull_function "website" "git@github.com:diegonmarcos/diegonmarcos.github.io.git"
+		$pull_function "lecole42" "git@github.com:diegonmarcos/agentic.git"
 
     else
 		echo "### USE"
 		echo "  $0 [0 | 1] [local | remote]"
 		echo "    0: https: public"
 		echo "    1: ssh  : private"
-		echo "    local: Keep local changes"
-		echo "    remote: Keep remote changes (default)"
+		echo "    local (push): Keep local changes"
+		echo "    remote (pull merge(ours|theirs) | clone): Keep remote changes (default)"
 
     fi
 }
