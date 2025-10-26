@@ -11,6 +11,7 @@
 
 # --- CONFIGURATION ---
 MOUNT_POINT="/home/diego/Documents/Gdrive"
+LOG_FILE="/tmp/rclone_mount.log"
 
 # 1. Default Mode (Immediate upload/write-through)
 # LOG LEVEL CHANGED from INFO to WARNING to suppress VFS cache messages.
@@ -83,9 +84,29 @@ get_current_rclone_mode() {
 
 mount_gdrive() {
     # We rely on positional parameter $1 here.
-    echo "Mounting Google Drive with options: $1 (Output suppressed to terminal)"
-    # Redirect stdout (> /dev/null) and stderr (2>&1) to silence the background process
-    rclone mount Gdrive: "$MOUNT_POINT" $1 > /dev/null 2>&1 &
+    echo "Mounting Google Drive with options: $1"
+    
+    # Run rclone in the background and log stderr
+    rclone mount Gdrive: "$MOUNT_POINT" $1 > "$LOG_FILE" 2>&1 &
+    
+    # Wait for a moment to let rclone initialize
+    sleep 3
+
+    # Check if the mount point is active
+    if ! mount | grep -q "$MOUNT_POINT"; then
+        # Mount failed, check for authentication error
+        if grep -q "googleapi: Error 401" "$LOG_FILE"; then
+            echo "Error: Google Drive authentication failed."
+            echo "Please run the script with the 'c' argument to re-authenticate:"
+            echo "  $0 c"
+        else
+            echo "Error: rclone mount failed. See $LOG_FILE for details."
+        fi
+        return 1
+    else
+        echo "Google Drive mounted successfully."
+    fi
+    return 0
 }
 
 unmount_gdrive() {
@@ -101,9 +122,19 @@ unmount_gdrive() {
 }
 
 rclone_config() {
-    echo "Starting Rclone interactive configuration..."
-    echo "You must select the remote 'Gdrive' and follow the steps to refresh your token."
-    rclone config
+    if [ "$1" = "1" ]; then
+        echo "Starting Rclone interactive configuration for 'Gdrive'..."
+        echo "Please follow these steps to re-authenticate:"
+        echo "1. At the first menu, enter 'e' for 'Edit existing remote'."
+        echo "2. At the next menu, enter the number corresponding to the 'Gdrive' remote (usually '1')."
+        echo "3. Keep pressing Enter to accept the defaults until you get to the 'Use auto config?' question."
+        echo "4. Answer 'y' to 'Use auto config?' and follow the browser authentication flow."
+        rclone config
+    else
+        echo "Starting Rclone interactive configuration..."
+        echo "You must select the remote 'Gdrive' and follow the steps to refresh your token."
+        rclone config
+    fi
 }
 
 # --- BODY ---
@@ -127,6 +158,10 @@ case "$ARGUMENT" in
         # Valid 2-character argument (a1, a2, b1, b2).
         ACTION=`expr substr "$ARGUMENT" 1 1`
         MODE=`expr substr "$ARGUMENT" 2 1`
+        ;;
+    c1)
+        ACTION="c"
+        MODE="1"
         ;;
     c)
         # Valid 1-character argument (c). Does not use a MODE.
@@ -196,7 +231,7 @@ case "$ACTION" in
         ;;
     "c")
         # Action: Rclone Config
-        rclone_config
+        rclone_config "$MODE"
         ;;
     *)
         # Should not happen due to validation above, but included for safety.
